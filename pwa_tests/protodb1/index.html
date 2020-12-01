@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Proto DB</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="white"/>
+
+    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="static/images/protodb-icon-152.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Proto DB">
+    <meta name="msapplication-TileImage" content="static/images/protodb-icon-144.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+
+    <script src="static/js/idb-keyval-iife.js"></script>
+    <script src="static/js/knockout-3.5.1.js"></script>
+    <script src="static/js/protodb.js"></script>
+</head>
+
+<body>
+    <div class="content">
+
+<div id="ls">
+    <a href="admin.html">admin</a>
+
+    <div data-bind="visible: !$root.showgroupsession()">
+    <h1>People <button onclick="shownewperson()">new</button></h1>
+
+    <form id="newperson" data-bind="visible: $root.shownewperson()"
+            onsubmit="newperson(); return false;">
+        <table id="newpersontbl">
+        <tr><td><label for="create">create</label></td><td><input type="submit" value="create"/> <button onclick="shownewperson(); return false;">cancel</button></td></tr>
+        </table>
+    </form>
+
+    <table>
+    <thead><tr>
+        <th data-bind="visible: $root.showpersoncheckboxes()">
+            <span data-bind="click: function(){ $root.checkuncheck(); $root.setchange()}">x</th>
+        <th>ID</th>
+        <th>Last name</th>
+        <th>First name</th>
+        <th>Grade</th>
+    </tr></thead>
+    <tbody data-bind="foreach: people_bylf">
+        <tr>
+        <td data-bind="visible: $root.showpersoncheckboxes()"><input type="checkbox" data-bind="click: $root.setchange, attr: {id: 'ngpid'+pid()}" /></td>
+        <td data-bind="text: pid()" class="num"></td>
+        <td data-bind="text: lname()"></td>
+        <td data-bind="text: fname()"></td>
+        <td data-bind="text: grade()"></td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+
+    <div data-bind="visible: $root.showgroupsession()">
+    <h1>People in Session</h1>
+    <h3>UNCHECK ABSENT STUDENTS!</h3>
+    <h5>(will not remove from group <span data-bind="text: selectedgroupname()"></span>, only from this session)</h5>
+    <table>
+    <thead><tr>
+        <th><span data-bind="click: checkuncheck">x</th>
+        <th>ID</th>
+        <th>Last name</th>
+        <th>First name</th>
+    </tr></thead>
+    <tbody data-bind="foreach: group_people_bylf">
+        <tr>
+        <td><input type="checkbox" data-bind="attr: {id: 'gspid'+pid()}" /></td>
+        <td data-bind="text: pid()" class="num"></td>
+        <td data-bind="text: lname()"></td>
+        <td data-bind="text: fname()"></td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+
+</div>
+
+<div id="rs">
+    <div data-bind="visible: !$root.showgroupsession()">
+    <h1>Groups <button onclick="shownewgroup()">new</button></h1>
+
+    <form id="newgroup" data-bind="visible: $root.shownewgroup()"
+            onsubmit="newgroup(); return false;">
+        <table>
+        <tr><td><label for="gname">name</label></td><td><input id="gname" type="text" required="required" /></td></tr>
+        <tr><td><label for="create">create</label></td><td><input type="submit" value="create"/> <button onclick="shownewgroup(); return false;">cancel</button></td></tr>
+        </table>
+    </form>
+
+    <table>
+    <thead><tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th data-bind="visible: $root.updategroup()"></th>
+        <th data-bind="visible: $root.selectedgroup() && !$root.updategroup()"></th>
+    </tr></thead>
+    <tbody data-bind="foreach: groups_byname">
+        <tr data-bind="css: {gsel: $root.selectedgroup()==$data}">
+        <td data-bind="text: gid()" class="num"></td>
+        <td data-bind="text: name(), click: showgroup"></td>
+        <td data-bind="visible: updategroup()">
+            <button data-bind="click: savegroup">Save</button>
+            <button data-bind="click: savecancel">Cancel</button></td>
+        <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()">
+            <button data-bind="click: newgroupsession">New Session</button>
+            <button data-bind="click: savecancel">Cancel</button></td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+
+    <div data-bind="visible: $root.showgroupsession()">
+    <h1>Session for <span data-bind="text: selectedgroupname()"></span>
+        <button data-bind="click: $root.cancelgroupsession">Cancel</button>
+    </h1>
+
+    <form id="newsession"  onsubmit="createsession(); return false;">
+        <div id="newsession_questions">
+        <!-- Generated on load by load_session_questions() -->
+        </div>
+        <input type="submit" value="Create" />
+        <button data-bind="click: $root.cancelgroupsession">Cancel</button>
+    </form>
+
+    </div>
+
+</div>
+    </div>
+
+    <script src="static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Proto DB Admin</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/js/idb-keyval-iife.js"></script>
+    <script src="static/js/knockout-3.5.1.js"></script>
+    <script src="static/js/protodb.js"></script>
+</head>
+<body>
+    <div class="admincontent">
+
+<div id="ls">
+    <a href="index.html">Proto DB</a><br/><br/>
+
+    <button id="dltest" onclick="dltest()">Export DB</button><br/><br/>
+    <form id="jsonFile" name="jsonFile" enctype="multipart/form-data" method="post">
+        <input type='button' id='btnLoad' value='Import DB' onclick='ultest();'>
+        <input type='file' id='fileinput'>
+    </form>
+
+    <br/><br/><br/><br/>
+
+    <button id="showppl" onclick="logdb()">Log DB to Console</button><br/>
+    <button id="clearppl" onclick="clearppl()">Clear DB (Erase!)</button><br/>
+</div>
+
+<div id="rs">
+    <button onclick="showsamplesheet()">Show Sample Sheet</button>
+    <table id="samplesheet">
+    </table>
+</div>
+
+    </div>
+</body>
+</html>

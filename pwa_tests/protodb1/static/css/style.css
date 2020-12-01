@@ -1,0 +1,24 @@
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+td.num{
+    text-align: right;
+}
+
+tr.gsel{
+    background-color: lightgray;
+}
+
+
+.admincontent{
+    display: grid;
+    grid-template-columns: 20% auto;
+}
+
+table#samplesheet tr td{
+    padding: 0 1em 0 1em;
+    border: thin solid black;
+}
