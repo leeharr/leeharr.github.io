@@ -711,9 +711,12 @@ document.addEventListener('DOMContentLoaded', function(){
     var datereset = function(dsel){
         dt = new Date();
         m = dt.getMonth()+1;
+        if (m<10){ m = '0'+m;}
         d = dt.getDate();
+        if (d<10){ d = '0'+d;}
         y = dt.getFullYear();
         dtstr = `${y}-${m}-${d}`;
+        console.log('DATE RESET to '+dtstr);
         dsel.value = dtstr;
     }
 
