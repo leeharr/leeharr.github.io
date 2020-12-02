@@ -668,15 +668,21 @@ document.addEventListener('DOMContentLoaded', function(){
             qattr = div['data-qattr'];
             console.log('qattr : '+qattr);
             sel = div.children[1];
-            console.log('   val : '+sel.value);
-            sesdata[qattr+'id'] = sel.value;
+            val = sel.value;
+            console.log('   val : '+val);
+            sesdata[qattr+'id'] = val;
             if (session_answers[qattr]){
-                console.log('     a : '+session_answers[qattr][sel.value]);
-                sesdata[qattr+'str'] = session_answers[qattr][sel.value];
+                console.log('     a : '+session_answers[qattr][val]);
+                sesdata[qattr+'str'] = session_answers[qattr][val];
                 sel.value = ''
             } else {
-                sesdata[qattr+'str'] = sel.value;
+                sesdata[qattr+'str'] = val;
                 sel['data-reset'](sel);
+            }
+
+            if (div['data-remember']){
+                cset(qattr, val);
+                sel.value = val;
             }
         });
 
@@ -728,6 +734,12 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     session_questions = [
+        {'q': 'School',
+            'qattr': 'school',
+            'req': true,
+            'remember': true,
+            'a': ["2", "3", "4", "5", "8"]},
+
         {'q': "Referral Source (who sent the student)",
             'qattr': 'refsource',
             'req': true,
@@ -760,13 +772,20 @@ document.addEventListener('DOMContentLoaded', function(){
     ]
     session_answers = {}
 
-    var load_session_questions = function(){
+    async function asyncForEach(array, callback) {
+        for (let index = 0; index < array.length; index++) {
+            await callback(array[index], index, array);
+        }
+    }
+
+    var load_session_questions = async function(){
         form = document.getElementById('newsession_questions');
         if (!form){ return; }
 
-        session_questions.forEach(function(qa, qi, qarr){
+        asyncForEach(session_questions, async function(qa, qi, qarr){
             div = document.createElement('div');
             div['data-qattr'] = qa.qattr;
+            div['data-remember'] = qa.remember;
             form.appendChild(div);
             qspan = document.createElement('div');
             qspan.innerHTML = qa.q;
@@ -797,6 +816,12 @@ document.addEventListener('DOMContentLoaded', function(){
                 e = qa.af(div, qa.req);
                 e['data-reset'] = qa.areset;
                 qa.areset(e);
+            }
+
+            if (qa.remember){
+                val = await cget(qa.qattr);
+                console.log('REMEMBER ' + qa.qattr + ' ' + val);
+                sel.value = val;
             }
         });
     }
