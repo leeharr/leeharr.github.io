@@ -36,6 +36,13 @@ document.addEventListener('DOMContentLoaded', function(){
     var sgetcurrid = async function(){ return getcurrid(sget); }
     var sgetnextid = async function(){ return getnextid(sgetcurrid, sset); }
 
+    pdbcfg = new idbKeyval.Store(storeName='protodb-config');
+    var cset = function(key, value){ return idbKeyval.set(key, value, pdbcfg);}
+    var cget = function(key){ return idbKeyval.get(key, pdbcfg);}
+    var ckeys = function(){ return idbKeyval.keys(pdbcfg);}
+    var cgetcurrid = async function(){ return getcurrid(cget); }
+    var cgetnextid = async function(){ return getnextid(cgetcurrid, cset); }
+
     var Person = function(pid, lname, fname, grade){
         var self = this;
         self.pid = ko.observable(pid);

@@ -25,7 +25,7 @@
     <div class="content">
 
 <div id="ls">
-    <a href="admin.html">admin</a>
+    <a href="admin.html">admin</a> <a href="send.html">send data</a>
 
     <div data-bind="visible: !$root.showgroupsession()">
     <h1>People <button onclick="shownewperson()">new</button></h1>
@@ -121,10 +121,15 @@
         <button data-bind="click: $root.cancelgroupsession">Cancel</button>
     </h1>
 
+    <h3>UNCHECK ABSENT STUDENTS!</h3>
+    <h5>(will not remove from group <span data-bind="text: selectedgroupname()"></span>, only from this session)</h5>
+
     <form id="newsession"  onsubmit="createsession(); return false;">
         <div id="newsession_questions">
         <!-- Generated on load by load_session_questions() -->
         </div>
+
+        <br/><br/>
         <input type="submit" value="Create" />
         <button data-bind="click: $root.cancelgroupsession">Cancel</button>
     </form>

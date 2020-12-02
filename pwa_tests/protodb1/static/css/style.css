@@ -22,3 +22,13 @@ table#samplesheet tr td{
     padding: 0 1em 0 1em;
     border: thin solid black;
 }
+
+
+.sendcontent{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+textarea#senddata{
+    width: 80%;
+    height: 80vh;
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Proto DB Send Data</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/js/idb-keyval-iife.js"></script>
+    <script src="static/js/knockout-3.5.1.js"></script>
+    <script src="static/js/protodb-send.js"></script>
+</head>
+<body>
+    <div class="sendcontent">
+
+<div id="ls">
+    <a href="index.html">Proto DB</a><br/><br/>
+
+    <h2>Session Data to Send</h2>
+    <textarea id="senddata"></textarea>
+
+</div>
+
+<div id="rs">
+    <h1>Instructions</h1>
+
+    <ol>
+    <li>Select all text in "Session Data to Send"
+        <button onclick="selectsenddata()">Select</button></li>
+    <li>Copy selected text
+        <button onclick="copysenddata()">Copy</button></li>
+    <li>Switch to the
+        <a href="https://docs.google.com/forms/d/1oVPsobDuRYdfRuucdIiGdOjGv0Qr-9hlUeXYbeeWvYM/viewform" target="_blank">Data Upload Form</a></li>
+    <li>Paste in to the "JSON Data" field</li>
+    <li>Submit the form</li>
+    <li>Return here and Mark Session Data Sent
+        <button id="sent" onclick="markdatasent()">Mark Data Sent</button></li>
+</div>
+
+    </div>
+</body>
+</html>
