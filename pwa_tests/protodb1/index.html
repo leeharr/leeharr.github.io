@@ -32,9 +32,14 @@
 
     <form id="newperson" data-bind="visible: $root.shownewperson()"
             onsubmit="newperson(); return false;">
-        <table id="newpersontbl">
-        <tr><td><label for="create">create</label></td><td><input type="submit" value="create"/> <button onclick="shownewperson(); return false;">cancel</button></td></tr>
-        </table>
+
+        <div id="newperson_questions">
+        <!-- Generated on load by load_questions() -->
+        </div>
+
+        <br/><br/>
+        <input type="submit" value="Create" />
+        <button onclick="shownewperson(); return false;">Cancel</button>
     </form>
 
     <table>

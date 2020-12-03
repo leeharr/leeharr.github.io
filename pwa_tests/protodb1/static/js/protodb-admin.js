@@ -200,4 +200,14 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
     }
+
+    clearppl = function(e){
+        idbKeyval.clear(pdbses);
+
+        idbKeyval.clear(pdbgrp);
+        vm.groups.removeAll();
+
+        idbKeyval.clear(pdbppl);
+        vm.people.removeAll();
+    }
 });
