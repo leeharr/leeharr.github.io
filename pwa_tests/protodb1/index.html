@@ -94,10 +94,16 @@
 
     <form id="newgroup" data-bind="visible: $root.shownewgroup()"
             onsubmit="newgroup(); return false;">
-        <table>
-        <tr><td><label for="gname">name</label></td><td><input id="gname" type="text" required="required" /></td></tr>
-        <tr><td><label for="create">create</label></td><td><input type="submit" value="create"/> <button onclick="shownewgroup(); return false;">cancel</button></td></tr>
-        </table>
+
+        <div class="qdiv qdivreq">
+            <div>Group name</div>
+            <input id="gname" type="text" required="required" />
+        </div>
+
+        <div class="qdiv">
+            <input type="submit" value="create"/>
+            <button onclick="shownewgroup(); return false;">cancel</button>
+        </div>
     </form>
 
     <table>
