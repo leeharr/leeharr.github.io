@@ -639,6 +639,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 console.log('REMEMBER ' + qa.qattr + ' ' + val);
                 selid = formid + qa.qattr;
                 sel = document.getElementById(selid);
+                if (!val){ val = '';}
                 sel.value = val;
             }
         });
