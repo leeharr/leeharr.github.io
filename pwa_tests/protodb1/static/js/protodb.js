@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         var p = {}
 
-        form = document.getElementById('newperson_questions');
+        var form = document.getElementById('newperson_questions');
         Array.from(form.children).forEach(function(div, i, arr){
             qattr = div['data-qattr'];
             if (!qattr){ return; }
@@ -411,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         sesdata = {'sesname': sesname}
 
-        form = document.getElementById('newsession_questions');
+        var form = document.getElementById('newsession_questions');
         Array.from(form.children).forEach(function(div, i, arr){
             qattr = div['data-qattr'];
             console.log('qattr : '+qattr);
@@ -464,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function(){
         vm.checkpersoncheckboxes(false);
     }
 
-    var dateselector = function(div, req){
+    dateselector = function(div, req){
         console.log('ADD DATE SELECTOR');
         dsel = document.createElement('input');
         dsel.type = 'date';
@@ -474,7 +474,7 @@ document.addEventListener('DOMContentLoaded', function(){
         div.appendChild(dsel);
         return dsel;
     }
-    var datereset = function(dsel){
+    datereset = function(dsel){
         dt = new Date();
         m = dt.getMonth()+1;
         if (m<10){ m = '0'+m;}
@@ -485,11 +485,11 @@ document.addEventListener('DOMContentLoaded', function(){
         console.log('DATE RESET to '+dtstr);
         dsel.value = dtstr;
     }
-    var dateclear = function(dsel){
+    dateclear = function(dsel){
         dsel.value = '';
     }
 
-    var textinput = function(div, req){
+    textinput = function(div, req){
         console.log('ADD TEXT INPUT');
         ti = document.createElement('input');
         ti.type = 'text';
@@ -499,89 +499,12 @@ document.addEventListener('DOMContentLoaded', function(){
         div.appendChild(ti);
         return ti;
     }
-    var textinputreset = function(ti){
+    textinputreset = function(ti){
         ti.value = '';
     }
 
-    person_questions = [
-        {'q': 'First Name',
-            'qattr': 'fname',
-            'req': true,
-            'af': textinput,
-            'areset': textinputreset},
-
-        {'q': 'Last Initial',
-            'qattr': 'lname',
-            'req': true,
-            'af': textinput,
-            'areset': textinputreset},
-
-        {'q': 'Grade',
-            'qattr': 'grade',
-            'req': true,
-            'a': ["Pre-K",
-                    "Kinder",
-                    "1st",
-                    "2nd",
-                    "3rd",
-                    "4th",
-                    "5th",
-                    "6th",
-                    "7th",
-                    "8th",
-                    "Freshman",
-                    "Sophomore",
-                    "Junior",
-                    "Senior"]},
-
-        {'q': 'DOB',
-            'qattr': 'dob',
-            'req': true,
-            'af': dateselector,
-            'areset': dateclear},]
-    person_answers = {}
-
-    session_questions = [
-        {'q': 'School',
-            'qattr': 'school',
-            'req': true,
-            'remember': true,
-            'a': ["2", "3", "4", "5", "8"]},
-
-        {'q': "Referral Source (who sent the student)",
-            'qattr': 'refsource',
-            'req': true,
-            'a': ["Admin assigned",
-                    "Self (student)",
-                    "Sent out of class (behavior)",
-                    "Sent out of class by teacher for support (non behavior related)",
-                    "SSO",
-                    "In class support (you went to the class)",
-                    "Work from home check in (only during stay at home orders)"]},
-
-        {'q': "Location student came to you from",
-            'qattr': 'location',
-            'req': true,
-            'a': ["Classroom",
-                    "Cafeteria",
-                    "Hallways",
-                    "Specials",
-                    "Recess",
-                    "Issue on bus",
-                    "Virtual Help Zone",
-                    "Blessed Sacrament (EAST HIGH ONLY)"]},
-
-        {'q': "Date",
-            'qattr': 'date',
-            'req': true,
-            'af': dateselector,
-            'areset': datereset,
-        },
-    ]
-    session_answers = {}
-
     var load_questions = async function(formid, questions, answers){
-        form = document.getElementById(formid);
+        var form = document.getElementById(formid);
         if (!form){ return; }
 
         questions.forEach(function(qa, qi, qarr){
@@ -589,6 +512,7 @@ document.addEventListener('DOMContentLoaded', function(){
             div.setAttribute('class', 'qdiv');
             div['data-qattr'] = qa.qattr;
             div['data-remember'] = qa.remember;
+            console.log('APPEND TO '+form+ ' ID '+ form.id);
             form.appendChild(div);
             qspan = document.createElement('div');
             qspan.innerHTML = qa.q;
@@ -612,9 +536,12 @@ document.addEventListener('DOMContentLoaded', function(){
                     sel.appendChild(op);
                 });
             } else {
-                sel = qa.af(div, qa.req);
-                sel['data-reset'] = qa.areset;
-                qa.areset(sel);
+                console.log('look for ' + qa.af);
+                af = window[qa.af];
+                sel = af(div, qa.req);
+                areset = window[qa.areset];
+                sel['data-reset'] = areset;
+                areset(sel);
             }
 
             if (qa.req){
@@ -630,8 +557,6 @@ document.addEventListener('DOMContentLoaded', function(){
             sel.id = selid;
         });
     }
-    load_questions('newsession_questions', session_questions, session_answers);
-    load_questions('newperson_questions', person_questions, person_answers);
 
     async function asyncForEach(array, callback) {
         for (let index = 0; index < array.length; index++) {
@@ -650,8 +575,24 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         });
     }
-    setremember('newsession_questions', session_questions);
-    setremember('newperson_questions', newperson_questions);
+    asjson = function(response){
+        return response.json();
+    }
+    loadto = function(divname, data, answers){
+        load_questions(divname, data, answers);
+    }
+    loadjsonqs = function(qname, answers){
+        var jname = 'static/js/' + qname + '_questions.json';
+        var divname = 'new' + qname + '_questions';
+        fetch(jname)
+        .then(asjson)
+        .then(function(data){ loadto(divname, data, answers); return data; })
+        .then(function(data){ setremember(divname, data); });
+    }
+    session_answers = {}
+    loadjsonqs('session', session_answers);
+    person_answers = {}
+    loadjsonqs('person', person_answers);
 
     var loadppl = async function(e){
         await vm.dbsync();

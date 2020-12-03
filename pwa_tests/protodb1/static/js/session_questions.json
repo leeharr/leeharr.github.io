@@ -1,0 +1,37 @@
+[
+    {"q": "School",
+        "qattr": "school",
+        "req": true,
+        "remember": true,
+        "a": ["2", "3", "4", "5", "8"]},
+
+    {"q": "Referral Source (who sent the student)",
+        "qattr": "refsource",
+        "req": true,
+        "a": ["Admin assigned",
+                "Self (student)",
+                "Sent out of class (behavior)",
+                "Sent out of class by teacher for support (non behavior related)",
+                "SSO",
+                "In class support (you went to the class)",
+                "Work from home check in (only during stay at home orders)"]},
+
+    {"q": "Location student came to you from",
+        "qattr": "location",
+        "req": true,
+        "a": ["Classroom",
+                "Cafeteria",
+                "Hallways",
+                "Specials",
+                "Recess",
+                "Issue on bus",
+                "Virtual Help Zone",
+                "Blessed Sacrament (EAST HIGH ONLY)"]},
+
+    {"q": "Date",
+        "qattr": "date",
+        "req": true,
+        "af": "dateselector",
+        "areset": "datereset"
+    }
+]

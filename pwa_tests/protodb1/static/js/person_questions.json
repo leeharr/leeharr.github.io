@@ -1,0 +1,37 @@
+[
+    {"q": "First Name",
+        "qattr": "fname",
+        "req": true,
+        "af": "textinput",
+        "areset": "textinputreset"},
+
+    {"q": "Last Initial",
+        "qattr": "lname",
+        "req": true,
+        "af": "textinput",
+        "areset": "textinputreset"},
+
+    {"q": "Grade",
+        "qattr": "grade",
+        "req": true,
+        "a": ["Pre-K",
+                "Kinder",
+                "1st",
+                "2nd",
+                "3rd",
+                "4th",
+                "5th",
+                "6th",
+                "7th",
+                "8th",
+                "Freshman",
+                "Sophomore",
+                "Junior",
+                "Senior"]},
+
+    {"q": "DOB",
+        "qattr": "dob",
+        "req": true,
+        "af": "dateselector",
+        "areset": "dateclear"}
+]
