@@ -37,9 +37,10 @@
         <!-- Generated on load by load_questions() -->
         </div>
 
-        <br/><br/>
+        <div class="qdiv">
         <input type="submit" value="Create" />
         <button onclick="shownewperson(); return false;">Cancel</button>
+        </div>
     </form>
 
     <table>
@@ -122,7 +123,7 @@
     </div>
 
     <div data-bind="visible: $root.showgroupsession()">
-    <h1>Session for <span data-bind="text: selectedgroupname()"></span>
+    <h1>Session for group <span data-bind="text: selectedgroupname()"></span>
         <button data-bind="click: $root.cancelgroupsession">Cancel</button>
     </h1>
 
@@ -134,9 +135,11 @@
         <!-- Generated on load by load_session_questions() -->
         </div>
 
-        <br/><br/>
+        <div class="qdiv">
+        <div>Please remember to uncheck absent students!</div>
         <input type="submit" value="Create" />
         <button data-bind="click: $root.cancelgroupsession">Cancel</button>
+        </qdiv>
     </form>
 
     </div>

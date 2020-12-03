@@ -586,6 +586,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         questions.forEach(function(qa, qi, qarr){
             div = document.createElement('div');
+            div.setAttribute('class', 'qdiv');
             div['data-qattr'] = qa.qattr;
             div['data-remember'] = qa.remember;
             form.appendChild(div);
@@ -595,10 +596,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
             if (qa.a){
                 sel = document.createElement('select');
-                if (qa.req){
-                    sel.required = true;
-                    qspan.innerHTML += ' (REQUIRED)';
-                }
                 div.appendChild(sel);
 
                 answers[qa.qattr] = qa.a;
@@ -618,6 +615,15 @@ document.addEventListener('DOMContentLoaded', function(){
                 sel = qa.af(div, qa.req);
                 sel['data-reset'] = qa.areset;
                 qa.areset(sel);
+            }
+
+            if (qa.req){
+                sel.required = true;
+                qreq = document.createElement('span');
+                qreq.innerHTML = '*';
+                qreq.setAttribute('class', 'qreq');
+                qspan.appendChild(qreq);
+                div.setAttribute('class', 'qdiv qdivreq');
             }
 
             selid = formid + qa.qattr;

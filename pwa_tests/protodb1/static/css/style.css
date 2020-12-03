@@ -32,3 +32,18 @@ textarea#senddata{
     width: 80%;
     height: 80vh;
 }
+
+div.qdiv{
+    border: thin solid black;
+    border-radius: 1em;
+    width: 70%;
+    padding: 0.5em 2em 0.5em 2em;
+    margin-bottom: 2em;
+}
+div.qdivreq{
+    background: #FEE;
+}
+
+span.qreq{
+    color: red;
+}
