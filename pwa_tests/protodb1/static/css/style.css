@@ -3,6 +3,18 @@
     grid-template-columns: 1fr 1fr;
 }
 
+div.both{
+    grid-column: 1 / span 2;
+    justify-content: center;
+    margin: auto;
+}
+div.sendwarn{
+    color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-size: 140%;
+}
+
 
 td.num{
     text-align: right;

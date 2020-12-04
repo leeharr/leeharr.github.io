@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }, self);
         self.showgroupsession = ko.observable(false);
+        self.sendworking = ko.observable(false);
 
         self.pplsort = function (left, right) {
             var lln = left.lname();
@@ -405,6 +406,13 @@ document.addEventListener('DOMContentLoaded', function(){
         console.log('CREATE SESSION');
         vm.showgroupsession(false);
 
+        vm.sendworking(true);
+        working = [];
+
+        window.onbeforeunload = function(){
+            return "WAIT!";
+        }
+
         g = vm.selectedgroup();
         dt = new Date();
         sesname = `${g.name()}-${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}-${dt.getTime()}`
@@ -456,12 +464,73 @@ document.addEventListener('DOMContentLoaded', function(){
 
             sid = await sgetnextid();
             await sset(sid, psesdata);
+
+            working.push(sid);
         }
 
         vm.showgroupsession(false);
         vm.showpersoncheckboxes(false);
         vm.selectedgroup(undefined);
         vm.checkpersoncheckboxes(false);
+
+        setTimeout(sendalltosheet, 2000);
+        setTimeout(checkdone, 200);
+    }
+
+    checkdone = function(){
+        if (working.length != 0){
+            setTimeout(checkdone, 200);
+        } else {
+            vm.sendworking(false);
+            window.onbeforeunload = null;
+        }
+    }
+
+    function urlencode (str) {
+        return encodeURIComponent(str)
+        .replace(/!/g, '%21')
+        .replace(/'/g, '%27')
+        .replace(/\(/g, '%28')
+        .replace(/\)/g, '%29')
+        .replace(/\*/g, '%2A')
+        .replace(/%20/g, '+');
+    }
+    function addnv(name, value) {
+        return urlencode(name) + '=' + urlencode(value);
+    }
+    hts = function(o){
+        ss = [];
+        for (k of Object.keys(o)){
+            s = addnv(k, o[k]);
+            ss.push(s);
+        }
+        return ss.join('&');
+    }
+    sheetsurl = 'https://script.google.com/macros/s/AKfycbyZ-qmvpF2iu8Gn4js_3HaiM36l537DEZPhk7BzYjC1TjMWcHg/exec'
+    sendonetosheet = async function(o){
+        var d = hts(o);
+        fetch(sheetsurl+'?'+d)
+        .then(function(response){ console.log('responded'); working.pop(); })
+        .catch(function(error){ console.log('err ' + error); })
+    }
+    sendalltosheet = async function(){
+        sentthrough = await cget('datasent');
+        sentthrough = parseInt(sentthrough);
+        console.log('sending from ' + sentthrough);
+
+        for (k of await skeys()){
+            if (k=='currid'){ continue; }
+
+            sid = parseInt(k);
+            if (sid <= sentthrough){ continue; }
+
+            s = await sget(k);
+            s['id'] = k;
+            sendonetosheet(s);
+        }
+        scurid = await sgetcurrid();
+        cset('datasent', scurid);
+        console.log('... to ' + scurid);
     }
 
     dateselector = function(div, req){
