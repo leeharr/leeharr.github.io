@@ -1,10 +1,4 @@
 [
-    {"q": "School",
-        "qattr": "school",
-        "req": true,
-        "remember": true,
-        "a": ["2", "3", "4", "5", "8"]},
-
     {"q": "Referral Source (who sent the student)",
         "qattr": "refsource",
         "req": true,

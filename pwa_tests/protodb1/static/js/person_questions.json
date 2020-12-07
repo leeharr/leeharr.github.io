@@ -1,4 +1,10 @@
 [
+    {"q": "School",
+        "qattr": "school",
+        "req": true,
+        "remember": true,
+        "a": ["2", "3", "4", "5", "8"]},
+
     {"q": "First Name",
         "qattr": "fname",
         "req": true,

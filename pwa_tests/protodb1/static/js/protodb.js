@@ -318,6 +318,11 @@ document.addEventListener('DOMContentLoaded', function(){
                 p[qattr+'str'] = val;
                 sel['data-reset'](sel);
             }
+
+            if (div['data-remember']){
+                cset(qattr, val);
+                sel.value = val;
+            }
         });
 
         var i = await pgetnextid();
@@ -457,6 +462,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             dbp = await pget(pid);
 
+            psesdata['schoolstr'] = dbp.schoolstr;
             psesdata['lname'] = dbp.lname;
             psesdata['fname'] = dbp.fname;
             psesdata['grade'] = dbp.gradestr;
