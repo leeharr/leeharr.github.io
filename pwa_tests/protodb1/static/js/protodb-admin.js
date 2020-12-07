@@ -35,6 +35,13 @@ document.addEventListener('DOMContentLoaded', function(){
     var sgetcurrid = async function(){ return getcurrid(sget); }
     var sgetnextid = async function(){ return getnextid(sgetcurrid, sset); }
 
+    pdbcfg = new idbKeyval.Store(storeName='protodb-config');
+    var cset = function(key, value){ return idbKeyval.set(key, value, pdbcfg);}
+    var cget = function(key){ return idbKeyval.get(key, pdbcfg);}
+    var ckeys = function(){ return idbKeyval.keys(pdbcfg);}
+    var cgetcurrid = async function(){ return getcurrid(cget); }
+    var cgetnextid = async function(){ return getnextid(cgetcurrid, cset); }
+
 
     showsamplesheet = async function(e){
         cols = ['lname', 'fname', 'grade', 'datestr',
@@ -203,11 +210,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     clearppl = function(e){
         idbKeyval.clear(pdbses);
-
         idbKeyval.clear(pdbgrp);
-        vm.groups.removeAll();
-
         idbKeyval.clear(pdbppl);
-        vm.people.removeAll();
+        idbKeyval.clear(pdbcfg);
     }
 });
