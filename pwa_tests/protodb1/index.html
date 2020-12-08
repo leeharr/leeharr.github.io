@@ -35,7 +35,8 @@
     <a href="admin.html">admin</a>
 
     <div data-bind="visible: !$root.showgroupsession()">
-    <h1>People <button onclick="shownewperson()">new</button></h1>
+    <h1>People <button onclick="shownewperson()">add new</button>
+                <button onclick="quicksession()">quick session</button></h1>
 
     <form id="newperson" data-bind="visible: $root.shownewperson()"
             onsubmit="newperson(); return false;">

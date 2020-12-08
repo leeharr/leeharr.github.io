@@ -176,8 +176,16 @@ document.addEventListener('DOMContentLoaded', function(){
         });
 
         self.group_people_bylf = ko.pureComputed(function(){
+            console.log('gpblf');
             if (self.selectedgroup()){
-                return self.selectedgroup().people.sorted(self.pplsort);
+                var ppl = self.selectedgroup().people;
+                if (ppl.length > 0){
+                    console.log('sgp');
+                    return ppl.sorted(self.pplsort);
+                } else {
+                    console.log('nop');
+                    return self.people.sorted(self.pplsort);
+                }
             } else {
                 return [];
             }
@@ -213,6 +221,12 @@ document.addEventListener('DOMContentLoaded', function(){
                 return i.gid()==gid;
             })
             return match;
+        }
+
+        self.quick_group = function(){
+            var gid = 0;
+            var name = 'QUICK';
+            return self.addgroup(gid, name);
         }
 
         self.enablepersoncheckboxes = function(enable=true){
@@ -264,10 +278,15 @@ document.addEventListener('DOMContentLoaded', function(){
         }
 
         self.cancelgroupsession = function(){
+            var g = vm.selectedgroup();
             self.showgroupsession(false);
             vm.checkpersoncheckboxes(false);
             vm.showpersoncheckboxes(false);
             vm.selectedgroup(undefined);
+            console.log('gscanc '+g.name());
+            if (g.name() == 'QUICK'){
+                vm.groups.remove(g);
+            }
         }
 
         self.dbsync = async function(){
@@ -346,6 +365,8 @@ document.addEventListener('DOMContentLoaded', function(){
     shownewgroup = function(){
         gname = document.querySelector('#gname');
         gname.value = '';
+        gname_err = document.querySelector('#gname_err');
+        gname_err.style.visibility = 'hidden';
         if (!vm.shownewgroup()){
             vm.shownewgroup(true);
             vm.showpersoncheckboxes(true);
@@ -362,14 +383,15 @@ document.addEventListener('DOMContentLoaded', function(){
         console.log('new group form sent');
         gname = document.querySelector('#gname');
         gname_err = document.querySelector('#gname_err');
+        gname_err.style.visibility = 'hidden';
+
         x = await gnamex(gname.value);
-        if (x){
+        if (x || gname.value.startsWith('QUICK')){
             // given group name is already in use
             gname_err.style.visibility = 'visible';
             gname_err.innerHTML = 'Group name already in use';
             return;
         }
-        gname_err.style.visibility = 'hidden';
 
         var g = {'name': gname.value, 'people': []}
         var i = await ggetnextid();
@@ -417,6 +439,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
         vmg.updategroup(false);
         vm.updategroup(false);
+    }
+    quicksession = function(){
+        var g = vm.quick_group();
+        g.showgroup();
+        g.newgroupsession();
     }
 
     function _age(dobstr) {
@@ -467,7 +494,10 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         });
 
-        for (p of g.people()){
+        var ppl = g.people();
+        var rmgroup = false;
+        if (g.name() == 'QUICK'){ ppl = vm.people(); rmgroup = true; }
+        for (p of ppl){
             pid = p.pid();
 
             gspid = '#gspid'+pid;
@@ -492,6 +522,10 @@ document.addEventListener('DOMContentLoaded', function(){
             await sset(sid, psesdata);
 
             working.push(sid);
+        }
+
+        if (rmgroup){
+            vm.groups.remove(g);
         }
 
         vm.showgroupsession(false);
