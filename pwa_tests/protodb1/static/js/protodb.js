@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function(){
         self.pid = ko.observable(pid);
         self.fname = ko.observable(fname);
         self.lname = ko.observable(lname);
+        self.linitial = ko.observable(lname[0]);
         self.grade = ko.observable(grade);
     }
     var Group = function(gid, name){
@@ -159,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function(){
         self.showgroupsession = ko.observable(false);
         self.sendworking = ko.observable(false);
 
-        self.pplsort = function (left, right) {
+        self.lfsort = function (left, right) {
             var lln = left.lname();
             var lfn = left.fname();
             var rln = right.lname();
@@ -171,29 +172,69 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
 
+        self.flsort = function (left, right) {
+            var lln = left.lname();
+            var lfn = left.fname();
+            var rln = right.lname();
+            var rfn = right.fname();
+            if (lfn == rfn){
+                return (lln < rln) ? -1 : (lln > rln) ? 1 : 0;
+            } else {
+                return (lfn < rfn) ? -1 : 1;
+            }
+        }
+
         self.people_bylf = ko.pureComputed(function(){
-            return self.people.sorted(self.pplsort);
+            return self.people.sorted(self.lfsort);
+        });
+        self.people_byfl = ko.pureComputed(function(){
+            return self.people.sorted(self.flsort);
         });
 
         self.group_people_bylf = ko.pureComputed(function(){
-            console.log('gpblf');
             if (self.selectedgroup()){
-                var ppl = self.selectedgroup().people;
-                if (ppl.length > 0){
-                    console.log('sgp');
-                    return ppl.sorted(self.pplsort);
+                if (self.selectedgroup().name()=='QUICK'){
+                    return self.people.sorted(self.lfsort);
                 } else {
-                    console.log('nop');
-                    return self.people.sorted(self.pplsort);
+                    return self.selectedgroup().people.sorted(self.lfsort);
+                }
+            } else {
+                return [];
+            }
+        });
+        self.group_people_byfl = ko.pureComputed(function(){
+            if (self.selectedgroup()){
+                if (self.selectedgroup().name()=='QUICK'){
+                    return self.people.sorted(self.flsort);
+                } else {
+                    return self.selectedgroup().people.sorted(self.flsort);
                 }
             } else {
                 return [];
             }
         });
 
+        self.setinitials = function(){
+            var fn = '';
+            var li = '';
+            var prevp;
+            for (p of self.people_byfl()){
+                if (p.fname()==fn && p.linitial()==li){
+                    p.linitial(p.lname().slice(0, 2));
+                    if (prevp){
+                        prevp.linitial(prevp.lname().slice(0, 2));
+                    }
+                }
+                fn = p.fname();
+                li = p.linitial();
+                prevp = p;
+            }
+        }
+
         self.addperson = function(pid, lname, fname, grade){
             var p = new Person(pid, lname, fname, grade);
             self.people.push(p);
+            self.setinitials();
             return p;
         }
         self.getperson = function(pid){
@@ -513,7 +554,7 @@ document.addEventListener('DOMContentLoaded', function(){
             dbp = await pget(pid);
 
             psesdata['schoolstr'] = dbp.schoolstr;
-            psesdata['lname'] = dbp.lname;
+            psesdata['lname'] = p.linitial();
             psesdata['fname'] = dbp.fname;
             psesdata['grade'] = dbp.gradestr;
             psesdata['age'] = _age(dbp.dob).toString();
