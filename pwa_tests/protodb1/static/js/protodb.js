@@ -28,6 +28,16 @@ document.addEventListener('DOMContentLoaded', function(){
     var gkeys = function(){ return idbKeyval.keys(pdbgrp);}
     var ggetcurrid = async function(){ return getcurrid(gget); }
     var ggetnextid = async function(){ return getnextid(ggetcurrid, gset); }
+    var gnamex = async function(name){
+        // return true if a group named <name> exists
+        var ks = await gkeys();
+        for (k of ks){
+            if (k == 'currid'){ continue; }
+            g = await gget(k);
+            if (g.name == name){ return true; }
+        }
+        return false;
+    }
 
     pdbses = new idbKeyval.Store(storeName='protodb-sessions');
     var sset = function(key, value){ return idbKeyval.set(key, value, pdbses);}
@@ -351,6 +361,16 @@ document.addEventListener('DOMContentLoaded', function(){
     newgroup = async function(e){
         console.log('new group form sent');
         gname = document.querySelector('#gname');
+        gname_err = document.querySelector('#gname_err');
+        x = await gnamex(gname.value);
+        if (x){
+            // given group name is already in use
+            gname_err.style.visibility = 'visible';
+            gname_err.innerHTML = 'Group name already in use';
+            return;
+        }
+        gname_err.style.visibility = 'hidden';
+
         var g = {'name': gname.value, 'people': []}
         var i = await ggetnextid();
         console.log(i + ' .... ' + g.name);

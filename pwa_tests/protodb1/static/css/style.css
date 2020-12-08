@@ -59,3 +59,8 @@ div.qdivreq{
 span.qreq{
     color: red;
 }
+
+div#gname_err{
+    visibility: hidden;
+    color: red;
+}
