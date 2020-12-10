@@ -638,6 +638,14 @@ document.addEventListener('DOMContentLoaded', function(){
         console.log('ADD DATE SELECTOR');
         dsel = document.createElement('input');
         dsel.type = 'date';
+        dt = new Date();
+        m = dt.getMonth()+1;
+        if (m<10){ m = '0'+m;}
+        d = dt.getDate();
+        if (d<10){ d = '0'+d;}
+        y = dt.getFullYear();
+        dtstr = `${y}-${m}-${d}`;
+        dsel.max = dtstr;
         if (req){
             dsel.required = true;
         }
