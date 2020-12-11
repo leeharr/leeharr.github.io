@@ -11,7 +11,7 @@
         "af": "textinput",
         "areset": "textinputreset"},
 
-    {"q": "Last Initial",
+    {"q": "Last Name",
         "qattr": "lname",
         "req": true,
         "af": "textinput",
