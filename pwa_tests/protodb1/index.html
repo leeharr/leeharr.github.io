@@ -16,9 +16,9 @@
     <meta name="msapplication-TileImage" content="static/images/protodb-icon-144.png">
     <meta name="msapplication-TileColor" content="#FFFFFF">
 
-    <script src="static/js/idb-keyval-iife.js"></script>
-    <script src="static/js/knockout-3.5.1.js"></script>
-    <script src="static/js/protodb.js"></script>
+    <script defer src="static/js/idb-keyval-iife.js"></script>
+    <script defer src="static/js/knockout-3.5.1.js"></script>
+    <script defer src="static/js/protodb.js"></script>
 </head>
 
 <body>
@@ -80,7 +80,7 @@
     <h5>(will not remove from group <span data-bind="text: selectedgroupname()"></span>, only from this session)</h5>
     <table>
     <thead><tr>
-        <th><span data-bind="click: checkuncheck">x</th>
+        <th><span data-bind="click: $root.checkuncheck">x</th>
         <th>ID</th>
         <th>First name</th>
         <th>Last name</th>

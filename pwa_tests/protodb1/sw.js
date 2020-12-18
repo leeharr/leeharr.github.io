@@ -1,6 +1,6 @@
-/* SW-V005 */
+/* SW-V006 */
 
-var cacheName = 'protodb005';
+var cacheName = 'protodb006';
 var filesToCache = [
   './',
   'index.html',
