@@ -1,6 +1,6 @@
-/* SW-V006 */
+/* SW-V011 */
 
-var cacheName = 'protodb006';
+var cacheName = 'protodb011';
 var filesToCache = [
   './',
   'index.html',
@@ -12,6 +12,12 @@ var filesToCache = [
   'static/js/knockout-3.5.1.js',
   'static/js/idb-keyval-iife.js',
   'static/js/protodb.js',
+  'static/js/protodb_db.js',
+  'static/js/protodb_ko_person.js',
+  'static/js/protodb_ko_group.js',
+  'static/js/protodb_ko_viewmodel.js',
+  'static/js/protodb_formload.js',
+  'static/js/protodb_tosheet.js',
   'static/js/protodb-admin.js',
 
   'static/js/session_questions.json',
@@ -35,6 +41,7 @@ var nocacheRequest = function(url){
 
 /* Install the service worker and cache everything needed offline */
 self.addEventListener('install', function(e) {
+    self.skipWaiting();
     e.waitUntil(
         caches.open(cacheName).then(function(cache) {
             var ncrs = filesToCache.map(nocacheRequest);
