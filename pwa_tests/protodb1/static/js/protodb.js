@@ -166,6 +166,7 @@ var ProtoDBViewModel = function(){
     self.sendworking = ko.observable(false);
 
     self.lfsort = function (left, right) {
+        /* sort by last name, then first name */
         let lln = left.lname();
         let lfn = left.fname();
         let rln = right.lname();
@@ -178,6 +179,7 @@ var ProtoDBViewModel = function(){
     }
 
     self.flsort = function (left, right) {
+        /* sort by first name, then last name */
         let lln = left.lname();
         let lfn = left.fname();
         let rln = right.lname();
