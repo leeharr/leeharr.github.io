@@ -202,6 +202,7 @@ var createsession = async function(){
         psesdata['fname'] = dbp.fname;
         psesdata['grade'] = dbp.gradestr;
         psesdata['age'] = _age(dbp.dob).toString();
+        psesdata['sent'] = false;
 
         let sid = await sgetnextid();
         await sset(sid, psesdata);
@@ -236,3 +237,35 @@ var loadppl = async function(e){
 }
 loadppl();
 
+var checkunsent = async function(){
+    let ks = await skeys();
+    let us = 0;
+    let ki = 0;
+    for (let k of ks){
+        if (k=='currid'){continue;}
+        let s = await sget(k);
+        console.log('cksent:' + k + '==' + s.sent);
+        if (!s.sent){
+            working.push(k);
+
+            ki = parseInt(k);
+            if (!us || (us && (ki-1) < us)){
+                us = ki-1;
+            }
+        }
+    }
+
+    if (us){
+        await cset('datasent', us);
+    }
+
+    if (working.length != 0){
+        vm.sendworking(true);
+        window.onbeforeunload = function(){
+            return "WAIT!";
+        }
+        setTimeout(sendalltosheet, 200);
+        setTimeout(checkdone, 200);
+    }
+}
+checkunsent();

@@ -28,10 +28,19 @@ var hts = function(o){
     return ss.join('&');
 }
 
+var aftersend = async function(response, sid){
+    console.log('responded');
+    working.pop();
+    let s = await sget(sid);
+    s.sent = true;
+    await sset(sid, s);
+}
+
 var sendonetosheet = async function(o){
     let d = hts(o);
+    let sid = o.id;
     fetch(sheetsurl+'?'+d)
-    .then(function(response){ console.log('responded'); working.pop(); })
+    .then(function(response){aftersend(response, sid);})
     .catch(function(error){ console.log('err ' + error); })
 }
 

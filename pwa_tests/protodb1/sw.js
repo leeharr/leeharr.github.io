@@ -1,6 +1,6 @@
-/* SW-V011 */
+/* SW-V013 */
 
-var cacheName = 'protodb011';
+var cacheName = 'protodb013';
 var filesToCache = [
   './',
   'index.html',
