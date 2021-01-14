@@ -3,7 +3,7 @@
 var sheetsurl = 'https://script.google.com/macros/s/AKfycbyZ-qmvpF2iu8Gn4js_3HaiM36l537DEZPhk7BzYjC1TjMWcHg/exec'
 
 
-function urlencode (str) {
+function urlencode(str) {
     return encodeURIComponent(str)
     .replace(/!/g, '%21')
     .replace(/'/g, '%27')
@@ -14,10 +14,12 @@ function urlencode (str) {
 }
 
 function addnv(name, value) {
+    /* return urlencoded name-value pair */
     return urlencode(name) + '=' + urlencode(value);
 }
 
 var hts = function(o){
+    /* encode and join up elements in Object o */
     let ss = [];
     for (let k of Object.keys(o)){
         let s = addnv(k, o[k]);
