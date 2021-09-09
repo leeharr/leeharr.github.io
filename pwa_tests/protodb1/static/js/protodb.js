@@ -218,6 +218,7 @@ var createsession = async function(){
     vm.showpersoncheckboxes(false);
     vm.selectedgroup(undefined);
     vm.checkpersoncheckboxes(false);
+    vm.quickgroup(false);
 
     setTimeout(sendalltosheet, 2000);
     setTimeout(checkdone, 200);

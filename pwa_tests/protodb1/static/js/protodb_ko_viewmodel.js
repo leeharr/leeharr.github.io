@@ -189,6 +189,7 @@ var ProtoDBViewModel = function(){
         vm.checkpersoncheckboxes(false);
         vm.showpersoncheckboxes(false);
         vm.selectedgroup(undefined);
+        vm.quickgroup(false);
         console.log('gscanc '+g.name());
         if (g.name() == 'QUICK'){
             vm.groups.remove(g);

@@ -152,8 +152,8 @@
         <button data-bind="click: $root.cancelgroupsession">Cancel</button>
     </h1>
 
-    <h3>UNCHECK ABSENT STUDENTS!</h3>
-    <h5>(will not remove from group <span data-bind="text: selectedgroupname()"></span>, only from this session)</h5>
+    <h3 data-bind="visible: !$root.quickgroup()">UNCHECK ABSENT STUDENTS!</h3>
+    <h5 data-bind="visible: !$root.quickgroup()">(will not remove from group <span data-bind="text: selectedgroupname()"></span>, only from this session)</h5>
 
     <form id="newsession"  onsubmit="createsession(); return false;">
         <div id="newsession_questions">
