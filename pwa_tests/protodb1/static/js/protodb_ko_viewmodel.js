@@ -18,6 +18,7 @@ var ProtoDBViewModel = function(){
         }
     }, self);
     self.showgroupsession = ko.observable(false);
+    self.quickgroup = ko.observable(false);
     self.sendworking = ko.observable(false);
 
     self.lfsort = function (left, right) {
@@ -129,6 +130,7 @@ var ProtoDBViewModel = function(){
     self.quick_group = function(){
         let gid = 0;
         let name = 'QUICK';
+        self.quickgroup(true);
         return self.addgroup(gid, name);
     }
 
