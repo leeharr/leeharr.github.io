@@ -116,9 +116,11 @@
 
 <div id="rs">
     <div data-bind="visible: !$root.showgroupsession()">
-    <h1>Groups <button onclick="shownewgroup()">new</button>
+    <h1>Groups
+        <button onclick="shownewgroup()"
+            data-bind="visible: !$root.shownewperson()">new</button>
         <button onclick="quicksession()"
-            data-bind="visible: !$root.shownewperson()">quick session</button>
+            data-bind="visible: !$root.shownewperson() && !root.shownewgroup()">quick session</button>
         <button onclick="shownewgroup(); return false;"
             data-bind="visible: $root.shownewgroup()">cancel</button>
         </h1>
@@ -174,7 +176,7 @@
 
     <form id="newsession"  onsubmit="createsession(); return false;">
         <div class="qdiv"
-            data-bind="visible: !$root.quickgroup()">Select Session Members on Left Side</div>
+            data-bind="visible: $root.quickgroup()">Select Session Members on Left Side</div>
 
         <div id="newsession_questions">
         <!-- Generated on load by load_session_questions() -->
