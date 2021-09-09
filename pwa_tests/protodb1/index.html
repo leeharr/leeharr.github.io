@@ -42,8 +42,6 @@
 
     <div data-bind="visible: !$root.showgroupsession()">
     <h1>People <button onclick="shownewperson()">add new</button>
-                <button onclick="quicksession()"
-                    data-bind="visible: !$root.shownewperson()">quick session</button>
                 <button onclick="shownewperson(); return false;"
                     data-bind="visible: $root.shownewperson()">Cancel</button>
                     </h1>
