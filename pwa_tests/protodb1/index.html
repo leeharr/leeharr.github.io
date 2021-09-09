@@ -46,8 +46,6 @@
                     data-bind="visible: !$root.shownewperson()">quick session</button>
                 <button onclick="shownewperson(); return false;"
                     data-bind="visible: $root.shownewperson()">Cancel</button>
-                <button onclick="shownewgroup(); return false;"
-                    data-bind="visible: $root.shownewgroup()">Cancel</button>
                     </h1>
 
     <form id="newperson" data-bind="visible: $root.shownewperson()"
@@ -87,7 +85,10 @@
     </div>
 
     <div data-bind="visible: $root.showgroupsession()">
-    <h1>People in Session</h1>
+    <h1>People in Session
+        <button onclick="shownewgroup(); return false;"
+            data-bind="visible: $root.shownewgroup()">Cancel</button>
+        </h1>
     <h3 data-bind="visible: !$root.quickgroup()">UNCHECK ABSENT STUDENTS!</h3>
     <h5 data-bind="visible: !$root.quickgroup()">(will not remove from group <span data-bind="text: selectedgroupname()"></span>, only from this session)</h5>
     <table>
