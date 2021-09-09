@@ -41,7 +41,8 @@
     <a href="admin.html">admin</a>
 
     <div data-bind="visible: !$root.showgroupsession()">
-    <h1>People <button onclick="shownewperson()">add new</button>
+    <h1>People <button onclick="shownewperson()"
+                    data-bind="visible: !$root.shownewgroup()">add new</button>
                 <button onclick="shownewperson(); return false;"
                     data-bind="visible: $root.shownewperson()">Cancel</button>
                     </h1>
