@@ -46,6 +46,8 @@
                     data-bind="visible: !$root.shownewperson()">quick session</button>
                 <button onclick="shownewperson(); return false;"
                     data-bind="visible: $root.shownewperson()">Cancel</button>
+                <button onclick="shownewgroup(); return false;"
+                    data-bind="visible: $root.shownewgroup()">Cancel</button>
                     </h1>
 
     <form id="newperson" data-bind="visible: $root.shownewperson()"
