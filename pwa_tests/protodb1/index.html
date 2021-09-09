@@ -90,6 +90,7 @@
         </h1>
     <h3 data-bind="visible: !$root.quickgroup()">UNCHECK ABSENT STUDENTS!</h3>
     <h5 data-bind="visible: !$root.quickgroup()">(will not remove from group <span data-bind="text: selectedgroupname()"></span>, only from this session)</h5>
+    <h5 data-bind="visible: $root.quickgroup()">Check Group Members Below</h5>
     <table>
     <thead><tr>
         <th><span data-bind="click: $root.checkuncheck" title="Check/Uncheck All">x</span></th>
