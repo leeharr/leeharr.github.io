@@ -114,7 +114,10 @@
 
 <div id="rs">
     <div data-bind="visible: !$root.showgroupsession()">
-    <h1>Groups <button onclick="shownewgroup()">new</button></h1>
+    <h1>Groups <button onclick="shownewgroup()">new</button>
+        <button onclick="shownewgroup(); return false;"
+            data-bind="visible: $root.shownewgroup()">cancel</button>
+        </h1>
 
     <form id="newgroup" data-bind="visible: $root.shownewgroup()"
             onsubmit="newgroup(); return false;">
