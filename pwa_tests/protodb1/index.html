@@ -159,6 +159,8 @@
         <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()">
             <button data-bind="click: newgroupsession">New Session</button>
             <button data-bind="click: savecancel">Cancel</button></td>
+        <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()">
+            (Or select/deselect people and Save)</td>
         </tr>
     </tbody>
     </table>
