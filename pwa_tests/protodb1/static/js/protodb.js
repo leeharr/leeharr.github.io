@@ -1,7 +1,7 @@
 'use strict';
 
 window.shownewperson = function(){
-    var form = document.getElementById('newperson_questions');
+    var form = document.getElementById('newperson');
     console.log(form);
     if (form){
         form.reset();
