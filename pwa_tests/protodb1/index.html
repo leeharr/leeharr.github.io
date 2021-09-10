@@ -57,7 +57,7 @@
         <div class="qdiv">
         <input data-bind="visible: !$root.personexists()"
             type="submit" value="Create" />
-        <button data-bind="visible: $root.personexists(), click: saveperson">Save</button>
+        <button data-bind="visible: $root.personexists(), click: $root.saveperson">Save</button>
         <button onclick="shownewperson(); return false;">Cancel</button>
         </div>
     </form>
