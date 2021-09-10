@@ -16,7 +16,7 @@ var Person = function(pid, lname, fname, grade){
         }
 
         console.log(self.pid());
-        let dbp = pget(self.pid());
+        let dbp = await pget(self.pid());
 
         let school = document.getElementById('newperson_questionsschool');
         console.log(dbp.schoolid);
