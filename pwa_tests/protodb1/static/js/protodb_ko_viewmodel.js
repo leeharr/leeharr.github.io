@@ -96,7 +96,7 @@ var ProtoDBViewModel = function(){
     }
 
     self.rmperson = function(pid){
-        p = self.getperson(pid);
+        let p = self.getperson(pid);
         if (p){
             self.people.remove(p);
         }
