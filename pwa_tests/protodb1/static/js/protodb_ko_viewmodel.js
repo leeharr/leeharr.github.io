@@ -98,6 +98,7 @@ var ProtoDBViewModel = function(){
     self.rmperson = function(pid){
         let p = self.getperson(pid);
         if (p){
+            console.log('rmvng');
             self.people.remove(p);
         }
     }
@@ -114,6 +115,7 @@ var ProtoDBViewModel = function(){
             console.log('  ck '+i.pid()+' '+pid);
             return i.pid()==pid;
         })
+        console.log('FOUND '+match);
         return match;
     }
 
