@@ -1,6 +1,8 @@
 'use strict';
 
 window.shownewperson = function(){
+    var form = document.getElementById('newperson_questions');
+    form.reset();
     vm.shownewperson(!vm.shownewperson());
     if (vm.selectedgroup()){
         vm.selectedgroup().savecancel();
