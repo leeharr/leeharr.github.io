@@ -152,7 +152,7 @@
     </tr></thead>
     <tbody data-bind="foreach: groups_byname">
         <tr data-bind="css: {gsel: $root.selectedgroup()==$data}">
-        <td data-bind="text: gid()" class="num"></td>
+        <td data-bind="text: gid(), click: showgroup" class="num"></td>
         <td data-bind="text: name(), click: showgroup"></td>
         <td data-bind="visible: updategroup()">
             <button data-bind="click: savegroup">Save</button>
@@ -160,8 +160,7 @@
         <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()">
             <button data-bind="click: newgroupsession">New Session</button>
             <button data-bind="click: savecancel">Cancel</button></td>
-        <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()">
-            (Or Select/Deselect People and Save)</td>
+        <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()">(Or Select/Deselect People and Save)</td>
         </tr>
     </tbody>
     </table>
