@@ -41,7 +41,7 @@ var Person = function(pid, lname, fname, grade){
         dob.value = dbp.dob;
 
         console.log(self.pid());
-        let xp = document.getElementById('xperson');
+        let xp = document.getElementById('xpersonid');
         xp.value = self.pid();
     }
 }

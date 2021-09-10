@@ -48,7 +48,7 @@ var newperson = async function(e){
     if (!e){
         i = await pgetnextid();
     } else {
-        let xp = document.getElementById('xperson');
+        let xp = document.getElementById('xpersonid');
         i = xp.value;
     }
     console.log(i + ' - - ' + p.lname + ', ' + p.fname);
