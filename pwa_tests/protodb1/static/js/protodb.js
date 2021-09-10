@@ -58,7 +58,7 @@ var newperson = async function(e){
 }
 var saveperson = async function(){
     console.log('SAVE');
-    //await newperson(true);
+    await newperson(true);
 }
 
 var shownewgroup = function(){
