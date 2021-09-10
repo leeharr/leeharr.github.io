@@ -45,6 +45,9 @@ var newperson = async function(e){
 
     vm.shownewperson(false);
 }
+var saveperson = async function(){
+    console.log('SAVE');
+}
 
 var shownewgroup = function(){
     let gname = document.querySelector('#gname');

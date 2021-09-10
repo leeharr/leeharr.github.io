@@ -6,6 +6,7 @@ var ProtoDBViewModel = function(){
     self.groups = ko.observableArray();
 
     self.shownewperson = ko.observable(false);
+    self.personexists = ko.observable(false);
     self.shownewgroup = ko.observable(false);
     self.showpersoncheckboxes = ko.observable(false);
     self.updategroup = ko.observable(false);

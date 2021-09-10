@@ -11,6 +11,7 @@ var Person = function(pid, lname, fname, grade){
     self.showperson = async function(){
         console.log('SP');
         vm.shownewperson(true);
+        vm.personexists(true);
         if (vm.selectedgroup()){
             vm.selectedgroup().savecancel();
         }
@@ -28,6 +29,11 @@ var Person = function(pid, lname, fname, grade){
         fn.value = dbp.fname;
 
         console.log(self.lname());
+        let ln = document.getElementById('newperson_questionslname');
+        ln.value = dbp.lname;
+
         console.log(self.grade());
+        let gr = document.getElementById('newperson_questionsgrade');
+        gr.value = dbp.gradeid;
     }
 }
