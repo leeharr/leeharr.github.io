@@ -8,13 +8,25 @@ var Person = function(pid, lname, fname, grade){
     self.linitial = ko.observable(lname[0]);
     self.grade = ko.observable(grade);
 
-    self.showperson = function(){
+    self.showperson = async function(){
         console.log('SP');
         vm.shownewperson(true);
         if (vm.selectedgroup()){
             vm.selectedgroup().savecancel();
         }
+
+        console.log(self.pid());
+        let dbp = pget(self.pid());
+
+        let school = document.getElementById('newperson_questionsschool');
+        console.log(dbp.schoolid);
+        school.value = dbp.schoolid;
+
         console.log(self.fname());
+        console.log(dbp.fname);
+        let fn = document.getElementById('newperson_questionsfname');
+        fn.value = dbp.fname;
+
         console.log(self.lname());
         console.log(self.grade());
     }
