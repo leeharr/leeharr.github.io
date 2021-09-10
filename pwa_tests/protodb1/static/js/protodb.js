@@ -12,7 +12,7 @@ window.shownewperson = function(){
     }
 }
 var newperson = async function(e){
-    console.log('new person form sent');
+    console.log('new person form sent '+e);
     vm.shownewperson(false);
 
     var p = {}
@@ -58,7 +58,7 @@ var newperson = async function(e){
 }
 var saveperson = async function(){
     console.log('SAVE');
-    await newperson();
+    //await newperson(true);
 }
 
 var shownewgroup = function(){
