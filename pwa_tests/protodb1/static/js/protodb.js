@@ -3,6 +3,7 @@
 window.shownewperson = function(){
     var form = document.getElementById('newperson_questions');
     form.reset();
+    vm.personexists(false);
     vm.shownewperson(!vm.shownewperson());
     if (vm.selectedgroup()){
         vm.selectedgroup().savecancel();
