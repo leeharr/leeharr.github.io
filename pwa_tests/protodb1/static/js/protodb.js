@@ -2,6 +2,7 @@
 
 window.shownewperson = function(){
     var form = document.getElementById('newperson_questions');
+    console.log(form);
     if (form){
         form.reset();
     }
