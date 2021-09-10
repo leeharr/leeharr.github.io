@@ -95,7 +95,14 @@ var ProtoDBViewModel = function(){
         }
     }
 
+    self.rmperson = function(pid){
+        p = self.getperson(pid);
+        if (p){
+            self.people.remove(p);
+        }
+    }
     self.addperson = function(pid, lname, fname, grade){
+        self.rmperson(pid);
         let p = new Person(pid, lname, fname, grade);
         self.people.push(p);
         self.setinitials();
