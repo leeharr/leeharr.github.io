@@ -35,5 +35,9 @@ var Person = function(pid, lname, fname, grade){
         console.log(self.grade());
         let gr = document.getElementById('newperson_questionsgrade');
         gr.value = dbp.gradeid;
+
+        console.log('DOB');
+        let dob = document.getElementById('newperson_questionsdob');
+        dob.value = dbp.dob;
     }
 }
