@@ -44,7 +44,13 @@ var newperson = async function(e){
         }
     });
 
-    var i = await pgetnextid();
+    let i = 0;
+    if (!e){
+        i = await pgetnextid();
+    } else {
+        let xp = document.getElementById('xperson');
+        i = xp.value;
+    }
     console.log(i + ' - - ' + p.lname + ', ' + p.fname);
     pset(i, p);
     vm.addperson(i, p.lname, p.fname, p.gradestr);
@@ -53,6 +59,7 @@ var newperson = async function(e){
 }
 var saveperson = async function(){
     console.log('SAVE');
+    await newperson();
 }
 
 var shownewgroup = function(){
