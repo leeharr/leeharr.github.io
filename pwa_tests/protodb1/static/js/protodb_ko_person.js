@@ -10,5 +10,12 @@ var Person = function(pid, lname, fname, grade){
 
     self.showperson = function(){
         console.log('SP');
+        vm.shownewperson(true);
+        if (vm.selectedgroup()){
+            vm.selectedgroup().savecancel();
+        }
+        console.log(self.fname());
+        console.log(self.lname());
+        console.log(self.grade());
     }
 }
