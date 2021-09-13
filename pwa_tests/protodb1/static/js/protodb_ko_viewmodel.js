@@ -107,7 +107,7 @@ var ProtoDBViewModel = function(){
         let i = '';
         let prevp;
         for (let p of self.people_byflg()){
-            p.linitial(p.lname().slice(0,1);
+            p.linitial(p.lname().slice(0,1));
             console.log('X'+fn+' '+ln+' '+li+' '+gr);
             if (prevp){
             console.log('_'+prevp.fname()+' '+prevp.lname()+' '+prevp.linitial()+' '+prevp.grade());
