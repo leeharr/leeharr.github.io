@@ -12,8 +12,17 @@ var Person = function(pid, lname, fname, grade){
         console.log('CoSP');
         if (vm.showpersoncheckboxes()){
             console.log('-- Check');
+            let ngpid = 'ngpid'+self.pid();
+            console.log('-- '+ngpid);
+            let cb = document.querySelector(ngpid);
+            if (cb.checked){
+                cb.checked = false;
+            } else {
+                cb.checked = true;
+            }
         } else {
             console.log('-- Showperson');
+            await self.showperson();
         }
     }
 
