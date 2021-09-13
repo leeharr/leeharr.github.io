@@ -104,23 +104,32 @@ var ProtoDBViewModel = function(){
         let ln = '';
         let li = '';
         let gr = '';
+        let i = '';
         let prevp;
         for (let p of self.people_byflg()){
             if (p.fname()==fn && p.lname()==ln && p.grade()==gr){
                 // exact same first, last, and grade
                 // do something odd for very unusual case
-                p.linitial(p.lname().slice(0, 1)+'*')
+                i = p.lname().slice(0, 1);
+                i += '*';
+                p.linitial(i)
             } else if (p.fname==fn && p.lname()=ln){
                 // same first and last, but different grade
                 // show as fname l gr#
                 if (prevp){
-                    prevp.linitial(prevp.lname().slice(0, 1)+' '+prevp.grade())
+                    i = prevp.lname().slice(0, 1);
+                    i += ' ' + prevp.grade();
+                    prevp.linitial(i);
                 }
-                p.linitial(p.lname().slice(0, 1)+' '+p.grade())
+                i = p.lname().slice(0, 1);
+                i += ' ' + p.grade();
+                p.linitial(i);
             } else if (p.fname()==fn && p.linitial()==li){
-                p.linitial(p.lname().slice(0, 2));
+                i = p.lname().slice(0, 2);
+                p.linitial(i);
                 if (prevp){
-                    prevp.linitial(prevp.lname().slice(0, 2));
+                    i = prevp.lname().slice(0, 2);
+                    prevp.linitial(i);
                 }
             }
 
