@@ -8,6 +8,15 @@ var Person = function(pid, lname, fname, grade){
     self.linitial = ko.observable(lname[0]);
     self.grade = ko.observable(grade);
 
+    self.checkorshowperson = async function(){
+        console.log('CoSP');
+        if (vm.showpersoncheckboxes()){
+            console.log('-- Check');
+        } else {
+            console.log('-- Showperson');
+        }
+    }
+
     self.showperson = async function(){
         console.log('SP');
         vm.shownewperson(true);

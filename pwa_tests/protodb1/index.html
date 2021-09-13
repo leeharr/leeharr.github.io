@@ -77,7 +77,7 @@
     <tbody data-bind="foreach: people_byfl">
         <tr>
         <td data-bind="visible: $root.showpersoncheckboxes()"><input type="checkbox" data-bind="click: $root.setchange, attr: {id: 'ngpid'+pid()}" /></td>
-        <td data-bind="text: pid(), click: showperson" class="num"></td>
+        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>
         <td data-bind="text: fname(), click: showperson"></td>
         <td data-bind="text: lname(), click: showperson"></td>
         <td data-bind="text: linitial(), click: showperson"></td>
