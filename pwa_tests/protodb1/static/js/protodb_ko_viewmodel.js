@@ -111,8 +111,10 @@ var ProtoDBViewModel = function(){
                 // exact same first, last, and grade
                 // do something odd for very unusual case
                 i = p.lname().slice(0, 1);
-                i += '*';
-                p.linitial(i)
+                while (p.linitial()==li){
+                    i += '*';
+                }
+                p.linitial(i);
             } else if (p.fname==fn && p.lname()==ln){
                 // same first and last, but different grade
                 // show as fname l gr#
