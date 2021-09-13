@@ -117,8 +117,9 @@ var ProtoDBViewModel = function(){
                 // exact same first, last, and grade
                 // do something odd for very unusual case
                 i = p.lname().slice(0, 1);
-                while (p.linitial()==li){
-                    i += '*';
+                if (p.linitial()==li){
+                    i = li+'*';
+                    p.linitial(i);
                 }
                 p.linitial(i);
             } else if (p.fname==fn && p.lname()==ln){
