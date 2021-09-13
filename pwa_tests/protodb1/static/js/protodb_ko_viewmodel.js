@@ -109,7 +109,7 @@ var ProtoDBViewModel = function(){
         let prevp;
         for (let p of self.people_byflg()){
             p.linitial(p.lname().slice(0,1));
-            console.log('X'+fn+' '+ln+' '+li+' '+gr);
+            console.log('X'+fn+' '+ln+' '+li+' '+pi+' '+gr);
             if (prevp){
             console.log('_'+prevp.fname()+' '+prevp.lname()+' '+prevp.linitial()+' '+prevp.grade());
             }
@@ -134,7 +134,7 @@ var ProtoDBViewModel = function(){
                 i = p.lname().slice(0, 1);
                 i += ' ' + p.grade();
                 p.linitial(i);
-            } else if (p.fname()==fn && (p.linitial()==li||p.linitial==pi)){
+            } else if (p.fname()==fn && (p.linitial()==li||p.linitial()==pi)){
                 i = p.lname().slice(0, 2);
                 p.linitial(i);
                 if (prevp){
