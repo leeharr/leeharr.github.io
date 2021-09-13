@@ -48,11 +48,32 @@ var ProtoDBViewModel = function(){
         }
     }
 
+    self.flgsort = function (left, right) {
+        /* sort by first name, then last name, then grade */
+        let lln = left.lname();
+        let lfn = left.fname();
+        let rln = right.lname();
+        let rfn = right.fname();
+        let lgr = left.grade();
+        let rgr = right.grade();
+
+        if (lfn==rfn && lln==rfn){
+            return (lgr < rgr) ? -1 : (lgr > rgr) ? 1 : 0;
+        } else if (lfn == rfn){
+            return (lln < rln) ? -1 : (lln > rln) ? 1 : 0;
+        } else {
+            return (lfn < rfn) ? -1 : 1;
+        }
+    }
+
     self.people_bylf = ko.pureComputed(function(){
         return self.people.sorted(self.lfsort);
     });
     self.people_byfl = ko.pureComputed(function(){
         return self.people.sorted(self.flsort);
+    });
+    self.people_byflg = ko.pureComputed(function(){
+        return self.people.sorted(self.flgsort);
     });
 
     self.group_people_bylf = ko.pureComputed(function(){
@@ -84,7 +105,7 @@ var ProtoDBViewModel = function(){
         let li = '';
         let gr = '';
         let prevp;
-        for (let p of self.people_byfl()){
+        for (let p of self.people_byflg()){
             if (p.fname()==fn && p.lname()==ln && p.grade()==gr){
                 // exact same first, last, and grade
                 // do something odd for very unusual case
