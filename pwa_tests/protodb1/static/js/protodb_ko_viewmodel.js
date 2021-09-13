@@ -108,6 +108,9 @@ var ProtoDBViewModel = function(){
         let prevp;
         for (let p of self.people_byflg()){
             console.log('X'+fn+' '+ln+' '+li+' '+gr);
+            if (prevp){
+            console.log('_'+prevp.fname()+' '+prevp.lname()+' '+prevp.linitial()+' '+prevp.grade());
+            }
             console.log('.'+p.fname()+' '+p.lname()+' '+p.linitial()+' '+p.grade());
             if (p.fname()==fn && p.lname()==ln && p.grade()==gr){
                 // exact same first, last, and grade
