@@ -80,17 +80,33 @@ var ProtoDBViewModel = function(){
 
     self.setinitials = function(){
         let fn = '';
+        let ln = '';
         let li = '';
+        let gr = '';
         let prevp;
         for (let p of self.people_byfl()){
-            if (p.fname()==fn && p.linitial()==li){
+            if (p.fname()==fn && p.lname()==ln && p.grade()==gr){
+                // exact same first, last, and grade
+                // do something odd for very unusual case
+                p.linitial(p.lname().slice(0, 1)+'*')
+            } else if (p.fname==fn && p.lname()=ln){
+                // same first and last, but different grade
+                // show as fname l gr#
+                if (prevp){
+                    prevp.linitial(prevp.lname().slice(0, 1)+' '+prevp.grade())
+                }
+                p.linitial(p.lname().slice(0, 1)+' '+p.grade())
+            } else if (p.fname()==fn && p.linitial()==li){
                 p.linitial(p.lname().slice(0, 2));
                 if (prevp){
                     prevp.linitial(prevp.lname().slice(0, 2));
                 }
             }
+
             fn = p.fname();
+            ln = p.lname();
             li = p.linitial();
+            gr = p.grade();
             prevp = p;
         }
     }
