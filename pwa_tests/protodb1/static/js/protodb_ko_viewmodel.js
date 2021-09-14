@@ -145,7 +145,7 @@ var ProtoDBViewModel = function(){
                 console.log('C3');
                 i = p.lname().slice(0, 2);
                 p.linitial(i);
-                if (prevp && !li.includes('*')){
+                if (prevp && !li.includes('*') && !li.includes(' ')){
                     i = prevp.lname().slice(0, 2);
                     prevp.linitial(i);
                 }
