@@ -133,7 +133,7 @@ var ProtoDBViewModel = function(){
                 console.log('C2');
                 // same first and last, but different grade
                 // show as fname l gr#
-                if (prevp && !li.includes('*')){
+                if (prevp && !li.includes('*') && !li.includes(' ')){
                     i = prevp.lname().slice(0, 1);
                     i += ' ' + prevp.grade();
                     prevp.linitial(i);
