@@ -61,9 +61,9 @@ var sendonebyform = async function(o){
         // Follow Ups-test
         'entry.421530539': 'AFU1'}
 
-    p = new URLSearchParams(o);
+    let p = new URLSearchParams(o);
 
-    url = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScOg6zc7RK_mkeoxafCUmkXHE3M-gzw4kPSzabCG5RLQXGDDA/formResponse';
+    let url = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScOg6zc7RK_mkeoxafCUmkXHE3M-gzw4kPSzabCG5RLQXGDDA/formResponse';
 
     fetch(url, {
         'method': 'POST',
