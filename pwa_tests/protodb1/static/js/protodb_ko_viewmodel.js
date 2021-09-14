@@ -139,6 +139,7 @@ var ProtoDBViewModel = function(){
                     // graded. use prev initials and new grade
                     let idx = prevp.linitial().indexOf(' ');
                     i = prevp.linitial().slice(0, idx-1);
+                    console.log('prevp space '+idx+' '+i)
                 } else if (prevp){
                     i = prevp.lname().slice(0, 1);
                     let pvi = i + ' ' + prevp.grade();
