@@ -137,7 +137,7 @@ var ProtoDBViewModel = function(){
                     // do nothing
                 } else if (prevp && li.includes(' ')){
                     // graded. use prev initials and new grade
-                    idx = prevp.linitial().indexOf(' ');
+                    let idx = prevp.linitial().indexOf(' ');
                     i = prevp.linitial().slice(0, idx-1);
                 } else if (prevp){
                     i = prevp.lname().slice(0, 1);
