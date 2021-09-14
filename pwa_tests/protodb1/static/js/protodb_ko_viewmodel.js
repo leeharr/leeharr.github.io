@@ -129,7 +129,7 @@ var ProtoDBViewModel = function(){
 
                 i += '*';
                 p.linitial(i);
-            } else if (p.fname==fn && p.lname()==ln){
+            } else if (p.fname()==fn && p.lname()==ln){
                 console.log('C2');
                 // same first and last, but different grade
                 // show as fname l gr#
