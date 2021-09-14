@@ -109,21 +109,28 @@ var ProtoDBViewModel = function(){
         let prevp;
         for (let p of self.people_byflg()){
             p.linitial(p.lname().slice(0,1));
-            console.log('X'+fn+' '+ln+' '+li+' '+pi+' '+gr);
+            console.log('X'+p.pid()+' '+fn+' '+ln+' '+li+' '+pi+' '+gr);
             if (prevp){
             console.log('_'+prevp.fname()+' '+prevp.lname()+' '+prevp.linitial()+' '+prevp.grade());
             }
             console.log('.'+p.fname()+' '+p.lname()+' '+p.linitial()+' '+p.grade());
             if (p.fname()==fn && p.lname()==ln && p.grade()==gr){
+                console.log('C1');
                 // exact same first, last, and grade
                 // do something odd for very unusual case
-                i = p.lname().slice(0, 1);
-                if (p.linitial()==li){
-                    i = li+'*';
-                    p.linitial(i);
+
+                if (prevp && li.includes('*')){
+                    i = prevp.linitial();
+                } else if (prevp){
+                    i = prevp.slice(0,1);
                 }
+                i += '*';
+                prevp.linitial(i);
+
+                i += '*';
                 p.linitial(i);
             } else if (p.fname==fn && p.lname()==ln){
+                console.log('C2');
                 // same first and last, but different grade
                 // show as fname l gr#
                 if (prevp){
@@ -135,12 +142,15 @@ var ProtoDBViewModel = function(){
                 i += ' ' + p.grade();
                 p.linitial(i);
             } else if (p.fname()==fn && (p.linitial()==li||p.linitial()==pi)){
+                console.log('C3');
                 i = p.lname().slice(0, 2);
                 p.linitial(i);
                 if (prevp){
                     i = prevp.lname().slice(0, 2);
                     prevp.linitial(i);
                 }
+            } else {
+                console.log('C4');
             }
 
             fn = p.fname();
