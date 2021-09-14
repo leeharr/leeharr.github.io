@@ -149,6 +149,13 @@ var ProtoDBViewModel = function(){
                     i = prevp.lname().slice(0, 2);
                     prevp.linitial(i);
                 }
+                if (p.linitial() == prevp.linitial()){
+                    if (p.grade() != gr){
+                        p.linitial(p.linitial()+' '+p.grade());
+                        prevp.linitial(prevp.linitial()+' '+gr);
+                    }
+                }
+
             } else {
                 console.log('C4');
             }
