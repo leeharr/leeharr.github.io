@@ -107,6 +107,11 @@ var ProtoDBViewModel = function(){
         let pi = '';
         let i = '';
         let prevp;
+
+        for (let p of self.people.byflg()){
+            console.log(p.fname()+' '+p.lname()+' '+p.grade());
+        }
+
         for (let p of self.people_byflg()){
             p.linitial(p.lname().slice(0,1));
             console.log('X'+p.pid()+' '+fn+' '+ln+' '+li+' '+pi+' '+gr);
