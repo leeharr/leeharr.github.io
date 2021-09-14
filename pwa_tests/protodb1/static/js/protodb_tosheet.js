@@ -67,7 +67,10 @@ var sendonebyform = async function(o){
 
     fetch(url, {
         'method': 'POST',
-        'body': p
+        'body': p,
+        'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
     })
     .then(function(response){aftersend(response, sid);})
     .catch(function(error){console.log('err'+error);})
