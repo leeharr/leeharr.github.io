@@ -133,12 +133,19 @@ var ProtoDBViewModel = function(){
                 console.log('C2');
                 // same first and last, but different grade
                 // show as fname l gr#
-                if (prevp && !li.includes('*') && !li.includes(' ')){
+                if (prevp && li.includes('*'){
+                    // do nothing
+                } else if (prevp && li.includes(' '){
+                    // graded. use prev initials and new grade
+                    idx = prevp.linitial().indexOf(' ');
+                    i = prevp.linitial().slice(0, idx-1);
+                } else if (prevp){
                     i = prevp.lname().slice(0, 1);
-                    i += ' ' + prevp.grade();
-                    prevp.linitial(i);
+                    let pvi = i + ' ' + prevp.grade();
+                    prevp.linitial(pvi);
+                } else {
+                    i = p.lname().slice(0, 1);
                 }
-                i = p.lname().slice(0, 1);
                 i += ' ' + p.grade();
                 p.linitial(i);
             } else if (p.fname()==fn && (p.linitial()==li||p.linitial()==pi)){
