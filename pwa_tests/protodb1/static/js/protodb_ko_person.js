@@ -17,6 +17,7 @@ var Person = function(pid, lname, fname, grade){
             } else {
                 cb.checked = true;
             }
+            vm.setchange();
         } else {
             await self.showperson();
         }
