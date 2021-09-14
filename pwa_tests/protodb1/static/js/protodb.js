@@ -167,9 +167,9 @@ var createsession = async function(){
 
     let g = vm.selectedgroup();
     let dt = new Date();
-    let sesname = `${g.name()}-${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}-${dt.getTime()}`
+    let sesname = `${g.name()}-${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}-${dt.getTime()}`;
 
-    let sesdata = {'sesname': sesname}
+    let sesdata = {'sesname': sesname};
 
     var form = document.getElementById('newsession_questions');
     Array.from(form.children).forEach(function(div, i, arr){
@@ -182,7 +182,7 @@ var createsession = async function(){
         if (session_answers[qattr]){
             console.log('     a : '+session_answers[qattr][val]);
             sesdata[qattr+'str'] = session_answers[qattr][val];
-            sel.value = ''
+            sel.value = '';
         } else {
             sesdata[qattr+'str'] = val;
             sel['data-reset'](sel);
