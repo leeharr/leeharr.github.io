@@ -128,9 +128,9 @@ var ProtoDBViewModel = function(){
                     i = prevp.linitial();
                 } else if (prevp){
                     i = prevp.lname().slice(0,1);
+                    i += '*';
+                    prevp.linitial(i);
                 }
-                i += '*';
-                prevp.linitial(i);
 
                 i += '*';
                 p.linitial(i);
