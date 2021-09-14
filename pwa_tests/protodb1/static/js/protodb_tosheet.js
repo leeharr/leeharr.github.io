@@ -44,6 +44,35 @@ var sendonetosheet = async function(o){
     .catch(function(error){ console.log('err ' + error); })
 }
 
+var sendonebyform = async function(o){
+    // alternate method, sends data by google form
+    // instead of directly to google sheet
+
+    //test data
+    o = {
+        // School-test
+        'entry.2116668805': 'AST1',
+        // Student Name-test
+        'entry.224351746': 'ASN I',
+        // Date-test
+        'entry.1039559589_year': "2004",
+        'entry.1039559589_month': "02",
+        'entry.1039559589_day': "03",
+        // Follow Ups-test
+        'entry.421530539': 'AFU1'}
+
+    p = new URLSearchParams(o);
+
+    url = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScOg6zc7RK_mkeoxafCUmkXHE3M-gzw4kPSzabCG5RLQXGDDA/formResponse';
+
+    fetch(url, {
+        'method': 'POST',
+        'body': p
+    })
+    .then(function(response){aftersend(response, sid);})
+    .catch(function(error){console.log('err'+error);})
+}
+
 var sendalltosheet = async function(){
     let sentthrough = await cget('datasent');
     sentthrough = parseInt(sentthrough);
@@ -57,7 +86,8 @@ var sendalltosheet = async function(){
 
         let s = await sget(k);
         s['id'] = k;
-        sendonetosheet(s);
+        //sendonetosheet(s);
+        sendonebyform(s);
     }
     let scurid = await sgetcurrid();
     cset('datasent', scurid);
