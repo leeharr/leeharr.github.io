@@ -6,7 +6,7 @@ window.shownewperson = async function(){
         form.reset();
     }
 
-    let s = cget('school');
+    let s = await cget('school');
     let se = document.getElementById('newperson_questionsschool');
     se.value = s;
 
