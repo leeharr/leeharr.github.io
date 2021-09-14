@@ -122,7 +122,7 @@ var ProtoDBViewModel = function(){
                 if (prevp && li.includes('*')){
                     i = prevp.linitial();
                 } else if (prevp){
-                    i = prevp.slice(0,1);
+                    i = prevp.lname().lslice(0,1);
                 }
                 i += '*';
                 prevp.linitial(i);
