@@ -1,10 +1,15 @@
 'use strict';
 
-window.shownewperson = function(){
+window.shownewperson = async function(){
     var form = document.getElementById('newperson');
     if (form){
         form.reset();
     }
+
+    let s = cget('school');
+    let se = document.getElementById('newperson_questionsschool');
+    se.value = s;
+
     vm.personexists(false);
     vm.shownewperson(!vm.shownewperson());
     if (vm.selectedgroup()){
