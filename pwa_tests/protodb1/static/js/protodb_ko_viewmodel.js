@@ -134,11 +134,12 @@ var ProtoDBViewModel = function(){
                 // same first and last, but different grade
                 // show as fname l gr#
                 if (prevp && li.includes('*')){
-                    // do nothing
+                    // do nothing to prev
+                    i = p.lname().slice(0, 1);
                 } else if (prevp && li.includes(' ')){
                     // graded. use prev initials and new grade
                     let idx = prevp.linitial().indexOf(' ');
-                    i = prevp.linitial().slice(0, idx-1);
+                    i = prevp.linitial().slice(0, idx);
                     console.log('prevp space '+idx+' '+i)
                 } else if (prevp){
                     i = prevp.lname().slice(0, 1);
