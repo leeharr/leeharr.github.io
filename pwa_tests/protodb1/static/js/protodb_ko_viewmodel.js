@@ -108,7 +108,7 @@ var ProtoDBViewModel = function(){
         let i = '';
         let prevp;
 
-        for (let p of self.people.byflg()){
+        for (let p of self.people_byflg()){
             console.log(p.fname()+' '+p.lname()+' '+p.grade());
         }
 
