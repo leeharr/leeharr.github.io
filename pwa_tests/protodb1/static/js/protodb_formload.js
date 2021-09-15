@@ -103,11 +103,6 @@ var load_questions = async function(formid, questions, answers){
     });
 }
 
-async function asyncForEach(array, callback) {
-    for (let index = 0; index < array.length; index++) {
-        await callback(array[index], index, array);
-    }
-}
 var setremember = async function(formid, questions){
     asyncForEach(questions, async function(qa, qi, qarr){
         if (qa.remember){

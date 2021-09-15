@@ -1,4 +1,4 @@
-var cacheName = 'protodbC08';
+var cacheName = 'protodbC09';
 var filesToCache = [
   './',
   'index.html',
@@ -9,6 +9,7 @@ var filesToCache = [
   'static/js/main.js',
   'static/js/knockout-3.5.1.js',
   'static/js/idb-keyval-iife.js',
+  'static/js/protodb_util.js',
   'static/js/protodb.js',
   'static/js/protodb_db.js',
   'static/js/protodb_ko_person.js',

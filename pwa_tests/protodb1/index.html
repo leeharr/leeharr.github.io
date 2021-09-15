@@ -18,6 +18,7 @@
 
     <script defer src="static/js/idb-keyval-iife.js"></script>
     <script defer src="static/js/knockout-3.5.1.js"></script>
+    <script defer src="static/js/protodb_util.js"></script>
     <script defer src="static/js/protodb_db.js"></script>
     <script defer src="static/js/protodb_ko_person.js"></script>
     <script defer src="static/js/protodb_ko_group.js"></script>
@@ -122,9 +123,9 @@
         <button data-bind="visible: $root.showeditstaff()" onclick="showeditstaff()">Cancel</button></h1>
     <form id="editstaff" data-bind="visible: $root.showeditstaff()"
         onsubmit="editstaff(); return false;">
-    <div id="newstaff_questions">
-    <!-- Generated on load by load_session_questions() in protodb_formload.js -->
-    </div>
+        <div id="newstaff_questions">
+        <!-- Generated on load by load_session_questions() in protodb_formload.js -->
+        </div>
 
         <div class="qdiv">
             <input type="submit" value="Save"/>
