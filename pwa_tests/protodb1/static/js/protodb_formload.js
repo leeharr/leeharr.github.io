@@ -128,7 +128,7 @@ var loadjsonqs = function(qname, answers, aftercall){
     .then(asjson)
     .then(function(data){ loadto(divname, data, answers); return data; })
     .then(function(data){ setremember(divname, data); })
-    .then(function(){ if (aftercall){ aftercall(); });
+    .then(function(data){ if (aftercall){ aftercall(); });
 }
 
 var loadstaffinfo = async function(){
