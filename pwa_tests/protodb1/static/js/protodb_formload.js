@@ -121,17 +121,26 @@ var asjson = function(response){
 var loadto = function(divname, data, answers){
     load_questions(divname, data, answers);
 }
-var loadjsonqs = function(qname, answers){
+var loadjsonqs = function(qname, answers, aftercall){
     let jname = 'static/js/' + qname + '_questions.json';
     let divname = 'new' + qname + '_questions';
     fetch(jname)
     .then(asjson)
     .then(function(data){ loadto(divname, data, answers); return data; })
-    .then(function(data){ setremember(divname, data); });
+    .then(function(data){ setremember(divname, data); })
+    .then(function(){ if (aftercall){ aftercall(); });
 }
+
+var loadstaffinfo = async function(){
+    let sname = await cget('staffname');
+    vm.staffname(sname);
+    let pos = await cget('position');
+    vm.position(pos);
+}
+
 var session_answers = {}
-loadjsonqs('session', session_answers);
+loadjsonqs('session', session_answers, false);
 var person_answers = {}
-loadjsonqs('person', person_answers);
+loadjsonqs('person', person_answers, false);
 var staff_answers = {}
-loadjsonqs('staff', staff_answers);
+loadjsonqs('staff', staff_answers, loadstaffinfo);

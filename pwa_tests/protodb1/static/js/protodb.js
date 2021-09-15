@@ -340,11 +340,3 @@ var checkunsent = async function(){
     }
 }
 checkunsent();
-
-var loadstaffinfo = async function(){
-    let sname = await cget('staffname');
-    vm.staffname(sname);
-    let pos = await cget('position');
-    vm.position(pos);
-}
-loadstaffinfo();
