@@ -1,4 +1,11 @@
 [
+    {"q": "Staff Name",
+        "qattr": "staffname",
+        "req": true,
+        "remember": true,
+        "af": "textinput",
+        "areset": "textinputreset"},
+
     {"q": "Position",
         "qattr": "position",
         "req": true,
@@ -8,12 +15,5 @@
                 "East High Student support (not ats or help zone)",
                 "Child and Family Therapist",
                 "School Based Counselor",
-                "MBK"]},
-
-    {"q": "Staff Name",
-        "qattr": "staffname",
-        "req": true,
-        "remember": true,
-        "af": "textinput",
-        "areset": "textinputreset"}
+                "MBK"]}
 ]
