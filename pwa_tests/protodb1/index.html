@@ -119,9 +119,11 @@
 
 <div id="rs">
     <h1>Staff <button onclick="editstaff()">Edit</button></h1>
+    <form id="editstaff" data-bind="visible: $root.showeditstaff()">
     <div id="newstaff_questions">
     <!-- Generated on load by load_session_questions() in protodb_formload.js -->
     </div>
+    </form>
 
     <div data-bind="visible: !$root.showgroupsession()">
     <h1>Groups

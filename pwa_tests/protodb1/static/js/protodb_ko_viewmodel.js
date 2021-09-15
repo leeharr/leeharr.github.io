@@ -5,6 +5,7 @@ var ProtoDBViewModel = function(){
     self.people = ko.observableArray();
     self.groups = ko.observableArray();
 
+    self.showeditstaff = ko.observable(false);
     self.shownewperson = ko.observable(false);
     self.personexists = ko.observable(false);
     self.shownewgroup = ko.observable(false);

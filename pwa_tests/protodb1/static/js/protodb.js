@@ -1,5 +1,10 @@
 'use strict';
 
+window.showeditstaff = async function(){
+    let form = document.getElementById('editstaff');
+    vm.showeditstaff(true);
+}
+
 window.shownewperson = async function(){
     var form = document.getElementById('newperson');
     if (form){
