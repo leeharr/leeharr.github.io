@@ -42,6 +42,11 @@ var editstaff = async function(){
     });
 
     vm.showeditstaff(false);
+
+    let sname = await cget('staffname');
+    vm.staffname(sname);
+    let pos = await cget('position');
+    vm.position(pos);
 }
 
 window.shownewperson = async function(){
