@@ -23,11 +23,11 @@ var ProtoDBViewModel = function(){
     self.quickgroup = ko.observable(false);
     self.sendworking = ko.observable(false);
 
-    self.staffname = ko.pureComputed(function(){
+    self.staffname = ko.pureComputed(async function(){
         await cget('staffname');
         return 'Test Name';
     })
-    self.position = ko.pureComputed(function(){
+    self.position = ko.pureComputed(async function(){
         await cget('position');
         return 'Position Called';
     })
