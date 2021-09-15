@@ -23,6 +23,13 @@ var ProtoDBViewModel = function(){
     self.quickgroup = ko.observable(false);
     self.sendworking = ko.observable(false);
 
+    self.staffname = ko.pureComputed(function(){
+        return 'Test Name';
+    })
+    self.position = ko.pureComputed(function(){
+        return 'Position Called';
+    })
+
     self.lfsort = function (left, right) {
         /* sort by last name, then first name */
         let lln = left.lname();
