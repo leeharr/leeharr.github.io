@@ -15,7 +15,9 @@ window.showeditstaff = async function(){
 
             if (div['data-remember']){
                 let val = await cget(qattr);
-                sel.value = val;
+                if (val){
+                    sel.value = val;
+                }
             }
         }
     }
