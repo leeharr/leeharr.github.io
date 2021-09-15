@@ -58,7 +58,7 @@ var load_questions = async function(formid, questions, answers){
         div['data-remember'] = qa.remember;
         console.log('APPEND TO '+form+ ' ID '+ form.id);
         form.appendChild(div);
-                      let qspan = document.createElement('div');
+        let qspan = document.createElement('div');
         qspan.innerHTML = qa.q;
         div.appendChild(qspan);
 
@@ -138,3 +138,5 @@ var session_answers = {}
 loadjsonqs('session', session_answers);
 var person_answers = {}
 loadjsonqs('person', person_answers);
+var staff_answers = {}
+loadjsonqs('staff', staff_answers);
