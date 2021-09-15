@@ -26,11 +26,13 @@ var ProtoDBViewModel = function(){
     self.staffname = ko.observable('Test Name');
     self.position = ko.observable('Position Called');
     self.positionname = ko.computed(function(){
-//         let pos = self.position();
-//         let qp = document.getElementById('newstaff_questionsposition');
-//         pstr = qp.options[pos];
-//         return pstr;
-        return 'Test Pos';
+        let pos = self.position();
+        let qp = document.getElementById('newstaff_questionsposition');
+        let pstr = 'Filler';
+        if (qp){
+            pstr = qp.options[pos];
+        }
+        return pstr;
     });
 
     self.lfsort = function (left, right) {
