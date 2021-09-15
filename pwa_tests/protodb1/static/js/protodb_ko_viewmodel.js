@@ -191,11 +191,13 @@ var ProtoDBViewModel = function(){
             self.people.remove(p);
         }
     }
-    self.addperson = function(pid, lname, fname, grade){
+    self.addperson = function(pid, lname, fname, grade, seti){
         self.rmperson(pid);
         let p = new Person(pid, lname, fname, grade);
         self.people.push(p);
-        self.setinitials();
+        if (seti){
+            self.setinitials();
+        }
         return p;
     }
     self.getperson = function(pid){
@@ -303,7 +305,7 @@ var ProtoDBViewModel = function(){
             let p = await pget(k);
             if (ko.utils.arrayFirst(self.people(), function(i){
                 return i.pid()==k})){console.log('ERROR.Person.Dup.Id.');}
-                self.addperson(k, p.lname, p.fname, p.gradestr);
+                self.addperson(k, p.lname, p.fname, p.gradestr, false);
         }
 
         self.groups.removeAll();

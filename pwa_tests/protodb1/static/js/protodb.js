@@ -102,7 +102,7 @@ var newperson = async function(e){
     }
     console.log(i + ' - - ' + p.lname + ', ' + p.fname);
     pset(i, p);
-    vm.addperson(i, p.lname, p.fname, p.gradestr);
+    vm.addperson(i, p.lname, p.fname, p.gradestr, true);
 
     vm.shownewperson(false);
 }
