@@ -17,6 +17,11 @@ var editstaff = async function(){
         let sel = div.children[1];
         let val = sel.value;
         console.log('   val : '+val);
+
+        if (div['data-remember']){
+            cset(qattr, val);
+            sel.value = val;
+        }
     });
 
     vm.showeditstaff(false);
