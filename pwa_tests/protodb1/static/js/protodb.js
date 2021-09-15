@@ -1,6 +1,6 @@
 'use strict';
 
-window.showeditstaff = async function(){
+window.editstaff = async function(){
     let form = document.getElementById('editstaff');
     vm.showeditstaff(true);
 }
