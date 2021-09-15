@@ -133,9 +133,13 @@ var loadjsonqs = function(qname, answers, aftercall){
 
 var loadstaffinfo = async function(){
     let sname = await cget('staffname');
-    vm.staffname(sname);
+    if (sname){
+        vm.staffname(sname);
+    }
     let pos = await cget('position');
-    vm.position(pos);
+    if (pos){
+        vm.position(pos);
+    }
 }
 
 var session_answers = {}

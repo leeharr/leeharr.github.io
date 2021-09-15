@@ -23,8 +23,8 @@ var ProtoDBViewModel = function(){
     self.quickgroup = ko.observable(false);
     self.sendworking = ko.observable(false);
 
-    self.staffname = ko.observable('Test Name');
-    self.position = ko.observable('Position Called');
+    self.staffname = ko.observable('Edit to set Name and Position!');
+    self.position = ko.observable('Position Unset');
     self.positionname = ko.computed(function(){
         let pos = self.position();
         let qp = document.getElementById('newstaff_questionsposition');
