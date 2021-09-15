@@ -28,11 +28,11 @@ var ProtoDBViewModel = function(){
     self.positionname = ko.computed(function(){
         let pos = self.position();
         let qp = document.getElementById('newstaff_questionsposition');
-        let pstr = 'Filler';
+        let pstr = 'Position Not Set';
         console.log('PN');
         console.log(pos);
         console.log(qp);
-        if (qp){
+        if (qp && pos){
             console.log(qp.options);
             //pstr = qp.options[pos].text;
             pstr = selectoptiontext(qp, pos);
