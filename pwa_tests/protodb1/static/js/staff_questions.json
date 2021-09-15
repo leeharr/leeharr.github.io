@@ -1,0 +1,18 @@
+[
+    {"q": "Position",
+        "qattr": "position",
+        "req": true,
+        "remember": true,
+        "a": ["ATS (8, 45, East)",
+                "Social Learning Specialist - Help Zone",
+                "East High Student support (not ats or help zone)",
+                "Child and Family Therapist",
+                "School Based Counselor",
+                "MBK"]},
+
+    {"q": "Staff Name",
+        "qattr": "staffname",
+        "req": true,
+        "af": "textinput",
+        "areset": "textinputreset"}
+]
