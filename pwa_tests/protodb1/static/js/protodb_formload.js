@@ -135,3 +135,11 @@ var person_answers = {}
 loadjsonqs('person', person_answers);
 var staff_answers = {}
 loadjsonqs('staff', staff_answers);
+
+var loadstaffinfo = async function(){
+    let sname = await cget('staffname');
+    vm.staffname(sname);
+    let pos = await cget('position');
+    vm.position(pos);
+}
+loadstaffinfo();

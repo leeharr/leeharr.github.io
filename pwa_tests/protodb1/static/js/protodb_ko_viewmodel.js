@@ -23,14 +23,8 @@ var ProtoDBViewModel = function(){
     self.quickgroup = ko.observable(false);
     self.sendworking = ko.observable(false);
 
-    self.staffname = ko.pureComputed(async function(){
-        await cget('staffname');
-        return 'Test Name';
-    })
-    self.position = ko.pureComputed(async function(){
-        await cget('position');
-        return 'Position Called';
-    })
+    self.staffname = ko.observable('Test Name');
+    self.position = ko.observable('Position Called');
 
     self.lfsort = function (left, right) {
         /* sort by last name, then first name */
