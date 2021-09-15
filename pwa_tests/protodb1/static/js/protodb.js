@@ -17,7 +17,7 @@ var editstaff = async function(){
         let sel = div.children[1];
         let val = sel.value;
         console.log('   val : '+val);
-    }
+    });
 
     vm.showeditstaff(false);
 }
