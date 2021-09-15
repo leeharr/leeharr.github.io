@@ -2,6 +2,20 @@
 
 window.showeditstaff = async function(){
     vm.showeditstaff(!vm.showeditstaff());
+
+    if (vm.showeditstaff()){
+        // show remembered values
+        let form = document.getElementById('newstaff_questions');
+        Array.from(form.children).forEach(function(div, i, arr){
+            let qattr = div['data-qattr'];
+            let sel = div.children[1];
+            if (!qattr){ return; }
+
+            if (div['data-remember']){
+                let val = await cget(qattr);
+                sel.value = val;
+            }
+    }
 }
 var editstaff = async function(){
     console.log('SAVE ES');
