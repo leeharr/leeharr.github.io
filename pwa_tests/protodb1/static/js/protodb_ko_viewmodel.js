@@ -30,7 +30,7 @@ var ProtoDBViewModel = function(){
         let qp = document.getElementById('newstaff_questionsposition');
         let pstr = 'Filler';
         if (qp){
-            pstr = qp.options[pos];
+            pstr = qp.options[pos].text;
         }
         return pstr;
     });
