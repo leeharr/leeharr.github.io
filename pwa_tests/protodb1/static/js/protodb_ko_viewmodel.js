@@ -29,7 +29,11 @@ var ProtoDBViewModel = function(){
         let pos = self.position();
         let qp = document.getElementById('newstaff_questionsposition');
         let pstr = 'Filler';
+        console.log('PN');
+        console.log(pos);
+        console.log(qp);
         if (qp){
+            console.log(qp.options);
             pstr = qp.options[pos].text;
         }
         return pstr;
