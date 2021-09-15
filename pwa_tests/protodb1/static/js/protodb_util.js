@@ -3,3 +3,12 @@ var asyncForEach = async function(array, callback) {
         await callback(array[index], index, array);
     }
 }
+
+var selectoptiontext = function(s, oval){
+    for (i=0; i<s.options.length; i++){
+        let o = s.options[i];
+        if (o.value == oval){
+            return o.text;
+        }
+    }
+}

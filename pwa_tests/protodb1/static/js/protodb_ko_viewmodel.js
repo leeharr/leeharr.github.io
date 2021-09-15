@@ -34,7 +34,8 @@ var ProtoDBViewModel = function(){
         console.log(qp);
         if (qp){
             console.log(qp.options);
-            pstr = qp.options[pos].text;
+            //pstr = qp.options[pos].text;
+            pstr = selectoptiontext(qp, pos);
         }
         return pstr;
     });
