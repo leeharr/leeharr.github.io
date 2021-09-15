@@ -1,8 +1,12 @@
 'use strict';
 
-window.editstaff = async function(){
+window.showeditstaff = async function(){
     let form = document.getElementById('editstaff');
-    vm.showeditstaff(true);
+    vm.showeditstaff(!vm.showeditstaff());
+}
+var editstaff = async function(){
+    console.log('SAVE ES');
+    vm.showeditstaff(false);
 }
 
 window.shownewperson = async function(){

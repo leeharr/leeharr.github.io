@@ -118,11 +118,18 @@
 </div>
 
 <div id="rs">
-    <h1>Staff <button onclick="editstaff()">Edit</button></h1>
-    <form id="editstaff" data-bind="visible: $root.showeditstaff()">
+    <h1>Staff <button onclick="showeditstaff()">Edit</button>
+        <button data-bind="visible: $root.showeditstaff()" onclick="showeditstaff()"></h1>
+    <form id="editstaff" data-bind="visible: $root.showeditstaff()"
+        onsubmit="editstaff(); return false;">
     <div id="newstaff_questions">
     <!-- Generated on load by load_session_questions() in protodb_formload.js -->
     </div>
+
+        <div class="qdiv">
+            <input type="submit" value="Edit"/>
+            <button onclick="showeditstaff(); return false;">Cancel</button>
+        </div>
     </form>
 
     <div data-bind="visible: !$root.showgroupsession()">
