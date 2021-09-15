@@ -6,15 +6,18 @@ window.showeditstaff = async function(){
     if (vm.showeditstaff()){
         // show remembered values
         let form = document.getElementById('newstaff_questions');
-        Array.from(form.children).forEach(function(div, i, arr){
+        let fc = Array.from(form.children);
+        for (let i=0; i<fc.length; i++){
+            let div = fc[i];
             let qattr = div['data-qattr'];
-            let sel = div.children[1];
             if (!qattr){ return; }
+            let sel = div.children[1];
 
             if (div['data-remember']){
                 let val = await cget(qattr);
                 sel.value = val;
             }
+        }
     }
 }
 var editstaff = async function(){
