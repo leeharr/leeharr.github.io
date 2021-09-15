@@ -119,7 +119,7 @@
 
 <div id="rs">
     <h1>Staff <button onclick="showeditstaff()">Edit</button>
-        <button data-bind="visible: $root.showeditstaff()" onclick="showeditstaff()"></h1>
+        <button data-bind="visible: $root.showeditstaff()" onclick="showeditstaff()">Cancel</button></h1>
     <form id="editstaff" data-bind="visible: $root.showeditstaff()"
         onsubmit="editstaff(); return false;">
     <div id="newstaff_questions">
@@ -127,7 +127,7 @@
     </div>
 
         <div class="qdiv">
-            <input type="submit" value="Edit"/>
+            <input type="submit" value="Save"/>
             <button onclick="showeditstaff(); return false;">Cancel</button>
         </div>
     </form>

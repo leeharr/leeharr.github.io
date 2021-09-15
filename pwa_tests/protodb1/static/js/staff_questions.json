@@ -13,6 +13,7 @@
     {"q": "Staff Name",
         "qattr": "staffname",
         "req": true,
+        "remember": true,
         "af": "textinput",
         "areset": "textinputreset"}
 ]

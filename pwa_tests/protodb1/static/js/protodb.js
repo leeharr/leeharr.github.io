@@ -1,11 +1,24 @@
 'use strict';
 
 window.showeditstaff = async function(){
-    let form = document.getElementById('editstaff');
     vm.showeditstaff(!vm.showeditstaff());
 }
 var editstaff = async function(){
     console.log('SAVE ES');
+
+    let s = {};
+
+    let form = document.getElementById('newstaff_questions');
+    Array.from(form.children).forEach(function(div, i, arr){
+        let qattr = div['data-qattr'];
+        if (!qattr){ return; }
+
+        console.log('qattr : '+qattr);
+        let sel = div.children[1];
+        let val = sel.value;
+        console.log('   val : '+val);
+    }
+
     vm.showeditstaff(false);
 }
 
@@ -26,6 +39,7 @@ window.shownewperson = async function(){
     }
 }
 var newperson = async function(e){
+    // e true if saving existing person
     console.log('new person form sent '+e);
     vm.shownewperson(false);
 
