@@ -105,7 +105,7 @@ var load_questions = async function(formid, questions, answers){
                 sel.appendChild(op);
             });
 
-            if (withother){addEventListener(
+            if (withother){
                 console.log('WITH OTHER');
                 let ti = document.createElement('input');
                 ti.type = 'text';
