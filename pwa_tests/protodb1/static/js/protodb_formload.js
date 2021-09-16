@@ -105,7 +105,7 @@ var load_questions = async function(formid, questions, answers){
                 div.appendChild(ti);
                 ti.id = selid + '_other';
 
-                ti.onchange = function(){
+                sel.onchange = function(){
                     console.log('TI ONCH');
                     let val = this.value;
                     if (othery(val)){
