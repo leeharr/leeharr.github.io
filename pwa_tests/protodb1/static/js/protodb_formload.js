@@ -97,9 +97,7 @@ var load_questions = async function(formid, questions, answers){
                 console.log('WITH OTHER');
                 let ti = document.createElement('input');
                 ti.type = 'text';
-                if (req){
-                    ti.required = true;
-                }
+                ti.required = false; // will be set later if 'Other' is selected
                 div.appendChild(ti);
                 ti.id = selid + '_other';
             }
