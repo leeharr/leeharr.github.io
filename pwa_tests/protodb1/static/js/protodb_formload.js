@@ -105,8 +105,8 @@ var load_questions = async function(formid, questions, answers){
                 div.appendChild(ti);
                 ti.id = selid + '_other';
 
-                ti.onchange = function(this){
-                    let val = this.value;
+                ti.onchange = function(s){
+                    let val = s.value;
                     if (othery(val)){
                         ti.style.visibility = 'visible';
                     } else {
