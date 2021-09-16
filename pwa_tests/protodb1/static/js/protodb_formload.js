@@ -96,7 +96,7 @@ var load_questions = async function(formid, questions, answers){
             let op = document.createElement('option');
             op.innerHTML = 'Choose...';
             op.value = '';
-            sel.appendChild(op);addEventListener(
+            sel.appendChild(op);
 
             qa.a.forEach(function(a, ai, aarr){
                 op = document.createElement('option');
