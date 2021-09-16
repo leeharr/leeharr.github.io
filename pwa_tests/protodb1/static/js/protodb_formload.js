@@ -115,8 +115,8 @@ var load_questions = async function(formid, questions, answers){
                 ti.id = selid + '_other';
 
                 sel.onchange = function(){
-                    console.log('TI ONCH');
-                    let txt = this.text;
+                    let txt = sel.options[sel.selectedIndex].text;
+                    console.log('TI ONCH '+txt+'#');
                     if (othery(txt)){
                         ti.style.visibility = 'visible';
                     } else {
