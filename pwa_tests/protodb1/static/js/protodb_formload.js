@@ -48,7 +48,7 @@ window.textinputreset = function(ti){
 }
 
 let checkforother = function(answers){
-    for (i=0; i<answers.length; i++){
+    for (let i=0; i<answers.length; i++){
         let ans = answers[i];
         let ansl = ans.toLowerCase();
         if (ansl.startsWith('other')){ return true; }
