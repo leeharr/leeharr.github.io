@@ -51,6 +51,8 @@ window.withotherreset = function(sel){
     console.log('WITH OTHER RESET');
     sel.value = '';
     sel._relother.value = '';
+    sel._relother.style.visibility = 'hidden';
+    sel._relother.required = false;
 }
 
 let othery = function(txt){
@@ -113,7 +115,7 @@ var load_questions = async function(formid, questions, answers){
 
             if (withother){
                 console.log('WITH OTHER');
-                qa.areset = window.withotherreset;
+                qa.areset = 'withotherreset';
                 let ti = document.createElement('input');
                 ti.type = 'text';
                 ti.required = false; // will be set later if 'Other' is selected
