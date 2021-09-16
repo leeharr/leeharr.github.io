@@ -321,7 +321,12 @@ var ProtoDBViewModel = function(){
             let sel = div.children[1];
             let val = sel.value;
             console.log('   val : '+val);
-            sel['data-reset'](sel);
+            let f = sel['data-reset']
+            if (f){
+                f(sel);
+            } else {
+                sel.value = '';
+            }
         });
     }
 
