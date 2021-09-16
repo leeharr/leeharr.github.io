@@ -314,7 +314,7 @@ var ProtoDBViewModel = function(){
         }
 
         let form = document.getElementById('newsession_questions');
-        console.log('form reset');
+        console.log('form reset '+form);
         Array.from(form.children).forEach(function(div, i, arr){
             let qattr = div['data-qattr'];
             console.log('qattr : '+qattr);
