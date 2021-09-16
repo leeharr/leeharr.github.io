@@ -47,6 +47,15 @@ window.textinputreset = function(ti){
     ti.value = '';
 }
 
+let checkforother = function(answers){
+    for (i=0; i<answers.length; i++){
+        let ans = answers[i];
+        let ansl = ans.toLowerCase();
+        if (ansl.startsWith('other'){ return true }
+    }
+    return false;
+}
+
 var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);
     if (!form){ return; }
@@ -64,6 +73,9 @@ var load_questions = async function(formid, questions, answers){
 
         let sel;
         if (qa.a){
+            let withother = checkforother(qa.a);
+            if (withother){ console.log('WITH OTHER'); }
+
             sel = document.createElement('select');
             div.appendChild(sel);
 
