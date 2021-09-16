@@ -50,7 +50,7 @@ window.textinputreset = function(ti){
 let othery = function(txt){
     let ansl = txt.toLowerCase();
     console.log(ansl);
-    if (txt.startsWith('other')){
+    if (ansl.startsWith('other')){
         return true;
     } else {
         return false;
