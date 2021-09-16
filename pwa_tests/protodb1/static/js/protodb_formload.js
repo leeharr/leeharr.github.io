@@ -119,8 +119,10 @@ var load_questions = async function(formid, questions, answers){
                     console.log('TI ONCH '+txt+'#');
                     if (othery(txt)){
                         ti.style.visibility = 'visible';
+                        ti.required = true;
                     } else {
                         ti.style.visibility = 'hidden';
+                        ti.required = false;
                     }
                 }
             }
