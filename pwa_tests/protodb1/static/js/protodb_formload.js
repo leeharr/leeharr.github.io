@@ -47,11 +47,14 @@ window.textinputreset = function(ti){
     ti.value = '';
 }
 
+let othery = function(txt){
+    let ansl = txt.toLowerCase();
+    return txt.startsWith('other');
+}
 let checkforother = function(answers){
     for (let i=0; i<answers.length; i++){
         let ans = answers[i];
-        let ansl = ans.toLowerCase();
-        if (ansl.startsWith('other')){ return true; }
+        if (othery(ans)){ return true; }
     }
     return false;
 }
@@ -101,6 +104,15 @@ var load_questions = async function(formid, questions, answers){
                 ti.style.visibility = 'hidden'; // will reveal later
                 div.appendChild(ti);
                 ti.id = selid + '_other';
+
+                ti.onchange = function(this){
+                    let val = this.value;
+                    if (othery(val)){
+                        ti.style.visibility = 'visible';
+                    } else {
+                        ti.style.visibility = 'hidden';
+                    }
+                }
             }
 
         } else {
