@@ -47,6 +47,12 @@ window.textinputreset = function(ti){
     ti.value = '';
 }
 
+window.withotherreset = function(sel){
+    console.log('WITH OTHER RESET');
+    sel.value = '';
+    sel._relother.value = '';
+}
+
 let othery = function(txt){
     let ansl = txt.toLowerCase();
     console.log(ansl);
@@ -107,12 +113,14 @@ var load_questions = async function(formid, questions, answers){
 
             if (withother){
                 console.log('WITH OTHER');
+                qa.areset = window.withotherreset;
                 let ti = document.createElement('input');
                 ti.type = 'text';
                 ti.required = false; // will be set later if 'Other' is selected
                 ti.style.visibility = 'hidden'; // will reveal later
                 div.appendChild(ti);
                 ti.id = selid + '_other';
+                sel._relother = ti;
 
                 sel.onchange = function(){
                     let txt = sel.options[sel.selectedIndex].text;
@@ -131,6 +139,9 @@ var load_questions = async function(formid, questions, answers){
             console.log('look for ' + qa.af);
             let af = window[qa.af];
             sel = af(div, qa.req);
+        }
+
+        if (qa.areset){
             let areset = window[qa.areset];
             sel['data-reset'] = areset;
             areset(sel);
