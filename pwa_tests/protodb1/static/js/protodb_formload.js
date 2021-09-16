@@ -80,6 +80,7 @@ var load_questions = async function(formid, questions, answers){
         let selid = formid + qa.qattr;
         if (qa.a){
             let withother = checkforother(qa.a);
+            console.log('OTHER?'+withother+'#');
 
             sel = document.createElement('select');
             div.appendChild(sel);
@@ -89,7 +90,7 @@ var load_questions = async function(formid, questions, answers){
             let op = document.createElement('option');
             op.innerHTML = 'Choose...';
             op.value = '';
-            sel.appendChild(op);
+            sel.appendChild(op);addEventListener(
 
             qa.a.forEach(function(a, ai, aarr){
                 op = document.createElement('option');
@@ -98,7 +99,7 @@ var load_questions = async function(formid, questions, answers){
                 sel.appendChild(op);
             });
 
-            if (withother){
+            if (withother){addEventListener(
                 console.log('WITH OTHER');
                 let ti = document.createElement('input');
                 ti.type = 'text';
