@@ -79,8 +79,8 @@ var load_questions = async function(formid, questions, answers){
         let sel;
         let selid = formid + qa.qattr;
         if (qa.a){
-            let withother = checkforother(qa.a);
-            console.log('OTHER?'+withother+'#');
+            //let withother = checkforother(qa.a);
+            //console.log('OTHER?'+withother+'#');
 
             sel = document.createElement('select');
             div.appendChild(sel);
