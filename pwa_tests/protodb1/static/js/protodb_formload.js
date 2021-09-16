@@ -105,14 +105,14 @@ var load_questions = async function(formid, questions, answers){
                 div.appendChild(ti);
                 ti.id = selid + '_other';
 
-                ti.addEventListener('change', function(s){
-                    let val = s.value;
+                ti.onchange = function(){
+                    let val = this.value;
                     if (othery(val)){
                         ti.style.visibility = 'visible';
                     } else {
                         ti.style.visibility = 'hidden';
                     }
-                });
+                }
             }
 
         } else {
