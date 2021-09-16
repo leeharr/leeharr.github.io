@@ -312,6 +312,17 @@ var ProtoDBViewModel = function(){
         if (g.name() == 'QUICK'){
             vm.groups.remove(g);
         }
+
+        let form = document.getElementById('newsession_questions');
+        console.log('form reset');
+        Array.from(form.children).forEach(function(div, i, arr){
+            let qattr = div['data-qattr'];
+            console.log('qattr : '+qattr);
+            let sel = div.children[1];
+            let val = sel.value;
+            console.log('   val : '+val);
+            sel['data-reset'](sel);
+        });
     }
 
     self.dbsync = async function(){
