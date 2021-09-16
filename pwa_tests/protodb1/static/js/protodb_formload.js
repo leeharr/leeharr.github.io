@@ -72,9 +72,9 @@ var load_questions = async function(formid, questions, answers){
         div.appendChild(qspan);
 
         let sel;
+        let selid = formid + qa.qattr;
         if (qa.a){
             let withother = checkforother(qa.a);
-            if (withother){ console.log('WITH OTHER'); }
 
             sel = document.createElement('select');
             div.appendChild(sel);
@@ -92,6 +92,18 @@ var load_questions = async function(formid, questions, answers){
                 op.value = ai.toString();
                 sel.appendChild(op);
             });
+
+            if (withother){
+                console.log('WITH OTHER');
+                let ti = document.createElement('input');
+                ti.type = 'text';
+                if (req){
+                    ti.required = true;
+                }
+                div.appendChild(ti);
+                ti.id = selid + '_other';
+            }
+
         } else {
             console.log('look for ' + qa.af);
             let af = window[qa.af];
@@ -110,7 +122,6 @@ var load_questions = async function(formid, questions, answers){
             div.setAttribute('class', 'qdiv qdivreq');
         }
 
-        let selid = formid + qa.qattr;
         sel.id = selid;
     });
 }
