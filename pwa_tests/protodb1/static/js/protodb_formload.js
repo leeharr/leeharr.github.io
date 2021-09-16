@@ -49,9 +49,11 @@ window.textinputreset = function(ti){
 
 let othery = function(txt){
     let ansl = txt.toLowerCase();
+    console.log(ansl);
     return txt.startsWith('other');
 }
 let checkforother = function(answers){
+    console.log('CK OTH');
     for (let i=0; i<answers.length; i++){
         let ans = answers[i];
         if (othery(ans)){ return true; }
