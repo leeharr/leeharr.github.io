@@ -257,6 +257,10 @@ var createsession = async function(){
                 sesdata[qattr+'str'] = sa[val];
             }
             sel.value = '';
+        } else if (val instanceof Function){
+            console.log('VAL FUNC');
+            sesdata[qattr+'str'] = val();
+            sel['data-reset'](sel);
         } else {
             sesdata[qattr+'str'] = val;
             sel['data-reset'](sel);
