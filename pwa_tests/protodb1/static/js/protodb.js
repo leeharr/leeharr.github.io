@@ -267,6 +267,9 @@ var createsession = async function(){
         }
     });
 
+    pesdata['staffname'] = vm.staffname();
+    sesdata['positionstr'] = vm.positionname();
+
     let ppl = g.people();
     let rmgroup = false;
     if (g.name() == 'QUICK'){ ppl = vm.people(); rmgroup = true; }
@@ -285,8 +288,6 @@ var createsession = async function(){
 
         let dbp = await pget(pid);
 
-        psesdata['staffname'] = vm.staffname();
-        psesdata['position'] = vm.positionname();
         psesdata['schoolstr'] = dbp.schoolstr;
         psesdata['lname'] = p.linitial();
         psesdata['fname'] = dbp.fname;
