@@ -281,7 +281,7 @@ var createsession = async function(){
         let dbp = await pget(pid);
 
         psesdata['staffname'] = vm.staffname();
-        psesdata['position'] = vm.position();
+        psesdata['position'] = vm.positionname();
         psesdata['schoolstr'] = dbp.schoolstr;
         psesdata['lname'] = p.linitial();
         psesdata['fname'] = dbp.fname;
