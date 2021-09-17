@@ -107,10 +107,10 @@
     <tbody data-bind="foreach: group_people_byfl">
         <tr>
         <td><input type="checkbox" data-bind="attr: {id: 'gspid'+pid()}" /></td>
-        <td data-bind="text: pid()" class="num"></td>
-        <td data-bind="text: fname()"></td>
-        <td data-bind="text: lname()"></td>
-        <td data-bind="text: linitial()"></td>
+        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>
+        <td data-bind="text: fname(), click: checkorshowperson"></td>
+        <td data-bind="text: lname(), click: checkorshowperson"></td>
+        <td data-bind="text: linitial(), click: checkorshowperson"></td>
         </tr>
     </tbody>
     </table>
