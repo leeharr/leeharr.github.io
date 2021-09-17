@@ -101,8 +101,10 @@ window.yesno = function(div, req){
 
     return dsel;
 }
-window.yesnoreset = function(){
+window.yesnoreset = function(sel){
     console.log('RESET YES NO');
+    sel._yes.checked = false;
+    sel._no.checked = false;
 }
 
 var load_questions = async function(formid, questions, answers){
