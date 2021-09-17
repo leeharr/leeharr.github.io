@@ -238,7 +238,8 @@ var createsession = async function(){
         sesdata[qattr+'id'] = val;
         let sa = session_answers[qattr];
         if (sa){
-            othq = checkforother(sa);
+            let othq = checkforother(sa);
+            let otha;
             if (othq){
                 otha = othery(sa[val]);
             } else {
