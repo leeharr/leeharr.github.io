@@ -62,11 +62,24 @@ window.yesno = function(div, req){
     let rbyes = document.createElement('input');
     rbyes.type = 'radio';
     rbyes.name = div.id + '_rbyesno';
-    dsel.appendChild(rbyes);
+    rbyes.id = rbyes.name + '_id';
+    let rbyespan = document.createElement('span');
+    let rbyeslbl = document.createElement('label');
+    rbyeslbl.setAttribute('for', rbyes.id);
+    rbyespan.appendChild(rbyes);
+    rbyespan.appendChild(rbyeslbl);
+    dsel.appendChild(rbyespan);
+
     let rbno = document.createElement('input');
-    rbyes.type = 'radio';
-    rbyes.name = div.id + '_rbyesno';
-    dsel.appendChild(rbno);
+    rbno.type = 'radio';
+    rbno.name = div.id + '_rbyesno';
+    rbno.id = rbno.name + '_id';
+    let rbnospan = document.createElement('span');
+    let rbnolbl = document.createElement('label');
+    rbnolbl.setAttribute('for', rbyes.id);
+    rbnospan.appendChild(rbno);
+    rbnospan.appendChild(rbnolbl);
+    dsel.appendChild(rbnospan);
 
     if (req){
         rbyes.required = true;
