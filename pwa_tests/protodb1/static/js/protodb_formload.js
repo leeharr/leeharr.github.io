@@ -98,6 +98,7 @@ window.yesno = function(div, req){
             return 'No';
         }
     }
+    dsel.value.bind(dsel);
 
     return dsel;
 }
