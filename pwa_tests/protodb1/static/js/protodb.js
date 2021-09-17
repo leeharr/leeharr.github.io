@@ -212,6 +212,31 @@ function _age(dobstr) {
 }
 
 var working = [];
+var chkcreatesession = function(){
+    console.log('CHK CREATE SESS');
+    let g = vm.selectedgroup();
+    let ppl = g.people();
+    let count = 0;
+    for (let p of ppl){
+        let pid = p.pid();
+
+        let gspid = '#gspid'+pid;
+        let cb = document.querySelector(gspid);
+        if (cb && cb.checked){
+            console.log('SEL: '+pid);
+            count++;
+        }
+    }
+
+    if (!count){
+        console.log('NONE SELECTED');
+        return false;
+    } else {
+        setTimeout(createsession, 200);
+        return true;
+    }
+}
+
 var createsession = async function(){
     console.log('CREATE SESSION');
     vm.showgroupsession(false);
