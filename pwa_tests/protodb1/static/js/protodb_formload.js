@@ -55,26 +55,6 @@ window.withotherreset = function(sel){
     sel._relother.required = false;
 }
 
-let othery = function(txt){
-    let ansl = txt.toLowerCase();
-    console.log(ansl);
-    if (ansl.startsWith('other')){
-        return true;
-    } else {
-        return false;
-    }
-}
-let checkforother = function(answers){
-    console.log('CK OTH');
-    for (let i=0; i<answers.length; i++){
-        let ans = answers[i];
-        if (othery(ans)){
-            return true;
-        }
-    }
-    return false;
-}
-
 var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);
     if (!form){ return; }

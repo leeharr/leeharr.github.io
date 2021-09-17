@@ -12,3 +12,23 @@ var selectoptiontext = function(s, oval){
         }
     }
 }
+
+var othery = function(txt){
+    let ansl = txt.toLowerCase();
+    console.log(ansl);
+    if (ansl.startsWith('other')){
+        return true;
+    } else {
+        return false;
+    }
+}
+var checkforother = function(answers){
+    console.log('CK OTH');
+    for (let i=0; i<answers.length; i++){
+        let ans = answers[i];
+        if (othery(ans)){
+            return true;
+        }
+    }
+    return false;
+}
