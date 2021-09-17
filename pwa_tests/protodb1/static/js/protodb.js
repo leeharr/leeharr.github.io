@@ -248,7 +248,7 @@ var createsession = async function(){
         }
         if (sa){
             console.log('     a : '+sa[val]);
-            console.log('OTHER? '+oth);
+            console.log('OTHER? '+othq+' '+otha);
             if (othq && otha){
                 sel = div.children[2];
                 console.log('sel '+sel);
