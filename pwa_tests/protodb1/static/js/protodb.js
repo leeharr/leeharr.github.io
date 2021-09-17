@@ -312,6 +312,8 @@ var createsession = async function(){
     vm.checkpersoncheckboxes(false);
     vm.quickgroup(false);
 
+    reset_session_questions();
+
     setTimeout(sendalltosheet, 2000);
     setTimeout(checkdone, 200);
 }

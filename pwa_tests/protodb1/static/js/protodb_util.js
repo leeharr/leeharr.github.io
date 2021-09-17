@@ -32,3 +32,21 @@ var checkforother = function(answers){
     }
     return false;
 }
+
+var reset_session_questions = function(){
+    let form = document.getElementById('newsession_questions');
+    console.log('form reset '+form);
+    Array.from(form.children).forEach(function(div, i, arr){
+        let qattr = div['data-qattr'];
+        console.log('qattr : '+qattr);
+        let sel = div.children[1];
+        let val = sel.value;
+        console.log('   val : '+val);
+        let f = sel['data-reset']
+        if (f){
+            f(sel);
+        } else {
+            sel.value = '';
+        }
+    });
+}
