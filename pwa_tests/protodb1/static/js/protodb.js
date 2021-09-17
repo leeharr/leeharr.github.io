@@ -241,7 +241,15 @@ var createsession = async function(){
             console.log('     a : '+sa[val]);
             let oth = checkforother(sa);
             console.log('OTHER? '+oth);
-            sesdata[qattr+'str'] = sa[val];
+            if (!oth){
+                sesdata[qattr+'str'] = sa[val];
+            } else {
+                sel = div.children[2];
+                console.log('sel '+sel);
+                val = sel.value;
+                console.log('val '+val);
+                sesdata[qattr+'str'] = val;
+            }
             sel.value = '';
         } else {
             sesdata[qattr+'str'] = val;
