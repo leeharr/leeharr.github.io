@@ -66,6 +66,7 @@ window.yesno = function(div, req){
     let rbyespan = document.createElement('span');
     let rbyeslbl = document.createElement('label');
     rbyeslbl.setAttribute('for', rbyes.id);
+    rbyeslbl.innerHTML = 'Yes';
     rbyespan.appendChild(rbyes);
     rbyespan.appendChild(rbyeslbl);
     dsel.appendChild(rbyespan);
@@ -77,6 +78,7 @@ window.yesno = function(div, req){
     let rbnospan = document.createElement('span');
     let rbnolbl = document.createElement('label');
     rbnolbl.setAttribute('for', rbyes.id);
+    rbynolbl.innerHTML = 'No';
     rbnospan.appendChild(rbno);
     rbnospan.appendChild(rbnolbl);
     dsel.appendChild(rbnospan);
