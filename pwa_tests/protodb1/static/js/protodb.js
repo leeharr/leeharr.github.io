@@ -233,7 +233,7 @@ var chkcreatesession = function(){
         return false;
     } else {
         setTimeout(createsession, 200);
-        return true;
+        return false;
     }
 }
 
