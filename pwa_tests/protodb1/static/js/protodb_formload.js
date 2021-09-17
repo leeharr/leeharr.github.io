@@ -93,9 +93,9 @@ window.yesno = function(div, req){
 
     dsel.value = function(){
         if (dsel._yes.checked){
-            return 'Yes';
+            return "Yes";
         } else {
-            return 'No';
+            return "No";
         }
     }
 
