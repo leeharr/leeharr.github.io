@@ -11,7 +11,8 @@ var Person = function(pid, lname, fname, grade){
     self.checkorshowperson = async function(){
         console.log('COSP');
         let idbase;
-        if (vm.showgroupsession()){
+        let is_sess = vm.showgroupsession();
+        if (is_sess){
             idbase = '#gspid';
         } else {
             idbase = '#ngpid';
@@ -27,7 +28,9 @@ var Person = function(pid, lname, fname, grade){
             } else {
                 cb.checked = true;
             }
-            vm.setchange();
+            if (!is_sess){
+                vm.setchange();
+            }
         } else {
             console.log('NOboxes');
             await self.showperson();
