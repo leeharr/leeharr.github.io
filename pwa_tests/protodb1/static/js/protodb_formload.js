@@ -55,6 +55,24 @@ window.withotherreset = function(sel){
     sel._relother.required = false;
 }
 
+window.yesno = function(div, req){
+    console.log('YES NO Q');
+    let dsel = document.createElement('div');
+
+    let rbyes = document.createElement('input');
+    rbyes.type = 'radio';
+    rbyes.name = div.id + '_rbyesno';
+    let rbno = document.createElement('input');
+    rbyes.type = 'radio';
+    rbyes.name = div.id + '_rbyesno';
+
+    if (req){
+        rbyes.required = true;
+    }
+
+    return dsel;
+}
+
 var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);
     if (!form){ return; }
