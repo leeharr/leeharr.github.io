@@ -10,9 +10,16 @@ var Person = function(pid, lname, fname, grade){
 
     self.checkorshowperson = async function(){
         console.log('COSP');
+        let idbase;
+        if (vm.showgroupsession()){
+            idbase = '#gspid';
+        } else {
+            idbase = '#ngpid';
+        }
+
         if (vm.showpersoncheckboxes()){
             console.log('boxes');
-            let ngpid = '#ngpid'+self.pid();
+            let ngpid = idbase + self.pid();
             let cb = document.querySelector(ngpid);
             if (cb.checked){
                 cb.checked = false;
