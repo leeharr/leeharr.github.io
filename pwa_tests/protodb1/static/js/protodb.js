@@ -268,7 +268,7 @@ var createsession = async function(){
         }
     });
 
-    pesdata['staffname'] = vm.staffname();
+    sesdata['staffname'] = vm.staffname();
     sesdata['positionstr'] = vm.positionname();
 
     let ppl = g.people();
