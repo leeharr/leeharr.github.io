@@ -92,7 +92,7 @@ window.yesno = function(div, req){
     div.appendChild(dsel);
 
     dsel.value = function(){
-        val thisdsel = dsel;
+        let thisdsel = dsel;
         if (thisdsel._yes.checked){
             return 'Yes';
         } else {
