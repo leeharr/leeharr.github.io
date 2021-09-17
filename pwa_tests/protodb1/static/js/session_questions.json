@@ -36,5 +36,11 @@
                 "School Counselor",
                 "Roc Restorative Team",
                 "None needed",
-                "Other:"]}
+                "Other:"]},
+
+    {"q": "Workshop - Knowledge gain (if pre and post test was given)",
+        "qattr": "knowledgegain",
+        "req": false,
+        "af": "yesno",
+        "areset": "yesnoreset"}
 ]
