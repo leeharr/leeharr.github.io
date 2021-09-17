@@ -241,7 +241,11 @@ var createsession = async function(){
         let otha;
         if (sa){
             othq = checkforother(sa);
-            otha = othery(val);
+            if (othq){
+                otha = othery(sa[val]);
+            } else {
+                otha = false;
+            }
         } else {
             othq = false;
             otha = false;
