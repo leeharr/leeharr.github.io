@@ -259,7 +259,9 @@ var createsession = async function(){
             sel.value = '';
         } else if (val instanceof Function){
             console.log('VAL FUNC');
-            sesdata[qattr+'str'] = val();
+            let theval = val();
+            console.log('theval- '+theval);
+            sesdata[qattr+'str'] = theval;
             sel['data-reset'](sel);
         } else {
             sesdata[qattr+'str'] = val;
