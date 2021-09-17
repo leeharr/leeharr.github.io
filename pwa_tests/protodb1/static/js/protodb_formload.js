@@ -92,8 +92,7 @@ window.yesno = function(div, req){
     div.appendChild(dsel);
 
     dsel.value = function(){
-        let thisdsel = dsel;
-        if (thisdsel._yes.checked){
+        if (dsel._yes.checked){
             return 'Yes';
         } else {
             return 'No';
