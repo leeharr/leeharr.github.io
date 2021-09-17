@@ -63,6 +63,7 @@ window.yesno = function(div, req){
     rbyes.type = 'radio';
     rbyes.name = div.id + '_rbyesno';
     rbyes.id = rbyes.name + '_id';
+    dsel._yes = rbyes;
     let rbyespan = document.createElement('span');
     let rbyeslbl = document.createElement('label');
     rbyeslbl.setAttribute('for', rbyes.id);
@@ -75,9 +76,10 @@ window.yesno = function(div, req){
     rbno.type = 'radio';
     rbno.name = div.id + '_rbyesno';
     rbno.id = rbno.name + '_id';
+    dsel._no = rbno;
     let rbnospan = document.createElement('span');
     let rbnolbl = document.createElement('label');
-    rbnolbl.setAttribute('for', rbyes.id);
+    rbnolbl.setAttribute('for', rbno.id);
     rbnolbl.innerHTML = 'No';
     rbnospan.appendChild(rbno);
     rbnospan.appendChild(rbnolbl);
@@ -89,7 +91,18 @@ window.yesno = function(div, req){
 
     div.appendChild(dsel);
 
+    dsel.value = function(){
+        if (this._yes.checked){
+            return 'Yes';
+        } else {
+            return 'No';
+        }
+    }
+
     return dsel;
+}
+window.yesnoreset = function(){
+    console.log('RESET YES NO');
 }
 
 var load_questions = async function(formid, questions, answers){
