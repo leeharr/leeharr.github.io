@@ -235,7 +235,9 @@ var createsession = async function(){
         let sel = div.children[1];
         let val = sel.value;
         console.log('   val : '+val);
-        sesdata[qattr+'id'] = val;
+        if (!val instanceof Function){
+            sesdata[qattr+'id'] = val;
+        }
         let sa = session_answers[qattr];
         if (sa){
             let othq = checkforother(sa);
@@ -261,7 +263,7 @@ var createsession = async function(){
             console.log('VAL FUNC '+qattr);
             let theval = val();
             console.log('theval- '+theval);
-            //sesdata[qattr+'str'] = theval;
+            sesdata[qattr+'str'] = theval;
             sel['data-reset'](sel);
         } else {
             sesdata[qattr+'str'] = val;
