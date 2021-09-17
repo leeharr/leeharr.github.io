@@ -23,6 +23,7 @@ var hts = function(o){
     let ss = [];
     for (let k of Object.keys(o)){
         let s = addnv(k, o[k]);
+        console.log('HTS: '+s)
         ss.push(s);
     }
     return ss.join('&');

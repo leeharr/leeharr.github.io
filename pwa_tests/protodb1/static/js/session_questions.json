@@ -29,7 +29,7 @@
                 "Blessed Sacrament (EAST HIGH ONLY)"]},
 
     {"q": "Are any follow ups necessary",
-        "qattr": "followups",
+        "qattr": "followup",
         "req": true,
         "a": ["Admin",
                 "Social Work",
