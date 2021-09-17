@@ -9,7 +9,9 @@ var Person = function(pid, lname, fname, grade){
     self.grade = ko.observable(grade);
 
     self.checkorshowperson = async function(){
+        console.log('COSP');
         if (vm.showpersoncheckboxes()){
+            console.log('boxes');
             let ngpid = '#ngpid'+self.pid();
             let cb = document.querySelector(ngpid);
             if (cb.checked){
@@ -19,6 +21,7 @@ var Person = function(pid, lname, fname, grade){
             }
             vm.setchange();
         } else {
+            console.log('NOboxes');
             await self.showperson();
         }
     }
