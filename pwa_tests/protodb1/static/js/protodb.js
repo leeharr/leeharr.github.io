@@ -214,17 +214,20 @@ function _age(dobstr) {
 var working = [];
 var chkcreatesession = function(){
     console.log('CHK CREATE SESS');
-    let g = vm.selectedgroup();
-    let ppl = g.people();
+    let ppl = vm.people();
     let count = 0;
     for (let p of ppl){
         let pid = p.pid();
 
         let gspid = '#gspid'+pid;
         let cb = document.querySelector(gspid);
-        if (cb && cb.checked){
+        if (!cb){
+            console.log('BROK '+gspid);
+        } else if (cb && cb.checked){
             console.log('SEL: '+pid);
             count++;
+        } else {
+            console.log('NSEL '+pid);
         }
     }
 
@@ -232,6 +235,7 @@ var chkcreatesession = function(){
         console.log('NONE SELECTED');
         return false;
     } else {
+        console.log('COUNT '+count);
         setTimeout(createsession, 200);
         return false;
     }
