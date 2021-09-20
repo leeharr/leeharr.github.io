@@ -292,6 +292,35 @@ var ProtoDBViewModel = function(){
             self.checkpersoncheckboxes(true);
         }
     }
+
+    self.checkgroupcheckboxes = function(check=true){
+        for (let g of self.groups()){
+            let ngpid = '#npgid'+g.gid();
+            console.log('cgcb ' + npgid);
+            let cb = document.querySelector(npgid);
+            if (cb){
+                console.log('found.set.'+check);
+                cb.checked = check;
+            }
+        }
+    }
+    self.grpcheckuncheck = function(){
+        let anychecked = false;
+        for (let g of self.groups()){
+            let id = '#npgid'+g.gid();
+            let cb = document.querySelector(npgid);
+            if (cb.checked){
+                anychecked = true;
+                break;
+            }
+        }
+
+        if (anychecked){
+            self.checkgroupcheckboxes(false);
+        } else {
+            self.checkgroupcheckboxes(true);
+        }
+    }
     self.setchange = function(){
         console.log('SET CHANGE');
         if (vm.selectedgroup()){
