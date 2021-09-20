@@ -57,7 +57,7 @@ var name_initials = function(name){
     let names = name.split(' ');
     let inits = '';
     for (n of names){
-        if (n.includes('-'){
+        if (n.includes('-')){
             let nsi = [];
             ns = n.split('-');
             for (nn of ns){
