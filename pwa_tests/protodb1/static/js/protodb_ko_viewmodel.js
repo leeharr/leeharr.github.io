@@ -151,7 +151,8 @@ var ProtoDBViewModel = function(){
             }
         }
         for (let k in pinfos){
-            console.log('PO '+k+' '+pinfos[k]);
+            console.log('PO '+k)
+            console.log(pinfos[k]);
         }
     }
 
