@@ -121,11 +121,13 @@ var ProtoDBViewModel = function(){
         console.log('SI2');
         let iis = {}
         for (let p of self.people()){
-            let i = p.initials();
-            if (iis[i]){
-                iis[i].push(p);
+            let fn = p.fname();
+            let i = p.linitial();
+            let ik = fn+'::'+i;
+            if (iis[ik]){
+                iis[ik].push(p);
             } else {
-                iis[i] = [p];
+                iis[ik] = [p];
             }
         }
         for (let k of iis){
