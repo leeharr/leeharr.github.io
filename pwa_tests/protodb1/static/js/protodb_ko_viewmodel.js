@@ -130,11 +130,28 @@ var ProtoDBViewModel = function(){
                 iis[ik] = [p];
             }
         }
+        let pinfos = {};
         for (let k in iis){
             let s = iis[k];
-            if (s.length > 1){
-                console.log(k+' '+iis[k]);
+            if (s.length == 1){ continue;}
+            console.log(k+' '+iis[k]);
+
+            for(let p of iis){
+                pinfo = {};
+                let ln = p.lname();
+                p.i = ln.slice(0,1);
+                p.ii = ln.slice(0,2);
+                p.iii = ln.slice(0,3);
+                p.grn = graden(p.grade());
+                if (pinfos[k]){
+                    pinfos[k].push(pinfo)
+                } else {
+                    pinfos[k] = [pinfo];
+                }
             }
+        }
+        for (let k in pinfos){
+            console.log(k+' '+pinfos[k]);
         }
     }
 

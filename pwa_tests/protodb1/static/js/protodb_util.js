@@ -71,7 +71,7 @@ var name_initials = function(name){
     return inits;
 }
 
-var name_grader = function(inits, gr){
+var graden = function(gr){
     let gi = {"Pre-K": 'P',
                 "Kinder": 'K',
                 "1st": '1',
@@ -86,7 +86,11 @@ var name_grader = function(inits, gr){
                 "Sophomore": '10',
                 "Junior": '11',
                 "Senior": '12'};
-    let g = gi[gr];
+    let n = gi[gr];
+    return n;
+}
+var name_grader = function(inits, gr){
+    let g = graden(gr);
     let i = inits + ' ' + g;
     return i;
 }
