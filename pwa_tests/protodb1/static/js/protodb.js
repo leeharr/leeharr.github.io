@@ -124,6 +124,7 @@ var newperson = async function(e){
             let vmg = vm.getgroup(gid);
             vmg.addperson(vmp);
             gset(gid, g);
+            cb.checked = false;
         }
     }
 
