@@ -130,7 +130,7 @@ var ProtoDBViewModel = function(){
                 iis[ik] = [p];
             }
         }
-        for (let k of iis){
+        for (let k in iis){
             console.log(k+' '+iis[k]);
         }
     }
