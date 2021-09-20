@@ -116,7 +116,7 @@ var newperson = async function(e){
     for (let k of ks){
         if (k == 'currid') { continue; }
         let npgid = '#npgid' + k;
-        let cb = document.querySelector(ngpid);
+        let cb = document.querySelector(npgid);
         if (cb.checked){
             console.log(npgid + ' checked');
         }
