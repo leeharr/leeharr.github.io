@@ -52,3 +52,21 @@ var reset_session_questions = function(){
     let smr = document.getElementById('session_members_reminder');
     smr.classList.remove('qdiverr');
 }
+
+var name_initials = function(name){
+    let names = name.split(' ');
+    let inits = '';
+    for (n of names){
+        if (n.includes('-'){
+            let nsi = [];
+            ns = n.split('-');
+            for (nn of ns){
+                nsi.push(nn);
+            }
+            inits += nsi.join('-');
+        } else {
+            inits += n[0];
+        }
+    }
+    return inits;
+}
