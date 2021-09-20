@@ -393,7 +393,7 @@ var checkdone = function(){
 
 var loadppl = async function(e){
     await vm.dbsync();
-    vm.setinitials();
+    vm.setinitials2();
 }
 loadppl();
 

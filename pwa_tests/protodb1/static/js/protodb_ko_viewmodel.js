@@ -117,6 +117,22 @@ var ProtoDBViewModel = function(){
         }
     });
 
+    self.setinitials2 = function(){
+        console.log('SI2');
+        let iis = {}
+        for (p of self.people()){
+            let i = p.initials();
+            if (iis[i]){
+                iis[i].push(p);
+            } else {
+                iis[i] = [p];
+            }
+        }
+        for (k of iis){
+            console.log(k+' '+iis[k]);
+        }
+    }
+
     self.setinitials = function(){
         let fn = '';
         let ln = '';
@@ -213,7 +229,7 @@ var ProtoDBViewModel = function(){
         let p = new Person(pid, lname, fname, grade);
         self.people.push(p);
         if (seti){
-            self.setinitials();
+            self.setinitials2();
         }
         return p;
     }
