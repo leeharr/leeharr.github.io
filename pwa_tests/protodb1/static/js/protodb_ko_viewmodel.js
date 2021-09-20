@@ -137,9 +137,6 @@ var ProtoDBViewModel = function(){
             console.log('_'+prevp.fname()+' '+prevp.lname()+' '+prevp.linitial()+' '+prevp.grade());
             }
             console.log('.'+p.fname()+' '+p.lname()+' '+p.linitial()+' '+p.grade());
-            console.log('CK ');
-            console.log(p.fname()==fn);
-            console.log(p.lname()==ln);
             if (p.fname()==fn && p.lname()==ln && p.grade()==gr){
                 console.log('C1');
                 // exact same first, last, and grade
