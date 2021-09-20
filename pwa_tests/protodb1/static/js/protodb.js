@@ -120,6 +120,7 @@ var newperson = async function(e){
         if (cb.checked){
             console.log(npgid + ' checked');
         }
+    }
 
     vm.shownewperson(false);
 }
