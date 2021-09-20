@@ -308,7 +308,7 @@ var ProtoDBViewModel = function(){
         let anychecked = false;
         for (let g of self.groups()){
             let id = '#npgid'+g.gid();
-            let cb = document.querySelector(npgid);
+            let cb = document.querySelector(id);
             if (cb.checked){
                 anychecked = true;
                 break;
