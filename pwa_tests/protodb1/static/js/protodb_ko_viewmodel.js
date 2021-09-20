@@ -136,8 +136,8 @@ var ProtoDBViewModel = function(){
             if (s.length == 1){ continue;}
             console.log(k+' '+iis[k]);
 
-            for(let p of iis[k]){
-                pinfo = {};
+            for(let p of s){
+                let pinfo = {};
                 let ln = p.lname();
                 p.i = ln.slice(0,1);
                 p.ii = ln.slice(0,2);
