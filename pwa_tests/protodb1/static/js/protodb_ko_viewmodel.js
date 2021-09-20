@@ -295,7 +295,7 @@ var ProtoDBViewModel = function(){
 
     self.checkgroupcheckboxes = function(check=true){
         for (let g of self.groups()){
-            let ngpid = '#npgid'+g.gid();
+            let npgid = '#npgid'+g.gid();
             console.log('cgcb ' + npgid);
             let cb = document.querySelector(npgid);
             if (cb){
