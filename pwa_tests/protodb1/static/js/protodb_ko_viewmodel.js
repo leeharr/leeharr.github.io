@@ -131,7 +131,7 @@ var ProtoDBViewModel = function(){
         }
 
         for (let p of self.people_byflg()){
-            p.linitial(name_initials(p.lname());
+            p.linitial(name_initials(p.lname()));
             console.log('X'+p.pid()+' '+fn+' '+ln+' '+li+' '+pi+' '+gr);
             if (prevp){
             console.log('_'+prevp.fname()+' '+prevp.lname()+' '+prevp.linitial()+' '+prevp.grade());
