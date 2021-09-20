@@ -251,7 +251,7 @@ var ProtoDBViewModel = function(){
         self.rmperson(pid);
         let p = new Person(pid, lname, fname, grade);
         self.people.push(p);
-        p.linitial(name_initials(p.lname());
+        p.linitial(name_initials(p.lname()));
         if (seti){
             self.setinitials2();
         }
