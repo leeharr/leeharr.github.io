@@ -131,7 +131,7 @@ var ProtoDBViewModel = function(){
         }
 
         for (let p of self.people_byflg()){
-            p.linitial(p.lname().slice(0,1));
+            p.linitial(name_initials(p.lname());
             console.log('X'+p.pid()+' '+fn+' '+ln+' '+li+' '+pi+' '+gr);
             if (prevp){
             console.log('_'+prevp.fname()+' '+prevp.lname()+' '+prevp.linitial()+' '+prevp.grade());
@@ -145,7 +145,7 @@ var ProtoDBViewModel = function(){
                 if (prevp && li.includes('*')){
                     i = prevp.linitial();
                 } else if (prevp){
-                    i = prevp.lname().slice(0,1);
+                    i = name_initials(prevp.lname());
                     i += '*';
                     prevp.linitial(i);
                 }
@@ -158,18 +158,18 @@ var ProtoDBViewModel = function(){
                 // show as fname l gr#
                 if (prevp && li.includes('*')){
                     // do nothing to prev
-                    i = p.lname().slice(0, 1);
+                    i = name_initials(p.lname());
                 } else if (prevp && li.includes(' ')){
                     // graded. use prev initials and new grade
                     let idx = prevp.linitial().indexOf(' ');
                     i = prevp.linitial().slice(0, idx);
                     console.log('prevp space '+idx+' '+i)
                 } else if (prevp){
-                    i = prevp.lname().slice(0, 1);
+                    i = name_initials(prevp.lname());
                     let pvi = i + ' ' + prevp.grade();
                     prevp.linitial(pvi);
                 } else {
-                    i = p.lname().slice(0, 1);
+                    i = name_initials(p.lname());
                 }
                 i += ' ' + p.grade();
                 p.linitial(i);
