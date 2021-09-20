@@ -131,7 +131,10 @@ var ProtoDBViewModel = function(){
             }
         }
         for (let k in iis){
-            console.log(k+' '+iis[k]);
+            let s = iis[k];
+            if (s.length > 1){
+                console.log(k+' '+iis[k]);
+            }
         }
     }
 
