@@ -111,6 +111,16 @@ var newperson = async function(e){
     pset(i, p);
     vm.addperson(i, p.lname, p.fname, p.gradestr, true);
 
+    // check if adding new person to any groups
+    let ks = await gkeys();
+    for (let k of ks){
+        if (k == 'currid') { continue; }
+        let npgid = '#npgid' + k;
+        let cb = document.querySelector(ngpid);
+        if (cb.checked){
+            console.log(npgid + ' checked');
+        }
+
     vm.shownewperson(false);
 }
 var saveperson = async function(){
