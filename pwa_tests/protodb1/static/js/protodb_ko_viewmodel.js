@@ -120,7 +120,7 @@ var ProtoDBViewModel = function(){
     self.setinitials2 = function(){
         console.log('SI2');
         let iis = {}
-        for (p of self.people()){
+        for (let p of self.people()){
             let i = p.initials();
             if (iis[i]){
                 iis[i].push(p);
@@ -128,7 +128,7 @@ var ProtoDBViewModel = function(){
                 iis[i] = [p];
             }
         }
-        for (k of iis){
+        for (let k of iis){
             console.log(k+' '+iis[k]);
         }
     }
