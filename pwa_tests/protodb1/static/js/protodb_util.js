@@ -61,7 +61,7 @@ var name_initials = function(name){
             let nsi = [];
             ns = n.split('-');
             for (nn of ns){
-                nsi.push(nn);
+                nsi.push(nn[0]);
             }
             inits += nsi.join('-');
         } else {
