@@ -61,6 +61,14 @@ window.shownewperson = async function(){
     let se = document.getElementById('newperson_questionsschool');
     se.value = s;
 
+    let ks = await gkeys();
+    for (let gid of ks){
+        if (gid == 'currid') { continue; }
+        let npgid = '#npgid' + gid;
+        let cb = document.querySelector(npgid);
+        cb.checked = false;
+    }
+
     vm.personexists(false);
     vm.shownewperson(!vm.shownewperson());
     if (vm.selectedgroup()){
