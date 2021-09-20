@@ -166,12 +166,12 @@ var ProtoDBViewModel = function(){
                     console.log('prevp space '+idx+' '+i)
                 } else if (prevp){
                     i = name_initials(prevp.lname());
-                    let pvi = i + ' ' + prevp.grade();
+                    let pvi = name_grader(i, prevp.grade());
                     prevp.linitial(pvi);
                 } else {
                     i = name_initials(p.lname());
                 }
-                i += ' ' + p.grade();
+                i = name_grader(i, p.grade());
                 p.linitial(i);
             } else if (p.fname()==fn && (p.linitial()==li||p.linitial()==pi)){
                 console.log('C3');
@@ -183,8 +183,8 @@ var ProtoDBViewModel = function(){
                 }
                 if (p.linitial() == prevp.linitial()){
                     if (p.grade() != gr){
-                        p.linitial(p.linitial()+' '+p.grade());
-                        prevp.linitial(prevp.linitial()+' '+gr);
+                        p.linitial(name_grader(p.linitial(), p.grade()));
+                        prevp.linitial(name_grader(prevp.linitial(), gr));
                     }
                 }
 

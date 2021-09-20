@@ -70,3 +70,23 @@ var name_initials = function(name){
     }
     return inits;
 }
+
+var name_grader = function(inits, gr){
+    let gi = {"Pre-K": 'P',
+                "Kinder": 'K',
+                "1st": '1',
+                "2nd": '2',
+                "3rd": '3',
+                "4th": '4',
+                "5th": '5',
+                "6th": '6',
+                "7th": '7',
+                "8th": '8',
+                "Freshman": '9',
+                "Sophomore": '10',
+                "Junior": '11',
+                "Senior": '12'};
+    let g = gi[gr];
+    let i = inits + ' ' + g;
+    return i;
+}
