@@ -139,10 +139,10 @@ var ProtoDBViewModel = function(){
             for(let p of s){
                 let pinfo = {};
                 let ln = p.lname();
-                p.i = ln.slice(0,1);
-                p.ii = ln.slice(0,2);
-                p.iii = ln.slice(0,3);
-                p.grn = graden(p.grade());
+                pinfo.i = ln.slice(0,1);
+                pinfo.ii = ln.slice(0,2);
+                pinfo.iii = ln.slice(0,3);
+                pinfo.grn = graden(p.grade());
                 if (pinfos[k]){
                     pinfos[k].push(pinfo)
                 } else {
