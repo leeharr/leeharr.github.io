@@ -109,7 +109,7 @@ var newperson = async function(e){
     }
     console.log(i + ' - - ' + p.lname + ', ' + p.fname);
     pset(i, p);
-    vm.addperson(i, p.lname, p.fname, p.gradestr, true);
+    let vmp = vm.addperson(i, p.lname, p.fname, p.gradestr, true);
 
     // check if adding new person to any groups
     let ks = await gkeys();
@@ -119,6 +119,11 @@ var newperson = async function(e){
         let cb = document.querySelector(npgid);
         if (cb.checked){
             console.log(npgid + ' checked');
+            let g = await gget(gid);
+            g.people.push(i);
+            let vmg = vm.getgroup(gid);
+            vmg.addperson(vmp);
+            gset(gid, g);
         }
     }
 
