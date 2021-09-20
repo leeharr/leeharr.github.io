@@ -234,7 +234,7 @@ var chkcreatesession = function(){
     if (!count){
         console.log('NONE SELECTED');
         let smr = document.getElementById('session_members_reminder');
-        smr.classList.add('qdivreq');
+        smr.classList.add('qdiverr');
         return false;
     } else {
         console.log('COUNT '+count);

@@ -49,4 +49,6 @@ var reset_session_questions = function(){
             sel.value = '';
         }
     });
+    let smr = document.getElementById('session_members_reminder');
+    smr.classList.remove('qdiverr');
 }

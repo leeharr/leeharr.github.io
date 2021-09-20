@@ -53,7 +53,10 @@ div.qdiv{
     margin-bottom: 2em;
 }
 div.qdivreq{
-    background: #F00;
+    background: #FDD;
+}
+div.qdiverr{
+    background: #F44;
 }
 
 span.qreq{
