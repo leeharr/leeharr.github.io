@@ -113,9 +113,9 @@ var newperson = async function(e){
 
     // check if adding new person to any groups
     let ks = await gkeys();
-    for (let k of ks){
-        if (k == 'currid') { continue; }
-        let npgid = '#npgid' + k;
+    for (let gid of ks){
+        if (gid == 'currid') { continue; }
+        let npgid = '#npgid' + gid;
         let cb = document.querySelector(npgid);
         if (cb.checked){
             console.log(npgid + ' checked');
