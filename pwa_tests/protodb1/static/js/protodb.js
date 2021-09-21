@@ -360,8 +360,11 @@ var createsession = async function(){
         }
         let sa = session_answers[qattr];
         let sendval;
-        sendval = val;
-//         sel['data-reset'](sel);
+        if (sa){
+            sendval = sa[val];
+        } else {
+            sendval = val;
+        }
 
         if (sel['sendas']){
             console.log(sel['sendas']+'='+sendval);
