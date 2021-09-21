@@ -45,6 +45,35 @@ var sendonetosheet = async function(o){
     .catch(function(error){ console.log('err ' + error); })
 }
 
+var testonetosheet = async function(o){
+    //test data
+    let oo = {
+        // School-test
+        //'entry.2116668805': 'AST1',
+        "School-test": "BST1",
+
+        // Student Name-test
+        //'entry.224351746': 'ASN I',
+        "Student Name-test": "BSN1",
+
+        // Date-test
+        //'entry.1039559589_year': "2004",
+        //'entry.1039559589_month': "02",
+        //'entry.1039559589_day': "03",
+        "Date-test": "02/03/2004",
+
+        // Follow Ups-test
+        //'entry.421530539': 'AFU1'
+        "Follow Ups-test": "BFU1"
+    }
+    let d = hts(oo);
+    let sid = 20;
+    let sheetsurl = 'https://script.google.com/macros/s/AKfycbx1ICdTvqR311-c90hw6cVxWA3BY85t1hh6VfT_Jgr8QZ_1-M0SGpQFzupghU9dZxDf/exec';
+    fetch(sheetsurl+'?'+d)
+    .then(function(response){aftersend(response, sid);})
+    .catch(function(error){ console.log('err ' + error); })
+}
+
 var sendonebyform = async function(o){
     // alternate method, sends data by google form
     // instead of directly to google sheet
@@ -90,8 +119,9 @@ var sendalltosheet = async function(){
 
         let s = await sget(k);
         s['id'] = k;
-        sendonetosheet(s);
+        //sendonetosheet(s);
         //sendonebyform(s);
+        testonetosheet(s);
     }
     let scurid = await sgetcurrid();
     cset('datasent', scurid);
