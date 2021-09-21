@@ -1,4 +1,4 @@
-var cacheName = 'protodbG12';
+var cacheName = 'protodbG13';
 var filesToCache = [
   './',
   'index.html',
@@ -21,6 +21,7 @@ var filesToCache = [
 
   'static/js/session_questions.json',
   'static/js/person_questions.json',
+  'static/js/staff_questions.json',
 
   'static/images/favicon.ico',
   "static/images/protodb-icon-128.png",
