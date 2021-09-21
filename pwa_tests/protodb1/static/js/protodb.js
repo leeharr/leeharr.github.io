@@ -358,7 +358,7 @@ var createsession = async function(){
         if (!val instanceof Function){
             sesdata[qattr+'id'] = val;
         }
-        let sa = session_answers[qattr];
+        let sa = staff_answers[qattr];
         let sendval;
         if (sa){
             sendval = sa[val];
