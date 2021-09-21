@@ -418,8 +418,13 @@ var createsession = async function(){
 
     reset_session_questions();
 
-    setTimeout(sendalltosheet, 2000);
+    setTimeout(sendalltosheet, 1000);
     setTimeout(checkdone, 200);
+    setTimeout(scrolltop, 500);
+}
+
+var scrolltop = function(){
+    window.scrollTo(0, 0);
 }
 
 var checkdone = function(){
