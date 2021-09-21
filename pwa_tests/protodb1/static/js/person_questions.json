@@ -17,6 +17,12 @@
         "af": "textinput",
         "areset": "textinputreset"},
 
+    {"q": "Student ID Number",
+        "qattr": "stid",
+        "req": true,
+        "af": "textinput",
+        "areset": "textinputreset"},
+
     {"q": "Grade",
         "qattr": "grade",
         "req": true,
