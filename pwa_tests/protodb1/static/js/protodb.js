@@ -330,7 +330,10 @@ var createsession = async function(){
             sel['data-reset'](sel);
         }
 
-        if (sel['sendas']){
+        let sendas = sel['sendas'];
+        if (sendas==false){
+            // not sending
+        } else if (sel['sendas']){
             console.log(sel['sendas']+'='+sendval);
             sesdata[sel['sendas']] = sendval;
         } else {
@@ -366,7 +369,10 @@ var createsession = async function(){
             sendval = val;
         }
 
-        if (sel['sendas']){
+        let sendas = sel['sendas'];
+        if (sendas==false){
+            // not sending
+        } else if (sel['sendas']){
             console.log(sel['sendas']+'='+sendval);
             sesdata[sel['sendas']] = sendval;
         } else {
