@@ -80,5 +80,27 @@
         "sendas": false,
         "req": true,
         "af": "dateselector",
-        "areset": "dateclear"}
+        "areset": "dateclear"},
+
+    {"q": "Gender",
+        "qattr": "gender",
+        "sendas": "Gender",
+        "req": true,
+        "a": ["Female",
+                "Male",
+                "Prefer not to say",
+                "Non Binary"]},
+
+    {"q": "Race",
+        "qattr": "race",
+        "sendas": "Race",
+        "req": true,
+        "a": ["Black",
+                "White",
+                "Hispanic",
+                "Asian/pacific islander",
+                "Native American",
+                "Middle Eastern",
+                "multiracial",
+                "Prefer not to say"]}
 ]
