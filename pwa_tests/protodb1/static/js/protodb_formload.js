@@ -193,9 +193,10 @@ var load_questions = async function(formid, questions, answers){
         }
 
         if (qa.sendas){
+            console.log('SET SENDAS '+qa.sendas);
             sel['sendas'] = qa.sendas;
-        } else if (qa.str_sendas){
-            sel['str_sendas'] = qa.str_sendas;
+        } else {
+            console.log('NO  SENDAS');
         }
 
         sel.id = selid;
