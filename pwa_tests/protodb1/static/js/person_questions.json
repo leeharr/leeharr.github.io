@@ -1,28 +1,24 @@
 [
     {"q": "School",
         "qattr": "school",
-        "sendas": "School",
         "req": true,
         "remember": true,
         "a": ["2", "3", "4", "5", "8"]},
 
     {"q": "First Name",
         "qattr": "fname",
-        "sendas": false,
         "req": true,
         "af": "textinput",
         "areset": "textinputreset"},
 
     {"q": "Last Name",
         "qattr": "lname",
-        "sendas": false,
         "req": true,
         "af": "textinput",
         "areset": "textinputreset"},
 
     {"q": "Student ID Number",
         "qattr": "stid",
-        "sendas": "Student ID",
         "req": true,
         "af": "textinput",
         "areset": "textinputreset"},
