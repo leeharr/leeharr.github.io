@@ -307,11 +307,12 @@ var createsession = async function(){
             console.log('     a : '+sa[val]);
             console.log('OTHER? '+othq+' '+otha);
             if (othq && otha){
-                sel = div.children[2];
+                let subsel = div.children[2];
                 console.log('sel '+sel);
-                sendval = sel.value;
+                sendval = subsel.value;
                 console.log('val '+sendval);
 //                 sesdata[qattr+'str'] = val;
+                subsel.value = '';
             } else {
                 sendval = sa[val];
 //                 sesdata[qattr+'str'] = sa[val];
