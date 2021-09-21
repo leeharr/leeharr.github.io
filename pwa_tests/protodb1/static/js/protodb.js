@@ -295,6 +295,7 @@ var createsession = async function(){
             sesdata[qattr+'id'] = val;
         }
         let sa = session_answers[qattr];
+        let sendval;
         if (sa){
             let othq = checkforother(sa);
             let otha;
@@ -308,22 +309,33 @@ var createsession = async function(){
             if (othq && otha){
                 sel = div.children[2];
                 console.log('sel '+sel);
-                val = sel.value;
-                console.log('val '+val);
-                sesdata[qattr+'str'] = val;
+                sendval = sel.value;
+                console.log('val '+sendval);
+//                 sesdata[qattr+'str'] = val;
             } else {
-                sesdata[qattr+'str'] = sa[val];
+                sendval = sa[val];
+//                 sesdata[qattr+'str'] = sa[val];
             }
             sel.value = '';
         } else if (val instanceof Function){
             console.log('VAL FUNC '+qattr);
             let theval = val();
             console.log('theval- '+theval);
-            sesdata[qattr+'str'] = theval;
+            sendval = theval;
+//             sesdata[qattr+'str'] = theval;
             sel['data-reset'](sel);
         } else {
-            sesdata[qattr+'str'] = val;
+            sendval = val;
+//             sesdata[qattr+'str'] = val;
             sel['data-reset'](sel);
+        }
+
+        if (sel['sendas']){
+            console.log(sel['sendas']+'='+sendval);
+            sesdata[sel['sendas']] = sendval;
+        } else {
+            console.log(qattr+'='+sendval);
+            sesdata[qattr] = sendval;
         }
 
         if (div['data-remember']){

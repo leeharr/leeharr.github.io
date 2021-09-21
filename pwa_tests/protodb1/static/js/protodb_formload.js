@@ -190,6 +190,12 @@ var load_questions = async function(formid, questions, answers){
             div.setAttribute('class', 'qdiv qdivreq');
         }
 
+        if (qa.sendas){
+            sel['sendas'] = qa.sendas;
+        } else if (qa.str_sendas){
+            sel['str_sendas'] = qa.str_sendas;
+        }
+
         sel.id = selid;
     });
 }

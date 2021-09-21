@@ -1,12 +1,14 @@
 [
     {"q": "Date",
         "qattr": "date",
+        "sendas": "Date",
         "req": true,
         "af": "dateselector",
         "areset": "datereset"},
 
     {"q": "Referral Source (who sent the student)",
         "qattr": "refsource",
+        "sendas": "Referral Source",
         "req": true,
         "a": ["Admin assigned",
                 "Self (student)",
