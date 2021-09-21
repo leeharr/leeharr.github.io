@@ -119,9 +119,9 @@ var sendalltosheet = async function(){
 
         let s = await sget(k);
         s['id'] = k;
-        //sendonetosheet(s);
+        sendonetosheet(s);
         //sendonebyform(s);
-        testonetosheet(s);
+        //testonetosheet(s);
     }
     let scurid = await sgetcurrid();
     cset('datasent', scurid);
