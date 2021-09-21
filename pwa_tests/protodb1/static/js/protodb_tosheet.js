@@ -64,10 +64,10 @@ var testonetosheet = async function(o){
 
         // Follow Ups-test
         //'entry.421530539': 'AFU1'
-        "Follow Ups-test": "BFU1"
+        "Follow ups-test": "BFU1"
     }
     let d = hts(oo);
-    let sid = 20;
+    let sid = o.id;
     let sheetsurl = 'https://script.google.com/macros/s/AKfycbx1ICdTvqR311-c90hw6cVxWA3BY85t1hh6VfT_Jgr8QZ_1-M0SGpQFzupghU9dZxDf/exec';
     fetch(sheetsurl+'?'+d)
     .then(function(response){aftersend(response, sid);})
