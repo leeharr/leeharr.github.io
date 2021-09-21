@@ -400,11 +400,13 @@ var createsession = async function(){
 
         let dbp = await pget(pid);
 
-        psesdata['schoolstr'] = dbp.schoolstr;
-        psesdata['lname'] = p.linitial();
-        psesdata['fname'] = dbp.fname;
-        psesdata['grade'] = dbp.gradestr;
-        psesdata['age'] = _age(dbp.dob).toString();
+        //psesdata['lname'] = p.linitial();
+        //psesdata['fname'] = dbp.fname;
+        psesdata['Student Name'] = dbp.fname + ' ' + p.linitial();
+        psesdata['Student ID'] = dbp.stidstr;
+        psesdata['School'] = dbp.schoolstr;
+        psesdata['Grade'] = dbp.gradestr;
+        psesdata['Age'] = _age(dbp.dob).toString();
         psesdata['sent'] = false;
 
         let sid = await sgetnextid();
