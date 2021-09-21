@@ -20,6 +20,7 @@
 
     {"q": "Location student came to you from",
         "qattr": "location",
+        "sendas": "Location Came From",
         "req": true,
         "a": ["Classroom",
                 "Cafeteria",
@@ -32,6 +33,7 @@
 
     {"q": "Are any follow ups necessary",
         "qattr": "followup",
+        "sendas": "Follow Ups",
         "req": true,
         "a": ["Admin",
                 "Social Work",
@@ -42,6 +44,7 @@
 
     {"q": "Workshop - Knowledge gain (if pre and post test was given)",
         "qattr": "knowledgegain",
+        "sendas": "Workshop-Knowledge Gain",
         "req": false,
         "af": "yesno",
         "areset": "yesnoreset"}
