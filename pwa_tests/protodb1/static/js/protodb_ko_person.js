@@ -55,6 +55,9 @@ var Person = function(pid, lname, fname, grade){
         let ln = document.getElementById('newperson_questionslname');
         ln.value = dbp.lname;
 
+        let sid = document.getElementById('newperson_questionsstid');
+        sid.value = dbp.stid;
+
         let gr = document.getElementById('newperson_questionsgrade');
         gr.value = dbp.gradeid;
 
