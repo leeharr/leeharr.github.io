@@ -233,7 +233,11 @@ function _age(dobstr) {
     let dob = new Date(dobstr);
     let ageDifMs = Date.now() - dob.getTime();
     let ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
+    let a = Math.abs(ageDate.getUTCFullYear() - 1970);
+    if (a >= 20){
+        a = '20+';
+    }
+    return a;
 }
 
 var working = [];
