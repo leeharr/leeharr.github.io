@@ -1,6 +1,7 @@
 [
     {"q": "Staff Name",
         "qattr": "staffname",
+        "sendas": "Staff Name",
         "req": true,
         "remember": true,
         "af": "textinput",
@@ -8,6 +9,7 @@
 
     {"q": "Position",
         "qattr": "position",
+        "sendas": "Staff Position",
         "req": true,
         "remember": true,
         "a": ["ATS (8, 45, East)",
