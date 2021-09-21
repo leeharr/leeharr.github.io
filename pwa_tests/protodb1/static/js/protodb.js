@@ -344,8 +344,35 @@ var createsession = async function(){
         }
     });
 
-    sesdata['staffname'] = vm.staffname();
-    sesdata['positionstr'] = vm.positionname();
+    //sesdata['staffname'] = vm.staffname();
+    //sesdata['positionstr'] = vm.positionname();
+    var form = document.getElementById('newstaff_questions');
+    console.log('=STAFF QUESTIONS=');
+    Array.from(form.children).forEach(function(div, i, arr){
+        let qattr = div['data-qattr'];
+        console.log('qattr : '+qattr);
+        let sel = div.children[1];
+        let val = sel.value;
+        console.log('   val : '+val);
+
+        if (!val instanceof Function){
+            sesdata[qattr+'id'] = val;
+        }
+        let sa = session_answers[qattr];
+        let sendval;
+        if (sa){
+            sendval = val;
+            sel['data-reset'](sel);
+        }
+
+        if (sel['sendas']){
+            console.log(sel['sendas']+'='+sendval);
+            sesdata[sel['sendas']] = sendval;
+        } else {
+            console.log(qattr+'='+sendval);
+            sesdata[qattr] = sendval;
+        }
+    });
 
     let ppl = g.people();
     let rmgroup = false;
