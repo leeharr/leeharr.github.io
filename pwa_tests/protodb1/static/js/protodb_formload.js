@@ -231,7 +231,7 @@ var set_only_later = function(only, attr, div){
 
     console.log(onlyselid);
     console.log(onlysel);
-    console.log(onlysel.text);
+    console.log(onlysel.value);
     console.log(attr);
 
     let anss;
@@ -239,6 +239,7 @@ var set_only_later = function(only, attr, div){
     if (section=='staff'){
         anss = staff_answers;
     }
+    console.log(anss);
 
     let val = anss[attr];
     if (val.startsWith(marker)){
