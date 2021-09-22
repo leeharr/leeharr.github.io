@@ -227,7 +227,7 @@ var set_only_later = function(only, div){
     console.log(section + ' ' + question + ' ' + marker);
 
     let onlyselid = 'new'+section+'_questions'+question;
-    let onlysel = document.getElementById(selid);
+    let onlysel = document.getElementById(onlyselid);
 
     console.log(onlyselid);
     console.log(onlysel);
