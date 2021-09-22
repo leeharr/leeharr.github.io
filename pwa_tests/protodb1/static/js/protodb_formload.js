@@ -246,9 +246,9 @@ var set_only_later = function(only, attr, div){
 
     let val = anss[onlysel.value];
     if (val.startsWith(marker)){
-        div.style.visibility = 'visible';
+        div.style.display = 'block';
     } else {
-        div.style.visibility = 'hidden';
+        div.style.display = 'none';
     }
 
     onlysel.onchange = function(){
