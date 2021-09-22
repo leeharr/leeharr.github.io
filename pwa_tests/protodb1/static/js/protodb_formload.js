@@ -222,11 +222,11 @@ var load_questions = async function(formid, questions, answers){
             let onlysel = document.getElementById(selid);
 
             console.log(onlyselid);
-            console.log(onlysel.text);
+//             console.log(onlysel.text);
 
-            onlysel.onchange = function(){
-                let txt = sel.options[sel.selectedIndex].text;
-                console.log('ONLY TI ONCH '+txt+'#');
+//             onlysel.onchange = function(){
+//                 let txt = sel.options[sel.selectedIndex].text;
+//                 console.log('ONLY TI ONCH '+txt+'#');
 //                     if (othery(txt)){
 //                         ti.style.visibility = 'visible';
 //                         ti.required = true;
@@ -234,7 +234,7 @@ var load_questions = async function(formid, questions, answers){
 //                         ti.style.visibility = 'hidden';
 //                         ti.required = false;
 //                     }
-            }
+//             }
         }
 
         sel.id = selid;
