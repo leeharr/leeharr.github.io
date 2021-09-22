@@ -233,15 +233,21 @@ var set_only_later = function(only, div){
     console.log(onlysel);
     console.log(onlysel.text);
 
+    let ost = onlysel.text;
+    if (ost.startsWith(marker)){
+        div.style.visibility = 'visible';
+    } else {
+        div.style.visibility = 'hidden';
+    }
+
     onlysel.onchange = function(){
-        console.log('ONLY TI ONCH '+txt+'#');
-//                     if (othery(txt)){
-//                         ti.style.visibility = 'visible';
-//                         ti.required = true;
-//                     } else {
-//                         ti.style.visibility = 'hidden';
-//                         ti.required = false;
-//                     }
+        console.log('ONLY TI ONCH '+onlysel.text+'#');
+        let ost = onlysel.text;
+        if (ost.startsWith(marker)){
+            div.style.visibility = 'visible';
+        } else {
+            div.style.visibility = 'hidden';
+        }
     }
 }
 
