@@ -145,6 +145,7 @@ var load_questions = async function(formid, questions, answers){
             div.appendChild(sel);
 
             answers[qa.qattr] = qa.a;
+            console.log(answers);
 
             let op = document.createElement('option');
             op.innerHTML = 'Choose...';
