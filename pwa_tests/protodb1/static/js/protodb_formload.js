@@ -240,7 +240,7 @@ var set_only_later = function(only, attr, div){
 
     let anss;
     if (section=='staff'){
-        anss = staff_answers[section];
+        anss = staff_answers[question];
     }
     console.log(anss);
 
