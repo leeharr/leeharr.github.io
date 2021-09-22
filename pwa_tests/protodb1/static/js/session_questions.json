@@ -142,12 +142,14 @@
 
     {"q": "Note from teacher pass (optional)",
         "qattr": "teacher_note",
+        "sendas": "Teacher Note",
         "req": false,
         "af": "textinputlarge",
         "areset": "textinputreset"},
 
     {"q": "Notes for staff (keep brief) optional",
         "qattr": "staff_note",
+        "sendas": "Staff Note",
         "req": false,
         "af": "textinputlarge",
         "areset": "textinputreset"}

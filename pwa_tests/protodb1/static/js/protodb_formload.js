@@ -104,10 +104,13 @@ window.yesno = function(div, req){
 
     dsel.value = function(){
         if (dsel._yes.checked){
+            console.log('YESNO - yes');
             return "Yes";
         } else if (dsel._no.checked) {
+            console.log('YESNO - no');
             return "No";
         } else {
+            console.log('YESNO - blank');
             return "";
         }
     }
