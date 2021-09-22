@@ -211,7 +211,7 @@ var load_questions = async function(formid, questions, answers){
         }
 
         if (qa.only){
-            setTimeout(function(){ set_only_later(qa.only, div); }, 500);
+            setTimeout(function(){ set_only_later(qa.only, div); }, 1000);
         }
 
         sel.id = selid;
