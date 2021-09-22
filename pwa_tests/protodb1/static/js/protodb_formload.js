@@ -211,14 +211,14 @@ var load_questions = async function(formid, questions, answers){
         }
 
         if (qa.only){
-            setTimeout(function(){ set_only_later(qa.only, div); }, 1000);
+            setTimeout(function(){ set_only_later(qa.only, qa.qattr, div); }, 400);
         }
 
         sel.id = selid;
     });
 }
 
-var set_only_later = function(only, div){
+var set_only_later = function(only, attr, div){
     let parts = only.split('::');
     let section = parts[0];
     let question = parts[1];
@@ -233,8 +233,14 @@ var set_only_later = function(only, div){
     console.log(onlysel);
     console.log(onlysel.text);
 
-    let ost = onlysel.text;
-    if (ost.startsWith(marker)){
+    let anss;
+    let ost = onlysel.value;
+    if (section=='staff'){
+        anss = staff_answers;
+    }
+
+    let val = anss[attr];
+    if (val.startsWith(marker)){
         div.style.visibility = 'visible';
     } else {
         div.style.visibility = 'hidden';
@@ -242,8 +248,8 @@ var set_only_later = function(only, div){
 
     onlysel.onchange = function(){
         console.log('ONLY TI ONCH '+onlysel.text+'#');
-        let ost = onlysel.text;
-        if (ost.startsWith(marker)){
+        let val = anss[onlysel.value];
+        if (val.startsWith(marker)){
             div.style.visibility = 'visible';
         } else {
             div.style.visibility = 'hidden';
