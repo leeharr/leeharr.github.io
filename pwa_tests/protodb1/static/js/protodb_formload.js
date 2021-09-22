@@ -210,6 +210,15 @@ var load_questions = async function(formid, questions, answers){
             console.log('NO  SENDAS');
         }
 
+        if (qa.only){
+            let parts = qa.only.split('::');
+            let section = parts[0];
+            let question = parts[1];
+            let marker = parts[2];
+            console.log('ONLY');
+            console.log(section + ' ' + question + ' ' + marker);
+        }
+
         sel.id = selid;
     });
 }
