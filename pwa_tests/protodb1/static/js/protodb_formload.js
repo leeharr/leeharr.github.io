@@ -130,6 +130,7 @@ var load_questions = async function(formid, questions, answers){
     questions.forEach(function(qa, qi, qarr){
         let div = document.createElement('div');
         div.setAttribute('class', 'qdiv');
+        div.id = qa.qattr+'div';
         div['data-qattr'] = qa.qattr;
         div['data-remember'] = qa.remember;
         //console.log('APPEND TO '+form+ ' ID '+ form.id);
