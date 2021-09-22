@@ -222,6 +222,7 @@ var load_questions = async function(formid, questions, answers){
             let onlysel = document.getElementById(selid);
 
             console.log(onlyselid);
+            console.log(onlysel);
 //             console.log(onlysel.text);
 
 //             onlysel.onchange = function(){
