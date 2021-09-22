@@ -43,6 +43,18 @@ window.textinput = function(div, req){
     div.appendChild(ti);
     return ti;
 }
+window.textinputlarge = function(div, req){
+    console.log('ADD TEXT INPUT LARGE');
+    let ti = document.createElement('input');
+    ti.type = 'text';
+    ti.cols = '40';
+    ti.rows = '2';
+    if (req){
+        ti.required = true;
+    }
+    div.appendChild(ti);
+    return ti;
+}
 window.textinputreset = function(ti){
     ti.value = '';
 }

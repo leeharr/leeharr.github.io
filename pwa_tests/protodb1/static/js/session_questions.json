@@ -141,12 +141,12 @@
     {"q": "Note from teacher pass (optional)",
         "qattr": "teacher_note",
         "req": false,
-        "af": "textinput",
+        "af": "textinputlarge",
         "areset": "textinputreset"},
 
     {"q": "Notes for staff (keep brief) optional",
         "qattr": "staff_note",
         "req": false,
-        "af": "textinput",
+        "af": "textinputlarge",
         "areset": "textinputreset"}
 ]
