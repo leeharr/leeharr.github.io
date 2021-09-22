@@ -251,7 +251,7 @@ var set_only_later = function(only, attr, div){
         div.style.display = 'none';
     }
 
-    onlysel.addEventListener('onchange', function(){
+    onlysel.addEventListener('change', function(){
         console.log('ONLY TI ONCH '+onlysel.text+'#');
         let val = anss[onlysel.value];
         if (val.startsWith(marker)){
