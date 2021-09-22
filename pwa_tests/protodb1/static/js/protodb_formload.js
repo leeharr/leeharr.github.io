@@ -45,10 +45,9 @@ window.textinput = function(div, req){
 }
 window.textinputlarge = function(div, req){
     console.log('ADD TEXT INPUT LARGE');
-    let ti = document.createElement('input');
-    ti.type = 'text';
-    ti.cols = '40';
-    ti.rows = '2';
+    let ti = document.createElement('textarea');
+    ti.cols = "40";
+    ti.rows = "2";
     if (req){
         ti.required = true;
     }
