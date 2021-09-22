@@ -220,6 +220,10 @@ var load_questions = async function(formid, questions, answers){
 
             let onlyselid = 'new'+section+'_questions'+question;
             let onlysel = document.getElementById(selid);
+
+            console.log(onlyselid);
+            console.log(onlysel.text);
+
             onlysel.onchange = function(){
                 let txt = sel.options[sel.selectedIndex].text;
                 console.log('ONLY TI ONCH '+txt+'#');
