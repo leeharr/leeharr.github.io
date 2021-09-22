@@ -294,7 +294,7 @@ var createsession = async function(){
         //console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
-        //console.log('   val : '+val);
+        console.log('   val : '+val);
         if (!val instanceof Function){
             sesdata[qattr+'id'] = val;
         }
@@ -308,7 +308,7 @@ var createsession = async function(){
             } else {
                 otha = '';
             }
-            //console.log('     a : '+sa[val]);
+            console.log('     a : '+sa[val]);
             //console.log('OTHER? '+othq+' '+otha);
             if (othq && otha){
                 let subsel = div.children[2];
@@ -330,6 +330,7 @@ var createsession = async function(){
 //             sesdata[qattr+'str'] = theval;
             sel['data-reset'](sel);
         } else {
+            console.log('else val');
             sendval = val;
 //             sesdata[qattr+'str'] = val;
             sel['data-reset'](sel);
