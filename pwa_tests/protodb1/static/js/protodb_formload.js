@@ -217,6 +217,20 @@ var load_questions = async function(formid, questions, answers){
             let marker = parts[2];
             console.log('ONLY');
             console.log(section + ' ' + question + ' ' + marker);
+
+            let onlyselid = 'new'+section+'_questions'+question;
+            let onlysel = document.getElementById(selid);
+            onlysel.onchange = function(){
+                let txt = sel.options[sel.selectedIndex].text;
+                console.log('ONLY TI ONCH '+txt+'#');
+//                     if (othery(txt)){
+//                         ti.style.visibility = 'visible';
+//                         ti.required = true;
+//                     } else {
+//                         ti.style.visibility = 'hidden';
+//                         ti.required = false;
+//                     }
+            }
         }
 
         sel.id = selid;
