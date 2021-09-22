@@ -211,23 +211,30 @@ var load_questions = async function(formid, questions, answers){
         }
 
         if (qa.only){
-            let parts = qa.only.split('::');
-            let section = parts[0];
-            let question = parts[1];
-            let marker = parts[2];
-            console.log('ONLY');
-            console.log(section + ' ' + question + ' ' + marker);
+            setTimeout(function(){ set_only_later(qa.only, div); }, 500);
+        }
 
-            let onlyselid = 'new'+section+'_questions'+question;
-            let onlysel = document.getElementById(selid);
+        sel.id = selid;
+    });
+}
 
-            console.log(onlyselid);
-            console.log(onlysel);
-//             console.log(onlysel.text);
+var set_only_later = function(only, div){
+    let parts = only.split('::');
+    let section = parts[0];
+    let question = parts[1];
+    let marker = parts[2];
+    console.log('ONLY');
+    console.log(section + ' ' + question + ' ' + marker);
 
-//             onlysel.onchange = function(){
-//                 let txt = sel.options[sel.selectedIndex].text;
-//                 console.log('ONLY TI ONCH '+txt+'#');
+    let onlyselid = 'new'+section+'_questions'+question;
+    let onlysel = document.getElementById(selid);
+
+    console.log(onlyselid);
+    console.log(onlysel);
+    console.log(onlysel.text);
+
+    onlysel.onchange = function(){
+        console.log('ONLY TI ONCH '+txt+'#');
 //                     if (othery(txt)){
 //                         ti.style.visibility = 'visible';
 //                         ti.required = true;
@@ -235,12 +242,9 @@ var load_questions = async function(formid, questions, answers){
 //                         ti.style.visibility = 'hidden';
 //                         ti.required = false;
 //                     }
-//             }
-        }
-
-        sel.id = selid;
-    });
+    }
 }
+
 
 var setremember = async function(formid, questions){
     asyncForEach(questions, async function(qa, qi, qarr){
