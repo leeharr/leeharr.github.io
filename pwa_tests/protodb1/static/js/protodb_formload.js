@@ -233,15 +233,16 @@ var set_only_later = function(only, attr, div){
     console.log(onlysel);
     console.log(onlysel.value);
     console.log(attr);
+    console.log(staff_answers);
+    console.log(session_answers);
 
     let anss;
-    let ost = onlysel.value;
     if (section=='staff'){
         anss = staff_answers;
     }
     console.log(anss);
 
-    let val = anss[attr];
+    let val = anss[onlysel.value];
     if (val.startsWith(marker)){
         div.style.visibility = 'visible';
     } else {
