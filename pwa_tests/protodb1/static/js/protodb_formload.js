@@ -232,6 +232,7 @@ var set_only_later = function(only, attr, div){
     console.log(onlyselid);
     console.log(onlysel);
     console.log(onlysel.text);
+    console.log(attr);
 
     let anss;
     let ost = onlysel.value;
