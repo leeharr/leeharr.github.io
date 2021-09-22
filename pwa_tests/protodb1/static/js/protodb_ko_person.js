@@ -9,7 +9,7 @@ var Person = function(pid, lname, fname, grade){
     self.grade = ko.observable(grade);
 
     self.checkorshowperson = async function(){
-        console.log('COSP');
+        //console.log('COSP');
         let idbase;
         let is_sess = vm.showgroupsession();
         if (is_sess){
@@ -19,7 +19,7 @@ var Person = function(pid, lname, fname, grade){
         }
 
         if (vm.showpersoncheckboxes()){
-            console.log('boxes');
+            //console.log('boxes');
             let ngpid = idbase + self.pid();
             console.log(ngpid);
             let cb = document.querySelector(ngpid);
@@ -32,7 +32,7 @@ var Person = function(pid, lname, fname, grade){
                 vm.setchange();
             }
         } else {
-            console.log('NOboxes');
+            //console.log('NOboxes');
             await self.showperson();
         }
     }

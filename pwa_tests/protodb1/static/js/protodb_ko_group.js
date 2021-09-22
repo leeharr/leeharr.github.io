@@ -12,20 +12,20 @@ var Group = function(gid, name){
     }
 
     self.showgroup = function(){
-        console.log('SG');
+        //console.log('SG');
         vm.showpersoncheckboxes(true);
         vm.checkpersoncheckboxes(false);
         vm.selectedgroup(self);
         for (let p of self.people()){
             let ngpid = '#ngpid'+p.pid();
-            console.log('sg check :'+ngpid);
+            //console.log('sg check :'+ngpid);
             let cb = document.querySelector(ngpid);
             cb.checked = true;
         }
     }
 
     self.showupdategroup = function(p){
-        console.log('SUG');
+        //console.log('SUG');
         vm.showpersoncheckboxes(true);
         vm.checkpersoncheckboxes(false);
         self.updategroup(true);
@@ -45,7 +45,7 @@ var Group = function(gid, name){
     }
 
     self.newgroupsession = function(){
-        console.log('NGS');
+        //console.log('NGS');
         vm.showgroupsession(true);
         self.checkgroupcheckboxes(true);
     }
@@ -55,16 +55,16 @@ var Group = function(gid, name){
         if (ppl.length == 0){ ppl = vm.people(); }
         for (let p of ppl){
             let ngpid = '#gspid'+p.pid();
-            console.log('cgcb ' + ngpid);
+            //console.log('cgcb ' + ngpid);
             let cb = document.querySelector(ngpid);
             if (cb){
-                console.log('found');
+                //console.log('found');
                 cb.checked = check;
             }
         }
     }
     self.checkuncheck = function(){
-        console.log('grp cuc');
+        //console.log('grp cuc');
         let anychecked = false;
         let ppl = self.people();
         if (ppl.length == 0){ ppl = vm.people(); }

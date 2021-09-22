@@ -32,10 +32,10 @@ var editstaff = async function(){
         let qattr = div['data-qattr'];
         if (!qattr){ return; }
 
-        console.log('qattr : '+qattr);
+        //console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
-        console.log('   val : '+val);
+        //console.log('   val : '+val);
 
         if (div['data-remember']){
             cset(qattr, val);
@@ -77,7 +77,7 @@ window.shownewperson = async function(){
 }
 var newperson = async function(e){
     // e true if saving existing person
-    console.log('new person form sent '+e);
+    //console.log('new person form sent '+e);
     vm.shownewperson(false);
 
     var p = {}
@@ -87,13 +87,13 @@ var newperson = async function(e){
         let qattr = div['data-qattr'];
         if (!qattr){ return; }
 
-        console.log('qattr : '+qattr);
+        //console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
-        console.log('   val : '+val);
+        //console.log('   val : '+val);
         p[qattr+'id'] = val;
         if (person_answers[qattr]){
-            console.log('     a : '+person_answers[qattr][val]);
+            //console.log('     a : '+person_answers[qattr][val]);
             p[qattr+'str'] = person_answers[qattr][val];
             sel.value = ''
         } else {
@@ -126,7 +126,7 @@ var newperson = async function(e){
         let npgid = '#npgid' + gid;
         let cb = document.querySelector(npgid);
         if (cb.checked){
-            console.log(npgid + ' checked');
+            //console.log(npgid + ' checked');
             let g = await gget(gid);
             g.people.push(i);
             let vmg = vm.getgroup(gid);
@@ -139,7 +139,7 @@ var newperson = async function(e){
     vm.shownewperson(false);
 }
 var saveperson = async function(){
-    console.log('SAVE');
+    //console.log('SAVE');
     await newperson(true);
 }
 
@@ -161,7 +161,7 @@ var shownewgroup = function(){
     }
 }
 var newgroup = async function(e){
-    console.log('new group form sent');
+    //console.log('new group form sent');
     let gname = document.querySelector('#gname');
     let gname_err = document.querySelector('#gname_err');
     gname_err.style.visibility = 'hidden';
@@ -176,7 +176,7 @@ var newgroup = async function(e){
 
     let g = {'name': gname.value, 'people': []}
     let i = await ggetnextid();
-    console.log(i + ' .... ' + g.name);
+    //console.log(i + ' .... ' + g.name);
 
     let ng = vm.addgroup(i, gname.value);
 
@@ -186,7 +186,7 @@ var newgroup = async function(e){
         let ngpid = '#ngpid' + k;
         let cb = document.querySelector(ngpid);
         if (cb.checked){
-            console.log(ngpid + ' checked');
+            //console.log(ngpid + ' checked');
             g.people.push(k);
             let p = vm.getperson(k);
             if (p){ ng.addperson(p); }
@@ -242,7 +242,7 @@ function _age(dobstr) {
 
 var working = [];
 var chkcreatesession = function(){
-    console.log('CHK CREATE SESS');
+    //console.log('CHK CREATE SESS');
     let ppl = vm.people();
     let count = 0;
     for (let p of ppl){
@@ -251,29 +251,29 @@ var chkcreatesession = function(){
         let gspid = '#gspid'+pid;
         let cb = document.querySelector(gspid);
         if (!cb){
-            console.log('BROK '+gspid);
+            //console.log('BROK '+gspid);
         } else if (cb && cb.checked){
-            console.log('SEL: '+pid);
+            //console.log('SEL: '+pid);
             count++;
         } else {
-            console.log('NSEL '+pid);
+            //console.log('NSEL '+pid);
         }
     }
 
     if (!count){
-        console.log('NONE SELECTED');
+        //console.log('NONE SELECTED');
         let smr = document.getElementById('session_members_reminder');
         smr.classList.add('qdiverr');
         return false;
     } else {
-        console.log('COUNT '+count);
+        //console.log('COUNT '+count);
         setTimeout(createsession, 200);
         return false;
     }
 }
 
 var createsession = async function(){
-    console.log('CREATE SESSION');
+    //console.log('CREATE SESSION');
     vm.showgroupsession(false);
 
     vm.sendworking(true);
@@ -291,10 +291,10 @@ var createsession = async function(){
     var form = document.getElementById('newsession_questions');
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
-        console.log('qattr : '+qattr);
+        //console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
-        console.log('   val : '+val);
+        //console.log('   val : '+val);
         if (!val instanceof Function){
             sesdata[qattr+'id'] = val;
         }
@@ -308,13 +308,13 @@ var createsession = async function(){
             } else {
                 otha = '';
             }
-            console.log('     a : '+sa[val]);
-            console.log('OTHER? '+othq+' '+otha);
+            //console.log('     a : '+sa[val]);
+            //console.log('OTHER? '+othq+' '+otha);
             if (othq && otha){
                 let subsel = div.children[2];
-                console.log('sel '+sel);
+                //console.log('sel '+sel);
                 sendval = subsel.value;
-                console.log('val '+sendval);
+                //console.log('val '+sendval);
 //                 sesdata[qattr+'str'] = val;
                 subsel.value = '';
             } else {
@@ -323,9 +323,9 @@ var createsession = async function(){
             }
             sel.value = '';
         } else if (val instanceof Function){
-            console.log('VAL FUNC '+qattr);
+            //console.log('VAL FUNC '+qattr);
             let theval = val();
-            console.log('theval- '+theval);
+            //console.log('theval- '+theval);
             sendval = theval;
 //             sesdata[qattr+'str'] = theval;
             sel['data-reset'](sel);
@@ -336,14 +336,14 @@ var createsession = async function(){
         }
 
         let sendas = sel['sendas'];
-        console.log('SENDAS '+qattr+' '+sendas);
+        //console.log('SENDAS '+qattr+' '+sendas);
         if (sendas==false){
             // not sending
         } else if (sel['sendas']){
-            console.log(sel['sendas']+'='+sendval);
+            //console.log(sel['sendas']+'='+sendval);
             sesdata[sel['sendas']] = sendval;
         } else {
-            console.log(qattr+'='+sendval);
+            //console.log(qattr+'='+sendval);
             sesdata[qattr] = sendval;
         }
 
@@ -356,13 +356,13 @@ var createsession = async function(){
     //sesdata['staffname'] = vm.staffname();
     //sesdata['positionstr'] = vm.positionname();
     var form = document.getElementById('newstaff_questions');
-    console.log('=STAFF QUESTIONS=');
+    //console.log('=STAFF QUESTIONS=');
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
-        console.log('qattr : '+qattr);
+        //console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
-        console.log('   val : '+val);
+        //console.log('   val : '+val);
 
         if (!val instanceof Function){
             sesdata[qattr+'id'] = val;
@@ -379,10 +379,10 @@ var createsession = async function(){
         if (sendas==false){
             // not sending
         } else if (sel['sendas']){
-            console.log(sel['sendas']+'='+sendval);
+            //console.log(sel['sendas']+'='+sendval);
             sesdata[sel['sendas']] = sendval;
         } else {
-            console.log(qattr+'='+sendval);
+            //console.log(qattr+'='+sendval);
             sesdata[qattr] = sendval;
         }
     });
@@ -396,7 +396,7 @@ var createsession = async function(){
         let gspid = '#gspid'+pid;
         let cb = document.querySelector(gspid);
         if (cb && !cb.checked){
-            console.log('NOT SEL: '+pid);
+            //console.log('NOT SEL: '+pid);
             continue;
         }
 
@@ -463,7 +463,7 @@ var checkunsent = async function(){
     for (let k of ks){
         if (k=='currid'){continue;}
         let s = await sget(k);
-        console.log('cksent:' + k + '==' + s.sent);
+        //console.log('cksent:' + k + '==' + s.sent);
         if (!s.sent){
             working.push(k);
 

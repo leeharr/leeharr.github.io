@@ -1,7 +1,7 @@
 'use strict';
 
 window.dateselector = function(div, req){
-    console.log('ADD DATE SELECTOR');
+    //console.log('ADD DATE SELECTOR');
     let dsel = document.createElement('input');
     dsel.type = 'date';
     let dt = new Date();
@@ -26,7 +26,7 @@ window.datereset = function(dsel){
     if (d<10){ d = '0'+d;}
     let y = dt.getFullYear();
     let dtstr = `${y}-${m}-${d}`;
-    console.log('DATE RESET to '+dtstr);
+    //console.log('DATE RESET to '+dtstr);
     dsel.value = dtstr;
 }
 window.dateclear = function(dsel){
@@ -34,7 +34,7 @@ window.dateclear = function(dsel){
 }
 
 window.textinput = function(div, req){
-    console.log('ADD TEXT INPUT');
+    //console.log('ADD TEXT INPUT');
     let ti = document.createElement('input');
     ti.type = 'text';
     if (req){
@@ -44,7 +44,7 @@ window.textinput = function(div, req){
     return ti;
 }
 window.textinputlarge = function(div, req){
-    console.log('ADD TEXT INPUT LARGE');
+    //console.log('ADD TEXT INPUT LARGE');
     let ti = document.createElement('textarea');
     ti.cols = "40";
     ti.rows = "2";
@@ -59,7 +59,7 @@ window.textinputreset = function(ti){
 }
 
 window.withotherreset = function(sel){
-    console.log('WITH OTHER RESET');
+    //console.log('WITH OTHER RESET');
     sel.value = '';
     sel._relother.value = '';
     sel._relother.style.visibility = 'hidden';
@@ -129,7 +129,7 @@ var load_questions = async function(formid, questions, answers){
         div.setAttribute('class', 'qdiv');
         div['data-qattr'] = qa.qattr;
         div['data-remember'] = qa.remember;
-        console.log('APPEND TO '+form+ ' ID '+ form.id);
+        //console.log('APPEND TO '+form+ ' ID '+ form.id);
         form.appendChild(div);
         let qspan = document.createElement('div');
         qspan.innerHTML = qa.q;
@@ -139,14 +139,14 @@ var load_questions = async function(formid, questions, answers){
         let selid = formid + qa.qattr;
         if (qa.a){
             let withother = checkforother(qa.a);
-            console.log('OTHER?'+withother+'#');
+            //console.log('OTHER?'+withother+'#');
 
             sel = document.createElement('select');
             div.appendChild(sel);
 
             answers[qa.qattr] = qa.a;
-            console.log(qa.qattr);
-            console.log(answers);
+            //console.log(qa.qattr);
+            //console.log(answers);
 
             let op = document.createElement('option');
             op.innerHTML = 'Choose...';
@@ -161,7 +161,7 @@ var load_questions = async function(formid, questions, answers){
             });
 
             if (withother){
-                console.log('WITH OTHER');
+                //console.log('WITH OTHER');
                 qa.areset = 'withotherreset';
                 let ti = document.createElement('input');
                 ti.type = 'text';
@@ -185,7 +185,7 @@ var load_questions = async function(formid, questions, answers){
             }
 
         } else {
-            console.log('look for ' + qa.af);
+            //console.log('look for ' + qa.af);
             let af = window[qa.af];
             sel = af(div, qa.req);
         }
@@ -225,24 +225,14 @@ var set_only_later = function(only, attr, div){
     let section = parts[0];
     let question = parts[1];
     let marker = parts[2];
-    console.log('ONLY');
-    console.log(section + ' ' + question + ' ' + marker);
 
     let onlyselid = 'new'+section+'_questions'+question;
     let onlysel = document.getElementById(onlyselid);
-
-    console.log(onlyselid);
-    console.log(onlysel);
-    console.log(onlysel.value);
-    console.log(attr);
-    console.log(staff_answers);
-    console.log(session_answers);
 
     let anss;
     if (section=='staff'){
         anss = staff_answers[question];
     }
-    console.log(anss);
 
     let val = anss[onlysel.value];
     if (val.startsWith(marker)){
@@ -252,7 +242,7 @@ var set_only_later = function(only, attr, div){
     }
 
     onlysel.addEventListener('change', function(){
-        console.log('ONLY TI ONCH '+onlysel.text+'#');
+        //console.log('ONLY TI ONCH '+onlysel.text+'#');
         let val = anss[onlysel.value];
         if (val.startsWith(marker)){
             div.style.display = 'block';
@@ -267,7 +257,7 @@ var setremember = async function(formid, questions){
     asyncForEach(questions, async function(qa, qi, qarr){
         if (qa.remember){
             let val = await cget(qa.qattr);
-            console.log('REMEMBER ' + qa.qattr + ' ' + val);
+            //console.log('REMEMBER ' + qa.qattr + ' ' + val);
             let selid = formid + qa.qattr;
             let sel = document.getElementById(selid);
             if (!val){ val = '';}

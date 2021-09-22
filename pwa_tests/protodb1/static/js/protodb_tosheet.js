@@ -23,14 +23,14 @@ var hts = function(o){
     let ss = [];
     for (let k of Object.keys(o)){
         let s = addnv(k, o[k]);
-        console.log('HTS: '+s)
+        //console.log('HTS: '+s)
         ss.push(s);
     }
     return ss.join('&');
 }
 
 var aftersend = async function(response, sid){
-    console.log('responded');
+    //console.log('responded');
     working.pop();
     let s = await sget(sid);
     s.sent = true;
@@ -109,7 +109,7 @@ var sendonebyform = async function(o){
 var sendalltosheet = async function(){
     let sentthrough = await cget('datasent');
     sentthrough = parseInt(sentthrough);
-    console.log('sending from ' + sentthrough);
+    //console.log('sending from ' + sentthrough);
 
     for (let k of await skeys()){
         if (k=='currid'){ continue; }
@@ -125,5 +125,5 @@ var sendalltosheet = async function(){
     }
     let scurid = await sgetcurrid();
     cset('datasent', scurid);
-    console.log('... to ' + scurid);
+    //console.log('... to ' + scurid);
 }

@@ -29,11 +29,11 @@ var ProtoDBViewModel = function(){
         let pos = self.position();
         let qp = document.getElementById('newstaff_questionsposition');
         let pstr = 'Position Not Set';
-        console.log('PN');
-        console.log(pos);
-        console.log(qp);
+        //console.log('PN');
+        //console.log(pos);
+        //console.log(qp);
         if (qp && pos){
-            console.log(qp.options);
+            //console.log(qp.options);
             //pstr = qp.options[pos].text;
             pstr = selectoptiontext(qp, pos);
         }
@@ -118,7 +118,7 @@ var ProtoDBViewModel = function(){
     });
 
     self.setinitials2 = function(){
-        console.log('SI2');
+        //console.log('SI2');
         let iis = {}
         for (let p of self.people()){
             let fn = p.fname();
@@ -134,7 +134,7 @@ var ProtoDBViewModel = function(){
         for (let k in iis){
             let s = iis[k];
             if (s.length == 1){ continue;}
-            console.log('PI '+k+' '+iis[k]);
+            //console.log('PI '+k+' '+iis[k]);
 
             for(let p of s){
                 let pinfo = {};
@@ -151,8 +151,8 @@ var ProtoDBViewModel = function(){
             }
         }
         for (let k in pinfos){
-            console.log('PO '+k)
-            console.log(pinfos[k]);
+            //console.log('PO '+k)
+            //console.log(pinfos[k]);
         }
     }
 
@@ -166,18 +166,18 @@ var ProtoDBViewModel = function(){
         let prevp;
 
         for (let p of self.people_byflg()){
-            console.log(p.fname()+' '+p.lname()+' '+p.grade());
+            //console.log(p.fname()+' '+p.lname()+' '+p.grade());
         }
 
         for (let p of self.people_byflg()){
             p.linitial(name_initials(p.lname()));
-            console.log('X'+p.pid()+' '+fn+' '+ln+' '+li+' '+pi+' '+gr);
+            //console.log('X'+p.pid()+' '+fn+' '+ln+' '+li+' '+pi+' '+gr);
             if (prevp){
-            console.log('_'+prevp.fname()+' '+prevp.lname()+' '+prevp.linitial()+' '+prevp.grade());
+            //console.log('_'+prevp.fname()+' '+prevp.lname()+' '+prevp.linitial()+' '+prevp.grade());
             }
             console.log('.'+p.fname()+' '+p.lname()+' '+p.linitial()+' '+p.grade());
             if (p.fname()==fn && p.lname()==ln && p.grade()==gr){
-                console.log('C1');
+                //console.log('C1');
                 // exact same first, last, and grade
                 // do something odd for very unusual case
 
@@ -192,7 +192,7 @@ var ProtoDBViewModel = function(){
                 i += '*';
                 p.linitial(i);
             } else if (p.fname()==fn && p.lname()==ln){
-                console.log('C2');
+                //console.log('C2');
                 // same first and last, but different grade
                 // show as fname l gr#
                 if (prevp && li.includes('*')){
@@ -213,7 +213,7 @@ var ProtoDBViewModel = function(){
                 i = name_grader(i, p.grade());
                 p.linitial(i);
             } else if (p.fname()==fn && (p.linitial()==li||p.linitial()==pi)){
-                console.log('C3');
+                //console.log('C3');
                 i = p.lname().slice(0, 2);
                 p.linitial(i);
                 if (prevp && !li.includes('*') && !li.includes(' ')){
@@ -228,7 +228,7 @@ var ProtoDBViewModel = function(){
                 }
 
             } else {
-                console.log('C4');
+                //console.log('C4');
             }
 
             fn = p.fname();
@@ -243,7 +243,7 @@ var ProtoDBViewModel = function(){
     self.rmperson = function(pid){
         let p = self.getperson(pid);
         if (p){
-            console.log('rmvng');
+            //console.log('rmvng');
             self.people.remove(p);
         }
     }
@@ -302,17 +302,17 @@ var ProtoDBViewModel = function(){
     self.checkpersoncheckboxes = function(check=true){
         for (let p of self.people()){
             let ngpid = '#ngpid'+p.pid();
-            console.log('cpcb ' + ngpid);
+            //console.log('cpcb ' + ngpid);
             let cb = document.querySelector(ngpid);
             if (cb){
-                console.log('found.set.'+check);
+                //console.log('found.set.'+check);
                 cb.checked = check;
             }
         }
     }
     self.checkuncheck = function(){
         if (self.showgroupsession()){
-            console.log('selgrp');
+            //console.log('selgrp');
             return self.selectedgroup().checkuncheck();
         }
 
@@ -336,10 +336,10 @@ var ProtoDBViewModel = function(){
     self.checkgroupcheckboxes = function(check=true){
         for (let g of self.groups()){
             let npgid = '#npgid'+g.gid();
-            console.log('cgcb ' + npgid);
+            //console.log('cgcb ' + npgid);
             let cb = document.querySelector(npgid);
             if (cb){
-                console.log('found.set.'+check);
+                //console.log('found.set.'+check);
                 cb.checked = check;
             }
         }
@@ -362,7 +362,7 @@ var ProtoDBViewModel = function(){
         }
     }
     self.setchange = function(){
-        console.log('SET CHANGE');
+        //console.log('SET CHANGE');
         if (vm.selectedgroup()){
             vm.selectedgroup().updategroup(true);
             vm.updategroup(true);
@@ -377,7 +377,7 @@ var ProtoDBViewModel = function(){
         vm.showpersoncheckboxes(false);
         vm.selectedgroup(undefined);
         vm.quickgroup(false);
-        console.log('gscanc '+g.name());
+        //console.log('gscanc '+g.name());
         if (g.name() == 'QUICK'){
             vm.groups.remove(g);
         }

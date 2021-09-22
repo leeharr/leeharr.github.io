@@ -15,7 +15,7 @@ var selectoptiontext = function(s, oval){
 
 var othery = function(txt){
     let ansl = txt.toLowerCase();
-    console.log(ansl);
+    //console.log(ansl);
     if (ansl.startsWith('other')){
         return true;
     } else {
@@ -23,7 +23,7 @@ var othery = function(txt){
     }
 }
 var checkforother = function(answers){
-    console.log('CK OTH');
+    //console.log('CK OTH');
     for (let i=0; i<answers.length; i++){
         let ans = answers[i];
         if (othery(ans)){
@@ -35,13 +35,13 @@ var checkforother = function(answers){
 
 var reset_session_questions = function(){
     let form = document.getElementById('newsession_questions');
-    console.log('form reset '+form);
+    //console.log('form reset '+form);
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
-        console.log('qattr : '+qattr);
+        //console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
-        console.log('   val : '+val);
+        //console.log('   val : '+val);
         let f = sel['data-reset']
         if (f){
             f(sel);
