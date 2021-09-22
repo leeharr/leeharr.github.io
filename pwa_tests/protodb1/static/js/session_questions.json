@@ -92,14 +92,14 @@
     {"q": "How many days assigned (ATS ONLY)",
         "qattr": "ats_days",
         "sendas": "ATS Days Assigned",
-        "only": "staff::position::ATS";
+        "only": "staff::position::ATS",
         "req": false,
         "a": ["1/2 Day", "1", "2", "3", "4", "5"]},
 
     {"q": "ATS - Number of Workshops",
         "qattr": "ats_workshops",
         "sendas": "ATS Workshops",
-        "only": "staff::position::ATS";
+        "only": "staff::position::ATS",
         "req": false,
         "a": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]},
 
