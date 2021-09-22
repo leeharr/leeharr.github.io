@@ -251,7 +251,7 @@ var set_only_later = function(only, attr, div){
         div.style.display = 'none';
     }
 
-    onlysel.onchange = function(){
+    onlysel.addEventListener('onchange', function(){
         console.log('ONLY TI ONCH '+onlysel.text+'#');
         let val = anss[onlysel.value];
         if (val.startsWith(marker)){
@@ -259,7 +259,7 @@ var set_only_later = function(only, attr, div){
         } else {
             div.style.display = 'none';
         }
-    }
+    });
 }
 
 
