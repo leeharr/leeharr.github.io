@@ -139,6 +139,15 @@ var load_questions = async function(formid, questions, answers){
         qspan.innerHTML = qa.q;
         div.appendChild(qspan);
 
+        if (qa.remember=='offer'){
+            // offer to remember
+            console.log('offer to remember '+qa.qattr);
+            let orem = document.createElement('input');
+            orem.type = 'checkbox';
+            qspan.innerHTML += 'R?';
+            qspan.appendChild(orem);
+        }
+
         let sel;
         let selid = formid + qa.qattr;
         if (qa.a){
