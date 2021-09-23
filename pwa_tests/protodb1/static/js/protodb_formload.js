@@ -217,8 +217,9 @@ var load_questions = async function(formid, questions, answers){
             // offer to remember
             console.log('offer to remember '+qa.qattr);
             let orem = document.createElement('input');
+            orem.id = 'remember_'+qa.qattr;
             orem.type = 'checkbox';
-            qspan.innerHTML += ' R?';
+            qspan.innerHTML += ' Remember? ';
             qspan.appendChild(orem);
         }
 
