@@ -5,7 +5,7 @@ window.showeditstaff = async function(){
 
     if (vm.showeditstaff()){
         // show remembered values
-        let form = document.getElementById('newstaff_questions');
+        let form = document.getElementById('newstaff');
         let fc = Array.from(form.children);
         for (let i=0; i<fc.length; i++){
             let div = fc[i];
@@ -373,7 +373,7 @@ var createsession = async function(){
 
     //sesdata['staffname'] = vm.staffname();
     //sesdata['positionstr'] = vm.positionname();
-    var form = document.getElementById('newstaff_questions');
+    var form = document.getElementById('newstaff');
     //console.log('=STAFF QUESTIONS=');
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
