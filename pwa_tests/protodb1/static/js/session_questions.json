@@ -10,6 +10,7 @@
         "qattr": "refsource",
         "sendas": "Referral Source",
         "req": true,
+        "remember": true,
         "a": ["Admin assigned",
                 "Self (student)",
                 "Sent out of class (behavior)",
