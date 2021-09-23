@@ -66,7 +66,9 @@ var Group = function(gid, name){
                 console.log('REM '+ div['data-remember']);
                 if (getrem){console.log(getrem.checked);}
                 let val = await cget(qattr);
-                if (val){
+                if (sel.value instanceof Function){
+                    console.log('FUNC');
+                } else if (val){
                     sel.value = val;
                 }
             } else if (sel['data-reset']) {
