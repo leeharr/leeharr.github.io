@@ -67,6 +67,8 @@ var Group = function(gid, name){
                 if (val){
                     sel.value = val;
                 }
+            } else if (getrem) {
+                div['data-reset'](sel);
             }
         }
     }
