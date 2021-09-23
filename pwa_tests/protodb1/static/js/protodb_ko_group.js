@@ -60,6 +60,7 @@ var Group = function(gid, name){
             let getremid = 'remember_'+qattr;
             let getrem = document.getElementById(getremid);
             console.log(getremid+' '+getrem);
+            console.log('dr '+div['data-reset']);
             if (getrem && getrem.checked || div['data-remember']===true){
                 console.log('REM '+ div['data-remember']);
                 if (getrem){console.log(getrem.checked);}
