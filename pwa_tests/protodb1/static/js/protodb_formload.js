@@ -210,7 +210,7 @@ var load_questions = async function(formid, questions, answers){
         } else if (qa.a) {
             // not required, but select widget used
             // set the empty value
-            qa[""] = "";
+            qa.a[""] = "";
         }
 
         if (qa.sendas){
