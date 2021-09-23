@@ -57,11 +57,17 @@ var Group = function(gid, name){
             if (!qattr){ return; }
             let sel = div.children[1];
 
-            if (div['data-remember']){
+            let getremid = 'remember_'+qattr;
+            let getrem = document.getElementById(getremid);
+            let remember = false;
+            console.log(getremid+' '+getrem);
+            if (getrem && getrem.checked || div['data-remember']===true){
                 let val = await cget(qattr);
                 if (val){
                     sel.value = val;
                 }
+            } else {
+                sel.value = '';
             }
         }
     }
