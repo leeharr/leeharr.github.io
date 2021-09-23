@@ -66,8 +66,6 @@ var Group = function(gid, name){
                 if (val){
                     sel.value = val;
                 }
-            } else {
-                sel.value = '';
             }
         }
     }
