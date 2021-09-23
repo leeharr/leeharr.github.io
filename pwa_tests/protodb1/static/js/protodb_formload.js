@@ -193,6 +193,7 @@ var load_questions = async function(formid, questions, answers){
             let af = window[qa.af];
             sel = af(div, qa.req);
             console.log('lfsel '+selid+' '+sel);
+            console.log('lfval '+sel.value);
         }
 
         if (qa.areset){
