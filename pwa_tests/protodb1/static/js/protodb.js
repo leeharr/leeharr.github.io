@@ -5,7 +5,7 @@ window.showeditstaff = async function(){
 
     if (vm.showeditstaff()){
         // show remembered values
-        let form = document.getElementById('newstaff');
+        let form = document.getElementById('newstaff_questions');
         let fc = Array.from(form.children);
         for (let i=0; i<fc.length; i++){
             let div = fc[i];
@@ -27,7 +27,7 @@ var editstaff = async function(){
 
     let s = {};
 
-    let form = document.getElementById('newstaff');
+    let form = document.getElementById('newstaff_questions');
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
         if (!qattr){ return; }
@@ -52,30 +52,14 @@ var editstaff = async function(){
 }
 
 window.shownewperson = async function(){
-    let form = document.getElementById('newperson');
+    var form = document.getElementById('newperson');
     if (form){
         form.reset();
     }
 
-//     let s = await cget('school');
-//     let se = document.getElementById('newperson_questionsschool');
-//     se.value = s;
-
-    let fc = Array.from(form.children);
-    for (let i=0; i<fc.length; i++){
-        let div = fc[i];
-        let qattr = div['data-qattr'];
-        if (!qattr){ return; }
-        let sel = div.children[1];
-
-        if (div['data-remember']){
-            console.log('per rem '+qattr);
-            let val = await cget(qattr);
-            if (val){
-                sel.value = val;
-            }
-        }
-    }
+    let s = await cget('school');
+    let se = document.getElementById('newperson_questionsschool');
+    se.value = s;
 
     let ks = await gkeys();
     for (let gid of ks){
@@ -373,7 +357,7 @@ var createsession = async function(){
 
     //sesdata['staffname'] = vm.staffname();
     //sesdata['positionstr'] = vm.positionname();
-    var form = document.getElementById('newstaff');
+    var form = document.getElementById('newstaff_questions');
     //console.log('=STAFF QUESTIONS=');
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
