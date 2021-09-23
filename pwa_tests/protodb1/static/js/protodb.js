@@ -264,6 +264,7 @@ var chkcreatesession = function(){
         //console.log('NONE SELECTED');
         let smr = document.getElementById('session_members_reminder');
         smr.classList.add('qdiverr');
+        setTimeout(scrolltop, 500);
         return false;
     } else {
         //console.log('COUNT '+count);
