@@ -219,8 +219,12 @@ var load_questions = async function(formid, questions, answers){
             let orem = document.createElement('input');
             orem.id = 'remember_'+qa.qattr;
             orem.type = 'checkbox';
-            qspan.innerHTML += ' Remember? ';
-            qspan.appendChild(orem);
+            let remdiv = document.createElement('div');
+            remdiv.id = 'remdiv_'+qa.qattr;
+            remdiv.className = 'remember';
+            remdiv.innerHTML = 'Remember? ';
+            remdiv.appendChild(orem);
+            qspan.appendChild(remdiv);
 
             let setrem = await cget(orem.id);
             if (setrem){

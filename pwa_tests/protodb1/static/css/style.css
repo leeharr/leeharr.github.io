@@ -67,3 +67,7 @@ div#gname_err{
     visibility: hidden;
     color: red;
 }
+
+div.remember{
+    float: right;
+}
