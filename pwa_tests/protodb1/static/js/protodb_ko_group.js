@@ -60,7 +60,7 @@ var Group = function(gid, name){
             let getremid = 'remember_'+qattr;
             let getrem = document.getElementById(getremid);
             console.log(getremid+' '+getrem);
-            console.log('dr '+div['data-reset']);
+            console.log('dr '+sel['data-reset']);
             if (getrem && getrem.checked || div['data-remember']===true){
                 console.log('REM '+ div['data-remember']);
                 if (getrem){console.log(getrem.checked);}
@@ -68,8 +68,8 @@ var Group = function(gid, name){
                 if (val){
                     sel.value = val;
                 }
-            } else if (div['data-reset']) {
-                div['data-reset'](sel);
+            } else if (sel['data-reset']) {
+                sel['data-reset'](sel);
             } else {
                 sel.value = '';
             }
