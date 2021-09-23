@@ -292,7 +292,7 @@ var createsession = async function(){
     var form = document.getElementById('newsession_questions');
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
-        //console.log('qattr : '+qattr);
+        console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
         console.log('   val : '+val);

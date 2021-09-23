@@ -207,6 +207,10 @@ var load_questions = async function(formid, questions, answers){
             qreq.setAttribute('class', 'qreq');
             qspan.appendChild(qreq);
             div.setAttribute('class', 'qdiv qdivreq');
+        } else if (qa.a) {
+            // not required, but select widget used
+            // set the empty value
+            qa[""] = "";
         }
 
         if (qa.sendas){
