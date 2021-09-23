@@ -59,9 +59,10 @@ var Group = function(gid, name){
 
             let getremid = 'remember_'+qattr;
             let getrem = document.getElementById(getremid);
-            let remember = false;
             console.log(getremid+' '+getrem);
             if (getrem && getrem.checked || div['data-remember']===true){
+                console.log('REM '+ div['data-remember']);
+                if (getrem){console.log(getrem.checked);}
                 let val = await cget(qattr);
                 if (val){
                     sel.value = val;
