@@ -27,7 +27,7 @@ var editstaff = async function(){
 
     let s = {};
 
-    let form = document.getElementById('newstaff_questions');
+    let form = document.getElementById('newstaff');
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
         if (!qattr){ return; }
@@ -61,7 +61,6 @@ window.shownewperson = async function(){
 //     let se = document.getElementById('newperson_questionsschool');
 //     se.value = s;
 
-    form = document.getElementById('newperson_questions');
     let fc = Array.from(form.children);
     for (let i=0; i<fc.length; i++){
         let div = fc[i];
