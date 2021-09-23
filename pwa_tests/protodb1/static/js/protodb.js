@@ -52,7 +52,7 @@ var editstaff = async function(){
 }
 
 window.shownewperson = async function(){
-    var form = document.getElementById('newperson');
+    let form = document.getElementById('newperson');
     if (form){
         form.reset();
     }
@@ -61,7 +61,7 @@ window.shownewperson = async function(){
 //     let se = document.getElementById('newperson_questionsschool');
 //     se.value = s;
 
-    let form = document.getElementById('newperson_questions');
+    form = document.getElementById('newperson_questions');
     let fc = Array.from(form.children);
     for (let i=0; i<fc.length; i++){
         let div = fc[i];
