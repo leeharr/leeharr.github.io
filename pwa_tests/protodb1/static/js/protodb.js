@@ -52,14 +52,30 @@ var editstaff = async function(){
 }
 
 window.shownewperson = async function(){
-    var form = document.getElementById('newperson');
+    let form = document.getElementById('newperson');
     if (form){
         form.reset();
     }
 
-    let s = await cget('school');
-    let se = document.getElementById('newperson_questionsschool');
-    se.value = s;
+//     let s = await cget('school');
+//     let se = document.getElementById('newperson_questionsschool');
+//     se.value = s;
+
+    form = document.getElementById('newperson_questions');
+    let fc = Array.from(form.children);
+    for (let i=0; i<fc.length; i++){
+        let div = fc[i];
+        let qattr = div['data-qattr'];
+        if (!qattr){ return; }
+        let sel = div.children[1];
+
+        if (div['data-remember']){
+            let val = await cget(qattr);
+            if (val){
+                sel.value = val;
+            }
+        }
+    }
 
     let ks = await gkeys();
     for (let gid of ks){
