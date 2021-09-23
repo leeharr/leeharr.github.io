@@ -365,7 +365,22 @@ var createsession = async function(){
             sesdata[qattr] = sendval;
         }
 
-        if (div['data-remember']){
+        console.log('CHK REM');
+        let getremid = 'remember_'+qattr;
+        let getrem = document.getElementById(getremid);
+        let remember = false;
+        console.log(getremid+' '+getrem);
+        if (getrem){
+            if (getrem.checked){
+                console.log('getrem chkd');
+                remember = true;
+                cset(getremid, true);
+            } else {
+                cset(getremid, '');
+            }
+        }
+
+        if (div['data-remember'] || remember){
             cset(qattr, val);
             sel.value = val;
         }

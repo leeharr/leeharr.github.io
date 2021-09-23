@@ -221,6 +221,11 @@ var load_questions = async function(formid, questions, answers){
             orem.type = 'checkbox';
             qspan.innerHTML += ' Remember? ';
             qspan.appendChild(orem);
+
+            let setrem = await cget(orem.id);
+            if (setrem){
+                orem.checked = true;
+            }
         }
 
         if (qa.sendas){
