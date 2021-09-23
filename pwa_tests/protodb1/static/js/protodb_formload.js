@@ -127,7 +127,7 @@ var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);
     if (!form){ return; }
 
-    questions.forEach(function(qa, qi, qarr){
+    asyncForEach(questions, function(qa, qi, qarr){
         let div = document.createElement('div');
         div.setAttribute('class', 'qdiv');
         div.id = qa.qattr+'div';
