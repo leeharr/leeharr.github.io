@@ -56,7 +56,7 @@ var Group = function(gid, name){
             let qattr = div['data-qattr'];
             if (!qattr){ return; }
             let sel = div.children[1];
-            console.log('sel '+sel);
+            console.log('sel '+sel.id + ' ' + sel);
             console.log('val '+sel.value);
             console.log('dr '+sel['data-reset']);
 
