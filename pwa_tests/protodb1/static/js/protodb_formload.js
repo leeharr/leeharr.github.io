@@ -189,9 +189,10 @@ var load_questions = async function(formid, questions, answers){
             }
 
         } else {
-            //console.log('look for ' + qa.af);
+            console.log('look for ' + qa.af);
             let af = window[qa.af];
             sel = af(div, qa.req);
+            console.log('lfsel '+sel.id+' '+sel);
         }
 
         if (qa.areset){
