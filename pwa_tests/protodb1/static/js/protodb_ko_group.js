@@ -56,11 +56,12 @@ var Group = function(gid, name){
             let qattr = div['data-qattr'];
             if (!qattr){ return; }
             let sel = div.children[1];
+            console.log('sel '+sel);
+            console.log('dr '+sel['data-reset']);
 
             let getremid = 'remember_'+qattr;
             let getrem = document.getElementById(getremid);
             console.log(getremid+' '+getrem);
-            console.log('dr '+sel['data-reset']);
             if (getrem && getrem.checked || div['data-remember']===true){
                 console.log('REM '+ div['data-remember']);
                 if (getrem){console.log(getrem.checked);}
