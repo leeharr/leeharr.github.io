@@ -44,10 +44,26 @@ var Group = function(gid, name){
         vm.selectedgroup(undefined);
     }
 
-    self.newgroupsession = function(){
-        //console.log('NGS');
+    self.newgroupsession = async function(){
+        console.log('NGS');
         vm.showgroupsession(true);
         self.checkgroupcheckboxes(true);
+
+        let form = document.getElementById('newsession_questions');
+        let fc = Array.from(form.children);
+        for (let i=0; i<fc.length; i++){
+            let div = fc[i];
+            let qattr = div['data-qattr'];
+            if (!qattr){ return; }
+            let sel = div.children[1];
+
+            if (div['data-remember']){
+                let val = await cget(qattr);
+                if (val){
+                    sel.value = val;
+                }
+            }
+        }
     }
 
     self.checkgroupcheckboxes = function(check=true){
