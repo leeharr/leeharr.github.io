@@ -64,9 +64,11 @@ var Group = function(gid, name){
             console.log(getremid+' '+getrem);
             if (getrem && getrem.checked || div['data-remember']===true){
                 console.log('REM '+ div['data-remember']);
-                if (getrem){console.log(getrem.checked);}
+                if (getrem){
+                    console.log(getrem.checked);
+                }
                 let val = await cget(qattr);
-                if (sel.value instanceof Function){
+                if (div.value instanceof Function){
                     console.log('FUNC');
                 } else if (val){
                     sel.value = val;
