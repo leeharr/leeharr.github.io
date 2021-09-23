@@ -139,15 +139,6 @@ var load_questions = async function(formid, questions, answers){
         qspan.innerHTML = qa.q;
         div.appendChild(qspan);
 
-        if (qa.remember=='offer'){
-            // offer to remember
-            console.log('offer to remember '+qa.qattr);
-            let orem = document.createElement('input');
-            orem.type = 'checkbox';
-            qspan.innerHTML += 'R?';
-            qspan.appendChild(orem);
-        }
-
         let sel;
         let selid = formid + qa.qattr;
         if (qa.a){
@@ -220,6 +211,15 @@ var load_questions = async function(formid, questions, answers){
             // not required, but select widget used
             // set the empty value
             qa.a[""] = "";
+        }
+
+        if (qa.remember=='offer'){
+            // offer to remember
+            console.log('offer to remember '+qa.qattr);
+            let orem = document.createElement('input');
+            orem.type = 'checkbox';
+            qspan.innerHTML += ' R?';
+            qspan.appendChild(orem);
         }
 
         if (qa.sendas){
