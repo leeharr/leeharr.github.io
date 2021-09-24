@@ -378,14 +378,14 @@ var createsession = async function(){
             if (getrem.checked){
                 console.log('getrem chkd');
                 remember = true;
-                cset(getremid, true);
+                //cset(getremid, true);
             } else {
-                cset(getremid, '');
+                //cset(getremid, '');
             }
         }
 
         if (div['data-remember'] || remember){
-            cset(qattr, theval);
+            //cset(qattr, theval);
             if (val instanceof Function && sel.setvalue instanceof Function){
                 sel.setvalue(theval);
             } else if (val instanceof Function){
