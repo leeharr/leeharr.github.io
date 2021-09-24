@@ -54,9 +54,9 @@ var Group = function(gid, name){
         for (let i=0; i<fc.length; i++){
             let div = fc[i];
             let qattr = div['data-qattr'];
+            if (!qattr){ continue; }
             console.log('qat '+qattr);
             console.log('div '+div.id+' '+div);
-            if (!qattr){ return; }
             let sel = div.children[1];
             console.log('sel '+sel.id + ' ' + sel);
             console.log('val '+sel.value);
