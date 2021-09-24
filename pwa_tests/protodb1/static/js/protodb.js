@@ -358,7 +358,7 @@ var createsession = async function(){
         }
 
         let sendas = sel['sendas'];
-        console.log('SENDAS '+qattr+' '+sendas);
+        //console.log('SENDAS '+qattr+' '+sendas);
         if (sendas==false){
             // not sending
         } else if (sel['sendas']){
@@ -378,15 +378,14 @@ var createsession = async function(){
             if (getrem.checked){
                 console.log('getrem chkd');
                 remember = true;
-                await cset(getremid, true);
+                cset(getremid, true);
             } else {
-                await cset(getremid, '');
+                cset(getremid, '');
             }
         }
 
         if (div['data-remember'] || remember){
-            await cset(qattr, theval);
-            console.log('valfunc? '+val);
+            cset(qattr, theval);
             if (!val instanceof Function){
                 sel.value = val;
             } else {
