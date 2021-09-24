@@ -73,6 +73,7 @@ var Group = function(gid, name){
                     console.log(getrem.checked);
                 }
                 let val = await cget(qattr);
+                console.log('REMval '+val);
 //                 if (sel0.value instanceof Function){
 //                     console.log('FUNC');
 //                 } else if (val){
