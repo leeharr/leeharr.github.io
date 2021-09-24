@@ -90,7 +90,6 @@
         "qattr": "parent",
         "sendas": "Parent Contacted",
         "req": true,
-        "remember": "offer",
         "af": "yesno",
         "areset": "yesnoreset"},
 
