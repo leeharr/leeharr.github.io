@@ -57,6 +57,7 @@ var Group = function(gid, name){
             if (!qattr){ continue; }
             console.log('qat '+qattr);
             console.log('div '+div.id+' '+div);
+            console.log('divval '+div.value);
             let sel = div.children[1];
             let sel0 = div.children[0];
             console.log('sel '+sel.id + ' ' + sel);
