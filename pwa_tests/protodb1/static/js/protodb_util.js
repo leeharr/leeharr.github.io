@@ -23,9 +23,10 @@ var othery = function(txt){
     }
 }
 var checkforother = function(answers){
-    //console.log('CK OTH');
+    console.log('CK OTH');
     for (let i=0; i<answers.length; i++){
         let ans = answers[i];
+        console.log('ck '+ans);
         if (othery(ans)){
             return true;
         }
