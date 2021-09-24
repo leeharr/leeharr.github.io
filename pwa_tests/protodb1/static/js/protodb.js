@@ -310,6 +310,7 @@ var createsession = async function(){
         let qattr = div['data-qattr'];
         console.log('qattr : '+qattr);
         let sel = div.children[1];
+        console.log('selid '+sel.id);
         let val = sel.value;
         console.log('   val : '+val);
         if (!val instanceof Function){
