@@ -317,6 +317,7 @@ var createsession = async function(){
             sesdata[qattr+'id'] = val;
         }
         let sa = session_answers[qattr];
+        let theval; // either val or val()
         let sendval;
         if (sa){
             let othq = checkforother(sa);
@@ -339,6 +340,7 @@ var createsession = async function(){
                 sendval = sa[val];
 //                 sesdata[qattr+'str'] = sa[val];
             }
+            theval = val;
             sel.value = '';
         } else if (val instanceof Function){
             console.log('VAL FUNC '+qattr);
@@ -352,6 +354,7 @@ var createsession = async function(){
             sendval = val;
 //             sesdata[qattr+'str'] = val;
             sel['data-reset'](sel);
+            theval = val;
         }
 
         let sendas = sel['sendas'];
@@ -382,8 +385,12 @@ var createsession = async function(){
         }
 
         if (div['data-remember'] || remember){
-            cset(qattr, val);
-            sel.value = val;
+            cset(qattr, theval);
+            if (!val instanceof Function){
+                sel.value = val;
+            } else {
+                sel.setvalue(theval);
+            }
         }
     });
 
