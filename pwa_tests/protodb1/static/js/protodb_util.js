@@ -14,7 +14,7 @@ var selectoptiontext = function(s, oval){
 }
 
 var othery = function(txt){
-    if (!txt) {return false;}
+//     if (!txt) {return false;}
     let ansl = txt.toLowerCase();
     //console.log(ansl);
     if (ansl.startsWith('other')){
