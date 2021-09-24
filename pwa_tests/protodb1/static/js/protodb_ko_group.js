@@ -58,8 +58,9 @@ var Group = function(gid, name){
             console.log('qat '+qattr);
             console.log('div '+div.id+' '+div);
             let sel = div.children[1];
+            let sel0 = div.children[0];
             console.log('sel '+sel.id + ' ' + sel);
-            console.log('divval '+div.value);
+            console.log('sel0val '+sel0.value);
             console.log('dr '+sel['data-reset']);
 
             let getremid = 'remember_'+qattr;
@@ -71,7 +72,7 @@ var Group = function(gid, name){
                     console.log(getrem.checked);
                 }
                 let val = await cget(qattr);
-                if (div.value instanceof Function){
+                if (sel0.value instanceof Function){
                     console.log('FUNC');
                 } else if (val){
                     sel.value = val;
