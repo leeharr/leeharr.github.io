@@ -385,12 +385,15 @@ var createsession = async function(){
         }
 
         if (div['data-remember'] || remember){
+            console.log('DRR '+qattr+' '+theval);
             //cset(qattr, theval);
             if (val instanceof Function && sel.setvalue instanceof Function){
+                console.log('setvalue func');
                 sel.setvalue(theval);
             } else if (val instanceof Function){
                 console.log('?????');
             } else {
+                console.log('=val');
                 sel.value = val;
             }
         }
