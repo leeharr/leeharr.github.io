@@ -378,9 +378,9 @@ var createsession = async function(){
             if (getrem.checked){
                 console.log('getrem chkd');
                 remember = true;
-                //cset(getremid, true);
+                cset(getremid, true);
             } else {
-                //cset(getremid, '');
+                cset(getremid, '');
             }
         }
 
