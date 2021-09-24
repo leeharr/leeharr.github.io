@@ -388,10 +388,10 @@ var createsession = async function(){
         if (div['data-remember'] || remember){
             await cset(qattr, theval);
             console.log('valfunc? '+val);
-            if (!val instanceof Function){
-                sel.value = val;
-            } else {
+            if (val instanceof Function){
                 sel.setvalue(theval);
+            } else {
+                sel.value = val;
             }
         }
     });
