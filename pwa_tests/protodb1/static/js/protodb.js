@@ -306,7 +306,8 @@ var createsession = async function(){
     let sesdata = {'sesname': sesname};
 
     var form = document.getElementById('newsession_questions');
-    Array.from(form.children).forEach(function(div, i, arr){
+    let fc = Array.from(form.children);
+    asyncForEach(fc, async function(div, i, arr){
         let qattr = div['data-qattr'];
         console.log('qattr : '+qattr);
         let sel = div.children[1];
