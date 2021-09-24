@@ -14,7 +14,6 @@ var selectoptiontext = function(s, oval){
 }
 
 var othery = function(txt){
-//     if (!txt) {return false;}
     let ansl = txt.toLowerCase();
     //console.log(ansl);
     if (ansl.startsWith('other')){
@@ -24,10 +23,9 @@ var othery = function(txt){
     }
 }
 var checkforother = function(answers){
-    console.log('CK OTH');
+    //console.log('CK OTH');
     for (let i=0; i<answers.length; i++){
         let ans = answers[i];
-        console.log('ck '+ans);
         if (othery(ans)){
             return true;
         }
