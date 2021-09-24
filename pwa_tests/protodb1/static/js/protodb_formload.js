@@ -114,6 +114,17 @@ window.yesno = function(div, req){
             return "";
         }
     }
+    dsel.setvalue = function(v){
+        console.log('setting to '+v);
+        dsel._yes.checked = false;
+        dsel._no.checked = false;
+
+        if (v == 'Yes'){
+            dsel._yes.checked = true;
+        } else if (v == 'No'){
+            dsel._no.checked = true;
+        }
+    }
 
     return dsel;
 }
@@ -294,7 +305,7 @@ var setremember = async function(formid, questions){
             console.log('selval '+sel.value);
             if (sel.value instanceof Function){
                 console.log('val is function');
-                // set this up later
+                sel.setvalue(val);
             } else {
                 sel.value = val;
             }

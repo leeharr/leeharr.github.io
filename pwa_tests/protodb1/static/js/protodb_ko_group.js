@@ -74,8 +74,9 @@ var Group = function(gid, name){
                 }
                 let val = await cget(qattr);
                 console.log('REMval '+val);
-                if (sel0.value instanceof Function){
+                if (div.value instanceof Function){
                     console.log('FUNC');
+                    div.setvalue(val);
                 } else if (val){
                     sel.value = val;
                 }
