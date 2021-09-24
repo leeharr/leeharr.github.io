@@ -295,7 +295,7 @@ var set_only_later = function(only, attr, div){
 
 
 var setremember = async function(formid, questions){
-    console.log('setremember');
+    console.log('setremember '+formid);
     asyncForEach(questions, async function(qa, qi, qarr){
         if (qa.remember){
             let val = await cget(qa.qattr);
