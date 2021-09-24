@@ -306,8 +306,7 @@ var createsession = async function(){
     let sesdata = {'sesname': sesname};
 
     var form = document.getElementById('newsession_questions');
-    let fc = Array.from(form.children);
-    asyncForEach(fc, async function(div, i, arr){
+    Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
         console.log('qattr : '+qattr);
         let sel = div.children[1];
@@ -388,10 +387,10 @@ var createsession = async function(){
         if (div['data-remember'] || remember){
             await cset(qattr, theval);
             console.log('valfunc? '+val);
-            if (val instanceof Function){
-                sel.setvalue(theval);
-            } else {
+            if (!val instanceof Function){
                 sel.value = val;
+            } else {
+                sel.setvalue(theval);
             }
         }
     });
