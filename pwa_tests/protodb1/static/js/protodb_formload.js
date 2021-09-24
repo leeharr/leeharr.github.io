@@ -287,10 +287,11 @@ var setremember = async function(formid, questions){
     asyncForEach(questions, async function(qa, qi, qarr){
         if (qa.remember){
             let val = await cget(qa.qattr);
-            //console.log('REMEMBER ' + qa.qattr + ' ' + val);
+            console.log('REMEMBER ' + qa.qattr + ' ' + val);
             let selid = formid + qa.qattr;
             let sel = document.getElementById(selid);
             if (!val){ val = '';}
+            console.log('selval '+sel.value);
             sel.value = val;
         }
     });

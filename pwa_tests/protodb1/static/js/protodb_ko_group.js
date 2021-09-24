@@ -74,11 +74,11 @@ var Group = function(gid, name){
                 }
                 let val = await cget(qattr);
                 console.log('REMval '+val);
-//                 if (sel0.value instanceof Function){
-//                     console.log('FUNC');
-//                 } else if (val){
-//                     sel.value = val;
-//                 }
+                if (sel0.value instanceof Function){
+                    console.log('FUNC');
+                } else if (val){
+                    sel.value = val;
+                }
             } else if (sel['data-reset']) {
                 console.log('SDR');
                 sel['data-reset'](sel);
