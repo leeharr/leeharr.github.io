@@ -386,8 +386,10 @@ var createsession = async function(){
 
         if (div['data-remember'] || remember){
             cset(qattr, theval);
-            if (val instanceof Function){
+            if (val instanceof Function && sel.setvalue instanceof Function){
                 sel.setvalue(theval);
+            } else if (val instanceof Function){
+                console.log('?????');
             } else {
                 sel.value = val;
             }
