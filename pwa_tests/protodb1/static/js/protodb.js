@@ -386,10 +386,10 @@ var createsession = async function(){
 
         if (div['data-remember'] || remember){
             cset(qattr, theval);
-            if (!val instanceof Function){
-                sel.value = val;
-            } else {
+            if (val instanceof Function){
                 sel.setvalue(theval);
+            } else {
+                sel.value = val;
             }
         }
     });
