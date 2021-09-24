@@ -73,11 +73,11 @@ var Group = function(gid, name){
                     console.log(getrem.checked);
                 }
                 let val = await cget(qattr);
-                if (sel0.value instanceof Function){
-                    console.log('FUNC');
-                } else if (val){
-                    sel.value = val;
-                }
+//                 if (sel0.value instanceof Function){
+//                     console.log('FUNC');
+//                 } else if (val){
+//                     sel.value = val;
+//                 }
             } else if (sel['data-reset']) {
                 console.log('SDR');
                 sel['data-reset'](sel);
