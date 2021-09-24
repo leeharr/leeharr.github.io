@@ -60,7 +60,7 @@ var Group = function(gid, name){
             let sel = div.children[1];
             let sel0 = div.children[0];
             console.log('sel '+sel.id + ' ' + sel);
-            console.log('sel0val '+sel0.value);
+            console.log('sel0 '+sel0.id + ' ' + sel0);
             console.log('dr '+sel['data-reset']);
 
             let getremid = 'remember_'+qattr;
