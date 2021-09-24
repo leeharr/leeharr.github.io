@@ -383,7 +383,7 @@ var createsession = async function(){
                 cset(getremid, '');
             }
         }
-        console.log('after getremchk');
+        console.log('after getremchk '+div['data-remember']+' '+remember);
 
         if (div['data-remember'] || remember){
             console.log('DRR '+qattr+' '+theval);
