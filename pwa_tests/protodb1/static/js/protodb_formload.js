@@ -245,6 +245,7 @@ var load_questions = async function(formid, questions, answers){
             setTimeout(function(){ set_only_later(qa.only, qa.qattr, div); }, 400);
         }
 
+        console.log('reset? '+sel.id+' '+sel);
         sel.id = selid;
     });
 }

@@ -70,7 +70,7 @@ var Group = function(gid, name){
             if (getrem && getrem.checked || div['data-remember']===true){
                 console.log('REM '+ div['data-remember']);
                 if (getrem){
-                    console.log(getrem.checked);
+                    console.log('checked: '+getrem.checked);
                 }
                 let val = await cget(qattr);
                 console.log('REMval '+val);
