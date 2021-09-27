@@ -120,7 +120,7 @@ var ProtoDBViewModel = function(){
     });
 
     self.setinitials2 = function(){
-        //console.log('SI2');
+        console.log('SI2');
         let iis = {}
         for (let p of self.people()){
             let fn = p.fname();
@@ -136,7 +136,7 @@ var ProtoDBViewModel = function(){
         for (let k in iis){
             let s = iis[k];
             if (s.length == 1){ continue;}
-            //console.log('PI '+k+' '+iis[k]);
+            console.log('PI '+k+' '+iis[k]);
 
             for(let p of s){
                 let pinfo = {};
@@ -153,8 +153,8 @@ var ProtoDBViewModel = function(){
             }
         }
         for (let k in pinfos){
-            //console.log('PO '+k)
-            //console.log(pinfos[k]);
+            console.log('PO '+k)
+            console.log(pinfos[k]);
         }
     }
 
