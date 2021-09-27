@@ -29,7 +29,7 @@ var hts = function(o){
 }
 
 var aftersend = async function(response, sid){
-    console.log('responded');
+    //console.log('responded');
     working.pop();
     let s = await sget(sid);
     s.sent = true;
@@ -38,7 +38,7 @@ var aftersend = async function(response, sid){
 
 var sendonetosheet = async function(o){
     let sheetsurl = vm.sheetsurl();
-    console.log('Sending to: '+sheetsurl);
+    //console.log('Sending to: '+sheetsurl);
     let d = hts(o);
     let sid = o.id;
     fetch(sheetsurl+'?'+d)
@@ -110,7 +110,7 @@ var sendonebyform = async function(o){
 var sendalltosheet = async function(){
     let sentthrough = await cget('datasent');
     sentthrough = parseInt(sentthrough);
-    console.log('sending from ' + sentthrough);
+    //console.log('sending from ' + sentthrough);
 
     for (let k of await skeys()){
         if (k=='currid'){ continue; }
@@ -126,5 +126,5 @@ var sendalltosheet = async function(){
     }
     let scurid = await sgetcurrid();
     cset('datasent', scurid);
-    console.log('... to ' + scurid);
+    //console.log('... to ' + scurid);
 }
