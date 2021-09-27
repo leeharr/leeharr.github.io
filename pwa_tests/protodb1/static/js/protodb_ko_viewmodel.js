@@ -136,7 +136,10 @@ var ProtoDBViewModel = function(){
         for (let k in iis){
             let s = iis[k];
             if (s.length == 1){ continue;}
-            console.log('PI '+k+' '+iis[k]);
+            console.log('PI '+k);
+            for (let kk in s){
+                console.log('  - '+kk);
+            }
 
             for(let p of s){
                 let pinfo = {};
