@@ -319,9 +319,11 @@ var createsession = async function(){
         let sa = session_answers[qattr];
         let theval; // either val or val()
         let sendval;
+        let othq = false;
+        let otha = '';
+        let subsel;
         if (sa){
-            let othq = checkforother(sa);
-            let otha;
+            othq = checkforother(sa);
             if (othq){
                 otha = othery(sa[val]);
             } else {
@@ -330,7 +332,7 @@ var createsession = async function(){
             console.log('     a : '+sa[val]);
             //console.log('OTHER? '+othq+' '+otha);
             if (othq && otha){
-                let subsel = div.children[2];
+                subsel = div.children[2];
                 //console.log('sel '+sel);
                 sendval = subsel.value;
                 //console.log('val '+sendval);
@@ -369,12 +371,14 @@ var createsession = async function(){
             sesdata[qattr] = sendval;
         }
 
+        // Check if user wants to save/restore this value
         console.log('CHK REM');
         let getremid = 'remember_'+qattr;
         let getrem = document.getElementById(getremid);
         let remember = false;
         console.log(getremid+' '+getrem);
         if (getrem){
+            // remember if they want to remember
             if (getrem.checked){
                 console.log('getrem chkd');
                 remember = true;
@@ -386,6 +390,7 @@ var createsession = async function(){
         console.log('after getremchk '+div['data-remember']+' '+remember);
 
         if (div['data-remember'] || remember){
+            // remember the value
             console.log('DRR '+qattr+' '+theval);
             cset(qattr, theval);
             if (val instanceof Function && sel.setvalue instanceof Function){
@@ -396,6 +401,12 @@ var createsession = async function(){
             } else {
                 console.log('=val');
                 sel.value = val;
+            }
+
+            if (othq && otha){
+                let qattr_other = qattr + '_other';
+                cset(qattr_other, subsel.value);
+                subsel.value = sendval;
             }
         }
     });

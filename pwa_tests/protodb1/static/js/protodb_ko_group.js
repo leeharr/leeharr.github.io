@@ -80,6 +80,25 @@ var Group = function(gid, name){
                 } else if (val){
                     sel.value = val;
                 }
+
+                let sa = session_answers[qattr];
+                let othq = false;
+                let otha = '';
+                if (sa){
+                    othq = checkforother(sa);
+                    if (othq){
+                        otha = othery(sa[val]);
+                    } else {
+                        otha = '';
+                    }
+                    if (othq && otha){
+                        let qattr_other = qattr + '_other';
+                        let oval = await cget(qattr_other);
+                        let subsel = div.children[2];
+                        subsel.value = oval;
+                    }
+                }
+
             } else if (sel['data-reset']) {
                 console.log('SDR');
                 sel['data-reset'](sel);
