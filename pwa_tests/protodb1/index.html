@@ -120,7 +120,8 @@
 
 </div>
 
-<div id="rs" class="side">
+<div id="rs">
+    <div class="side">
     <h1>Staff <button onclick="showeditstaff()">Edit</button>
         <button data-bind="visible: $root.showeditstaff()" onclick="showeditstaff()">Cancel</button></h1>
 
@@ -140,8 +141,9 @@
             <button onclick="showeditstaff(); return false;">Cancel</button>
         </div>
     </form>
+    </div>
 
-    <div data-bind="visible: !$root.showgroupsession()">
+    <div class="side" data-bind="visible: !$root.showgroupsession()">
     <h1>Groups
         <button onclick="shownewgroup()"
             data-bind="visible: !$root.shownewperson()">Add New Group</button>
@@ -197,7 +199,7 @@
     </table>
     </div>
 
-    <div data-bind="visible: $root.showgroupsession()">
+    <div class="side" data-bind="visible: $root.showgroupsession()">
     <h1>Session for group <span data-bind="text: selectedgroupname()"></span>
         <button data-bind="click: $root.cancelgroupsession">Cancel</button>
     </h1>
@@ -218,7 +220,6 @@
         <button data-bind="click: $root.cancelgroupsession">Cancel</button>
         </div>
     </form>
-
     </div>
 
 </div>
