@@ -49,6 +49,7 @@ div.side{
     border: thin solid black;
     border-radius: 1em;
     padding: 1em;
+    margin: 1em;
 }
 
 div.qdiv{
