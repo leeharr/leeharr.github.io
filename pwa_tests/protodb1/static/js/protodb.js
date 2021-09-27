@@ -45,7 +45,7 @@ var editstaff = async function(){
 
     vm.showeditstaff(false);
 
-    setTimeout(400, editstaff_after);
+    setTimeout(editstaff_after, 400);
 }
 
 var editstaff_after = async function(){
