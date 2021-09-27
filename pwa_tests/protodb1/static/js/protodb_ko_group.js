@@ -92,6 +92,7 @@ var Group = function(gid, name){
                         otha = '';
                     }
                     if (othq && otha){
+                        sel.onchange();
                         let qattr_other = qattr + '_other';
                         let oval = await cget(qattr_other);
                         let subsel = div.children[2];
