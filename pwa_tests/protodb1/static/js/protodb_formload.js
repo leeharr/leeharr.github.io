@@ -338,6 +338,10 @@ var loadstaffinfo = async function(){
     if (pos){
         vm.position(pos);
     }
+    let url = await cget('sheetsurl');
+    if (url){
+        vm.sheetsurl(url);
+    }
 }
 
 var session_answers = {}

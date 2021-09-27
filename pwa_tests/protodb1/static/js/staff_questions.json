@@ -1,4 +1,12 @@
 [
+    {"q": "Sheets URL",
+        "qattr": "sheetsurl",
+        "sendas": false,
+        "req": true,
+        "remember": true,
+        "af": "textinput",
+        "areset": "textinputreset"},
+
     {"q": "Staff Name",
         "qattr": "staffname",
         "sendas": "Staff Name",

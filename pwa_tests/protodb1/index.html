@@ -132,14 +132,8 @@
 
     <form id="editstaff" data-bind="visible: $root.showeditstaff()"
         onsubmit="editstaff(); return false;">
-        <div class="qdiv qdivreq">
-            <div>Sheets URL<span class="qreq">*</span></div>
-            <input data-bind="value: $root.sheetsurl()" required="required"
-                placeholder="ENTER URL PROVIDED">
-        </div>
-
         <div id="newstaff_questions">
-        <!-- Generated on load by load_session_questions() in protodb_formload.js -->
+        <!-- Generated on load by load_questions() in protodb_formload.js -->
         </div>
 
         <div class="qdiv">
@@ -217,7 +211,7 @@
         <div class="qdiv qdivreq" id="session_members_reminder">Select Session Members on Left Side<br/>Uncheck Absent Students</div>
 
         <div id="newsession_questions">
-        <!-- Generated on load by load_session_questions() -->
+        <!-- Generated on load by load_questions() -->
         </div>
 
         <div class="qdiv">
