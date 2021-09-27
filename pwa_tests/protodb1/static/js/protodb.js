@@ -483,8 +483,8 @@ var createsession = async function(){
         psesdata['School'] = dbp.schoolstr;
         psesdata['Grade'] = dbp.gradestr;
         psesdata['Age'] = _age(dbp.dob).toString();
-        psesdata['Gender'] = dbp.gender;
-        psesdata['Race'] = dbp.race;
+        psesdata['Gender'] = dbp.genderstr;
+        psesdata['Race'] = dbp.racestr;
         psesdata['sent'] = false;
 
         let sid = await sgetnextid();
