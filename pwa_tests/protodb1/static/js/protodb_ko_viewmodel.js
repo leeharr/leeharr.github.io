@@ -122,6 +122,7 @@ var ProtoDBViewModel = function(){
     self.setinitials2 = function(){
         console.log('SI2');
         let iis = {}
+        // organize ppl by fname+initials
         for (let p of self.people()){
             let fn = p.fname();
             let i = p.linitial();
@@ -132,15 +133,17 @@ var ProtoDBViewModel = function(){
                 iis[ik] = [p];
             }
         }
+
         let pinfos = {};
         for (let k in iis){
             let s = iis[k];
-            if (s.length == 1){ continue;}
-            console.log('PI '+k);
-            for (let p of s){
-                console.log('  - '+p);
+            if (s.length == 1){
+                // if only 1 with that fname+initials, no need to deal with it
+                continue;
             }
+            console.log('PI '+k);
 
+            // gather more (hopefully differentiating) info about ppl
             for(let p of s){
                 let pinfo = {};
                 let ln = p.lname();
