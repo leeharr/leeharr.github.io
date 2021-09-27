@@ -45,7 +45,7 @@ var Group = function(gid, name){
     }
 
     self.newgroupsession = async function(){
-        console.log('NGS');
+        //console.log('NGS');
         vm.showgroupsession(true);
         self.checkgroupcheckboxes(true);
 
@@ -55,25 +55,25 @@ var Group = function(gid, name){
             let div = fc[i];
             let qattr = div['data-qattr'];
             if (!qattr){ continue; }
-            console.log('qat '+qattr);
-            console.log('div '+div.id+' '+div);
-            console.log('divval '+div.value);
+            //console.log('qat '+qattr);
+            //console.log('div '+div.id+' '+div);
+            //console.log('divval '+div.value);
             let sel = div.children[1];
             let sel0 = div.children[0];
-            console.log('sel '+sel.id + ' ' + sel);
-            console.log('selval '+sel.value );
-            console.log('dr '+sel['data-reset']);
+            //console.log('sel '+sel.id + ' ' + sel);
+            //console.log('selval '+sel.value );
+            //console.log('dr '+sel['data-reset']);
 
             let getremid = 'remember_'+qattr;
             let getrem = document.getElementById(getremid);
-            console.log('ggg '+getremid+' '+getrem+' '+div['data-remember']);
+            //console.log('ggg '+getremid+' '+getrem+' '+div['data-remember']);
             if (getrem && getrem.checked || div['data-remember']===true){
-                console.log('REM '+ div['data-remember']);
+                //console.log('REM '+ div['data-remember']);
                 if (getrem){
                     console.log('checked: '+getrem.checked);
                 }
                 let val = await cget(qattr);
-                console.log('REMval '+val);
+                //console.log('REMval '+val);
                 if (sel.value instanceof Function){
                     console.log('FUNC');
                     sel.setvalue(val);
@@ -101,10 +101,10 @@ var Group = function(gid, name){
                 }
 
             } else if (sel['data-reset']) {
-                console.log('SDR');
+                //console.log('SDR');
                 sel['data-reset'](sel);
             } else {
-                console.log('NOA');
+                //console.log('NOA');
                 sel.value = '';
             }
         }
