@@ -77,3 +77,9 @@ div#gname_err{
 div.remember{
     float: right;
 }
+
+h2.warn{
+    color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
