@@ -113,6 +113,7 @@
         "qattr": "workshop_topics",
         "sendas": "Workshop Topics",
         "req": false,
+        "remember": "offer",
         "a": ["Anger",
                 "Drugs and Alcohol",
                 "Relationships",
