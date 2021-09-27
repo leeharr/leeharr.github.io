@@ -405,7 +405,7 @@ var createsession = async function(){
 
             if (othq && otha){
                 let qattr_other = qattr + '_other';
-                cset(qattr_other, subsel.value);
+                cset(qattr_other, sendval);
                 subsel.value = sendval;
             }
         }
