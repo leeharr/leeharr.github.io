@@ -23,7 +23,7 @@ window.showeditstaff = async function(){
     }
 }
 var editstaff = async function(){
-    console.log('SAVE ES');
+    //console.log('SAVE ES');
 
     let s = {};
 
@@ -131,7 +131,7 @@ var newperson = async function(e){
         let xp = document.getElementById('xpersonid');
         i = xp.value;
     }
-    console.log(i + ' - - ' + p.lname + ', ' + p.fname);
+    //console.log(i + ' - - ' + p.lname + ', ' + p.fname);
     pset(i, p);
     let vmp = vm.addperson(i, p.lname, p.fname, p.gradestr, true);
 
@@ -226,7 +226,7 @@ var savegroup = async function(gid){
         let ngpid = '#ngpid' + k;
         let cb = document.querySelector(ngpid);
         if (cb.checked){
-            console.log(ngpid + ' checked');
+            //console.log(ngpid + ' checked');
             g.people.push(k);
             let p = vm.getperson(k);
             if (p){ vmg.addperson(p); }
@@ -308,11 +308,11 @@ var createsession = async function(){
     var form = document.getElementById('newsession_questions');
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
-        console.log('qattr : '+qattr);
+        //console.log('qattr : '+qattr);
         let sel = div.children[1];
-        console.log('selid '+sel.id);
+        //console.log('selid '+sel.id);
         let val = sel.value;
-        console.log('   val : '+val);
+        //console.log('   val : '+val);
         if (!val instanceof Function){
             sesdata[qattr+'id'] = val;
         }
@@ -329,7 +329,7 @@ var createsession = async function(){
             } else {
                 otha = '';
             }
-            console.log('     a : '+sa[val]);
+            //console.log('     a : '+sa[val]);
             //console.log('OTHER? '+othq+' '+otha);
             if (othq && otha){
                 subsel = div.children[2];
@@ -345,14 +345,14 @@ var createsession = async function(){
             theval = val;
             sel.value = '';
         } else if (val instanceof Function){
-            console.log('VAL FUNC '+qattr);
+            //console.log('VAL FUNC '+qattr);
             theval = val();
-            console.log('theval- '+theval);
+            //console.log('theval- '+theval);
             sendval = theval;
 //             sesdata[qattr+'str'] = theval;
             sel['data-reset'](sel);
         } else {
-            console.log('else val');
+            //console.log('else val');
             sendval = val;
 //             sesdata[qattr+'str'] = val;
             sel['data-reset'](sel);
@@ -372,37 +372,37 @@ var createsession = async function(){
         }
 
         // Check if user wants to save/restore this value
-        console.log('CHK REM');
+        //console.log('CHK REM');
         let getremid = 'remember_'+qattr;
         let getrem = document.getElementById(getremid);
         let remember = false;
-        console.log(getremid+' '+getrem);
+        //console.log(getremid+' '+getrem);
         if (getrem){
             // remember if they want to remember
             if (getrem.checked){
-                console.log('getrem chkd');
+                //console.log('getrem chkd');
                 remember = true;
                 cset(getremid, true);
             } else {
                 cset(getremid, '');
             }
         }
-        console.log('after getremchk '+div['data-remember']+' '+remember);
+        //console.log('after getremchk '+div['data-remember']+' '+remember);
 
         let qattr_other = qattr + '_other';
         if (div['data-remember'] || remember){
             // remember the value
-            console.log('DRR '+qattr+' '+theval);
+            //console.log('DRR '+qattr+' '+theval);
             cset(qattr, theval);
             if (val instanceof Function && sel.setvalue instanceof Function){
                 // yesno questions
-                console.log('setvalue func');
+                //console.log('setvalue func');
                 sel.setvalue(theval);
             } else if (val instanceof Function){
                 // should not happen
-                console.log('?????');
+                //console.log('?????');
             } else {
-                console.log('=val');
+                //console.log('=val');
                 sel.value = val;
             }
 

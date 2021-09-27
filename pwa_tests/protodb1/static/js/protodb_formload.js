@@ -67,7 +67,7 @@ window.withotherreset = function(sel){
 }
 
 window.yesno = function(div, req){
-    console.log('YES NO Q');
+    //console.log('YES NO Q');
     let dsel = document.createElement('div');
 
     let rbyes = document.createElement('input');
@@ -104,18 +104,18 @@ window.yesno = function(div, req){
 
     dsel.value = function(){
         if (dsel._yes.checked){
-            console.log('YESNO - yes');
+            //console.log('YESNO - yes');
             return "Yes";
         } else if (dsel._no.checked) {
-            console.log('YESNO - no');
+            //console.log('YESNO - no');
             return "No";
         } else {
-            console.log('YESNO - blank');
+            //console.log('YESNO - blank');
             return "";
         }
     }
     dsel.setvalue = function(v){
-        console.log('setting to '+v);
+        //console.log('setting to '+v);
         dsel._yes.checked = false;
         dsel._no.checked = false;
 
@@ -129,7 +129,7 @@ window.yesno = function(div, req){
     return dsel;
 }
 window.yesnoreset = function(sel){
-    console.log('RESET YES NO');
+    //console.log('RESET YES NO');
     sel._yes.checked = false;
     sel._no.checked = false;
 }
@@ -188,7 +188,7 @@ var load_questions = async function(formid, questions, answers){
 
                 sel.onchange = function(){
                     let txt = sel.options[sel.selectedIndex].text;
-                    console.log('TI ONCH '+txt+'#');
+                    //console.log('TI ONCH '+txt+'#');
                     if (othery(txt)){
                         ti.style.visibility = 'visible';
                         ti.required = true;
@@ -200,11 +200,11 @@ var load_questions = async function(formid, questions, answers){
             }
 
         } else {
-            console.log('look for ' + qa.af);
+            //console.log('look for ' + qa.af);
             let af = window[qa.af];
             sel = af(div, qa.req);
-            console.log('lfsel '+selid+' '+sel);
-            console.log('lfval '+sel.value);
+            //console.log('lfsel '+selid+' '+sel);
+            //console.log('lfval '+sel.value);
         }
 
         if (qa.areset){
@@ -228,7 +228,7 @@ var load_questions = async function(formid, questions, answers){
 
         if (qa.remember=='offer'){
             // offer to remember
-            console.log('offer to remember '+qa.qattr);
+            //console.log('offer to remember '+qa.qattr);
             let orem = document.createElement('input');
             orem.id = 'remember_'+qa.qattr;
             orem.type = 'checkbox';
@@ -246,17 +246,17 @@ var load_questions = async function(formid, questions, answers){
         }
 
         if (qa.sendas){
-            console.log('SET SENDAS '+qa.sendas);
+            //console.log('SET SENDAS '+qa.sendas);
             sel['sendas'] = qa.sendas;
         } else {
-            console.log('NO  SENDAS');
+            //console.log('NO  SENDAS');
         }
 
         if (qa.only){
             setTimeout(function(){ set_only_later(qa.only, qa.qattr, div); }, 400);
         }
 
-        console.log('reset? '+sel.id+' '+sel);
+        //console.log('reset? '+sel.id+' '+sel);
         sel.id = selid;
     });
 }
@@ -295,17 +295,17 @@ var set_only_later = function(only, attr, div){
 
 
 var setremember = async function(formid, questions){
-    console.log('setremember '+formid);
+    //console.log('setremember '+formid);
     asyncForEach(questions, async function(qa, qi, qarr){
         if (qa.remember){
             let val = await cget(qa.qattr);
-            console.log('REMEMBER ' + qa.qattr + ' ' + val);
+            //console.log('REMEMBER ' + qa.qattr + ' ' + val);
             let selid = formid + qa.qattr;
             let sel = document.getElementById(selid);
             if (!val){ val = '';}
-            console.log('selval '+sel.value);
+            //console.log('selval '+sel.value);
             if (sel.value instanceof Function){
-                console.log('val is function');
+                //console.log('val is function');
                 sel.setvalue(val);
             } else {
                 sel.value = val;
