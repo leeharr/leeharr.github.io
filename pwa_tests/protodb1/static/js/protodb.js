@@ -363,6 +363,7 @@ var createsession = async function(){
         //console.log('SENDAS '+qattr+' '+sendas);
         if (sendas==false){
             // not sending
+            console.log('NOT SENDING '+qattr);
         } else if (sel['sendas']){
             //console.log(sel['sendas']+'='+sendval);
             sesdata[sel['sendas']] = sendval;
