@@ -94,3 +94,20 @@ var name_grader = function(inits, gr){
     let i = inits + ' ' + g;
     return i;
 }
+
+var allsame = function (arr){
+    for (var i=0; i<arr.length-1; i++) {
+        if (arr[i] != arr[i+1]) {
+            return false;
+        }
+    }
+    return true;
+}
+var alldiff = function(arr){
+    let sarr = arr.slice();
+    sarr.sort();
+    for (var i=0; i<arr.length-1; i++){
+        if (sarr[i] == sarr[i+1]){ return false; }
+    }
+    return true;
+}
