@@ -70,12 +70,12 @@ var Group = function(gid, name){
             if (getrem && getrem.checked || div['data-remember']===true){
                 //console.log('REM '+ div['data-remember']);
                 if (getrem){
-                    console.log('checked: '+getrem.checked);
+                    //console.log('checked: '+getrem.checked);
                 }
                 let val = await cget(qattr);
                 //console.log('REMval '+val);
                 if (sel.value instanceof Function){
-                    console.log('FUNC');
+                    //console.log('FUNC');
                     sel.setvalue(val);
                 } else if (val){
                     sel.value = val;
