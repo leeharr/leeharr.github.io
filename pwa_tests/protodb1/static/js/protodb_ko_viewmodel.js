@@ -163,7 +163,7 @@ var ProtoDBViewModel = function(){
             else if (alldiff(piii)){ ider = 'piii'; }
             else if (alldiff(pgrn)){ ider = 'pgrn'; }
             else { ider = '???'; }
-            pinfos[k] = ider;
+            pinfos[k].ider = ider;
         }
         for (let k in pinfos){
             console.log('PO '+k)
