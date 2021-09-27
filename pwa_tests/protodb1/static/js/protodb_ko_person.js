@@ -64,6 +64,12 @@ var Person = function(pid, lname, fname, grade){
         let dob = document.getElementById('newperson_questionsdob');
         dob.value = dbp.dob;
 
+        let gen = document.getElementById('newperson_questionsgender');
+        gen.value = dbp.gender;
+
+        let race = document.getElementById('newperson_questionsrace');
+        race.value = dbp.race;
+
         let xp = document.getElementById('xpersonid');
         xp.value = self.pid();
     }
