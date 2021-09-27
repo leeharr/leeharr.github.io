@@ -48,7 +48,7 @@ var editstaff = async function(){
     setTimeout(400, editstaff_after);
 }
 
-var editstaff_after = function(){
+var editstaff_after = async function(){
     let sname = await cget('staffname');
     vm.staffname(sname);
     let pos = await cget('position');
