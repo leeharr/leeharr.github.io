@@ -389,14 +389,17 @@ var createsession = async function(){
         }
         console.log('after getremchk '+div['data-remember']+' '+remember);
 
+        let qattr_other = qattr + '_other';
         if (div['data-remember'] || remember){
             // remember the value
             console.log('DRR '+qattr+' '+theval);
             cset(qattr, theval);
             if (val instanceof Function && sel.setvalue instanceof Function){
+                // yesno questions
                 console.log('setvalue func');
                 sel.setvalue(theval);
             } else if (val instanceof Function){
+                // should not happen
                 console.log('?????');
             } else {
                 console.log('=val');
@@ -404,10 +407,13 @@ var createsession = async function(){
             }
 
             if (othq && otha){
-                let qattr_other = qattr + '_other';
                 cset(qattr_other, sendval);
                 subsel.value = sendval;
+            } else if (othq) {
+                cset(qattr_other, '');
             }
+        } else if (othq){
+            cset(qattr_other, '');
         }
     });
 
