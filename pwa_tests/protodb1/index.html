@@ -126,6 +126,7 @@
         <button data-bind="visible: $root.showeditstaff()" onclick="showeditstaff()">Cancel</button></h1>
 
     <div id="staffdata" data-bind="visible: !$root.showeditstaff()">
+        <h2><input data-bind="visible: !sheetsurl()" value="TEST" disabled="disabled"></h2>
         <h2 data-bind="text: staffname()"></h2>
         <h3 data-bind="text: positionname()"></h3>
     </div>
