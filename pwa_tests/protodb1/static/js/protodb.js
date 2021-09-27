@@ -45,10 +45,16 @@ var editstaff = async function(){
 
     vm.showeditstaff(false);
 
+    setTimeout(400, editstaff_after);
+}
+
+var editstaff_after = function(){
     let sname = await cget('staffname');
     vm.staffname(sname);
     let pos = await cget('position');
     vm.position(pos);
+    let url = await cget('sheetsurl');
+    vm.sheetsurl(url);
 }
 
 window.shownewperson = async function(){
