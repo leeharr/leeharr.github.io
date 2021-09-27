@@ -226,6 +226,10 @@ var load_questions = async function(formid, questions, answers){
             qa.a[""] = "";
         }
 
+        if (qa.placeholder){
+            sel.placeholder = qa.placeholder;
+        }
+
         if (qa.remember=='offer'){
             // offer to remember
             //console.log('offer to remember '+qa.qattr);

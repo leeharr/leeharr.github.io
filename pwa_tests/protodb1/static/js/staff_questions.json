@@ -4,6 +4,7 @@
         "sendas": false,
         "req": true,
         "remember": true,
+        "placeholder": "MUST SET BEFORE USE!",
         "af": "textinput",
         "areset": "textinputreset"},
 
