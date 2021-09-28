@@ -180,8 +180,10 @@ var ProtoDBViewModel = function(){
             console.log('PO '+k)
             console.log(pinfos[k]);
             let pinfo0 = pinfos[k][0];
+            console.log('pi0 '+pinfo0);
+            let chkr;
             for (i=0; i<pinfo0.length; i++){
-                let chkr = [];
+                chkr = [];
                 for (let pi of pinfos[k]){
                     chkr.push(pi[i]);
                 }
