@@ -181,15 +181,19 @@ var ProtoDBViewModel = function(){
             console.log(pinfos[k]);
             let pinfo0 = pinfos[k][0];
             console.log('pi0 '+pinfo0);
-            let chkr;
             for (let i=0; i<pinfo0.length; i++){
                 console.log(i);
-                chkr = [];
+                let chkr = [];
+                let ppl = [];
                 for (let pi of pinfos[k]){
                     chkr.push(pi[i]);
+                    ppl.push(pi.p);
                     console.log('chkr '+chkr);
                 }
-                if (alldiff(chkr)){ break; }
+                if (alldiff(chkr)){
+                    for (let p of ppl){ console.log(p.fname()+p.lname());}
+                    break;
+                }
             }
         }
     }
