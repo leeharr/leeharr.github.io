@@ -193,7 +193,7 @@ var ProtoDBViewModel = function(){
                 if (alldiff(chkr)){
                     for (let i in ppl){
                         let p = ppl[i];
-                        p.initials(chkr[i]);
+                        p.linitial(chkr[i]);
                     }
                     break;
                 }
