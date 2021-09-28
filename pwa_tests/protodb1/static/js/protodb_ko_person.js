@@ -49,17 +49,21 @@ var Person = function(pid, lname, fname, grade){
         let formid = 'newperson_questions';
         let form = document.getElementById(formid);
         let fc = Array.from(form.children);
+        console.log('NPQ');
         for (let i=0; i<fc.length; i++){
             let div = fc[i];
             let qattr = div['data-qattr'];
             let elemid = formid + qattr;
             let elem = document.getElementById(elemid);
             let sa = session_answers[qattr];
+            let dbpget;
             if (sa){
-                elem.value = dbp[qattr+'id'];
+                dbpget = qattr + 'id';
             } else {
-                elem.value = dbp[qattr+'str'];
+                dbpget = qattr + 'str';
             }
+            let val = dbp[dbpget];
+            console.log(dbpget + ' '+ val);
         }
 
 //         let school = document.getElementById('newperson_questionsschool');
