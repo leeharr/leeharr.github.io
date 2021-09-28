@@ -55,7 +55,7 @@ var Person = function(pid, lname, fname, grade){
             let qattr = div['data-qattr'];
             let elemid = formid + qattr;
             let elem = document.getElementById(elemid);
-            let sa = session_answers[qattr];
+            let sa = person_answers[qattr];
             let dbpget;
             if (sa){
                 dbpget = qattr + 'id';
@@ -64,6 +64,7 @@ var Person = function(pid, lname, fname, grade){
             }
             let val = dbp[dbpget];
             console.log(dbpget + ' '+ val);
+            elem.value = val;
         }
 
 //         let school = document.getElementById('newperson_questionsschool');
