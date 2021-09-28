@@ -149,21 +149,26 @@ var ProtoDBViewModel = function(){
             let pgrn = [];
             let ider = '';
             for (let p of ps){
-                let pinfo = {};
+                let pinfo = [];
                 let ln = p.lname();
-                pinfo.ii = ln.slice(0,2);
-                pii.push(pinfo.ii);
-                pinfo.iii = ln.slice(0,3);
-                piii.push(pinfo.iii);
-                pinfo.grn = graden(p.grade());
-                pgrn.push(pinfo.grn);
-                if (pinfos[k]){pinfos[k].push(pinfo)} else {pinfos[k]=[pinfo];}
+                let g = graden(p.grade());
+                for (let grn of ['', g]){
+                    for (let numi of [[1,1,1],
+                                        [2,1,1],
+                                        [2,2,1],
+                                        [2,2,2],
+                                        [3,1,1],
+                                        [3,2,1],
+                                        [3,3,1],
+                                        [3,3,2],
+                                        [3,3,3]]){
+                        let inits = name_initials(ln, numi);
+                        if (grn){ inits += ' '+g; }
+                        pinfo.push(inits);
+                    }
+                }
+                pinfos[k] = pinfo;
             }
-            if (alldiff(pii)){ ider = 'pii'; }
-            else if (alldiff(piii)){ ider = 'piii'; }
-            else if (alldiff(pgrn)){ ider = 'pgrn'; }
-            else { ider = '???'; }
-            pinfos[k].ider = ider;
         }
         for (let k in pinfos){
             console.log('PO '+k)
