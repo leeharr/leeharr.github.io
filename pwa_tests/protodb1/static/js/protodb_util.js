@@ -73,7 +73,7 @@ var name_initials = function(name, numi){
             inits += nsi.join('-');
         } else {
             ni = numi.shift();
-            ii = nn.slice(0, ni);
+            ii = n.slice(0, ni);
             inits += ii;
         }
     }
