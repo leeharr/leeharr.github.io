@@ -41,7 +41,7 @@
 <div id="ls" class="side">
     <div data-bind="visible: !$root.showgroupsession()">
     <h1>People <button onclick="shownewperson()"
-                    data-bind="visible: !$root.shownewgroup()">Add New Person</button>
+                    data-bind="visible: !$root.shownewgroup() && !$root.personexists()">Add New Person</button>
                 <button onclick="shownewperson(); return false;"
                     data-bind="visible: $root.shownewperson()">Cancel</button>
                     </h1>
