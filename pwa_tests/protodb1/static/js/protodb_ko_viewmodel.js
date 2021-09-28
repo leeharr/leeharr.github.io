@@ -186,11 +186,10 @@ var ProtoDBViewModel = function(){
                 console.log(i);
                 chkr = [];
                 for (let pi of pinfos[k]){
-                    console.log('pi '+pi);
                     chkr.push(pi[i]);
+                    console.log('chkr '+chkr);
                 }
             }
-            console.log(chkr);
         }
     }
 
