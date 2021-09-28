@@ -53,19 +53,28 @@ var reset_session_questions = function(){
     smr.classList.remove('qdiverr');
 }
 
-var name_initials = function(name){
+var name_initials = function(name, numi){
+    if (!numi){ numi=[] };
+    numi.push(1,1,1);
+
     let names = name.split(' ');
     let inits = '';
+    let ni;
+    let ii;
     for (n of names){
         if (n.includes('-')){
             let nsi = [];
-            ns = n.split('-');
+            let ns = n.split('-');
             for (nn of ns){
-                nsi.push(nn[0]);
+                ni = numi.shift();
+                ii = nn.slice(0, ni);
+                nsi.push(ii);
             }
             inits += nsi.join('-');
         } else {
-            inits += n[0];
+            ni = numi.shift();
+            ii = nn.slice(0, ni);
+            inits += ii;
         }
     }
     return inits;
