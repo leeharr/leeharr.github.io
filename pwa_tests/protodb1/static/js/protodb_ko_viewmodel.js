@@ -189,7 +189,7 @@ var ProtoDBViewModel = function(){
                     chkr.push(pi[i]);
                     console.log('chkr '+chkr);
                 }
-                if alldiff(chkr){ break; }
+                if (alldiff(chkr)){ break; }
             }
         }
     }
