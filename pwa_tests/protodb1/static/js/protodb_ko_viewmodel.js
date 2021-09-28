@@ -119,6 +119,12 @@ var ProtoDBViewModel = function(){
         }
     });
 
+    self.base_initials = function(){
+        for (let p of self.people()){
+            p.linitial(name_initials(p.lname()));
+        }
+    }
+
     self.setinitials2 = function(){
         console.log('SI2');
         let iis = {}
@@ -296,9 +302,11 @@ var ProtoDBViewModel = function(){
         self.rmperson(pid);
         let p = new Person(pid, lname, fname, grade);
         self.people.push(p);
-        p.linitial(name_initials(p.lname()));
         if (seti){
+            self.base_initials();
             self.setinitials2();
+        } else {
+            p.linitial(name_initials(p.lname()));
         }
         return p;
     }
