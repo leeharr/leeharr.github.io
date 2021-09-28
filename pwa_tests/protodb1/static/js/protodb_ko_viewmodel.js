@@ -126,7 +126,7 @@ var ProtoDBViewModel = function(){
     }
 
     self.setinitials2 = function(){
-        console.log('SI2');
+        //console.log('SI2');
         let iis = {}
         // organize ppl by fname+initials
         for (let p of self.people()){
@@ -147,7 +147,7 @@ var ProtoDBViewModel = function(){
                 // if only 1 with that fname+initials, no need to deal with it
                 continue;
             }
-            console.log('PI '+k);
+            //console.log('PI '+k);
 
             // gather more (hopefully differentiating) info about ppl
             let pii = [];
@@ -183,18 +183,20 @@ var ProtoDBViewModel = function(){
             }
         }
         for (let k in pinfos){
-            console.log('PO '+k)
-            console.log(pinfos[k]);
+            //console.log('PO '+k)
+            //console.log(pinfos[k]);
             let pinfo0 = pinfos[k][0];
-            console.log('pi0 '+pinfo0);
+            //console.log('pi0 '+pinfo0);
             for (let i=0; i<pinfo0.length; i++){
-                console.log(i);
+                // check the pinfos in order, find the first one
+                // where all ppl are completely differentiated
+                //console.log(i);
                 let chkr = [];
                 let ppl = [];
                 for (let pi of pinfos[k]){
                     chkr.push(pi[i]);
                     ppl.push(pi.p);
-                    console.log('chkr '+chkr);
+                    //console.log('chkr '+chkr);
                 }
                 if (alldiff(chkr)){
                     for (let i in ppl){
