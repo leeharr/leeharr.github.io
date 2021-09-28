@@ -150,6 +150,7 @@ var ProtoDBViewModel = function(){
             let ider = '';
             for (let p of ps){
                 let pinfo = [];
+                pinfo.p = p;
                 let ln = p.lname();
                 let g = graden(p.grade());
                 for (let grn of ['', g]){
@@ -178,6 +179,14 @@ var ProtoDBViewModel = function(){
         for (let k in pinfos){
             console.log('PO '+k)
             console.log(pinfos[k]);
+            let pinfo0 = pinfos[k][0];
+            for (i=0; i<pinfo0.length; i++){
+                let chkr = [];
+                for (let pi of pinfos[k]){
+                    chkr.push(pi[i]);
+                }
+            }
+            console.log(chkr);
         }
     }
 
