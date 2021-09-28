@@ -191,7 +191,10 @@ var ProtoDBViewModel = function(){
                     console.log('chkr '+chkr);
                 }
                 if (alldiff(chkr)){
-                    for (let p of ppl){ console.log(p.fname()+p.lname());}
+                    for (let i in ppl){
+                        let p = ppl[i];
+                        p.initials(chkr[i]);
+                    }
                     break;
                 }
             }
