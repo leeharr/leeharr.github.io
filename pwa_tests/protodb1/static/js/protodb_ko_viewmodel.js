@@ -155,6 +155,7 @@ var ProtoDBViewModel = function(){
                 for (let grn of ['', g]){
                     for (let numi of [[1,1,1],
                                         [2,1,1],
+                                        [1,2,1],
                                         [2,2,1],
                                         [2,2,2],
                                         [3,1,1],
@@ -167,7 +168,11 @@ var ProtoDBViewModel = function(){
                         pinfo.push(inits);
                     }
                 }
-                pinfos[k] = pinfo;
+                if (k in pinfos){
+                    pinfos[k].push(pinfo)
+                } else {
+                    pinfos[k] = [pinfo];
+                }
             }
         }
         for (let k in pinfos){
