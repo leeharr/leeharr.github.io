@@ -182,7 +182,7 @@ var ProtoDBViewModel = function(){
             let pinfo0 = pinfos[k][0];
             console.log('pi0 '+pinfo0);
             let chkr;
-            for (i=0; i<pinfo0.length; i++){
+            for (let i=0; i<pinfo0.length; i++){
                 chkr = [];
                 for (let pi of pinfos[k]){
                     chkr.push(pi[i]);
