@@ -280,7 +280,7 @@ var set_only_later = function(only, attr, div){
     }
 
     let val = anss[onlysel.value];
-    if (val.startsWith(marker)){
+    if (val && val.startsWith(marker)){
         div.style.display = 'block';
     } else {
         div.style.display = 'none';
