@@ -239,7 +239,7 @@ var load_questions = async function(formid, questions, answers){
             let remdiv = document.createElement('div');
             remdiv.id = 'remdiv_'+qa.qattr;
             remdiv.className = 'remember';
-            remdiv.innerHTML = 'Remember? ';
+            remdiv.innerHTML = 'Remember';
             remdiv.appendChild(orem);
             qspan.appendChild(remdiv);
 
