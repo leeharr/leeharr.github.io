@@ -148,10 +148,15 @@ var ProtoDBViewModel = function(){
                 // if only 1 with that fname+initials, no need to deal with it
                 continue;
             }
-            //console.log('PI '+k);
+            console.log('PI '+k);
 
             // gather more (hopefully differentiating) info about ppl
             for (let p of ps){
+                    let fn = p.fname();
+                    let i = p.linitial();
+                    let ik = fn+'::'+i;
+                    console.log(ik+' '+p.stid());
+
                 let pinfo = [];
                 pinfo.p = p;
                 let ln = p.lname();
