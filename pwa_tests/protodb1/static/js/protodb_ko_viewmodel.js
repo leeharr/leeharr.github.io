@@ -210,7 +210,7 @@ var ProtoDBViewModel = function(){
                     break;
                 }
             }
-            if (!found){ console.log('NOT FOUND');}
+            if (!found){ console.log('NOT FOUND '+k);}
         }
     }
 
