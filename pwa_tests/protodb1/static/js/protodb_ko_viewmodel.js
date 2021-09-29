@@ -126,13 +126,14 @@ var ProtoDBViewModel = function(){
     }
 
     self.setinitials2 = function(){
-        //console.log('SI2');
+        console.log('SI2');
         let iis = {}
         // organize ppl by fname+initials
         for (let p of self.people()){
             let fn = p.fname();
             let i = p.linitial();
             let ik = fn+'::'+i;
+            console.log(ik+' '+p.stid());
             if (iis[ik]){
                 iis[ik].push(p);
             } else {
@@ -150,10 +151,6 @@ var ProtoDBViewModel = function(){
             //console.log('PI '+k);
 
             // gather more (hopefully differentiating) info about ppl
-            let pii = [];
-            let piii = [];
-            let pgrn = [];
-            let ider = '';
             for (let p of ps){
                 let pinfo = [];
                 pinfo.p = p;
