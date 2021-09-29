@@ -162,7 +162,6 @@ var ProtoDBViewModel = function(){
                 let ln = p.lname();
                 let g = graden(p.grade());
                 let stid = p.stid();
-                console.log('STID');
                 let stid3 = stid.slice(-3); // last 3 of student ID#
                 console.log('STID '+stid+' '+stid3);
                 for (let grn of ['', g, stid3]){
@@ -177,7 +176,7 @@ var ProtoDBViewModel = function(){
                                         [3,3,2],
                                         [3,3,3]]){
                         let inits = name_initials(ln, numi);
-                        if (grn){ inits += ' '+g; }
+                        if (grn){ inits += ' '+grn; }
                         pinfo.push(inits);
                     }
                 }
