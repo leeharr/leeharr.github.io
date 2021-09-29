@@ -104,7 +104,7 @@ var name_grader = function(inits, gr){
     return i;
 }
 
-var allsame = function (arr){
+var allsame = function(arr){
     for (var i=0; i<arr.length-1; i++) {
         if (arr[i] != arr[i+1]) {
             return false;
@@ -119,4 +119,17 @@ var alldiff = function(arr){
         if (sarr[i] == sarr[i+1]){ return false; }
     }
     return true;
+}
+var oneunique = function(arr){
+    let sarr = arr.slice();
+    let uniques = [];
+    while (sarr.length>0){
+        let v = sarr.pop();
+        if (!sarr.includes(v)){
+            uniques.push(v);
+        } else {
+            sarr = sarr.filter(function(i){ return i!=v; })
+        }
+    }
+    if (uniques.length==1){ return uniques[0];}
 }
