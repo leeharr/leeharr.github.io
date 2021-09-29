@@ -7,6 +7,7 @@ var Person = function(pid, lname, fname, grade){
     self.lname = ko.observable(lname);
     self.linitial = ko.observable(lname[0]);
     self.grade = ko.observable(grade);
+    self.stid = ko.observable(''); // student ID#
 
     self.checkorshowperson = async function(){
         //console.log('COSP');

@@ -453,7 +453,8 @@ var ProtoDBViewModel = function(){
             let p = await pget(k);
             if (ko.utils.arrayFirst(self.people(), function(i){
                 return i.pid()==k})){console.log('ERROR.Person.Dup.Id.');}
-                self.addperson(k, p.lname, p.fname, p.gradestr, false);
+                let vmp = self.addperson(k, p.lname, p.fname, p.gradestr, false);
+                vmp.stid(p.stid);
         }
 
         self.groups.removeAll();
