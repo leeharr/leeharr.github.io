@@ -139,8 +139,10 @@ var newperson = async function(e){
     }
     //console.log(i + ' - - ' + p.lname + ', ' + p.fname);
     pset(i, p);
-    let vmp = vm.addperson(i, p.lname, p.fname, p.gradestr, true);
+    let vmp = vm.addperson(i, p.lname, p.fname, p.gradestr, false);
     vmp.stid(p.stid);
+    self.base_initials();
+    self.setinitials2();
 
     // check if adding new person to any groups
     let ks = await gkeys();
