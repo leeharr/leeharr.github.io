@@ -126,14 +126,14 @@ var ProtoDBViewModel = function(){
     }
 
     self.setinitials2 = function(){
-        console.log('SI2');
+        //console.log('SI2');
         let iis = {}
         // organize ppl by fname+initials
         for (let p of self.people()){
             let fn = p.fname();
             let i = p.linitial();
             let ik = fn+'::'+i;
-            console.log(ik+' '+p.stid());
+            //console.log(ik+' '+p.stid());
             if (iis[ik]){
                 iis[ik].push(p);
             } else {
@@ -148,14 +148,14 @@ var ProtoDBViewModel = function(){
                 // if only 1 with that fname+initials, no need to deal with it
                 continue;
             }
-            console.log('PI '+k);
+            //console.log('PI '+k);
 
             // gather more (hopefully differentiating) info about ppl
             for (let p of ps){
                     let fn = p.fname();
                     let i = p.linitial();
                     let ik = fn+'::'+i;
-                    console.log(ik+' '+p.stid());
+                    //console.log(ik+' '+p.stid());
 
                 let pinfo = [];
                 pinfo.p = p;
@@ -163,7 +163,7 @@ var ProtoDBViewModel = function(){
                 let g = graden(p.grade());
                 let stid = p.stid();
                 let stid3 = stid.slice(-3); // last 3 of student ID#
-                console.log('STID '+stid+' '+stid3);
+                //console.log('STID '+stid+' '+stid3);
                 for (let grn of ['', g, stid3]){
                     for (let numi of [[1,1,1],
                                         [2,1,1],
@@ -188,21 +188,21 @@ var ProtoDBViewModel = function(){
             }
         }
         for (let k in pinfos){
-            console.log('PO '+k)
-            console.log(pinfos[k]);
+            //console.log('PO '+k)
+            //console.log(pinfos[k]);
             let pinfo0 = pinfos[k][0];
-            console.log('pi0 '+pinfo0);
+            //console.log('pi0 '+pinfo0);
             let found = false;
             for (let i=0; i<pinfo0.length; i++){
                 // check the pinfos in order, find the first one
                 // where all ppl are completely differentiated
-                console.log(i);
+                //console.log(i);
                 let chkr = [];
                 let ppl = [];
                 for (let pi of pinfos[k]){
                     chkr.push(pi[i]);
                     ppl.push(pi.p);
-                    console.log('chkr '+chkr);
+                    //console.log('chkr '+chkr);
                 }
                 if (alldiff(chkr)){
                     found = true;
@@ -213,7 +213,7 @@ var ProtoDBViewModel = function(){
                     break;
                 }
             }
-            if (!found){ console.log('NOT FOUND '+k);}
+            //if (!found){ console.log('NOT FOUND '+k);}
         }
     }
 
