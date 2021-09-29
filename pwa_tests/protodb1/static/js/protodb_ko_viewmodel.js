@@ -159,7 +159,9 @@ var ProtoDBViewModel = function(){
                 pinfo.p = p;
                 let ln = p.lname();
                 let g = graden(p.grade());
-                for (let grn of ['', g]){
+                let stid = p.stid();
+                let stid3 = stid.slice(-3); // last 3 of student ID#
+                for (let grn of ['', g, stid3]){
                     for (let numi of [[1,1,1],
                                         [2,1,1],
                                         [1,2,1],
