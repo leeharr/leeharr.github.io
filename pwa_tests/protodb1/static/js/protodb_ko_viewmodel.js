@@ -193,6 +193,7 @@ var ProtoDBViewModel = function(){
             let pinfo0 = pinfos[k][0];
             //console.log('pi0 '+pinfo0);
             let found = false;
+            let fixed = [];
             for (let i=0; i<pinfo0.length; i++){
                 // check the pinfos in order, find the first one
                 // where all ppl are completely differentiated
@@ -200,6 +201,7 @@ var ProtoDBViewModel = function(){
                 let chkr = [];
                 let ppl = [];
                 for (let pi of pinfos[k]){
+                    if (fixed.includes(pi.p){continue;}
                     chkr.push(pi[i]);
                     ppl.push(pi.p);
                 }
@@ -215,6 +217,10 @@ var ProtoDBViewModel = function(){
                     let ou = oneunique(chkr);
                     if (ou){
                         console.log('OU '+ou);
+                        let oui = chkr.indexOf(ou);
+                        let p == ppl[oui];
+                        p.linitial(ou);
+                        fixed.push(p);
                     }
                 }
             }
