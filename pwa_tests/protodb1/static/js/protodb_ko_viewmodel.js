@@ -218,7 +218,7 @@ var ProtoDBViewModel = function(){
                     if (ou){
                         console.log('OU '+ou);
                         let oui = chkr.indexOf(ou);
-                        let p == ppl[oui];
+                        let p = ppl[oui];
                         p.linitial(ou);
                         fixed.push(p);
                     }
