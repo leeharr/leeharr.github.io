@@ -141,8 +141,8 @@ var newperson = async function(e){
     pset(i, p);
     let vmp = vm.addperson(i, p.lname, p.fname, p.gradestr, false);
     vmp.stid(p.stid);
-    self.base_initials();
-    self.setinitials2();
+    vm.base_initials();
+    vm.setinitials2();
 
     // check if adding new person to any groups
     let ks = await gkeys();
