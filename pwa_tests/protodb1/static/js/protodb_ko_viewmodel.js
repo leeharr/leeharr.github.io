@@ -187,6 +187,7 @@ var ProtoDBViewModel = function(){
             //console.log(pinfos[k]);
             let pinfo0 = pinfos[k][0];
             //console.log('pi0 '+pinfo0);
+            let found = false;
             for (let i=0; i<pinfo0.length; i++){
                 // check the pinfos in order, find the first one
                 // where all ppl are completely differentiated
@@ -199,6 +200,7 @@ var ProtoDBViewModel = function(){
                     //console.log('chkr '+chkr);
                 }
                 if (alldiff(chkr)){
+                    found = true;
                     for (let i in ppl){
                         let p = ppl[i];
                         p.linitial(chkr[i]);
@@ -206,6 +208,7 @@ var ProtoDBViewModel = function(){
                     break;
                 }
             }
+            if (!found){ console.log('NOT FOUND');}
         }
     }
 
