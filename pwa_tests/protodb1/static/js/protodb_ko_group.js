@@ -12,6 +12,8 @@ var Group = function(gid, name){
     }
 
     self.showgroup = function(){
+        // show the person checkboxes, and
+        // set checked all people in the selected group
         //console.log('SG');
         vm.showpersoncheckboxes(true);
         vm.checkpersoncheckboxes(false);
@@ -24,19 +26,20 @@ var Group = function(gid, name){
         }
     }
 
-    self.showupdategroup = function(p){
-        //console.log('SUG');
-        vm.showpersoncheckboxes(true);
-        vm.checkpersoncheckboxes(false);
-        self.updategroup(true);
-        vm.updategroup(true);
-    }
+//     self.showupdategroup = function(p){
+//         //console.log('SUG');
+//         vm.showpersoncheckboxes(true);
+//         vm.checkpersoncheckboxes(false);
+//         self.updategroup(true);
+//         vm.updategroup(true);
+//     }
 
     self.savegroup = async function(){
         savegroup(self.gid());
     }
 
     self.savecancel = function(){
+        // Do not save, restore group to previous members
         self.updategroup(false);
         vm.updategroup(false);
         vm.checkpersoncheckboxes(false);
@@ -59,7 +62,7 @@ var Group = function(gid, name){
             //console.log('div '+div.id+' '+div);
             //console.log('divval '+div.value);
             let sel = div.children[1];
-            let sel0 = div.children[0];
+            //let sel0 = div.children[0];
             //console.log('sel '+sel.id + ' ' + sel);
             //console.log('selval '+sel.value );
             //console.log('dr '+sel['data-reset']);
@@ -68,10 +71,9 @@ var Group = function(gid, name){
             let getrem = document.getElementById(getremid);
             //console.log('ggg '+getremid+' '+getrem+' '+div['data-remember']);
             if (getrem && getrem.checked || div['data-remember']===true){
+                // restore remembered value
                 //console.log('REM '+ div['data-remember']);
-                if (getrem){
-                    //console.log('checked: '+getrem.checked);
-                }
+                //if (getrem){ console.log('checked: '+getrem.checked); }
                 let val = await cget(qattr);
                 //console.log('REMval '+val);
                 if (sel.value instanceof Function){
@@ -92,7 +94,9 @@ var Group = function(gid, name){
                         otha = '';
                     }
                     if (othq && otha){
-                        sel.onchange();
+                        // question has an "Other" option, AND
+                        // "Other" has been selected
+                        sel.onchange(); // trigger to show other text field
                         let qattr_other = qattr + '_other';
                         let oval = await cget(qattr_other);
                         let subsel = div.children[2];
@@ -124,6 +128,7 @@ var Group = function(gid, name){
         }
     }
     self.checkuncheck = function(){
+        // toggle (for check all / uncheck all)
         //console.log('grp cuc');
         let anychecked = false;
         let ppl = self.people();

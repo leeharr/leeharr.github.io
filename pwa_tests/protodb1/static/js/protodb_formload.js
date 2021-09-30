@@ -59,6 +59,7 @@ window.textinputreset = function(ti){
 }
 
 window.withotherreset = function(sel){
+    // used by select elements that have an "Other" option
     //console.log('WITH OTHER RESET');
     sel.value = '';
     sel._relother.value = '';
@@ -103,6 +104,7 @@ window.yesno = function(div, req){
     div.appendChild(dsel);
 
     dsel.value = function(){
+        // the "value" of the whole widget (Yes,No,or nothing)
         if (dsel._yes.checked){
             //console.log('YESNO - yes');
             return "Yes";
@@ -153,6 +155,7 @@ var load_questions = async function(formid, questions, answers){
         let sel;
         let selid = formid + qa.qattr;
         if (qa.a){
+            // multiple choice (has list of answers)
             let withother = checkforother(qa.a);
             //console.log('OTHER?'+withother+'#');
 
@@ -200,6 +203,7 @@ var load_questions = async function(formid, questions, answers){
             }
 
         } else {
+            // otherwise, use widget setup function
             //console.log('look for ' + qa.af);
             let af = window[qa.af];
             sel = af(div, qa.req);
@@ -221,8 +225,8 @@ var load_questions = async function(formid, questions, answers){
             qspan.appendChild(qreq);
             div.setAttribute('class', 'qdiv qdivreq');
         } else if (qa.a) {
-            // not required, but select widget used
-            // set the empty value
+            // not required, but select widget is being used
+            // set up the empty value
             qa.a[""] = "";
         }
 
@@ -266,6 +270,9 @@ var load_questions = async function(formid, questions, answers){
 }
 
 var set_only_later = function(only, attr, div){
+    // questions that should be visible
+    // only if some condition is true
+    // (used currently for ATS-only questions)
     let parts = only.split('::');
     let section = parts[0];
     let question = parts[1];
@@ -299,6 +306,7 @@ var set_only_later = function(only, attr, div){
 
 
 var setremember = async function(formid, questions){
+    // restore remembered values when loading the form
     //console.log('setremember '+formid);
     asyncForEach(questions, async function(qa, qi, qarr){
         if (qa.remember){

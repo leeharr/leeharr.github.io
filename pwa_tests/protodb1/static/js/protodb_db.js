@@ -1,6 +1,6 @@
 'use strict';
 
-var pid0 = '0';
+var pid0 = '0'; // initial value for person/group/session/config id #s
 
 var getcurrid = async function(getter){
     let val = await getter('currid');
