@@ -188,7 +188,7 @@ var ProtoDBViewModel = function(){
             }
         }
         for (let k in pinfos){
-            console.log('PO '+k)
+            //console.log('PO '+k)
             //console.log(pinfos[k]);
             let pinfo0 = pinfos[k][0];
             //console.log('pi0 '+pinfo0);
@@ -205,7 +205,7 @@ var ProtoDBViewModel = function(){
                     chkr.push(pi[i]);
                     ppl.push(pi.p);
                 }
-                console.log('chkr '+chkr);
+                //console.log('chkr '+chkr);
                 if (alldiff(chkr)){
                     found = true;
                     for (let i in ppl){
@@ -216,7 +216,7 @@ var ProtoDBViewModel = function(){
                 } else {
                     let us = allunique(chkr);
                     for (let u of us){
-                        console.log('U '+u);
+                        //console.log('U '+u);
                         let ui = chkr.indexOf(u);
                         let p = ppl[ui];
                         p.linitial(u);
@@ -225,7 +225,7 @@ var ProtoDBViewModel = function(){
                 }
             }
             if (!found){
-                console.log('NOT FOUND '+k);
+                //console.log('NOT FOUND '+k);
                 let s = ' *';
                 for (let pi of pinfos[k]){
                     let p = pi.p;
