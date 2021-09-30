@@ -213,13 +213,23 @@ var ProtoDBViewModel = function(){
                         p.linitial(chkr[i]);
                     }
                     break;
+//                 } else {
+//                     let ou = oneunique(chkr);
+//                     if (ou){
+//                         console.log('OU '+ou);
+//                         let oui = chkr.indexOf(ou);
+//                         let p = ppl[oui];
+//                         p.linitial(ou);
+//                         fixed.push(p);
+//                     }
+//                 }
                 } else {
-                    let ou = oneunique(chkr);
-                    if (ou){
-                        console.log('OU '+ou);
-                        let oui = chkr.indexOf(ou);
-                        let p = ppl[oui];
-                        p.linitial(ou);
+                    let us = allunique(chkr);
+                    for (u of us){
+                        console.log('U '+u);
+                        let ui = chkr.indexOf(u);
+                        let p = ppl[ui];
+                        p.linitial(u);
                         fixed.push(p);
                     }
                 }

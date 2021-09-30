@@ -121,6 +121,10 @@ var alldiff = function(arr){
     return true;
 }
 var oneunique = function(arr){
+    let uniques = allunique(arr);
+    if (uniques.length==1){ return uniques[0]; }
+}
+var allunique = function(arr){
     let sarr = arr.slice();
     let uniques = [];
     while (sarr.length>0){
@@ -131,5 +135,5 @@ var oneunique = function(arr){
             sarr = sarr.filter(function(i){ return i!=v; })
         }
     }
-    if (uniques.length==1){ return uniques[0];}
+    return uniques;
 }
