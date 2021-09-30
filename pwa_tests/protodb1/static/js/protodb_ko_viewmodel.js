@@ -226,7 +226,7 @@ var ProtoDBViewModel = function(){
             }
             if (!found){
                 console.log('NOT FOUND '+k);
-                s = ' *';
+                let s = ' *';
                 for (let pi of pinfos[k]){
                     if (fixed.includes(pi.p)){continue;}
                     p.linitial(p.linitial()+s);
