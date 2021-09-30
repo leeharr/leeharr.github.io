@@ -213,16 +213,6 @@ var ProtoDBViewModel = function(){
                         p.linitial(chkr[i]);
                     }
                     break;
-//                 } else {
-//                     let ou = oneunique(chkr);
-//                     if (ou){
-//                         console.log('OU '+ou);
-//                         let oui = chkr.indexOf(ou);
-//                         let p = ppl[oui];
-//                         p.linitial(ou);
-//                         fixed.push(p);
-//                     }
-//                 }
                 } else {
                     let us = allunique(chkr);
                     for (let u of us){
@@ -234,7 +224,15 @@ var ProtoDBViewModel = function(){
                     }
                 }
             }
-            //if (!found){ console.log('NOT FOUND '+k);}
+            if (!found){
+                console.log('NOT FOUND '+k);
+                s = ' *';
+                for (let pi of pinfos[k]){
+                    if (fixed.includes(pi.p)){continue;}
+                    p.linitial(p.linitial()+s);
+                    s += '*';
+                }
+            }
         }
     }
 
