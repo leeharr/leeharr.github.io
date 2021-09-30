@@ -150,6 +150,7 @@
         "qattr": "teacher_note",
         "sendas": "Teacher Note",
         "req": false,
+        "remember": "offer",
         "af": "textinputlarge",
         "areset": "textinputreset"},
 
