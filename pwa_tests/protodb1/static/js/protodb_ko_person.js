@@ -10,6 +10,12 @@ var Person = function(pid, lname, fname, grade){
     self.stid = ko.observable(''); // student ID#
 
     self.checkorshowperson = async function(){
+        // depending on context, either
+        // set checkbox on this person's line
+        //  (if editing group members, or session members)
+        // show this person's data for editing
+        //  (if not editing group members or session members)
+
         //console.log('COSP');
         let idbase;
         let is_sess = vm.showgroupsession();
@@ -39,6 +45,8 @@ var Person = function(pid, lname, fname, grade){
     }
 
     self.showperson = async function(){
+        // load this person's data in to the form for editing
+
         vm.shownewperson(true);
         vm.personexists(true);
         if (vm.selectedgroup()){
