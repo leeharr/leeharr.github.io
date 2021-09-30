@@ -225,7 +225,7 @@ var ProtoDBViewModel = function(){
 //                 }
                 } else {
                     let us = allunique(chkr);
-                    for (u of us){
+                    for (let u of us){
                         console.log('U '+u);
                         let ui = chkr.indexOf(u);
                         let p = ppl[ui];
