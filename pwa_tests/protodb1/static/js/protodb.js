@@ -292,8 +292,14 @@ var chkcreatesession = function(){
         let qattr = div['data-qattr'];
         console.log('ck count on qattr : '+qattr);
         let sel = div.children[1];
-        if (!sel['countok']){ continue; }
+        if (!sel['countok']){
+            console.log('  NO CK');
+            continue;
+        } else {
+            console.log('  CK');
+        }
         let cokf = window[sel['countok']];
+        console.log('COKF '+cokf);
         if (!cokf(count)){
             // more counted than ppl in session. set error.
             console.log('COUNT ERROR');
