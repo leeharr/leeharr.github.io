@@ -58,14 +58,14 @@ var Group = function(gid, name){
             let div = fc[i];
             let qattr = div['data-qattr'];
             if (!qattr){ continue; }
-            //console.log('qat '+qattr);
-            //console.log('div '+div.id+' '+div);
-            //console.log('divval '+div.value);
+            console.log('qat '+qattr);
+            console.log('div '+div.id+' '+div);
+            console.log('divval '+div.value);
             let sel = div.children[1];
             //let sel0 = div.children[0];
-            //console.log('sel '+sel.id + ' ' + sel);
-            //console.log('selval '+sel.value );
-            //console.log('dr '+sel['data-reset']);
+            console.log('sel '+sel.id + ' ' + sel);
+            console.log('selval '+sel.value );
+            console.log('dr '+sel['data-reset']);
 
             let getremid = 'remember_'+qattr;
             let getrem = document.getElementById(getremid);
@@ -105,10 +105,10 @@ var Group = function(gid, name){
                 }
 
             } else if (sel['data-reset']) {
-                //console.log('SDR');
+                console.log('SDR');
                 sel['data-reset'](sel);
             } else {
-                //console.log('NOA');
+                console.log('NOA');
                 sel.value = '';
             }
         }
