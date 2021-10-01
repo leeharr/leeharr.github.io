@@ -83,3 +83,7 @@ h2.warn{
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
+
+input[type=number]{
+    margin-left: 3em;
+}
