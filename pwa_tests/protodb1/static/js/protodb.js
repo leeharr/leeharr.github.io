@@ -286,9 +286,11 @@ var chkcreatesession = function(){
     }
 
     var form = document.getElementById('newsession_questions');
-    Array.from(form.children).forEach(function(div, i, arr){
+    let fields = Array.from(form.children);
+    for (i=0; i<fields.length; i++){
+        let div = fields[i];
         let qattr = div['data-qattr'];
-        //console.log('qattr : '+qattr);
+        console.log('ck count on qattr : '+qattr);
         let sel = div.children[1];
         if (!sel['countok']){ continue; }
         let cokf = window[sel['countok']];
