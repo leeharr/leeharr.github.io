@@ -313,6 +313,7 @@ var createsession = async function(){
     let sesname = `${g.name()}-${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}-${dt.getTime()}`;
 
     let sesdata = {'sesname': sesname};
+    let late = {};
 
     var form = document.getElementById('newsession_questions');
     Array.from(form.children).forEach(function(div, i, arr){
@@ -359,7 +360,12 @@ var createsession = async function(){
             //console.log('theval- '+theval);
             sendval = theval;
 //             sesdata[qattr+'str'] = theval;
-            sel['data-reset'](sel);
+            if (theval == '::DSEL_VALUE_LATE::'){
+                console.log('setlate '+qattr);
+                late[qattr] = sel.value_late;
+            } else {
+                sel['data-reset'](sel);
+            }
         } else {
             //console.log('else val');
             sendval = val;
@@ -489,6 +495,11 @@ var createsession = async function(){
         psesdata['Gender'] = dbp.genderstr;
         psesdata['Race'] = dbp.racestr;
         psesdata['sent'] = false;
+
+        for (let qatr in late){
+            let val = late[qatr]();
+            console.log('getlate '+qatr+' : '+val);
+        }
 
         let sid = await sgetnextid();
         await sset(sid, psesdata);

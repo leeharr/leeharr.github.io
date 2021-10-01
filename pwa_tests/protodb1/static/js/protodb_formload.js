@@ -172,7 +172,9 @@ window.yesnocount = function(div, req){
 
     div.appendChild(dsel);
 
-    dsel.value = function(){
+    dsel.value = function(){ return '::DSEL_VALUE_LATE::'; }
+
+    dsel.value_late = function(){
         // the "value" of the whole widget (Yes,No,or nothing)
         if (dsel._yes.value > 0){
             dsel._yes.value -= 1;
