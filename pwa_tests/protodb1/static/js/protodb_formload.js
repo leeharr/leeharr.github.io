@@ -136,6 +136,58 @@ window.yesnoreset = function(sel){
     sel._no.checked = false;
 }
 
+window.yesnocount = function(div, req){
+    console.log('YES NO COUNT Q');
+    let dsel = document.createElement('div');
+
+    let rbyes = document.createElement('input');
+    rbyes.type = 'number';
+    rbyes.name = div.id + '_rbyesnocount';
+    rbyes.id = rbyes.name + '_yes';
+    dsel._yes = rbyes;
+    let rbyespan = document.createElement('span');
+    let rbyeslbl = document.createElement('label');
+    rbyeslbl.setAttribute('for', rbyes.id);
+    rbyeslbl.innerHTML = 'Yes';
+    rbyespan.appendChild(rbyes);
+    rbyespan.appendChild(rbyeslbl);
+    dsel.appendChild(rbyespan);
+
+    let rbno = document.createElement('input');
+    rbno.type = 'number';
+    rbno.name = div.id + '_rbyesnocount';
+    rbno.id = rbno.name + '_no';
+    dsel._no = rbno;
+    let rbnospan = document.createElement('span');
+    let rbnolbl = document.createElement('label');
+    rbnolbl.setAttribute('for', rbno.id);
+    rbnolbl.innerHTML = 'No';
+    rbnospan.appendChild(rbno);
+    rbnospan.appendChild(rbnolbl);
+    dsel.appendChild(rbnospan);
+
+    let rbnoans = document.createElement('input');
+    rbnoans.type = 'number';
+    rbnoans.name = div.id + '_rbyesnocount';
+    rbnoans.id = rbnoans.name + '_noans';
+    dsel._noans = rbnoans;
+    let rbnoansspan = document.createElement('span');
+    let rbnoanslbl = document.createElement('label');
+    rbnoanslbl.setAttribute('for', rbnoans.id);
+    rbnoanslbl.innerHTML = 'No Ans';
+    rbnoansspan.appendChild(rbnoans);
+    rbnoansspan.appendChild(rbnoanslbl);
+    dsel.appendChild(rbnoansspan);
+
+    return dsel;
+}
+window.yesnocountreset = function(sel){
+    //console.log('RESET YES NO');
+    sel._yes.value = '';
+    sel._no.value = '';
+    sel._noans.value = '';
+}
+
 var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);
     if (!form){ return; }

@@ -131,8 +131,8 @@
         "qattr": "knowledgegain",
         "sendas": "Workshop-Knowledge Gain",
         "req": false,
-        "af": "yesno",
-        "areset": "yesnoreset"},
+        "af": "yesnocount",
+        "areset": "yesnocountreset"},
 
     {"q": "Workshop - Maintain Skills (if pre and post test was given)",
         "qattr": "maintainskills",
