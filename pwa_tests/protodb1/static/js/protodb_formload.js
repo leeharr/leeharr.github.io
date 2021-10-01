@@ -170,21 +170,6 @@ window.yesnocount = function(div, req){
     rbnospan.appendChild(rbnolbl);
     dsel.appendChild(rbnospan);
 
-    let rbnoans = document.createElement('input');
-    rbnoans.type = 'number';
-    rbnoans.name = div.id + '_rbyesnocount';
-    rbnoans.id = rbnoans.name + '_noans';
-    rbnoans.min = 0;
-    rbnoans.size = 3;
-    dsel._noans = rbnoans;
-    let rbnoansspan = document.createElement('span');
-    let rbnoanslbl = document.createElement('label');
-    rbnoanslbl.setAttribute('for', rbnoans.id);
-    rbnoanslbl.innerHTML = 'No Ans';
-    rbnoansspan.appendChild(rbnoans);
-    rbnoansspan.appendChild(rbnoanslbl);
-    dsel.appendChild(rbnoansspan);
-
     div.appendChild(dsel);
 
     return dsel;
