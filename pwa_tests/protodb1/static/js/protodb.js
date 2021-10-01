@@ -362,7 +362,7 @@ var createsession = async function(){
 //             sesdata[qattr+'str'] = theval;
             if (theval == '::DSEL_VALUE_LATE::'){
                 console.log('setlate '+qattr);
-                late[qattr] = sel.value_late;
+                late[qattr] = sel;
             } else {
                 sel['data-reset'](sel);
             }
@@ -497,8 +497,11 @@ var createsession = async function(){
         psesdata['sent'] = false;
 
         for (let qatr in late){
-            let val = late[qatr]();
-            console.log('getlate '+qatr+' : '+val);
+            let sel = late[qatr];
+            let val = sel.value_late();
+            let sendas = sel['sendas'];
+            console.log('getlate '+qatr+' : '+val+' sendas '+sendas);
+            psesdata[sendas] = val;
         }
 
         let sid = await sgetnextid();
