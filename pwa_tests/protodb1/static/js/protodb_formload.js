@@ -186,7 +186,7 @@ window.yesnocount = function(div, req){
     return dsel;
 }
 window.yesnocountreset = function(sel){
-    //console.log('RESET YES NO');
+    //console.log('RESET YES NO COUNT');
     sel._yes.value = '';
     sel._no.value = '';
     sel._noans.value = '';
