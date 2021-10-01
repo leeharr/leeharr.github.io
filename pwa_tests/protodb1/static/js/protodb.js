@@ -300,7 +300,7 @@ var chkcreatesession = function(){
         }
         let cokf = sel['countok'];
         console.log('COKF '+cokf);
-        if (!cokf(count)){
+        if (!cokf(sel, count)){
             // more counted than ppl in session. set error.
             console.log('COUNT ERROR');
             setTimeout(scrolltop, 500);

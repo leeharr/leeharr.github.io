@@ -197,7 +197,7 @@ window.yesnocountreset = function(sel){
     sel._yes.value = '';
     sel._no.value = '';
 }
-window.yesnocountok = function(nppl){
+window.yesnocountok = function(sel, nppl){
     // if the total of the count is more then the # of people, return false (error)
     let totalcount = sel._yes.value + sel._no.value;
     console.log('YNCO '+totalcount+' '+nppl);
