@@ -302,6 +302,10 @@ var load_questions = async function(formid, questions, answers){
             sel.placeholder = qa.placeholder;
         }
 
+        if (qa.countok){
+            sel['countok'] = window[qa.countok];
+        }
+
         if (qa.remember=='offer'){
             // offer to remember
             //console.log('offer to remember '+qa.qattr);

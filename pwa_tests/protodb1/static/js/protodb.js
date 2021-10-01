@@ -298,7 +298,7 @@ var chkcreatesession = function(){
         } else {
             console.log('  CK');
         }
-        let cokf = window[sel['countok']];
+        let cokf = sel['countok'];
         console.log('COKF '+cokf);
         if (!cokf(count)){
             // more counted than ppl in session. set error.
