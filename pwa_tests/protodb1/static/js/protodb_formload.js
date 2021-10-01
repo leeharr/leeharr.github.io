@@ -179,6 +179,8 @@ window.yesnocount = function(div, req){
     rbnoansspan.appendChild(rbnoanslbl);
     dsel.appendChild(rbnoansspan);
 
+    div.appendChild(dsel);
+
     return dsel;
 }
 window.yesnocountreset = function(sel){
