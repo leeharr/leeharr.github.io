@@ -47,9 +47,14 @@ var sendonetosheet = async function(o){
     .then(function(response){aftersend(response, sid);})
     .catch(function(error){
         console.log('err ' + error);
-        vm.sendworking(false);
         vm.unsentdata(true);
+        setTimeout(allowclose, 5000);
     })
+}
+
+var allowclose = function(){
+    vm.sendworking(false);
+    window.onbeforeunload = null;
 }
 
 // var testonetosheet = async function(o){
