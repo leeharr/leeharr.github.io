@@ -197,6 +197,11 @@ window.yesnocountreset = function(sel){
     sel._yes.value = '';
     sel._no.value = '';
 }
+window.yesnocountok = function(nppl){
+    // if the total of the count is more then the # of people, return false (error)
+    let totalcount = sel._yes.value + sel._no.value;
+    if (totalcount > nppl){ return false; } else { return true; }
+}
 
 var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);

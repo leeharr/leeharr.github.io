@@ -285,6 +285,21 @@ var chkcreatesession = function(){
         }
     }
 
+    var form = document.getElementById('newsession_questions');
+    Array.from(form.children).forEach(function(div, i, arr){
+        let qattr = div['data-qattr'];
+        //console.log('qattr : '+qattr);
+        let sel = div.children[1];
+        if (!sel['countok']){ continue; }
+        let cokf = window[sel['countok']];
+        if (!cokf(count)){
+            // more counted than ppl in session. set error.
+            console.log('COUNT ERROR');
+            setTimeout(scrolltop, 500);
+            return false;
+        }
+    }
+
     if (!count){
         //console.log('NONE SELECTED');
         let smr = document.getElementById('session_members_reminder');

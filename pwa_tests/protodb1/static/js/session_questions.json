@@ -132,6 +132,7 @@
         "sendas": "Workshop-Knowledge Gain",
         "req": false,
         "af": "yesnocount",
+        "countok": "yesnocountok",
         "areset": "yesnocountreset"},
 
     {"q": "Workshop - Maintain Skills (if pre and post test was given)",
