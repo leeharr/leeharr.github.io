@@ -178,7 +178,6 @@ window.yesnocountreset = function(sel){
     //console.log('RESET YES NO COUNT');
     sel._yes.value = '';
     sel._no.value = '';
-    sel._noans.value = '';
 }
 
 var load_questions = async function(formid, questions, answers){
