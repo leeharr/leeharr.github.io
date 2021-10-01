@@ -67,6 +67,7 @@
         "qattr": "refadult",
         "sendas": "Referral to Adult",
         "req": true,
+        "remember": "offer",
         "a": ["Admin",
                 "Social Work",
                 "School Counselor",
@@ -79,6 +80,7 @@
         "qattr": "followup",
         "sendas": "Follow Ups",
         "req": true,
+        "remember": "offer",
         "a": ["Admin",
                 "Social Work",
                 "School Counselor",
@@ -158,6 +160,7 @@
         "qattr": "staff_note",
         "sendas": "Staff Note",
         "req": false,
+        "remember": "offer",
         "af": "textinputlarge",
         "areset": "textinputreset"}
 ]

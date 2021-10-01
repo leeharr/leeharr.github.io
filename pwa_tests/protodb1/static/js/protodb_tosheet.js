@@ -29,6 +29,8 @@ var hts = function(o){
 }
 
 var aftersend = async function(response, sid){
+    // successfully sent
+    // rmv from working set and mark sent
     //console.log('responded');
     working.pop();
     let s = await sget(sid);
