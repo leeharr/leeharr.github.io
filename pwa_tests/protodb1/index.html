@@ -34,6 +34,9 @@
 <div class="both sendwarn" data-bind="visible: $root.sendworking()">
     <h1>SENDING DATA. DO NOT CLOSE WINDOW!</h1>
 </div>
+<div class="both sendwarn" data-bind="visible: $root.unsentdata()">
+    <h3>Some data not sent! Check network connection and reload page!</h3>
+</div>
 <div class="both" data-bind="visible: !$root.sendworking()">
     Sample data is being sent to <a href="https://docs.google.com/spreadsheets/d/1q_ibSJT3dKEmOnoQ0Dwy28PuAYQG6XXL-2KjfAC_m5U">spreadsheet</a>. <a href="admin.html">admin</a>.
 </div>

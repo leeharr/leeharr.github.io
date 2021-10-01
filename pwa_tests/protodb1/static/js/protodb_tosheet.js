@@ -45,7 +45,11 @@ var sendonetosheet = async function(o){
     let sid = o.id;
     fetch(sheetsurl+'?'+d)
     .then(function(response){aftersend(response, sid);})
-    .catch(function(error){ console.log('err ' + error); })
+    .catch(function(error){
+        console.log('err ' + error);
+        vm.sendworking(false);
+        vm.unsentdata(true);
+    })
 }
 
 // var testonetosheet = async function(o){

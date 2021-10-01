@@ -522,6 +522,7 @@ var checkdone = function(){
         setTimeout(checkdone, 200);
     } else {
         vm.sendworking(false);
+        vm.unsentdata(false);
         window.onbeforeunload = null;
     }
 }

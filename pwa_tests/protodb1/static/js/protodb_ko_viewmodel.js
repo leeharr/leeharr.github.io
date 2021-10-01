@@ -2,6 +2,7 @@
 
 var ProtoDBViewModel = function(){
     let self = this;
+    self.unsentdata = ko.observable(false);
     self.sheetsurl = ko.observable('');
 
     self.people = ko.observableArray();
