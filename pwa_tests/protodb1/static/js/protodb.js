@@ -278,10 +278,10 @@ var chkcreatesession = function(){
         if (!cb){
             //console.log('BROK '+gspid);
         } else if (cb && cb.checked){
-            //console.log('SEL: '+pid);
+            console.log('SEL: '+pid);
             count++;
         } else {
-            //console.log('NSEL '+pid);
+            console.log('NSEL '+pid);
         }
     }
 
