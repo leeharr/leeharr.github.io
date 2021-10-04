@@ -199,7 +199,7 @@ window.yesnocountreset = function(sel){
 }
 window.yesnocountok = function(sel, nppl){
     // if the total of the count is more then the # of people, return false (error)
-    let totalcount = parseInt(sel._yes.value( + parseInt(sel._no.value);
+    let totalcount = parseInt(sel._yes.value( + parseInt(sel._no.value)));
     console.log('YNCO '+totalcount+' '+nppl);
     if (totalcount > nppl){ return false; } else { return true; }
 }
