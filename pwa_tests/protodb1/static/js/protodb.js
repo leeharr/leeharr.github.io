@@ -267,7 +267,7 @@ function _age(dobstr) {
 
 var working = [];
 var chkcreatesession = function(){
-    //console.log('CHK CREATE SESS');
+    console.log('CHK CREATE SESS');
     let ppl = vm.people();
     let count = 0;
     for (let p of ppl){
