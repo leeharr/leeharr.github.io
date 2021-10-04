@@ -63,9 +63,9 @@ var Group = function(gid, name){
             console.log('divval '+div.value);
             let sel = div.children[1];
             let sel0 = div.children[0];
-            console.log('sel '+sel0.id + ' ' + sel);
-            console.log('selval '+sel0.value );
-            console.log('dr '+sel0['data-reset']);
+            console.log('sel '+sel.id + ' ' + sel);
+            console.log('selval '+sel.value );
+            console.log('dr '+sel['data-reset']);
 
             let getremid = 'remember_'+qattr;
             let getrem = document.getElementById(getremid);
