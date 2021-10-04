@@ -199,8 +199,8 @@ window.yesnocountreset = function(sel){
 }
 window.yesnocountok = function(sel, nppl){
     // if the total of the count is more then the # of people, return false (error)
-    if (!sel._yes){ console.log('!YES ' + sel.id); return true; }
-    if (!sel._no){ console.log('!NO ' + sel.id); return true; }
+    //if (!sel._yes){ console.log('!YES ' + sel.id); return true; }
+    //if (!sel._no){ console.log('!NO ' + sel.id); return true; }
     let totalcount = parseInt(sel._yes.value) + parseInt(sel._no.value);
     console.log('YNCO '+totalcount+' '+nppl);
     if (totalcount > nppl){ return false; } else { return true; }

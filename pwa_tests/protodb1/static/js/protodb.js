@@ -431,17 +431,17 @@ var createsession = async function(){
         let qattr_other = qattr + '_other';
         if (div['data-remember'] || remember){
             // remember the value
-            //console.log('DRR '+qattr+' '+theval);
+            console.log('DRR '+qattr+' '+theval);
             cset(qattr, theval);
             if (val instanceof Function && sel.setvalue instanceof Function){
                 // yesno questions
-                //console.log('setvalue func');
+                console.log('setvalue func');
                 sel.setvalue(theval);
             } else if (val instanceof Function){
                 // should not happen
-                //console.log('?????');
+                console.log('?????');
             } else {
-                //console.log('=val');
+                console.log('=val ' + val + theval);
                 sel.value = val;
             }
 
