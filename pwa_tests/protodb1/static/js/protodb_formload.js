@@ -203,7 +203,13 @@ window.yesnocountok = function(sel, nppl){
     //if (!sel._no){ console.log('!NO ' + sel.id); return true; }
     let totalcount = parseInt(sel._yes.value) + parseInt(sel._no.value);
     console.log('YNCO '+totalcount+' '+nppl);
-    if (totalcount > nppl){ return false; } else { return true; }
+    if (totalcount > nppl){
+        let pn = sel.parentNode;
+        pn.classList.add('qdiverr');
+        return false;
+    } else {
+        return true;
+    }
 }
 
 var load_questions = async function(formid, questions, answers){
