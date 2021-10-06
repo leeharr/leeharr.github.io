@@ -214,7 +214,7 @@
     <h3 data-bind="visible: !$root.quickgroup()">UNCHECK ABSENT STUDENTS!</h3>
     <h5 data-bind="visible: !$root.quickgroup()">(will not remove from group <span data-bind="text: selectedgroupname()"></span>, only from this session)</h5>
 
-    <form id="newsession"  onsubmit="return chkcreatesession();">
+    <form id="newsession"  onsubmit="chkcreatesession(); return false;">
         <div class="qdiv qdivreq" id="session_members_reminder">Select Session Members on Left Side<br/>Uncheck Absent Students</div>
 
         <div id="newsession_questions">

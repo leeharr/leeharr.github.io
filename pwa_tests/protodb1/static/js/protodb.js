@@ -285,8 +285,6 @@ var chkcreatesession = function(){
         }
     }
 
-    let retval = true;
-
     var form = document.getElementById('newsession_questions');
     let fields = Array.from(form.children);
     for (i=0; i<fields.length; i++){
@@ -310,7 +308,6 @@ var chkcreatesession = function(){
             console.log('SCROLLTO '+pn);
 //            setTimeout(pn.scrollIntoView, 500);
             sel.scrollIntoView();
-            retval = false;
         }
     }
 
@@ -319,15 +316,12 @@ var chkcreatesession = function(){
         let smr = document.getElementById('session_members_reminder');
         smr.classList.add('qdiverr');
         setTimeout(scrolltop, 300);
-        retval = false;
     } else {
         //console.log('COUNT '+count);
         setTimeout(createsession, 200);
-        retval = false;
     }
-
-    return retval;
 }
+
 
 var createsession = async function(){
     //console.log('CREATE SESSION');
