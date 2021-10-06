@@ -304,8 +304,9 @@ var chkcreatesession = function(){
             // more counted than ppl in session. set error.
             console.log('COUNT ERROR');
             //let kgdiv = document.getElementById('knowledgegaindiv');
-            console.log('SCROLLTO '+sel);
-            setTimeout(sel.scrollIntoView, 500);
+            let pn = sel.parentNode;
+            console.log('SCROLLTO '+pn);
+            setTimeout(pn.scrollIntoView, 500);
             return false;
         }
     }
