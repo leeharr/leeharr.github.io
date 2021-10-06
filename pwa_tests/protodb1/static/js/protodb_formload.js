@@ -201,7 +201,11 @@ window.yesnocountok = function(sel, nppl){
     // if the total of the count is more then the # of people, return false (error)
     //if (!sel._yes){ console.log('!YES ' + sel.id); return true; }
     //if (!sel._no){ console.log('!NO ' + sel.id); return true; }
-    let totalcount = parseInt(sel._yes.value) + parseInt(sel._no.value);
+    let yv = 0;
+    let nv = 0;
+    if (sel._yes.value){ yv = parseInt(sel._yes.value); }
+    if (sel._no.value){ nv = parseInt(sel._no.value); }
+    let totalcount =  yv + nv;
     console.log('YNCO '+totalcount+' '+nppl);
     if (totalcount > nppl){
         let pn = sel.parentNode;
