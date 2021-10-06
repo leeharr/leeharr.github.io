@@ -206,7 +206,6 @@ window.yesnocountok = function(sel, nppl){
     if (totalcount > nppl){
         let pn = sel.parentNode;
         pn.classList.add('qdiverr');
-        pn.scrollIntoView(true);
         return false;
     } else {
         return true;

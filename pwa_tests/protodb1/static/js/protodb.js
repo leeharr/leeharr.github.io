@@ -303,7 +303,8 @@ var chkcreatesession = function(){
         if (!cokf(sel, count)){
             // more counted than ppl in session. set error.
             console.log('COUNT ERROR');
-            setTimeout(scrolltop, 500);
+            let kgdiv = document.getElementById('knowledgegaindiv');
+            setTimeout(kgdiv.scrollIntoView, 500);
             return false;
         }
     }
@@ -312,7 +313,7 @@ var chkcreatesession = function(){
         //console.log('NONE SELECTED');
         let smr = document.getElementById('session_members_reminder');
         smr.classList.add('qdiverr');
-        setTimeout(scrolltop, 500);
+        setTimeout(scrolltop, 300);
         return false;
     } else {
         //console.log('COUNT '+count);
