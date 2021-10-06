@@ -306,7 +306,8 @@ var chkcreatesession = function(){
             //let kgdiv = document.getElementById('knowledgegaindiv');
             let pn = sel.parentNode;
             console.log('SCROLLTO '+pn);
-            setTimeout(pn.scrollIntoView, 500);
+//            setTimeout(pn.scrollIntoView, 500);
+            sel.scrollIntoView();
             return false;
         }
     }
