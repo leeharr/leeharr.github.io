@@ -304,6 +304,7 @@ var chkcreatesession = function(){
             // more counted than ppl in session. set error.
             console.log('COUNT ERROR');
             let kgdiv = document.getElementById('knowledgegaindiv');
+            console.log('SCROLLTO '+kgdiv);
             setTimeout(kgdiv.scrollIntoView, 500);
             return false;
         }
