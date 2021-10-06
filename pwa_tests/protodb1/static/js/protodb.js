@@ -285,6 +285,7 @@ var chkcreatesession = function(){
         }
     }
 
+    let err = false;
     var form = document.getElementById('newsession_questions');
     let fields = Array.from(form.children);
     for (i=0; i<fields.length; i++){
@@ -301,6 +302,7 @@ var chkcreatesession = function(){
         let cokf = sel['countok'];
         console.log('COKF '+cokf);
         if (!cokf(sel, count)){
+            err = true;
             // more counted than ppl in session. set error.
             console.log('COUNT ERROR');
             //let kgdiv = document.getElementById('knowledgegaindiv');
@@ -309,6 +311,10 @@ var chkcreatesession = function(){
 //            setTimeout(pn.scrollIntoView, 500);
             sel.scrollIntoView();
         }
+    }
+
+    if (err){
+        return;
     }
 
     if (!count){
