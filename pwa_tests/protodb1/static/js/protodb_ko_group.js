@@ -113,7 +113,9 @@ var Group = function(gid, name){
             }
 
             if (sel.yesnocountok){
+                console.log('YNCO - reset');
                 let pn = sel.parentNode;
+                console.log(pn.classList);
                 pn.classList.remove('qdiverr');
             }
 
