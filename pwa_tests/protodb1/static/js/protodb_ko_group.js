@@ -111,6 +111,12 @@ var Group = function(gid, name){
                 console.log('NOA');
                 sel.value = '';
             }
+
+            if (sel.yesnocountok){
+                let pn = sel.parentNode;
+                pn.classList.remove('qdiverr');
+            }
+
         }
     }
 
