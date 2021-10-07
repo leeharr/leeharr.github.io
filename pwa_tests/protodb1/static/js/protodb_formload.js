@@ -175,6 +175,8 @@ window.yesnocount = function(div, req){
     let errmsg = document.createElement('span');
     errmsg.innerHTML = 'Too Many Counted';
     errmsg.classList.add('spaceleft');
+    errmsg.classList.add('spacehide');
+    dsel._err = errmsg;
     dsel.appendChild(errmsg);
 
     dsel.value = function(){ return '::DSEL_VALUE_LATE::'; }
@@ -201,6 +203,7 @@ window.yesnocountreset = function(sel){
     //console.log('RESET YES NO COUNT');
     sel._yes.value = '';
     sel._no.value = '';
+    sel._err.classList.add('spacehide');
 }
 window.yesnocountok = function(sel, nppl){
     // if the total of the count is more then the # of people, return false (error)
@@ -215,6 +218,7 @@ window.yesnocountok = function(sel, nppl){
     if (totalcount > nppl){
         let pn = sel.parentNode;
         pn.classList.add('qdiverr');
+        sel._err.classList.remove('spacehide');
         return false;
     } else {
         return true;

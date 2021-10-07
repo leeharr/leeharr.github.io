@@ -91,3 +91,6 @@ input[type=number]{
 span.spaceleft{
     margin-left: 3em;
 }
+span.spacehide{
+    visibility: hidden;
+}
