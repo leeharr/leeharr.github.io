@@ -174,6 +174,7 @@ window.yesnocount = function(div, req){
     div.appendChild(dsel);
     let errmsg = document.createElement('span');
     errmsg.innerHTML = 'Too Many Counted';
+    errmsg.classList.add('spaceleft');
     dsel.appendChild(errmsg);
 
     dsel.value = function(){ return '::DSEL_VALUE_LATE::'; }

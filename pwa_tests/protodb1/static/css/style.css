@@ -87,3 +87,7 @@ h2.warn{
 input[type=number]{
     margin-left: 3em;
 }
+
+span.spaceleft{
+    margin-left: 3em;
+}
