@@ -27,6 +27,7 @@ window.datereset = function(dsel){
     let y = dt.getFullYear();
     let dtstr = `${y}-${m}-${d}`;
     //console.log('DATE RESET to '+dtstr);
+    dsel.max = dtstr;
     dsel.value = dtstr;
 }
 window.dateclear = function(dsel){
