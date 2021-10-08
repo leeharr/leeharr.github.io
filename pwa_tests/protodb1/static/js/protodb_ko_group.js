@@ -112,12 +112,12 @@ var Group = function(gid, name){
                 sel.value = '';
             }
 
-            if (sel.yesnocountok){
-                console.log('YNCO - reset');
-                let pn = sel.parentNode;
-                console.log(pn.classList);
-                pn.classList.remove('qdiverr');
-            }
+//             if (sel._yes){
+//                 console.log('YNCO - reset');
+//                 let pn = sel.parentNode;
+//                 console.log(pn.classList);
+//                 pn.classList.remove('qdiverr');
+//             }
 
         }
     }
