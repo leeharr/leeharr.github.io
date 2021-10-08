@@ -89,6 +89,8 @@ input[type=number]{
 }
 
 span.spaceleft{
+    color: white;
+    font-weight: bold;
     margin-left: 3em;
 }
 span.spacehide{
