@@ -173,7 +173,7 @@ window.yesnocount = function(div, req){
 
     div.appendChild(dsel);
     let errmsg = document.createElement('span');
-    errmsg.innerHTML = 'Counted more than attended.';
+    errmsg.innerHTML = 'More than attended.';
     errmsg.classList.add('spaceleft');
     errmsg.classList.add('spacehide');
     dsel._err = errmsg;
