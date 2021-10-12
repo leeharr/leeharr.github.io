@@ -185,14 +185,14 @@ window.yesnocount = function(div, req){
         // the "value" of the whole widget (Yes,No,or nothing)
         if (dsel._yes.value > 0){
             dsel._yes.value -= 1;
-            console.log('YESNO - yes now: '+dsel._yes.value);
+            //console.log('YESNO - yes now: '+dsel._yes.value);
             return "Yes";
         } else if (dsel._no.value > 0) {
             dsel._no.value -= 1;
-            console.log('YESNO - no now: '+dsel._no.value);
+            //console.log('YESNO - no now: '+dsel._no.value);
             return "No";
         } else {
-            console.log('YESNO - blank');
+            //console.log('YESNO - blank');
             return "";
         }
     }

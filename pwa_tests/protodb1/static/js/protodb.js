@@ -392,7 +392,7 @@ var createsession = async function(){
             sendval = theval;
 //             sesdata[qattr+'str'] = theval;
             if (theval == '::DSEL_VALUE_LATE::'){
-                console.log('setlate '+qattr);
+                //console.log('setlate '+qattr);
                 late[qattr] = sel;
             } else {
                 sel['data-reset'](sel);
