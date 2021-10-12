@@ -267,7 +267,7 @@ function _age(dobstr) {
 
 var working = [];
 var chkcreatesession = function(){
-    console.log('CHK CREATE SESS');
+    //console.log('CHK CREATE SESS');
     let ppl = vm.people();
     let count = 0;
     for (let p of ppl){
@@ -278,10 +278,10 @@ var chkcreatesession = function(){
         if (!cb){
             //console.log('BROK '+gspid);
         } else if (cb && cb.checked){
-            console.log('SEL: '+pid);
+            //console.log('SEL: '+pid);
             count++;
         } else {
-            console.log('NSEL '+pid);
+            //console.log('NSEL '+pid);
         }
     }
 
@@ -291,7 +291,7 @@ var chkcreatesession = function(){
     for (i=0; i<fields.length; i++){
         let div = fields[i];
         let qattr = div['data-qattr'];
-        console.log('ck count on qattr : '+qattr);
+        //console.log('ck count on qattr : '+qattr);
         let sel = div.children[1];
         if (!sel['countok']){
             //console.log('  NO CK');
@@ -300,11 +300,11 @@ var chkcreatesession = function(){
             //console.log('  CK');
         }
         let cokf = sel['countok'];
-        console.log('COKF '+cokf);
+        //console.log('COKF '+cokf);
         if (!cokf(sel, count)){
             err = true;
             // more counted than ppl in session. set error.
-            console.log('COUNT ERROR');
+            //console.log('COUNT ERROR');
             //let kgdiv = document.getElementById('knowledgegaindiv');
             let pn = sel.parentNode;
             //console.log('SCROLLTO '+pn);
