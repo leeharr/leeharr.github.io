@@ -138,7 +138,7 @@ window.yesnoreset = function(sel){
 }
 
 window.yesnocount = function(div, req){
-    console.log('YES NO COUNT Q');
+    //console.log('YES NO COUNT Q');
     let dsel = document.createElement('div');
 
     let rbyes = document.createElement('input');
@@ -216,7 +216,7 @@ window.yesnocountok = function(sel, nppl){
     if (sel._yes.value){ yv = parseInt(sel._yes.value); }
     if (sel._no.value){ nv = parseInt(sel._no.value); }
     let totalcount =  yv + nv;
-    console.log('YNCO '+totalcount+' '+nppl);
+    //console.log('YNCO '+totalcount+' '+nppl);
     if (totalcount > nppl){
         let pn = sel.parentNode;
         pn.classList.add('qdiverr');
@@ -359,7 +359,7 @@ var load_questions = async function(formid, questions, answers){
             setTimeout(function(){ set_only_later(qa.only, qa.qattr, div); }, 400);
         }
 
-        console.log('reset? '+sel.id+' '+sel);
+        //console.log('reset? '+sel.id+' '+sel);
         sel.id = selid;
     });
 }

@@ -294,10 +294,10 @@ var chkcreatesession = function(){
         console.log('ck count on qattr : '+qattr);
         let sel = div.children[1];
         if (!sel['countok']){
-            console.log('  NO CK');
+            //console.log('  NO CK');
             continue;
         } else {
-            console.log('  CK');
+            //console.log('  CK');
         }
         let cokf = sel['countok'];
         console.log('COKF '+cokf);
@@ -307,7 +307,7 @@ var chkcreatesession = function(){
             console.log('COUNT ERROR');
             //let kgdiv = document.getElementById('knowledgegaindiv');
             let pn = sel.parentNode;
-            console.log('SCROLLTO '+pn);
+            //console.log('SCROLLTO '+pn);
 //            setTimeout(pn.scrollIntoView, 500);
             sel.scrollIntoView();
         }
@@ -439,17 +439,17 @@ var createsession = async function(){
         let qattr_other = qattr + '_other';
         if (div['data-remember'] || remember){
             // remember the value
-            console.log('DRR '+qattr+' '+theval);
+            //console.log('DRR '+qattr+' '+theval);
             cset(qattr, theval);
             if (val instanceof Function && sel.setvalue instanceof Function){
                 // yesno questions
-                console.log('setvalue func');
+                //console.log('setvalue func');
                 sel.setvalue(theval);
             } else if (val instanceof Function){
                 // should not happen
-                console.log('?????');
+                //console.log('?????');
             } else {
-                console.log('=val ' + val + theval);
+                //console.log('=val ' + val + theval);
                 sel.value = val;
             }
 
@@ -531,7 +531,7 @@ var createsession = async function(){
             let sel = late[qatr];
             let val = sel.value_late();
             let sendas = sel['sendas'];
-            console.log('getlate '+qatr+' : '+val+' sendas '+sendas);
+            //console.log('getlate '+qatr+' : '+val+' sendas '+sendas);
             psesdata[sendas] = val;
         }
 
