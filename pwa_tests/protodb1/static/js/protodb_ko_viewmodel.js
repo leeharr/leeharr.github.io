@@ -91,7 +91,7 @@ var ProtoDBViewModel = function(){
         let lgr = left.grade();
         let rgr = right.grade();
 
-        if (lfn==rfn && lln==rfn){
+        if (lfn==rfn && lln==rln){
             return (lgr < rgr) ? -1 : (lgr > rgr) ? 1 : 0;
         } else if (lfn == rfn){
             return (lln < rln) ? -1 : (lln > rln) ? 1 : 0;
