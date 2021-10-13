@@ -171,14 +171,17 @@ var deactivate_person = async function(){
     console.log('DEACTIVATE');
     let xp = document.getElementById('xpersonid');
     let pid = xp.value;
+    let deac = document.getElementById('deactivate');
 
     let dbp = await pget(pid);
     if (dbp.active === false){
         dbp.active = true;
         console.log('INACTIVE '+pid+' --> ACTIVE');
+        deac.innerHTML = 'Deactivate';
     } else {
-        console.log('ACTIVE '+pid+' --> INACTIVE');
         dbp.active = false;
+        console.log('ACTIVE '+pid+' --> INACTIVE');
+        deac.innerHTML = 'Activate';
     }
     await pset(pid, dbp);
 }
