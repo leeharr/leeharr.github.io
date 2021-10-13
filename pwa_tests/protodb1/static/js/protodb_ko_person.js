@@ -83,6 +83,8 @@ var Person = function(pid, lname, fname, grade){
         let deac = document.getElementById('deactivate');
         if (dbp.active===false){
             deac.innerHTML = 'Activate';
+        } else {
+            deac.innerHTML = 'Deactivate';
         }
     }
 }
