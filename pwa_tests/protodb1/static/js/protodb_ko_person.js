@@ -79,5 +79,10 @@ var Person = function(pid, lname, fname, grade){
 
         let xp = document.getElementById('xpersonid');
         xp.value = self.pid();
+
+        let deac = document.getElementById('deactivate');
+        if (dbp.active===false){
+            deac.innerHTML = 'Activate';
+        }
     }
 }
