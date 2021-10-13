@@ -8,6 +8,7 @@ var Person = function(pid, lname, fname, grade){
     self.linitial = ko.observable(lname[0]);
     self.grade = ko.observable(grade);
     self.stid = ko.observable(''); // student ID#
+    self.active = ko.observable(true);
 
     self.checkorshowperson = async function(){
         // depending on context, either

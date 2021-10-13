@@ -69,6 +69,19 @@ var ProtoDBViewModel = function(){
         }
     }
 
+    self.aflsort = function (left, right) {
+        /* sort by active/inactive, first name, then last name */
+        let lln = left.lname();
+        let lfn = left.fname();
+        let rln = right.lname();
+        let rfn = right.fname();
+        if (lfn == rfn){
+            return (lln < rln) ? -1 : (lln > rln) ? 1 : 0;
+        } else {
+            return (lfn < rfn) ? -1 : 1;
+        }
+    }
+
     self.flgsort = function (left, right) {
         /* sort by first name, then last name, then grade */
         let lln = left.lname();
@@ -391,10 +404,12 @@ var ProtoDBViewModel = function(){
         for (let k of ks){
             if (k == 'currid'){ continue; }
             let p = await pget(k);
-            if (ko.utils.arrayFirst(self.people(), function(i){
-                return i.pid()==k})){console.log('ERROR.Person.Dup.Id.');}
-                let vmp = self.addperson(k, p.lname, p.fname, p.gradestr, false);
-                vmp.stid(p.stid);
+            if (ko.utils.arrayFirst(self.people(), function(i){return i.pid()==k})){
+                console.log('ERROR.Person.Dup.Id.');
+            }
+            let vmp = self.addperson(k, p.lname, p.fname, p.gradestr, false);
+            vmp.stid(p.stid);
+            vmp.active(p.active);
         }
 
         self.groups.removeAll();
@@ -402,13 +417,14 @@ var ProtoDBViewModel = function(){
         for (let k of ks){
             if (k == 'currid'){ continue; }
             let g = await gget(k);
-            if (ko.utils.arrayFirst(self.groups(), function(i){
-                return i.gid()==k})){console.log('ERROR.Group.Dup.Id.');}
-                let ng = self.addgroup(k, g.name);
-                for (let pid of g.people){
-                    let p = vm.getperson(pid);
-                    ng.addperson(p);
-                }
+            if (ko.utils.arrayFirst(self.groups(), function(i){return i.gid()==k})){
+                console.log('ERROR.Group.Dup.Id.');
+            }
+            let ng = self.addgroup(k, g.name);
+            for (let pid of g.people){
+                let p = vm.getperson(pid);
+                ng.addperson(p);
+            }
         }
     }
 }
