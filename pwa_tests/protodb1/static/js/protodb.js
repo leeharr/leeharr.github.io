@@ -167,6 +167,19 @@ var saveperson = async function(){
     //console.log('SAVE');
     await newperson(true);
 }
+var deactivate_person = async function(){
+    console.log('DEACTIVATE');
+    let xp = document.getElementById('xpersonid');
+    pid = xp.value;
+
+    let dbp = await pget(pid);
+    if (dbp.active === false){
+        dbp.active = true;
+        console.log('INACTIVE '+pid+' --> ACTIVE');
+    } else {
+        console.log('ACTIVE '+pid+' --> INACTIVE');
+    }
+}
 
 var shownewgroup = function(){
     let gname = document.querySelector('#gname');
