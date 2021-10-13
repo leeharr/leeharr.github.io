@@ -170,7 +170,7 @@ var saveperson = async function(){
 var deactivate_person = async function(){
     console.log('DEACTIVATE');
     let xp = document.getElementById('xpersonid');
-    pid = xp.value;
+    let pid = xp.value;
 
     let dbp = await pget(pid);
     if (dbp.active === false){
