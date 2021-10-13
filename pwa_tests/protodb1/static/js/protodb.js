@@ -180,7 +180,7 @@ var deactivate_person = async function(){
         console.log('ACTIVE '+pid+' --> INACTIVE');
         dbp.active = false;
     }
-    await pset(dbp);
+    await pset(pid, dbp);
 }
 
 var shownewgroup = function(){
