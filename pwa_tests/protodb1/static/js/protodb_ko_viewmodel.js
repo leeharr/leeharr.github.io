@@ -82,7 +82,7 @@ var ProtoDBViewModel = function(){
         } else if (!lac && rac){
             return 1;
         } else if (lfn==rfn && lln==rln){
-            return (lln < rln) ? -1 : (lln > rln) ? 1 : 0;
+            return (lln < rln) ? 1 : (lln > rln) ? -1 : 0;
         } else {
             return (lfn < rfn) ? -1 : 1;
         }
