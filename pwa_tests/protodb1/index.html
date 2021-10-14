@@ -83,6 +83,7 @@
         <th>Last name</th>
         <th>Last initial</th>
         <th>Grade</th>
+        <th>Active</th>
     </tr></thead>
     <tbody data-bind="foreach: people_byafl">
         <tr>
@@ -92,6 +93,7 @@
         <td data-bind="text: lname(), click: checkorshowperson"></td>
         <td data-bind="text: linitial(), click: checkorshowperson"></td>
         <td data-bind="text: grade(), click: checkorshowperson"></td>
+        <td data-bind="text: active(), click: checkorshowperson"></td>
         </tr>
     </tbody>
     </table>
