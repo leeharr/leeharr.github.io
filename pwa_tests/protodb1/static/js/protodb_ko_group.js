@@ -129,7 +129,7 @@ var Group = function(gid, name){
             let ngpid = '#gspid'+p.pid();
             //console.log('cgcb ' + ngpid);
             let cb = document.querySelector(ngpid);
-            if (cb){
+            if (cb && p.active()){
                 //console.log('found');
                 cb.checked = check;
             }
