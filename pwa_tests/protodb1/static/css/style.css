@@ -24,6 +24,10 @@ tr.gsel{
     background-color: lightgray;
 }
 
+tr.inactive{
+    color: red;
+}
+
 
 .admincontent{
     display: grid;

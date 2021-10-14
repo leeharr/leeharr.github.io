@@ -10,6 +10,13 @@ var Person = function(pid, lname, fname, grade){
     self.stid = ko.observable(''); // student ID#
     self.active = ko.observable(true);
 
+    self.clsactive = ko.pureComputed(function(){
+        if (self.active()){
+            return '';
+        } else {
+            return 'inactive';
+        });
+
     self.checkorshowperson = async function(){
         // depending on context, either
         // set checkbox on this person's line
