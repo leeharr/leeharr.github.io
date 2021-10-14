@@ -418,7 +418,9 @@ var ProtoDBViewModel = function(){
             }
             let vmp = self.addperson(k, p.lname, p.fname, p.gradestr, false);
             vmp.stid(p.stid);
-            vmp.active(p.active);
+            let active = p.active;
+            if (active!==false){active=true;}
+            vmp.active(active);
         }
 
         self.groups.removeAll();
