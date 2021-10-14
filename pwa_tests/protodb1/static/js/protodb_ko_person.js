@@ -15,7 +15,7 @@ var Person = function(pid, lname, fname, grade){
             return '';
         } else {
             return 'inactive';
-        });
+        }});
 
     self.checkorshowperson = async function(){
         // depending on context, either
