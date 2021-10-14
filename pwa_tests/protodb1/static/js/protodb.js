@@ -131,16 +131,22 @@ var newperson = async function(e){
     });
 
     let i = 0;
+    let active = true;
     if (!e){
         i = await pgetnextid();
     } else {
         let xp = document.getElementById('xpersonid');
         i = xp.value;
+        let porig = vm.getperson(i);
+        active = porig.active();
     }
+    p.active = active;
+
     //console.log(i + ' - - ' + p.lname + ', ' + p.fname);
     pset(i, p);
     let vmp = vm.addperson(i, p.lname, p.fname, p.gradestr, false);
     vmp.stid(p.stid);
+    vmp.active(active);
     vm.base_initials();
     vm.setinitials2();
 
