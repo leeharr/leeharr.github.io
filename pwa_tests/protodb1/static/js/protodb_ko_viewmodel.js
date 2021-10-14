@@ -71,11 +71,17 @@ var ProtoDBViewModel = function(){
 
     self.aflsort = function (left, right) {
         /* sort by active/inactive, first name, then last name */
+        let lac = left.active();
+        let rac = right.active();
         let lln = left.lname();
         let lfn = left.fname();
         let rln = right.lname();
         let rfn = right.fname();
-        if (lfn == rfn){
+        if (lac && !rac){
+            return -1;
+        } else if (!lac && rac){
+            return 1;
+        } else if (lfn==rfn && lln==rln){
             return (lln < rln) ? -1 : (lln > rln) ? 1 : 0;
         } else {
             return (lfn < rfn) ? -1 : 1;
@@ -105,6 +111,9 @@ var ProtoDBViewModel = function(){
     });
     self.people_byfl = ko.pureComputed(function(){
         return self.people.sorted(self.flsort);
+    });
+    self.people_byafl = ko.pureComputed(function(){
+        return self.people.sorted(self.aflsort);
     });
     self.people_byflg = ko.pureComputed(function(){
         return self.people.sorted(self.flgsort);
