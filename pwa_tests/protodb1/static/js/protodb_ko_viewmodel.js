@@ -154,6 +154,7 @@ var ProtoDBViewModel = function(){
         }
     });
     self.group_apeople_byfl = ko.pureComputed(function(){
+        console.log('APBFL');
         if (self.selectedgroup()){
             let ppl;
             if (self.selectedgroup().name()=='QUICK'){
@@ -161,7 +162,9 @@ var ProtoDBViewModel = function(){
             } else {
                 ppl = self.selectedgroup().activepeople();
             }
+            console.log('1 '+ppl);
             ppl.sort(self.flsort);
+            console.log('2 '+ppl);
             return ppl;
         } else {
             return [];
