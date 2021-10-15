@@ -161,7 +161,8 @@ var ProtoDBViewModel = function(){
             } else {
                 ppl = self.selectedgroup().activepeople();
             }
-            return ppl.sorted(self.flsort);
+            ppl.sort(self.flsort);
+            return ppl;
         } else {
             return [];
         }
