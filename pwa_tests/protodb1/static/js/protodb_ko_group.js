@@ -5,6 +5,16 @@ var Group = function(gid, name){
     self.gid = ko.observable(gid);
     self.name = ko.observable(name);
     self.people = ko.observableArray();
+    self.activepeople = ko.pureComputed(function(){
+        let ppl = self.people();
+        let appl = [];
+        for (let p of ppl){
+            if (p.active()){
+                appl.push(p);
+            }
+            return appl;
+        }
+    });
     self.updategroup = ko.observable(false);
 
     self.addperson = function(p){
@@ -19,6 +29,7 @@ var Group = function(gid, name){
         vm.checkpersoncheckboxes(false);
         vm.selectedgroup(self);
         for (let p of self.people()){
+            if (!p.active()){ continue; }
             let ngpid = '#ngpid'+p.pid();
             //console.log('sg check :'+ngpid);
             let cb = document.querySelector(ngpid);

@@ -7,6 +7,16 @@ var ProtoDBViewModel = function(){
 
     self.people = ko.observableArray();
     self.groups = ko.observableArray();
+    self.activepeople = ko.pureComputed(function(){
+        let ppl = self.people();
+        let appl = [];
+        for (let p of ppl){
+            if (p.active()){
+                appl.push(p);
+            }
+            return appl;
+        }
+    });
 
     self.showeditstaff = ko.observable(false);
     self.shownewperson = ko.observable(false);
@@ -139,6 +149,19 @@ var ProtoDBViewModel = function(){
             } else {
                 return self.selectedgroup().people.sorted(self.flsort);
             }
+        } else {
+            return [];
+        }
+    });
+    self.group_apeople_byfl = ko.pureComputed(function(){
+        if (self.selectedgroup()){
+            let ppl;
+            if (self.selectedgroup().name()=='QUICK'){
+                ppl = self.activepeople();
+            } else {
+                let ppl = self.selectedgroup().activepeople();
+            }
+            return ppl.sorted(self.flsort);
         } else {
             return [];
         }
