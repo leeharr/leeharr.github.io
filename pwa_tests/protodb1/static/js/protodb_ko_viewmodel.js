@@ -159,7 +159,7 @@ var ProtoDBViewModel = function(){
             if (self.selectedgroup().name()=='QUICK'){
                 ppl = self.activepeople();
             } else {
-                let ppl = self.selectedgroup().activepeople();
+                ppl = self.selectedgroup().activepeople();
             }
             return ppl.sorted(self.flsort);
         } else {
