@@ -14,8 +14,8 @@ var Group = function(gid, name){
             if (p.active()){
                 appl.push(p);
             }
-            return appl;
         }
+        return appl;
     });
     self.updategroup = ko.observable(false);
 
