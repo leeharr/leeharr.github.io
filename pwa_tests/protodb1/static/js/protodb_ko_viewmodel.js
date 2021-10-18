@@ -14,8 +14,8 @@ var ProtoDBViewModel = function(){
             if (p.active()){
                 appl.push(p);
             }
-            return appl;
         }
+        return appl;
     });
 
     self.showeditstaff = ko.observable(false);
