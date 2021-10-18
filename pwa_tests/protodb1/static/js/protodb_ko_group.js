@@ -6,11 +6,11 @@ var Group = function(gid, name){
     self.name = ko.observable(name);
     self.people = ko.observableArray();
     self.activepeople = ko.pureComputed(function(){
-        console.log('PCAP');
+        console.log('PCAP '+self.name());
         let ppl = self.people();
         let appl = [];
         for (let p of ppl){
-            console.log('P '+p.fname()+' '+p.active());
+            console.log('P '+p.fname()+' '+p.lname()+' '+p.active());
             if (p.active()){
                 appl.push(p);
             }
