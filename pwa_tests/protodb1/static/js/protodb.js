@@ -536,6 +536,9 @@ var createsession = async function(){
         if (cb && !cb.checked){
             //console.log('NOT SEL: '+pid);
             continue;
+        } else if (!p.active()){
+            console.log('INACIVE NO SEND '+p.linitial());
+            continue;
         }
 
         let psesdata = Object.assign({}, sesdata);
