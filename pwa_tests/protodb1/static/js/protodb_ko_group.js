@@ -58,6 +58,7 @@ var Group = function(gid, name){
         vm.checkpersoncheckboxes(false);
         vm.showpersoncheckboxes(false);
         vm.selectedgroup(undefined);
+        vm.shownewgroup(false);
     }
 
     self.newgroupsession = async function(){

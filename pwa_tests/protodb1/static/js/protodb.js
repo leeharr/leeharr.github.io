@@ -168,6 +168,7 @@ var newperson = async function(e){
     }
 
     vm.shownewperson(false);
+    vm.shownewgroup(false);
 }
 var saveperson = async function(){
     //console.log('SAVE');
