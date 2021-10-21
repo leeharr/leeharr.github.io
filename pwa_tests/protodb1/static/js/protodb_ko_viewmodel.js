@@ -154,20 +154,20 @@ var ProtoDBViewModel = function(){
         }
     });
     self.group_apeople_byfl = ko.pureComputed(function(){
-        console.log('APBFL');
+        //console.log('APBFL');
         let sg = self.selectedgroup();
         if (sg){
             let ppl;
             if (self.selectedgroup().name()=='QUICK'){
-                console.log('QK');
+                //console.log('QK');
                 ppl = self.activepeople();
             } else {
-                console.log('SG '+sg.name());
+                //console.log('SG '+sg.name());
                 ppl = sg.activepeople();
             }
-            console.log('1 '+ppl);
+            //console.log('1 '+ppl);
             ppl.sort(self.flsort);
-            console.log('2 '+ppl);
+            //console.log('2 '+ppl);
             return ppl;
         } else {
             return [];
