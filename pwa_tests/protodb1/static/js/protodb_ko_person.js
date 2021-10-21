@@ -14,8 +14,19 @@ var Person = function(pid, lname, fname, grade){
         if (self.active()){
             return '';
         } else {
-            return 'inactive';
-        }});
+            let sg = vm.selectedgroup();
+            if (!sg){
+                return 'inactive';
+            } else {
+                let sgp = sg.people();
+                if (sgp.includes(self)){
+                    return 'inactivemember';
+                }
+            }
+        }
+        // if all else fails
+        return '';
+    });
 
     self.checkorshowperson = async function(){
         // depending on context, either

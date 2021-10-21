@@ -27,6 +27,9 @@ tr.gsel{
 tr.inactive{
     color: red;
 }
+tr.inactivemember{
+    color: green;
+}
 
 
 .admincontent{
