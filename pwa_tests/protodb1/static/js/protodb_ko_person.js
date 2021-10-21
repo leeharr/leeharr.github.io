@@ -21,6 +21,8 @@ var Person = function(pid, lname, fname, grade){
                 let sgp = sg.people();
                 if (sgp.includes(self)){
                     return 'inactivemember';
+                } else {
+                    return 'inactive';
                 }
             }
         }
