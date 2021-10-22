@@ -25,7 +25,7 @@ tr.gsel{
 }
 
 tr.inactive{
-    color: #444;
+    color: #999;
 }
 tr.inactivemember{
     color: red;
