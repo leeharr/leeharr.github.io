@@ -25,10 +25,10 @@ tr.gsel{
 }
 
 tr.inactive{
-    color: red;
+    color: #444;
 }
 tr.inactivemember{
-    color: green;
+    color: red;
 }
 
 
