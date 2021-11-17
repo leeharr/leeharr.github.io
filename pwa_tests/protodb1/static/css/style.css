@@ -109,6 +109,6 @@ button.deactivate{
 }
 
 table tbody tr th.inactive{
-    background: #444;
+    background: #CCC;
     border-bottom: thin solid black;
 }
