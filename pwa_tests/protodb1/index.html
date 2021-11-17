@@ -96,6 +96,20 @@
         <td data-bind="text: active(), click: checkorshowperson"></td>
         </tr>
     </tbody>
+    <tbody>
+        <tr><th colspan="7"></th>Inactive</tr>
+        <!-- ko foreach: people_i_byfl -->
+        <tr data-bind="class: clsactive()">
+        <td data-bind="visible: $root.showpersoncheckboxes()"><input type="checkbox" data-bind="click: $root.setchange, attr: {id: 'ngpid'+pid()}" /></td>
+        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>
+        <td data-bind="text: fname(), click: checkorshowperson"></td>
+        <td data-bind="text: lname(), click: checkorshowperson"></td>
+        <td data-bind="text: linitial(), click: checkorshowperson"></td>
+        <td data-bind="text: grade(), click: checkorshowperson"></td>
+        <td data-bind="text: active(), click: checkorshowperson"></td>
+        </tr>
+        <!-- /ko -->
+    </tbody>
     </table>
     </div>
 

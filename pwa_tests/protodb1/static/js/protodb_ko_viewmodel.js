@@ -132,6 +132,11 @@ var ProtoDBViewModel = function(){
         appl.sort(self.flsort);
         return appl;
     });
+    self.people_i_byfl = ko.pureComputed(function(){
+        let appl = self.people().filter(p => !p.active());
+        appl.sort(self.flsort);
+        return appl;
+    });
     self.people_byflg = ko.pureComputed(function(){
         return self.people.sorted(self.flgsort);
     });
