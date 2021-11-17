@@ -107,3 +107,8 @@ span.spacehide{
 button.deactivate{
     float: right;
 }
+
+table tbody tr th.inactive{
+    background: #444;
+    border-bottom: thin solid black;
+}
