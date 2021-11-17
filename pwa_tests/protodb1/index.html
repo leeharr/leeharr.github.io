@@ -85,7 +85,7 @@
         <th>Grade</th>
         <th>Active</th>
     </tr></thead>
-    <tbody data-bind="foreach: people_byafl">
+    <tbody data-bind="foreach: people_a_byfl">
         <tr data-bind="class: clsactive()">
         <td data-bind="visible: $root.showpersoncheckboxes()"><input type="checkbox" data-bind="click: $root.setchange, attr: {id: 'ngpid'+pid()}" /></td>
         <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>
