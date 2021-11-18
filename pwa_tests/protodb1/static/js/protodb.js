@@ -200,6 +200,12 @@ var deactivate_person = async function(){
 }
 var delete_person = function(){
     let conf = window.confirm('DELETE record permanently?');
+    if (conf){
+        delete_person_confirmed();
+    }
+}
+var delete_person_confirmed = async function(){
+    console.log('DELETING PERMANENTLY');
 }
 
 var shownewgroup = function(){
