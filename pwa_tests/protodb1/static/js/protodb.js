@@ -180,6 +180,7 @@ var deactivate_person = async function(){
     let pid = xp.value;
     let p = vm.getperson(pid);
     let deac = document.getElementById('deactivate');
+    let del = document.getElementById('delete');
 
     let dbp = await pget(pid);
     if (dbp.active === false){
@@ -187,11 +188,13 @@ var deactivate_person = async function(){
         p.active(true);
         //console.log('INACTIVE '+pid+' --> ACTIVE');
         deac.innerHTML = 'Deactivate';
+        del.style.visibility = 'hidden';
     } else {
         dbp.active = false;
         p.active(false);
         //console.log('ACTIVE '+pid+' --> INACTIVE');
         deac.innerHTML = 'Activate';
+        del.style.visibility = 'visible';
     }
     await pset(pid, dbp);
 }
