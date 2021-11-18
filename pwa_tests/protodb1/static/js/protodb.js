@@ -198,6 +198,9 @@ var deactivate_person = async function(){
     }
     await pset(pid, dbp);
 }
+var delete_person = function(){
+    let conf = window.confirm('DELETE record permanently?');
+}
 
 var shownewgroup = function(){
     let gname = document.querySelector('#gname');
