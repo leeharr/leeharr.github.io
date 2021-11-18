@@ -101,10 +101,13 @@ var Person = function(pid, lname, fname, grade){
         xp.value = self.pid();
 
         let deac = document.getElementById('deactivate');
+        let del = document.getElementById('delete');
         if (dbp.active===false){
             deac.innerHTML = 'Activate';
+            del.style.visibility = 'visible';
         } else {
             deac.innerHTML = 'Deactivate';
+            del.style.visibility = 'hidden';
         }
     }
 }
