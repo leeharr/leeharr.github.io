@@ -17,6 +17,15 @@ var ProtoDBViewModel = function(){
         }
         return appl;
     });
+    self.any_inactive = ko.pureComputed(function(){
+        let ppl = self.people();
+        for (let p of ppl){
+            if (!p.active()){
+                return true;
+            }
+        }
+        return false;
+    });
 
     self.showeditstaff = ko.observable(false);
     self.shownewperson = ko.observable(false);

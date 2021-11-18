@@ -96,7 +96,7 @@
         <td data-bind="text: active(), click: checkorshowperson"></td>
         </tr>
     </tbody>
-    <tbody>
+    <tbody data-bind="visible: $root.any_inactive()">
         <tr><th class="inactive" colspan="7">Inactive</th></tr>
         <!-- ko foreach: people_i_byfl -->
         <tr data-bind="class: clsactive()">
