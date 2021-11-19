@@ -208,7 +208,7 @@ var delete_person = function(){
 }
 var delete_person_confirmed = async function(pid){
     console.log('DELETING PERMANENTLY '+pid);
-    await pdel(pid);
+    ko.delete_person(pid);
 }
 
 var shownewgroup = function(){
