@@ -209,6 +209,8 @@ var delete_person = function(){
 var delete_person_confirmed = async function(pid){
     console.log('DELETING PERMANENTLY '+pid);
     vm.delete_person(pid);
+    vm.shownewperson(false);
+    vm.shownewgroup(false);
 }
 
 var shownewgroup = function(){
