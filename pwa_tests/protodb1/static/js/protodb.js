@@ -211,6 +211,7 @@ var delete_person_confirmed = async function(pid){
     vm.delete_person(pid);
     vm.shownewperson(false);
     vm.shownewgroup(false);
+    vm.personexists(false);
 }
 
 var shownewgroup = function(){
