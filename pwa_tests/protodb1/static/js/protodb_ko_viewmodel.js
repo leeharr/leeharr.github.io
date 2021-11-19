@@ -325,6 +325,7 @@ var ProtoDBViewModel = function(){
         self.rmperson(pid);
         await pdel(pid);
         for (let k of await gkeys()){
+            if (k == 'currid'){ continue; }
             let g = await gget(k);
             let idx = g.people.indexOf(pid);
             if (idx > -1){
