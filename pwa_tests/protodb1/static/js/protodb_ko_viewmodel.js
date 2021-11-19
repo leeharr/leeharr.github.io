@@ -324,6 +324,14 @@ var ProtoDBViewModel = function(){
         // completely remove person from the system
         self.rmperson(pid);
         await pdel(pid);
+        for (k of gkeys()){
+            let g = await gget(k);
+            let idx = g.people.indexOf(pid);
+            if (idx > -1){
+                g.people.splice(idx, 1);
+                await gset(k, g);
+            }
+        }
     }
     self.addperson = function(pid, lname, fname, grade, seti){
         self.rmperson(pid);
