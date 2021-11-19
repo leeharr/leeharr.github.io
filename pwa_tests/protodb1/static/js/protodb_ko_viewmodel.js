@@ -324,7 +324,7 @@ var ProtoDBViewModel = function(){
         // completely remove person from the system
         self.rmperson(pid);
         await pdel(pid);
-        for (k of await gkeys()){
+        for (let k of await gkeys()){
             let g = await gget(k);
             let idx = g.people.indexOf(pid);
             if (idx > -1){
