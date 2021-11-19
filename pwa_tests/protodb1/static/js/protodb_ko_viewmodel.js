@@ -312,11 +312,18 @@ var ProtoDBViewModel = function(){
     }
 
     self.rmperson = function(pid){
+        // removes (only) ko person object
+        // used when modifying the person info
         let p = self.getperson(pid);
         if (p){
             //console.log('rmvng');
             self.people.remove(p);
         }
+    }
+    self.delete_person = async function(pid){
+        // completely remove person from the system
+        self.rmperson(pid);
+        await pdel(pid);
     }
     self.addperson = function(pid, lname, fname, grade, seti){
         self.rmperson(pid);

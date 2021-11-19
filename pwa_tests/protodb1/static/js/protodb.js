@@ -201,11 +201,14 @@ var deactivate_person = async function(){
 var delete_person = function(){
     let conf = window.confirm('DELETE record permanently?');
     if (conf){
-        delete_person_confirmed();
+        let xp = document.getElementById('xpersonid');
+        let pid = xp.value;
+        delete_person_confirmed(pid);
     }
 }
-var delete_person_confirmed = async function(){
-    console.log('DELETING PERMANENTLY');
+var delete_person_confirmed = async function(pid){
+    console.log('DELETING PERMANENTLY '+pid);
+    pdel(pid);
 }
 
 var shownewgroup = function(){

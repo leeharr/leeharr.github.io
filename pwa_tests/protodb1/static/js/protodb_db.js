@@ -21,6 +21,7 @@ var pget = function(key){ return idbKeyval.get(key, pdbppl);}
 var pkeys = function(){ return idbKeyval.keys(pdbppl);}
 var pgetcurrid = async function(){ return getcurrid(pget); }
 var pgetnextid = async function(){ return getnextid(pgetcurrid, pset); }
+var pdel = async function(key){ return idbKeyval.del(key); }
 
 var pdbgrp = new idbKeyval.Store('protodb-groups');
 var gset = function(key, value){ return idbKeyval.set(key, value, pdbgrp);}
