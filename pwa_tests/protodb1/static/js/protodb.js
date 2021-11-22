@@ -83,12 +83,21 @@ window.shownewperson = async function(){
         }
     }
 
+    let sg = -1;
+    if (vm.selectedgroup()){
+        sg = vm.selectedgroup().gid();
+    }
+
     let ks = await gkeys();
     for (let gid of ks){
         if (gid == 'currid') { continue; }
         let npgid = '#npgid' + gid;
         let cb = document.querySelector(npgid);
-        cb.checked = false;
+        if (sg>=0 && gid==sg){
+            cb.checked = true;
+        } else {
+            cb.checked = false;
+        }
     }
 
     vm.personexists(false);
