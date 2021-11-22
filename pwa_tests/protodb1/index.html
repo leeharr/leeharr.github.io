@@ -171,7 +171,7 @@
     <div class="side" data-bind="visible: !$root.showgroupsession()">
     <h1>Groups
         <button onclick="shownewgroup()"
-            data-bind="visible: !$root.shownewperson()">Add New Group</button>
+            data-bind="visible: !$root.shownewperson() && !$root.selectedgroup()">Add New Group</button>
         <button onclick="quicksession()"
             data-bind="visible: !$root.shownewperson() && !$root.shownewgroup()">Quick Session</button>
         <button onclick="shownewgroup(); return false;"
