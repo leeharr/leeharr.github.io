@@ -1,4 +1,4 @@
-var cacheName = 'protodbAG03';
+var cacheName = 'protodbAH01';
 var filesToCache = [
   './',
   'index.html',
@@ -24,12 +24,14 @@ var filesToCache = [
   'static/js/staff_questions.json',
 
   'static/images/favicon.ico',
-  "static/images/protodb-icon-128.png",
-  "static/images/protodb-icon-144.png",
-  "static/images/protodb-icon-152.png",
-  "static/images/protodb-icon-192.png",
-  "static/images/protodb-icon-256.png",
-  "static/images/protodb-icon-512.png",
+  'static/images/protodb-icon-128.png',
+  'static/images/protodb-icon-144.png',
+  'static/images/protodb-icon-152.png',
+  'static/images/protodb-icon-192.png',
+  'static/images/protodb-icon-256.png',
+  'static/images/protodb-icon-512.png',
+
+  'static/images/edit.png'
 ];
 
 /* on install, get fresh version from server */
