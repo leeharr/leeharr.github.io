@@ -301,6 +301,9 @@ var savegroup = async function(gid){
     vmg.updategroup(false);
     vm.updategroup(false);
 }
+var editgroup = function(){
+    console.log('edit group');
+}
 window.quicksession = function(){
     let g = vm.quick_group();
     g.showgroup();
