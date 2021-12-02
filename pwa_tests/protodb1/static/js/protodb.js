@@ -304,6 +304,11 @@ var savegroup = async function(gid){
 var editgroup = function(){
     console.log('edit group');
     shownewgroup();
+    let gname = document.querySelector('#gname');
+    let g = vm.selectedgroup();
+    gname.value = g.name();
+    let cgbtn = document.querySelector('#creategroupbtn');
+    cgbtn.value = 'Save';
 }
 window.quicksession = function(){
     let g = vm.quick_group();
