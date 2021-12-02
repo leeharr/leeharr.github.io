@@ -112,3 +112,7 @@ table tbody tr th.inactive{
     background: #CCC;
     border-bottom: thin solid black;
 }
+
+table tbody tr td img{
+    vertical-align: middle;
+}
