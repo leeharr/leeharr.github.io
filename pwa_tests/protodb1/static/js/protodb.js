@@ -303,6 +303,7 @@ var savegroup = async function(gid){
 }
 var editgroup = function(){
     console.log('edit group');
+    shownewgroup();
 }
 window.quicksession = function(){
     let g = vm.quick_group();
