@@ -309,6 +309,7 @@ var editgroup = function(){
     gname.value = g.name();
     let cgbtn = document.querySelector('#creategroupbtn');
     cgbtn.value = 'Save';
+    g.showgroup();
 }
 window.quicksession = function(){
     let g = vm.quick_group();
