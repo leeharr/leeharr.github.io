@@ -244,6 +244,10 @@ var shownewgroup = function(){
 }
 var newgroup = async function(e){
     console.log('new group form sent');
+    let sgb = document.getElementById('creategroupbtn');
+    console.log('sgbval ' + sgb.value);
+
+
     let gname = document.querySelector('#gname');
     let gname_err = document.querySelector('#gname_err');
     gname_err.style.visibility = 'hidden';
