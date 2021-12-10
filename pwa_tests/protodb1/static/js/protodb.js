@@ -235,6 +235,8 @@ var shownewgroup = function(){
         vm.checkpersoncheckboxes(false);
     } else {
         vm.shownewgroup(false);
+        vm.selectedgroup().updategroup(false);
+        vm.updategroup(false);
         vm.showpersoncheckboxes(false);
         vm.selectedgroup(undefined);
         vm.checkpersoncheckboxes(false);
