@@ -1,4 +1,4 @@
-var cacheName = 'protodbAJ03';
+var cacheName = 'protodbAJ04';
 var filesToCache = [
   './',
   'index.html',
