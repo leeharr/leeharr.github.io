@@ -48,6 +48,7 @@ var Group = function(gid, name){
 //     }
 
     self.savegroup = async function(){
+        console.log('ASYNC SAVGRP');
         savegroup(self.gid());
     }
 
