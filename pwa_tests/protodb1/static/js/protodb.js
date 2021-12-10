@@ -246,6 +246,9 @@ var newgroup = async function(e){
     console.log('new group form sent');
     let sgb = document.getElementById('creategroupbtn');
     console.log('sgbval ' + sgb.value);
+    if (sgb.value == 'Save'){
+        return savegroup();
+    }
 
 
     let gname = document.querySelector('#gname');
