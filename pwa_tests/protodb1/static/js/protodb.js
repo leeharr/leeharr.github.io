@@ -282,6 +282,10 @@ var newgroup = async function(e){
     vm.selectedgroup(ng);
 }
 var savegroup = async function(gid){
+    console.log('SAVEGRP');
+    let sgb = document.getElementById('svgrpbtn');
+    console.log('sgbval: '+sgb.value);
+
     let g = await gget(gid);
     g.people = [];
     let vmg = vm.getgroup(gid);
