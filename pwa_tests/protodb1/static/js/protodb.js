@@ -243,7 +243,7 @@ var shownewgroup = function(){
     }
 }
 var newgroup = async function(e){
-    //console.log('new group form sent');
+    console.log('new group form sent');
     let gname = document.querySelector('#gname');
     let gname_err = document.querySelector('#gname_err');
     gname_err.style.visibility = 'hidden';
