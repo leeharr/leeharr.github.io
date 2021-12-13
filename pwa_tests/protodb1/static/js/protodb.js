@@ -264,7 +264,7 @@ var newgroup = async function(e){
     console.log('sgbval ' + sgb.value);
     if (sgb.value == 'Save'){
         let sg = vm.selectedgroup();
-        gid = sg.gid();
+        let gid = sg.gid();
         return savegroup(gid);
     }
 
