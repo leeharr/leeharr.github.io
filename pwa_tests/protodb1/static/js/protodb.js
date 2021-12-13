@@ -299,7 +299,9 @@ var savegroup = async function(gid){
 
     let g = await gget(gid);
     let gname = document.querySelector('#gname');
-    g.name = gname.value;
+    if (gname.value){
+        g.name = gname.value;
+    }
     g.people = [];
     let vmg = vm.getgroup(gid);
     vmg.name(g.name);
