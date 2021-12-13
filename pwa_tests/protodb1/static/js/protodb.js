@@ -263,7 +263,9 @@ var newgroup = async function(e){
     let sgb = document.getElementById('creategroupbtn');
     console.log('sgbval ' + sgb.value);
     if (sgb.value == 'Save'){
-        return savegroup();
+        let sg = vm.selectedgroup();
+        gid = sg.gid();
+        return savegroup(gid);
     }
 
 
@@ -296,8 +298,11 @@ var savegroup = async function(gid){
     console.log('SAVEGRP');
 
     let g = await gget(gid);
+    let gname = document.querySelector('#gname');
+    g.name = gname.value;
     g.people = [];
     let vmg = vm.getgroup(gid);
+    vmg.name(g.name);
     vmg.people.removeAll();
     let ks = await pkeys();
     for (let k of ks){
