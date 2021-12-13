@@ -324,6 +324,7 @@ var savegroup = async function(gid){
     vm.shownewgroup(false);
     vmg.updategroup(false);
     vm.updategroup(false);
+    vm.selectedgroup(undefined);
 }
 var editgroup = function(){
     console.log('edit group');
