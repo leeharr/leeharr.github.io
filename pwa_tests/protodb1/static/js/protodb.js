@@ -244,6 +244,16 @@ var shownewgroup = function(){
 }
 var newgroup = async function(e){
     console.log('new group form sent');
+
+    let x = await gnamex(gname.value);
+    if (x || gname.value.startsWith('QUICK')){
+        // given group name is already in use
+        gname_err.style.visibility = 'visible';
+        gname_err.innerHTML = 'Group name already in use';
+        return;
+    }
+
+
     let sgb = document.getElementById('creategroupbtn');
     console.log('sgbval ' + sgb.value);
     if (sgb.value == 'Save'){
@@ -254,14 +264,6 @@ var newgroup = async function(e){
     let gname = document.querySelector('#gname');
     let gname_err = document.querySelector('#gname_err');
     gname_err.style.visibility = 'hidden';
-
-    let x = await gnamex(gname.value);
-    if (x || gname.value.startsWith('QUICK')){
-        // given group name is already in use
-        gname_err.style.visibility = 'visible';
-        gname_err.innerHTML = 'Group name already in use';
-        return;
-    }
 
     let g = {'name': gname.value, 'people': []}
     let i = await ggetnextid();
