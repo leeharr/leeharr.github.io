@@ -318,6 +318,8 @@ var savegroup = async function(gid){
     }
     gset(gid, g);
 
+    gname.value = '';
+    vm.shownewgroup(false);
     vmg.updategroup(false);
     vm.updategroup(false);
 }
