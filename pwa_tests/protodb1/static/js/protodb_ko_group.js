@@ -4,6 +4,7 @@ var Group = function(gid, name){
     let self = this;
     self.gid = ko.observable(gid);
     self.name = ko.observable(name);
+    self.active = ko.observable(true);
     self.people = ko.observableArray();
     self.activepeople = ko.pureComputed(function(){
         //console.log('PCAP '+self.name());

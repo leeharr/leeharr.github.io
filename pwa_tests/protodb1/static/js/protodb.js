@@ -225,6 +225,13 @@ var delete_person_confirmed = async function(pid){
 
 var deactivate_group = async function(){
     console.log('DEAC GRP');
+
+    let deac = document.getElementById('deacgrp');
+    if (deac.innerHTML=='Activate'){
+        deac.innerHTML = 'Deactivate';
+    } else {
+        deac.innerHTML = 'Activate';
+    }
 }
 
 var shownewgroup = function(){
@@ -340,6 +347,13 @@ var editgroup = function(){
     cgbtn.value = 'Save';
     g.showgroup();
     vm.updategroup(true);
+
+    let deac = document.getElementById('deacgrp');
+    if (g.active()){
+        deac.innerHTML = 'Deactivate';
+    } else {
+        deac.innerHTML = 'Activate';
+    }
 }
 window.quicksession = function(){
     let g = vm.quick_group();
