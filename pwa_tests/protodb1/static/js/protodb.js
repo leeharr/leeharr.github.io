@@ -223,6 +223,10 @@ var delete_person_confirmed = async function(pid){
     vm.personexists(false);
 }
 
+var deactivate_group = async function(){
+    console.log('DEAC GRP');
+}
+
 var shownewgroup = function(){
     let gname = document.querySelector('#gname');
     gname.value = '';
