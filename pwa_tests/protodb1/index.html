@@ -214,8 +214,8 @@
         <td data-bind="text: name(), click: showgroup"></td>
         <td data-bind="visible: updategroup()">
             <button data-bind="click: savegroup" id="svgrpbtn">Save</button>
-            <button data-bind="click: savecancel">Cancel</button></td>
-            <button onclick="deactivate_group(); return false;" id="deacgrp" class="deactivate">Deactivate</button>
+            <button data-bind="click: savecancel">Cancel</button>
+            <button onclick="deactivate_group(); return false;" id="deacgrp" class="deactivate">Deactivate</button></td>
         <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()">
             <button data-bind="click: newgroupsession">New Session</button>
             <button data-bind="click: savecancel">Cancel</button></td>
