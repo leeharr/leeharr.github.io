@@ -231,6 +231,9 @@ var deactivate_group = async function(){
     if (!gidstr){ console.log('XGID ERR'); return; }
 
     let gid = parseInt(gidstr);
+
+    console.log('g str id '+ gidstr +' '+gid);
+
     let g = await gget(gid);
     let vmg = vm.getgroup(gid);
 
