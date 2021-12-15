@@ -183,6 +183,8 @@
     <form id="newgroup" data-bind="visible: $root.shownewgroup()"
             onsubmit="newgroup(); return false;">
 
+        <input type="hidden" id="xgroupid" value="0" />
+
         <div class="qdiv qdivreq">
             <div>Group name</div>
             <div id="gname_err"></div>

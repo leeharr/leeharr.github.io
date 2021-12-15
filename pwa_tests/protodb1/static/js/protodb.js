@@ -226,10 +226,22 @@ var delete_person_confirmed = async function(pid){
 var deactivate_group = async function(){
     console.log('DEAC GRP');
 
+    let xgid = document.getElementById('xgroupid');
+    let gidstr = xgid.value;
+    if (!gidstr){ console.log('XGID ERR'); return; }
+
+    let gid = parseInt(gidstr);
+    let g = await gget(gid);
+    let vmg = vm.getgroup(gid);
+
     let deac = document.getElementById('deacgrp');
-    if (deac.innerHTML=='Activate'){
+    if (deac.innerHTML == 'Activate'){
+        g.active = false;
+        vmg.active(false);
         deac.innerHTML = 'Deactivate';
     } else {
+        g.active = true;
+        vmg.active(true);
         deac.innerHTML = 'Activate';
     }
 }
@@ -280,7 +292,7 @@ var newgroup = async function(e){
     }
 
 
-    let g = {'name': gname.value, 'people': []}
+    let g = {'name': gname.value, 'people': [], 'active': true}
     let i = await ggetnextid();
     //console.log(i + ' .... ' + g.name);
 
@@ -343,6 +355,8 @@ var editgroup = function(){
     shownewgroup();
     let gname = document.querySelector('#gname');
     gname.value = g.name();
+    let xgid = document.getElementById('xgroupid');
+    xgid.value = g.gid();
     let cgbtn = document.querySelector('#creategroupbtn');
     cgbtn.value = 'Save';
     g.showgroup();
