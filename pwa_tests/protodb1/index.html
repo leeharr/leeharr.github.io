@@ -210,7 +210,7 @@
         <th data-bind="visible: $root.updategroup()"></th>
         <th data-bind="visible: $root.selectedgroup() && !$root.updategroup()"></th>
     </tr></thead>
-    <tbody data-bind="foreach: groups_byactivename">
+    <tbody data-bind="foreach: groups_byname">
         <tr data-bind="css: {gsel: $root.selectedgroup()==$data}">
         <td data-bind="visible: $root.shownewperson() && !$root.personexists()"><input type="checkbox" data-bind="attr: {id: 'npgid'+gid()}" /></td>
         <td data-bind="text: gid(), click: showgroup" class="num"></td>
