@@ -361,6 +361,20 @@ var ProtoDBViewModel = function(){
             return (left.name() < right.name()) ? -1 : (left.name() > right.name()) ? 1 : 0;
         });
     });
+    self.sort_activename = function(l, r){
+        let lac = l.active();
+        let rac = r.active();
+        let lnm = l.name();
+        let rnm = r.name();
+        if (lac && !rac){
+            return -1;
+        } else if (!lac && rac){
+            return 1;
+        } else {
+            return (lnm < rnm) ? -1 : (lnm > rnm) ? 1 : 0;
+        }
+    }
+    self.groups_byactivename = ko.pureComputed(self.sort_activename);
 
     self.addgroup = function(gid, name){
         let g = new Group(gid, name);
