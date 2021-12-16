@@ -532,6 +532,7 @@ var ProtoDBViewModel = function(){
                 console.log('ERROR.Group.Dup.Id.');
             }
             let ng = self.addgroup(k, g.name);
+            ng.active(g.active);
             for (let pid of g.people){
                 let p = vm.getperson(pid);
                 ng.addperson(p);
