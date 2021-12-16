@@ -361,11 +361,11 @@ var ProtoDBViewModel = function(){
             return (left.name() < right.name()) ? -1 : (left.name() > right.name()) ? 1 : 0;
         });
     });
-    self.sort_activename = function(l, r){
-        let lac = l.active();
-        let rac = r.active();
-        let lnm = l.name();
-        let rnm = r.name();
+    self.sort_activename = function(left, right){
+        let lac = left.active();
+        let rac = right.active();
+        let lnm = left.name();
+        let rnm = right.name();
         if (lac && !rac){
             return -1;
         } else if (!lac && rac){
