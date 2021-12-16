@@ -210,7 +210,7 @@
         <th data-bind="visible: $root.updategroup()"></th>
         <th data-bind="visible: $root.selectedgroup() && !$root.updategroup()"></th>
     </tr></thead>
-    <tbody data-bind="foreach: groups_byactivename">
+    <tbody data-bind="foreach: groups_a_byname">
         <tr data-bind="css: {gsel: $root.selectedgroup()==$data}">
         <td data-bind="visible: $root.shownewperson() && !$root.personexists()"><input type="checkbox" data-bind="attr: {id: 'npgid'+gid()}" /></td>
         <td data-bind="text: gid(), click: showgroup" class="num"></td>
@@ -223,6 +223,16 @@
             <button data-bind="click: savecancel">Cancel</button></td>
         <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()"><a data-bind="click: editgroup" title="edit group"><img src="static/images/edit.png"></a>(Or Select/Deselect People and Save)</td>
         </tr>
+    </tbody>
+    <tbody data-bind="visible: $root.any_grp_inactive()">
+        <tr><th class="inactive" colspan="2">Inactive</th></tr>
+        <!-- ko foreach: groups_i_byname -->
+        <tr data-bind="class: clsactive()">
+        <td data-bind="visible: $root.shownewperson() && !$root.personexists()"><input type="checkbox" data-bind="attr: {id: 'npgid'+gid()}" /></td>
+        <td data-bind="text: gid(), click: showgroup" class="num"></td>
+        <td data-bind="text: name(), click: showgroup"></td>
+        </tr>
+        <!-- /ko -->
     </tbody>
     </table>
     </div>

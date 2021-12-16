@@ -26,6 +26,15 @@ var ProtoDBViewModel = function(){
         }
         return false;
     });
+    self.any_grp_inactive = ko.pureComputed(function(){
+        let grps = self.groups();
+        for (let g of grps){
+            if (!g.active()){
+                return true;
+            }
+        }
+        return false;
+    });
 
     self.showeditstaff = ko.observable(false);
     self.shownewperson = ko.observable(false);
@@ -356,11 +365,12 @@ var ProtoDBViewModel = function(){
         return match;
     }
 
-    self.groups_byname = ko.pureComputed(function(){
-        return self.groups.sorted(function(left, right){
-            return (left.name() < right.name()) ? -1 : (left.name() > right.name()) ? 1 : 0;
-        });
-    });
+    self.nsort = function(left, right){
+        let lnm = left.name();
+        let rnm = right.name();
+        return (lnm < rnm) ? -1 : (lnm > rnm) ? 1 : 0;
+    }
+    self.groups_byname = ko.pureComputed(self.nsort);
     self.grp_ansort = function(left, right){
         let lac = left.active();
         let rac = right.active();
@@ -374,8 +384,15 @@ var ProtoDBViewModel = function(){
             return (lnm < rnm) ? -1 : (lnm > rnm) ? 1 : 0;
         }
     }
-    self.groups_byactivename = ko.pureComputed(function(){
-        return self.groups.sorted(self.grp_ansort);
+    self.groups_a_byname = ko.pureComputed(function(){
+        let agrps = self.groups().filter(g => g.active());
+        agrps.sort(self.nsort);
+        return agrps;
+    });
+    self.groups_i_byname = ko.pureComputed(function(){
+        let agrps = self.groups().filter(g => !g.active());
+        agrps.sort(self.nsort);
+        return agrps;
     });
 
     self.addgroup = function(gid, name){
