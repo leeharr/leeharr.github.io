@@ -361,7 +361,7 @@ var ProtoDBViewModel = function(){
             return (left.name() < right.name()) ? -1 : (left.name() > right.name()) ? 1 : 0;
         });
     });
-    self.sort_activename = function(left, right){
+    self.grp_ansort = function(left, right){
         let lac = left.active();
         let rac = right.active();
         let lnm = left.name();
@@ -374,7 +374,9 @@ var ProtoDBViewModel = function(){
             return (lnm < rnm) ? -1 : (lnm > rnm) ? 1 : 0;
         }
     }
-    self.groups_byactivename = ko.pureComputed(self.sort_activename);
+    self.groups_byactivename = ko.pureComputed(function(){
+        return self.people.sorted(self.grp_ansort);
+    });
 
     self.addgroup = function(gid, name){
         let g = new Group(gid, name);
