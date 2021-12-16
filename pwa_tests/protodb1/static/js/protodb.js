@@ -227,12 +227,8 @@ var deactivate_group = async function(){
     console.log('DEAC GRP');
 
     let xgid = document.getElementById('xgroupid');
-    let gidstr = xgid.value;
-    if (!gidstr){ console.log('XGID ERR'); return; }
-
-    let gid = parseInt(gidstr);
-
-    console.log('g str id '+ gidstr +' '+gid);
+    let gid = xgid.value;
+    if (!gid||gid=='0'){ console.log('XGID NO'); return; }
 
     let g = await gget(gid);
     let vmg = vm.getgroup(gid);
