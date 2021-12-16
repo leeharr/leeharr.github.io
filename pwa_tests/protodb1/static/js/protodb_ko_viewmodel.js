@@ -375,7 +375,7 @@ var ProtoDBViewModel = function(){
         }
     }
     self.groups_byactivename = ko.pureComputed(function(){
-        return self.people.sorted(self.grp_ansort);
+        return self.groups.sorted(self.grp_ansort);
     });
 
     self.addgroup = function(gid, name){
