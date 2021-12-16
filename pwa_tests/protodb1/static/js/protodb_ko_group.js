@@ -24,6 +24,14 @@ var Group = function(gid, name){
         self.people.push(p);
     }
 
+    self.clsactive = ko.pureComputed(function(){
+        if (self.active()){
+            return '';
+        } else {
+            return 'inactive';
+        }
+    });
+
     self.showgroup = function(){
         // show the person checkboxes, and
         // set checked all people in the selected group
