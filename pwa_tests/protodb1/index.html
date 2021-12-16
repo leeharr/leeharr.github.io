@@ -231,6 +231,7 @@
         <td data-bind="visible: $root.shownewperson() && !$root.personexists()"><input type="checkbox" data-bind="attr: {id: 'npgid'+gid()}" /></td>
         <td data-bind="text: gid(), click: showgroup" class="num"></td>
         <td data-bind="text: name(), click: showgroup"></td>
+        <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()"><a data-bind="click: editgroup" title="edit group"><img src="static/images/edit.png"></a></td>
         </tr>
         <!-- /ko -->
     </tbody>
