@@ -235,14 +235,16 @@ var deactivate_group = async function(){
 
     let deac = document.getElementById('deacgrp');
     if (deac.innerHTML == 'Activate'){
-        g.active = false;
-        vmg.active(false);
-        deac.innerHTML = 'Deactivate';
-    } else {
         g.active = true;
         vmg.active(true);
+        deac.innerHTML = 'Deactivate';
+    } else {
+        g.active = false;
+        vmg.active(false);
         deac.innerHTML = 'Activate';
     }
+
+    await gset(gid, g);
 }
 
 var shownewgroup = function(){
