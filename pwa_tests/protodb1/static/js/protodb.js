@@ -286,8 +286,8 @@ var newgroup = async function(e){
 
     let sgb = document.getElementById('creategroupbtn');
     console.log('sgbval ' + sgb.value);
-    if (sgb.value == 'Save'){
-        let sg = vm.selectedgroup();
+    let sg = vm.selectedgroup();
+    if (sg && sgb.value=='Save'){
         let gid = sg.gid();
         return savegroup(gid);
     }
