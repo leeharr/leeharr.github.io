@@ -45,6 +45,11 @@ var Group = function(gid, name){
             //console.log('sg check :'+ngpid);
             let cb = document.querySelector(ngpid);
             cb.checked = true;
+            if (!self.active()){
+                cb.setAttribute('disabled', 'true');
+            } else {
+                cb.setAttribute('disabled', 'false');
+            }
         }
     }
 
