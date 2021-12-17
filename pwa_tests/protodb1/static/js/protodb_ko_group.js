@@ -40,7 +40,7 @@ var Group = function(gid, name){
         vm.checkpersoncheckboxes(false);
         vm.selectedgroup(self);
         for (let p of self.people()){
-            if (!p.active()){ continue; }
+//             if (!p.active()){ continue; }
             let ngpid = '#ngpid'+p.pid();
             //console.log('sg check :'+ngpid);
             let cb = document.querySelector(ngpid);
