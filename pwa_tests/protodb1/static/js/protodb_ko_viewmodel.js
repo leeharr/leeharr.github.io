@@ -492,8 +492,9 @@ var ProtoDBViewModel = function(){
     }
     self.setchange = function(){
         //console.log('SET CHANGE');
-        if (vm.selectedgroup()){
-            vm.selectedgroup().updategroup(true);
+        let vmg = vm.selectedgroup();
+        if (vmg && vmg.active()){
+            vmg.updategroup(true);
             vm.updategroup(true);
         }
         return true;
