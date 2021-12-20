@@ -167,6 +167,9 @@ var Group = function(gid, name){
     self.checkuncheck = function(){
         // toggle (for check all / uncheck all)
         //console.log('grp cuc');
+
+        if (!self.active()){ return; }
+
         let anychecked = false;
         let ppl = self.people();
         if (ppl.length == 0){ ppl = vm.people(); }
