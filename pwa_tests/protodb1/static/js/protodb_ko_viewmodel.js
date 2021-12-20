@@ -439,7 +439,10 @@ var ProtoDBViewModel = function(){
             return self.selectedgroup().checkuncheck();
         } else if (vm.selectedgroup()) {
             console.log('sel grp');
-            if (!vm.selectedgroup().active()){ return; }
+            if (!vm.selectedgroup().active()){
+                console.log('  not active');
+                return;
+            }
         }
 
         let anychecked = false;
