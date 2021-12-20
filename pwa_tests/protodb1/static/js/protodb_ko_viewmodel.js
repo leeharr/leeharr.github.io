@@ -435,8 +435,10 @@ var ProtoDBViewModel = function(){
     }
     self.checkuncheck = function(){
         if (self.showgroupsession()){
-            //console.log('selgrp');
+            console.log('shw grp');
             return self.selectedgroup().checkuncheck();
+        } else if (vm.selectedgroup()) {
+            console.log('sel grp');
         }
 
         let anychecked = false;
