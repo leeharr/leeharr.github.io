@@ -50,7 +50,7 @@ var Group = function(gid, name){
                 cb.setAttribute('disabled', 'true');
             } else {
                 console.log('   ENA');
-                cb.setAttribute('disabled', 'false');
+                cb.removeAttribute('disabled');
             }
         }
     }
