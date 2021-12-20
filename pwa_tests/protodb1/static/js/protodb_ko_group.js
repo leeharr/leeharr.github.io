@@ -166,7 +166,7 @@ var Group = function(gid, name){
     }
     self.checkuncheck = function(){
         // toggle (for check all / uncheck all)
-        //console.log('grp cuc');
+        console.log('grp cuc');
 
         if (!self.active()){ return; }
 
