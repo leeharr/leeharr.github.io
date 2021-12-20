@@ -430,7 +430,7 @@ var ProtoDBViewModel = function(){
             if (cb){
                 console.log('found.set.'+check);
                 cb.checked = check;
-                cb.disabled = false;
+                cb.removeAttribute('disabled');
             }
         }
     }
