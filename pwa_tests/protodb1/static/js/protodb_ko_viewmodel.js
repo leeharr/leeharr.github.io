@@ -415,6 +415,7 @@ var ProtoDBViewModel = function(){
     }
 
     self.enablepersoncheckboxes = function(enable=true){
+        console.log('EPCB');
         for (let p of self.people()){
             let ngpid = '#ngpid'+p.pid();
             let cb = document.querySelector(ngpid);
@@ -424,10 +425,10 @@ var ProtoDBViewModel = function(){
     self.checkpersoncheckboxes = function(check=true){
         for (let p of self.people()){
             let ngpid = '#ngpid'+p.pid();
-            //console.log('cpcb ' + ngpid);
+            console.log('cpcb ' + ngpid);
             let cb = document.querySelector(ngpid);
             if (cb){
-                //console.log('found.set.'+check);
+                console.log('found.set.'+check);
                 cb.checked = check;
                 cb.disabled = false;
             }
