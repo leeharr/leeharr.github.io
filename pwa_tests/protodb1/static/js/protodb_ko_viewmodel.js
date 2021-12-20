@@ -429,7 +429,11 @@ var ProtoDBViewModel = function(){
             let cb = document.querySelector(ngpid);
             if (cb){
                 console.log('found.set.'+check);
-                cb.checked = check;
+                if (check && p.active()){
+                    cb.checked = check;
+                } else if (!check){
+                    cb.checked = check;
+                }
                 cb.removeAttribute('disabled');
             }
         }
