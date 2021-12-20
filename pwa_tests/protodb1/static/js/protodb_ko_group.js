@@ -35,14 +35,14 @@ var Group = function(gid, name){
     self.showgroup = function(){
         // show the person checkboxes, and
         // set checked all people in the selected group
-        //console.log('SG');
+        console.log('SG');
         vm.showpersoncheckboxes(true);
         vm.checkpersoncheckboxes(false);
         vm.selectedgroup(self);
         for (let p of self.people()){
 //             if (!p.active()){ continue; }
             let ngpid = '#ngpid'+p.pid();
-            //console.log('sg check :'+ngpid);
+            console.log('sg check :'+ngpid);
             let cb = document.querySelector(ngpid);
             cb.checked = true;
             if (!self.active()){
