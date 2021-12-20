@@ -46,8 +46,10 @@ var Group = function(gid, name){
             let cb = document.querySelector(ngpid);
             cb.checked = true;
             if (!self.active()){
+                console.log('   DIS');
                 cb.setAttribute('disabled', 'true');
             } else {
+                console.log('   ENA');
                 cb.setAttribute('disabled', 'false');
             }
         }
