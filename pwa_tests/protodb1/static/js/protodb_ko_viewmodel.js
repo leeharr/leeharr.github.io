@@ -497,8 +497,8 @@ var ProtoDBViewModel = function(){
     }
     self.setchange = function(item, event){
         console.log('SET CHANGE');
-        console.log('-'+item+'-');
         console.log('='+event.target+'=');
+        console.log('*'+event.target.id+'*');
         let vmg = vm.selectedgroup();
         if (vmg && vmg.active()){
             vmg.updategroup(true);
