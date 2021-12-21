@@ -32,6 +32,14 @@ var Group = function(gid, name){
         }
     });
 
+    self.groupmessage = ko.pureComputed(function){
+        if (self.active()){
+            return 'Group is inactive. Activate to add/remove people.';
+        } else {
+            return 'Select Group Members on Left Side';
+        }
+    }
+
     self.showgroup = function(){
         // show the person checkboxes, and
         // set checked all people in the selected group
