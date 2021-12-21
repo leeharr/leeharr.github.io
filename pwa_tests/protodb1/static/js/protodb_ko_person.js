@@ -54,12 +54,17 @@ var Person = function(pid, lname, fname, grade){
             let ngpid = idbase + self.pid();
             //console.log(ngpid);
             let cb = document.querySelector(ngpid);
+            let change = false;
             if (cb.checked){
                 cb.checked = false;
-            } else {
+                change = true;
+            } else if (self.active()) {
+                // can uncheck inactive person,
+                // but cannot check inactive person
                 cb.checked = true;
+                change = true;
             }
-            if (!is_sess){
+            if (!is_sess && change){
                 vm.setchange();
             }
         } else {
