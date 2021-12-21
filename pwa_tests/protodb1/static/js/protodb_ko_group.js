@@ -33,11 +33,6 @@ var Group = function(gid, name){
     });
 
     self.groupmessage = ko.pureComputed(function(){
-        if (!self.active()){
-            return 'Group is inactive. Activate to add/remove people.';
-        } else {
-            return 'Select Group Members on Left Side';
-        }
     });
 
     self.showgroup = function(){
@@ -60,6 +55,13 @@ var Group = function(gid, name){
                 console.log('   ENA');
                 cb.removeAttribute('disabled');
             }
+        }
+
+        let gmsg = document.getElementById('groupmessage');
+        if (!self.active()){
+            gmsg.innerHTML = 'Group is inactive. Activate to add/remove people.';
+        } else {
+            gmsg.innerHTML = 'Select Group Members on Left Side';
         }
     }
 
