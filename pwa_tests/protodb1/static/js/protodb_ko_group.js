@@ -33,7 +33,7 @@ var Group = function(gid, name){
     });
 
     self.groupmessage = ko.pureComputed(function(){
-        if (self.active()){
+        if (!self.active()){
             return 'Group is inactive. Activate to add/remove people.';
         } else {
             return 'Select Group Members on Left Side';
