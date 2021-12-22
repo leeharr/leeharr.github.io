@@ -222,6 +222,7 @@ var delete_person_confirmed = async function(pid){
     vm.shownewperson(false);
     vm.shownewgroup(false);
     vm.personexists(false);
+    vm.setinitials2();
 }
 
 var deactivate_group = async function(){
