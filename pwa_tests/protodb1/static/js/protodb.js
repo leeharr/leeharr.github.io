@@ -211,7 +211,7 @@ var delete_person = function(){
     let xp = document.getElementById('xpersonid');
     let pid = xp.value;
     let p = vm.getperson(pid);
-    let conf = window.confirm('DELETE record permanently?\n\n'+p.name());
+    let conf = window.confirm('DELETE record permanently?\n\n'+p.fname()+' '+p.lname());
     if (conf){
         delete_person_confirmed(pid);
     }
