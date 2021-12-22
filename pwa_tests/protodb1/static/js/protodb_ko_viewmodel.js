@@ -320,6 +320,11 @@ var ProtoDBViewModel = function(){
         }
     }
 
+    self.recalc_initials = function(){
+        self.base_initials();
+        self.setinitials2();
+    }
+
     self.rmperson = function(pid){
         // removes (only) ko person object
         // used when modifying the person info
