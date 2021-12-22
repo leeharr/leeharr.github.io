@@ -506,7 +506,7 @@ var ProtoDBViewModel = function(){
             let pidstr = ngpidstr.substr(5);
             let pid = parseInt(pidstr);
             let p = self.getperson(pid);
-            let person_in = vmg.people().Contains(p);
+            let person_in = vmg.people().includes(p);
             if (!p.active()){
                 console.log('P INACTIVE');
                 event.target.checked = false;
