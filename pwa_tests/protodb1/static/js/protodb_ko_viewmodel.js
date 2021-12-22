@@ -497,16 +497,18 @@ var ProtoDBViewModel = function(){
     }
     self.setchange = function(item, event){
         console.log('SET CHANGE');
-        console.log('='+event.target+'=');
-        console.log('*'+event.target.id+'*');
-        let ngpidstr = event.target.id;
-        let pidstr = ngpidstr.substr(5);
-        let pid = parseInt(pidstr);
-        let p = self.getperson(pid);
-        if (!p.active()){
-            console.log('P INACTIVE');
-            event.target.checked = false;
-            return true;
+        if (event.target){
+            console.log('='+event.target+'=');
+            console.log('*'+event.target.id+'*');
+            let ngpidstr = event.target.id;
+            let pidstr = ngpidstr.substr(5);
+            let pid = parseInt(pidstr);
+            let p = self.getperson(pid);
+            if (!p.active()){
+                console.log('P INACTIVE');
+                event.target.checked = false;
+                return true;
+            }
         }
 
         let vmg = vm.selectedgroup();
