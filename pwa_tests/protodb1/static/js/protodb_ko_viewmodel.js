@@ -321,6 +321,7 @@ var ProtoDBViewModel = function(){
     }
 
     self.recalc_initials = function(){
+        console.log('RI');
         self.base_initials();
         self.setinitials2();
     }
