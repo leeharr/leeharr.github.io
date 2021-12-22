@@ -497,6 +497,8 @@ var ProtoDBViewModel = function(){
     }
     self.setchange = function(item, event){
         console.log('SET CHANGE');
+        let vmg = vm.selectedgroup();
+
         if (event && event.target){
             console.log('='+event.target+'=');
             console.log('*'+event.target.id+'*');
@@ -504,18 +506,17 @@ var ProtoDBViewModel = function(){
             let pidstr = ngpidstr.substr(5);
             let pid = parseInt(pidstr);
             let p = self.getperson(pid);
-            let chk = event.target.checked;
+            let person_in = vmg.people().Contains(p);
             if (!p.active()){
                 console.log('P INACTIVE');
                 event.target.checked = false;
-                if (!chk){
+                if (!person_in){
                     // no change. was not checked. still not checked.
                     return true;
                 }
             }
         }
 
-        let vmg = vm.selectedgroup();
         if (vmg && vmg.active()){
             vmg.updategroup(true);
             vm.updategroup(true);
