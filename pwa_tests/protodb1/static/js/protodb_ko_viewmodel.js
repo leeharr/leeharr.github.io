@@ -504,10 +504,14 @@ var ProtoDBViewModel = function(){
             let pidstr = ngpidstr.substr(5);
             let pid = parseInt(pidstr);
             let p = self.getperson(pid);
+            let chk = event.target.checked;
             if (!p.active()){
                 console.log('P INACTIVE');
                 event.target.checked = false;
-                return true;
+                if (!chk){
+                    // no change. was not checked. still not checked.
+                    return true;
+                }
             }
         }
 
