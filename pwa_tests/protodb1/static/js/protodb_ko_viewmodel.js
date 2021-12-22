@@ -497,7 +497,7 @@ var ProtoDBViewModel = function(){
     }
     self.setchange = function(item, event){
         console.log('SET CHANGE');
-        if (event.target){
+        if (event && event.target){
             console.log('='+event.target+'=');
             console.log('*'+event.target.id+'*');
             let ngpidstr = event.target.id;
