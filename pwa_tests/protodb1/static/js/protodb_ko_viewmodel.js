@@ -506,6 +506,7 @@ var ProtoDBViewModel = function(){
         if (!p.active()){
             console.log('P INACTIVE');
             event.target.checked = false;
+            return;
         }
 
         let vmg = vm.selectedgroup();
