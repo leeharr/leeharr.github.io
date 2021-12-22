@@ -208,10 +208,11 @@ var deactivate_person = async function(){
     await pset(pid, dbp);
 }
 var delete_person = function(){
-    let conf = window.confirm('DELETE record permanently?');
+    let xp = document.getElementById('xpersonid');
+    let pid = xp.value;
+    let p = vm.getperson(pid);
+    let conf = window.confirm('DELETE record permanently?\n\n'+p.name());
     if (conf){
-        let xp = document.getElementById('xpersonid');
-        let pid = xp.value;
         delete_person_confirmed(pid);
     }
 }
