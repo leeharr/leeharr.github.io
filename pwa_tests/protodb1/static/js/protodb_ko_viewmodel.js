@@ -356,12 +356,12 @@ var ProtoDBViewModel = function(){
         return p;
     }
     self.getperson = function(pid){
-        //console.log('GP '+pid);
+        console.log('GP '+pid);
         let match = ko.utils.arrayFirst(self.people(), function(i){
-            //console.log('  ck '+i.pid()+' '+pid);
+            console.log('  ck '+i.pid()+' '+pid);
             return i.pid()==pid;
         })
-        //console.log('FOUND '+match);
+        console.log('FOUND '+match);
         return match;
     }
 
