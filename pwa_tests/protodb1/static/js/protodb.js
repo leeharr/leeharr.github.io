@@ -217,7 +217,7 @@ var delete_person = function(){
     }
 }
 var delete_person_confirmed = async function(pid){
-    console.log('DELETING PERMANENTLY '+pid);
+    //console.log('DELETING PERMANENTLY '+pid);
     vm.delete_person(pid);
     vm.shownewperson(false);
     vm.shownewgroup(false);
@@ -226,11 +226,14 @@ var delete_person_confirmed = async function(pid){
 }
 
 var deactivate_group = async function(){
-    console.log('DEAC GRP');
+    //console.log('DEAC GRP');
 
     let xgid = document.getElementById('xgroupid');
     let gid = xgid.value;
-    if (!gid||gid=='0'){ console.log('XGID NO'); return; }
+    if (!gid||gid=='0'){
+        //console.log('XGID NO');
+        return;
+    }
 
     let g = await gget(gid);
     let vmg = vm.getgroup(gid);
@@ -272,7 +275,7 @@ var shownewgroup = function(){
     }
 }
 var newgroup = async function(e){
-    console.log('new group form sent');
+    //console.log('new group form sent');
 
     let gname = document.querySelector('#gname');
     let gname_err = document.querySelector('#gname_err');
@@ -287,7 +290,7 @@ var newgroup = async function(e){
 
 
     let sgb = document.getElementById('creategroupbtn');
-    console.log('sgbval ' + sgb.value);
+    //console.log('sgbval ' + sgb.value);
     let sg = vm.selectedgroup();
     if (sg && sgb.value=='Save'){
         let gid = sg.gid();
@@ -353,7 +356,7 @@ var savegroup = async function(gid){
     vm.selectedgroup(undefined);
 }
 var editgroup = function(){
-    console.log('edit group');
+    //console.log('edit group');
     let g = vm.selectedgroup();
     shownewgroup();
     let gname = document.querySelector('#gname');
@@ -636,7 +639,7 @@ var createsession = async function(){
             //console.log('NOT SEL: '+pid);
             continue;
         } else if (!p.active()){
-            console.log('INACIVE NO SEND '+p.linitial());
+            //console.log('INACIVE NO SEND '+p.linitial());
             continue;
         }
 

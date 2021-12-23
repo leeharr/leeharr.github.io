@@ -321,7 +321,7 @@ var ProtoDBViewModel = function(){
     }
 
     self.recalc_initials = function(){
-        console.log('RI');
+        //console.log('RI');
         self.base_initials();
         self.setinitials2();
     }
@@ -421,7 +421,7 @@ var ProtoDBViewModel = function(){
     }
 
     self.enablepersoncheckboxes = function(enable=true){
-        console.log('EPCB');
+        //console.log('EPCB');
         for (let p of self.people()){
             let ngpid = '#ngpid'+p.pid();
             let cb = document.querySelector(ngpid);
@@ -431,10 +431,10 @@ var ProtoDBViewModel = function(){
     self.checkpersoncheckboxes = function(check=true){
         for (let p of self.people()){
             let ngpid = '#ngpid'+p.pid();
-            console.log('cpcb ' + ngpid);
+            //console.log('cpcb ' + ngpid);
             let cb = document.querySelector(ngpid);
             if (cb){
-                console.log('found.set.'+check);
+                //console.log('found.set.'+check);
                 if (check && p.active()){
                     cb.checked = check;
                 } else if (!check){
@@ -446,12 +446,12 @@ var ProtoDBViewModel = function(){
     }
     self.checkuncheck = function(){
         if (self.showgroupsession()){
-            console.log('shw grp');
+            //console.log('shw grp');
             return self.selectedgroup().checkuncheck();
         } else if (vm.selectedgroup()) {
-            console.log('sel grp');
+            //console.log('sel grp');
             if (!vm.selectedgroup().active()){
-                console.log('  not active');
+                //console.log('  not active');
                 return;
             }
         }
@@ -502,19 +502,19 @@ var ProtoDBViewModel = function(){
         }
     }
     self.setchange = function(item, event){
-        console.log('SET CHANGE');
+        //console.log('SET CHANGE');
         let vmg = vm.selectedgroup();
 
         if (event && event.target){
-            console.log('='+event.target+'=');
-            console.log('*'+event.target.id+'*');
+            //console.log('='+event.target+'=');
+            //console.log('*'+event.target.id+'*');
             let ngpidstr = event.target.id;
             let pidstr = ngpidstr.substr(5);
             let pid = parseInt(pidstr);
             let p = self.getperson(pid);
             let person_in = vmg.people().includes(p);
             if (!p.active()){
-                console.log('P INACTIVE');
+                //console.log('P INACTIVE');
                 event.target.checked = false;
                 if (!person_in){
                     // no change. was not checked. still not checked.

@@ -38,21 +38,21 @@ var Group = function(gid, name){
     self.showgroup = function(){
         // show the person checkboxes, and
         // set checked all people in the selected group
-        console.log('SG');
+        //console.log('SG');
         vm.showpersoncheckboxes(true);
         vm.checkpersoncheckboxes(false);
         vm.selectedgroup(self);
         for (let p of self.people()){
 //             if (!p.active()){ continue; }
             let ngpid = '#ngpid'+p.pid();
-            console.log('sg check :'+ngpid);
+            //console.log('sg check :'+ngpid);
             let cb = document.querySelector(ngpid);
             cb.checked = true;
             if (!self.active()){
-                console.log('   DIS');
+                //console.log('   DIS');
                 cb.setAttribute('disabled', 'true');
             } else {
-                console.log('   ENA');
+                //console.log('   ENA');
                 cb.removeAttribute('disabled');
             }
         }
@@ -74,7 +74,7 @@ var Group = function(gid, name){
 //     }
 
     self.savegroup = async function(){
-        console.log('ASYNC SAVGRP');
+        //console.log('ASYNC SAVGRP');
         savegroup(self.gid());
     }
 
@@ -178,7 +178,7 @@ var Group = function(gid, name){
     }
     self.checkuncheck = function(){
         // toggle (for check all / uncheck all)
-        console.log('grp cuc');
+        //console.log('grp cuc');
 
         if (!self.active()){ return; }
 
