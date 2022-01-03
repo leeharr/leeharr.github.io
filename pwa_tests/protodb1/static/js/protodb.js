@@ -251,6 +251,17 @@ var deactivate_group = async function(){
 
     await gset(gid, g);
 }
+var selectedgroup_inactive = function(){
+    let sg = vm.selectedgroup();
+    if (sg && !sg.active()){
+        return true;
+    } else {
+        return false;
+    }
+}
+var delete_group = async function(){
+    console.log('DELETE GRP');
+}
 
 var shownewgroup = function(){
     let gname = document.querySelector('#gname');
