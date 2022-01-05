@@ -269,6 +269,9 @@ var delete_group = async function(){
 }
 var delete_group_confirmed = async function(){
     console.log('DELETE');
+    let sg = vm.selectedgroup();
+    let gid = sg.gid();
+    vm.delete_group(gid);
 }
 
 var shownewgroup = function(){
