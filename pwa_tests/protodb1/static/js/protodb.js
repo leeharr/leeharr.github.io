@@ -276,7 +276,6 @@ var delete_group_confirmed = async function(){
     let gname = document.querySelector('#gname');
     gname.value = '';
     vm.shownewgroup(false);
-    vmg.updategroup(false);
     vm.updategroup(false);
     vm.selectedgroup(undefined);
 }
