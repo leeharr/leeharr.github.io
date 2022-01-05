@@ -278,6 +278,8 @@ var delete_group_confirmed = async function(){
     vm.shownewgroup(false);
     vm.updategroup(false);
     vm.selectedgroup(undefined);
+    vm.checkpersoncheckboxes(false);
+    vm.showpersoncheckboxes(false);
 }
 
 var shownewgroup = function(){
