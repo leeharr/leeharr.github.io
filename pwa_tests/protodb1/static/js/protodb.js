@@ -260,7 +260,7 @@ var selectedgroup_inactive = function(){
     }
 }
 var delete_group = async function(){
-    console.log('DELETE GRP');
+    //console.log('DELETE GRP');
     let sg = vm.selectedgroup();
     let conf = window.confirm('DELETE record permanently?\n\n'+sg.name());
     if (conf){
@@ -268,7 +268,7 @@ var delete_group = async function(){
     }
 }
 var delete_group_confirmed = async function(){
-    console.log('DELETE');
+    //console.log('DELETE');
     let sg = vm.selectedgroup();
     let gid = sg.gid();
     vm.delete_group(gid);
@@ -354,7 +354,7 @@ var newgroup = async function(e){
     vm.selectedgroup(ng);
 }
 var savegroup = async function(gid){
-    console.log('SAVEGRP');
+    //console.log('SAVEGRP');
 
     let g = await gget(gid);
     let gname = document.querySelector('#gname');
