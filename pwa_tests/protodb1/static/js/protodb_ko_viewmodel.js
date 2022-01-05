@@ -412,6 +412,16 @@ var ProtoDBViewModel = function(){
         })
         return match;
     }
+    self.rmgroup = function(gid){
+        let g = self.getgroup(gid);
+        if (g){
+            self.groups.remove(g);
+        }
+    }
+    self.delete_group = async function(gid){
+        self.rmgroup(gid);
+        await gdel(gid);
+    }
 
     self.quick_group = function(){
         let gid = 0;

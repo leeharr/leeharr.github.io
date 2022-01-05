@@ -29,6 +29,7 @@ var gget = function(key){ return idbKeyval.get(key, pdbgrp);}
 var gkeys = function(){ return idbKeyval.keys(pdbgrp);}
 var ggetcurrid = async function(){ return getcurrid(gget); }
 var ggetnextid = async function(){ return getnextid(ggetcurrid, gset); }
+var gdel = async function(key){ return idbKeyval.del(key, pdbgrp); }
 var gnamex = async function(name){
     // return true if a group named <name> exists
     let ks = await gkeys();

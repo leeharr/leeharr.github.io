@@ -261,6 +261,14 @@ var selectedgroup_inactive = function(){
 }
 var delete_group = async function(){
     console.log('DELETE GRP');
+    let sg = vm.selectedgroup();
+    let conf = window.confirm('DELETE record permanently?\n\n'+sg.name());
+    if (conf){
+        delete_group_confirmed();
+    }
+}
+var delete_group_confirmed = async function(){
+    console.log('DELETE');
 }
 
 var shownewgroup = function(){
