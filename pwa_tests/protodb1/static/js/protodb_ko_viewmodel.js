@@ -514,6 +514,7 @@ var ProtoDBViewModel = function(){
     self.setchange = function(item, event){
         //console.log('SET CHANGE');
         let vmg = vm.selectedgroup();
+        if (!vmg){ return true; }
 
         if (event && event.target){
             //console.log('='+event.target+'=');
