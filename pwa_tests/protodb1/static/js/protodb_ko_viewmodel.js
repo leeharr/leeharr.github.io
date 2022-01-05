@@ -512,9 +512,8 @@ var ProtoDBViewModel = function(){
         }
     }
     self.setchange = function(item, event){
-        //console.log('SET CHANGE');
+        console.log('SET CHANGE');
         let vmg = vm.selectedgroup();
-        if (!vmg){ return true; }
 
         if (event && event.target){
             //console.log('='+event.target+'=');
@@ -523,7 +522,12 @@ var ProtoDBViewModel = function(){
             let pidstr = ngpidstr.substr(5);
             let pid = parseInt(pidstr);
             let p = self.getperson(pid);
-            let person_in = vmg.people().includes(p);
+            let person_in;
+            if (vmg){
+                person_in = vmg.people().includes(p);
+            } else {
+                person_in = false;
+            }
             if (!p.active()){
                 //console.log('P INACTIVE');
                 event.target.checked = false;
