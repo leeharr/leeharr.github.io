@@ -384,6 +384,8 @@ var savegroup = async function(gid){
     vmg.updategroup(false);
     vm.updategroup(false);
     vm.selectedgroup(undefined);
+    vm.checkpersoncheckboxes(false);
+    vm.showpersoncheckboxes(false);
 }
 var editgroup = function(){
     //console.log('edit group');
