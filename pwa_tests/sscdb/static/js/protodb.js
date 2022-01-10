@@ -143,6 +143,23 @@ var newperson = async function(e){
             cset(qattr, val);
             sel.value = val;
         }
+
+        // check if need to remember value
+        console.log('CHK REM');
+        let getremid = 'remember_'+qattr;
+        let getrem = document.getElementById(getremid);
+        let remember = false;
+        //console.log(getremid+' '+getrem);
+        if (getrem){
+            // remember if they want to remember
+            if (getrem.checked){
+                //console.log('getrem chkd');
+                remember = true;
+                cset(getremid, true);
+            } else {
+                cset(getremid, '');
+            }
+        }
     });
 
     let i = 0;
