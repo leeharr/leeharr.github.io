@@ -683,12 +683,12 @@ var createsession = async function(){
         //psesdata['lname'] = p.linitial();
         //psesdata['fname'] = dbp.fname;
         psesdata['Student Name'] = dbp.fname + ' ' + p.linitial();
-        psesdata['Student ID'] = dbp.stidstr;
-        psesdata['School'] = dbp.schoolstr;
+        //psesdata['Student ID'] = dbp.stidstr;
+        //psesdata['School'] = dbp.schoolstr;
         psesdata['Grade'] = dbp.gradestr;
         psesdata['Age'] = _age(dbp.dob).toString();
-        psesdata['Gender'] = dbp.genderstr;
-        psesdata['Race'] = dbp.racestr;
+        //psesdata['Gender'] = dbp.genderstr;
+        //psesdata['Race'] = dbp.racestr;
         psesdata['sent'] = false;
 
         for (let qatr in late){

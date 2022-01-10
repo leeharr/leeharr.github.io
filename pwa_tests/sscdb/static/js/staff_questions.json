@@ -17,7 +17,7 @@
         "areset": "textinputreset"},
 
     {"q": "Agency Name",
-        "qattr": "agencyname",
+        "qattr": "agency",
         "sendas": "Agency Name",
         "req": true,
         "remember": true,

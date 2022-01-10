@@ -55,11 +55,11 @@ var ProtoDBViewModel = function(){
     self.sendworking = ko.observable(false);
 
     self.staffname = ko.observable('Edit to set Name and Position!');
-    self.position = ko.observable('Position Unset');
-    self.positionname = ko.computed(function(){
-        let pos = self.position();
-        let qp = document.getElementById('newstaff_questionsposition');
-        let pstr = 'Position Not Set';
+    self.agency = ko.observable('Agency Unset');
+    self.agencyname = ko.computed(function(){
+        let pos = self.agency();
+        let qp = document.getElementById('newstaff_questionsagency');
+        let pstr = 'Agency Not Set';
         //console.log('PN');
         //console.log(pos);
         //console.log(qp);
