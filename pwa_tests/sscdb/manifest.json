@@ -1,6 +1,6 @@
 {
-  "name": "Proto DB",
-  "short_name": "ProtoDB",
+  "name": "SSC DB",
+  "short_name": "SSCDB",
   "icons": [{
     "src": "static/images/protodb-icon-128.png",
       "sizes": "128x128",
