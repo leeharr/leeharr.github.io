@@ -26,11 +26,12 @@ window.datereset = function(dsel){
     if (d<10){ d = '0'+d;}
     let y = dt.getFullYear();
     let dtstr = `${y}-${m}-${d}`;
-    console.log('DATE RESET to '+dtstr);
+    console.log('DATE RESET to '+dtstr+' FOR '+dsel);
     dsel.max = dtstr;
     dsel.value = dtstr;
 }
 window.dateclear = function(dsel){
+    console.log('DATE CLEARED '+dsel);
     dsel.value = '';
 }
 
