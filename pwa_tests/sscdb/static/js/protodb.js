@@ -81,9 +81,23 @@ window.shownewperson = async function(){
             sel['data-reset'](sel);
         }
 
-        if (div['data-remember']){
+        let rem = div['data-remember'];
+        if (rem){
             let val = await cget(qattr);
-            if (val){
+            let dorem = true;
+
+            if (rem=='offer'){
+                let getremid = 'remember_'+qattr;
+                let getrem = document.getElementById(getremid);
+                let orem = await cget(getremid);
+                if (orem){
+                    getrem.checked = true;
+                } else {
+                    dorem = false;
+                }
+            }
+
+            if (dorem && val){
                 sel.value = val;
             }
         }
