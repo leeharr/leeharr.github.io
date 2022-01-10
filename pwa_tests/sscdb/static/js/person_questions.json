@@ -36,5 +36,5 @@
         "sendas": "Initial Contact",
         "req": true,
         "af": "dateselector",
-        "areset": "dateclear"},
+        "areset": "datereset"},
 ]
