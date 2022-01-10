@@ -1,6 +1,6 @@
 'use strict';
 
-showsamplesheet = async function(e){
+var showsamplesheet = async function(e){
     cols = ['lname', 'fname', 'grade', 'datestr',
     'refsourcestr', 'locationstr', 'sesname']
     tbl = document.getElementById('samplesheet');
@@ -29,7 +29,7 @@ showsamplesheet = async function(e){
     }
 }
 
-ultest = function() {
+var ultest = function() {
     var input, file, fr;
 
     if (typeof window.FileReader !== 'function') {
@@ -78,7 +78,7 @@ ultest = function() {
     }
 }
 
-dltest = async function() {
+var dltest = async function() {
     dt = new Date();
     m = dt.getMonth()+1;
     d = dt.getDate();
@@ -125,7 +125,7 @@ dltest = async function() {
     }
 }
 
-logdb = async function(e){
+var logdb = async function(e){
     console.log('PEOPLE');
     ks = await pkeys();
     for (k of ks){
@@ -165,7 +165,7 @@ logdb = async function(e){
     }
 }
 
-clearppl = function(e){
+var clearppl = function(e){
     idbKeyval.clear(pdbses);
     idbKeyval.clear(pdbgrp);
     idbKeyval.clear(pdbppl);
