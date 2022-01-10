@@ -51,8 +51,8 @@ var editstaff = async function(){
 var editstaff_after = async function(){
     let sname = await cget('staffname');
     vm.staffname(sname);
-    let pos = await cget('position');
-    vm.position(pos);
+    let pos = await cget('agency');
+    vm.agency(pos);
     let url = await cget('sheetsurl');
     vm.sheetsurl(url);
 }
