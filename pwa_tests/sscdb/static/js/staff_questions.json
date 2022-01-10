@@ -1,0 +1,29 @@
+[
+    {"q": "Sheets URL",
+        "qattr": "sheetsurl",
+        "sendas": false,
+        "req": true,
+        "remember": true,
+        "placeholder": "MUST SET BEFORE USE!",
+        "af": "textinput",
+        "areset": "textinputreset"},
+
+    {"q": "Staff Name",
+        "qattr": "staffname",
+        "sendas": "Staff Name",
+        "req": true,
+        "remember": true,
+        "af": "textinput",
+        "areset": "textinputreset"},
+
+    {"q": "Agency Name",
+        "qattr": "agencyname",
+        "sendas": "Agency Name",
+        "req": true,
+        "remember": true,
+        "a": ["Center for Youth",
+                "School Counselor (upper school)",
+                "School Counselor (lower school)",
+                "Hillside Work Scholarship"
+                ]}
+]
