@@ -75,6 +75,12 @@ window.shownewperson = async function(){
         if (!qattr){ return; }
         let sel = div.children[1];
 
+        if (sel['data-reset']){
+            // Set "Initial Contact" date to today
+            console.log('DATA RESET '+sel.id);
+            sel['data-reset'](sel);
+        }
+
         if (div['data-remember']){
             let val = await cget(qattr);
             if (val){
