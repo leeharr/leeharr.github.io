@@ -59,7 +59,7 @@ var editstaff = async function(){
                 // "Other" has been selected
                 let qattr_other = qattr + '_other';
                 let subsel = div.children[2];
-                sendval = subsel.value;
+                let sendval = subsel.value;
                 console.log('SUBSELV '+sendval);
                 //await cset(qattr_other, sendval);
             }
