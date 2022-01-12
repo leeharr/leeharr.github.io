@@ -63,7 +63,7 @@ var editstaff = async function(){
                 let subsel = div.children[2];
                 sendval = subsel.value;
                 console.log('SUBSELV '+sendval);
-                await cset(qattr_other, sendval);
+                //await cset(qattr_other, sendval);
             }
         }
     });
