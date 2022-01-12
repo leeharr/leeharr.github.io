@@ -41,6 +41,31 @@ var editstaff = async function(){
             cset(qattr, val);
             sel.value = val;
         }
+
+        let sa = staff_answers[qattr];
+        let othq = false;
+        let otha = '';
+        if (sa){
+            console.log('SA OTHER');
+            othq = checkforother(sa);
+            if (othq){
+                otha = othery(sa[val]);
+            } else {
+                otha = '';
+            }
+            console.log('OT Q A '+othq+' '+otha);
+            if (othq && otha){
+                // question has an "Other" option, AND
+                // "Other" has been selected
+                let qattr_other = qattr + '_other';
+                subsel = div.children[2];
+                //console.log('sel '+sel);
+                let subsel = div.children[2];
+                sendval = subsel.value;
+                console.log('SUBSELV '+sendval);
+                await cset(qattr_other, sendval);
+            }
+        }
     });
 
     vm.showeditstaff(false);
