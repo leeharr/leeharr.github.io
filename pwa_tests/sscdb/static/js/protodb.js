@@ -58,8 +58,6 @@ var editstaff = async function(){
                 // question has an "Other" option, AND
                 // "Other" has been selected
                 let qattr_other = qattr + '_other';
-                subsel = div.children[2];
-                //console.log('sel '+sel);
                 let subsel = div.children[2];
                 sendval = subsel.value;
                 console.log('SUBSELV '+sendval);
