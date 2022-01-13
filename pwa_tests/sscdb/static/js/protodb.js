@@ -24,7 +24,7 @@ window.showeditstaff = async function(){
             let othq = false;
             let otha = '';
             console.log('SESA '+othq+' '+otha);
-            if (sa){
+            if (sa && val){
                 othq = checkforother(sa);
                 if (othq){
                     otha = othery(sa[val]);
