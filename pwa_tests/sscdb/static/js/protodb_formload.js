@@ -446,6 +446,10 @@ var loadstaffinfo = async function(){
     if (pos){
         vm.agency(pos);
     }
+    let poso = await cget('agency_other');
+    if (poso){
+        vm.agency_other(poso);
+    }
     let url = await cget('sheetsurl');
     if (url){
         vm.sheetsurl(url);

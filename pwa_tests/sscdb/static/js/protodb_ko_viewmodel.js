@@ -56,6 +56,7 @@ var ProtoDBViewModel = function(){
 
     self.staffname = ko.observable('Edit to set Name and Position!');
     self.agency = ko.observable('Agency Unset');
+    self.agency_other = ko.observable('');
     self.agencyname = ko.computed(function(){
         let pos = self.agency();
         let qp = document.getElementById('newstaff_questionsagency');
@@ -67,6 +68,9 @@ var ProtoDBViewModel = function(){
             //console.log(qp.options);
             //pstr = qp.options[pos].text;
             pstr = selectoptiontext(qp, pos);
+        }
+        if (othery(pstr)){
+            pstr = 'Other: '+self.agency_other();
         }
         return pstr;
     });
