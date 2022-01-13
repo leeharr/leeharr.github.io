@@ -20,7 +20,7 @@ window.showeditstaff = async function(){
                 }
             }
 
-            let sa = session_answers[qattr];
+            let sa = staff_answers[qattr];
             let othq = false;
             let otha = '';
             console.log('SESA '+othq+' '+otha);
