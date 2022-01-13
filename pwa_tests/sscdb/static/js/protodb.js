@@ -89,6 +89,10 @@ var editstaff = async function(){
                 let sendval = subsel.value;
                 console.log('SUBSELV '+sendval);
                 await cset(qattr_other, sendval);
+
+                if (qattr=='agency'){
+                    vm.agency_other(sendval);
+                }
             }
         }
     }
