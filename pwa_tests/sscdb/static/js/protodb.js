@@ -23,6 +23,7 @@ window.showeditstaff = async function(){
             let sa = session_answers[qattr];
             let othq = false;
             let otha = '';
+            console.log('SESA '+othq+' '+otha);
             if (sa){
                 othq = checkforother(sa);
                 if (othq){
@@ -30,6 +31,7 @@ window.showeditstaff = async function(){
                 } else {
                     otha = '';
                 }
+                console.log('SESB '+othq+' '+otha);
                 if (othq && otha){
                     // question has an "Other" option, AND
                     // "Other" has been selected
