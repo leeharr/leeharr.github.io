@@ -19,6 +19,27 @@ window.showeditstaff = async function(){
                     sel.value = val;
                 }
             }
+
+            let sa = session_answers[qattr];
+            let othq = false;
+            let otha = '';
+            if (sa){
+                othq = checkforother(sa);
+                if (othq){
+                    otha = othery(sa[val]);
+                } else {
+                    otha = '';
+                }
+                if (othq && otha){
+                    // question has an "Other" option, AND
+                    // "Other" has been selected
+                    sel.onchange(); // trigger to show other text field
+                    let qattr_other = qattr + '_other';
+                    let oval = await cget(qattr_other);
+                    let subsel = div.children[2];
+                    subsel.value = oval;
+                }
+            }
         }
     }
 }
@@ -28,7 +49,10 @@ var editstaff = async function(){
     let s = {};
 
     let form = document.getElementById('newstaff_questions');
-    Array.from(form.children).forEach(function(div, i, arr){
+    let fc = Array.from(form.children);
+    let arr = fc;
+    for (let i=0; i<fc.length; i++){
+        let div = fc[i];
         let qattr = div['data-qattr'];
         if (!qattr){ return; }
 
