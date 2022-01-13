@@ -88,7 +88,7 @@ var editstaff = async function(){
                 //await cset(qattr_other, sendval);
             }
         }
-    });
+    }
 
     vm.showeditstaff(false);
 
