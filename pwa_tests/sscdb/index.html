@@ -79,22 +79,22 @@
     <thead><tr>
         <th data-bind="visible: $root.showpersoncheckboxes()">
             <span data-bind="click: function(){ $root.checkuncheck(); $root.setchange()}" title="Check/Uncheck All">x</span></th>
-        <th>ID</th>
+<!--        <th>ID</th>-->
         <th>First name</th>
         <th>Last name</th>
-        <th>Last initial</th>
+<!--        <th>Last initial</th>-->
         <th>Grade</th>
-        <th>Active</th>
+<!--        <th>Active</th>-->
     </tr></thead>
     <tbody data-bind="foreach: people_a_byfl">
         <tr data-bind="class: clsactive()">
         <td data-bind="visible: $root.showpersoncheckboxes()"><input type="checkbox" data-bind="click: $root.setchange, attr: {id: 'ngpid'+pid()}" /></td>
-        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>
+<!--                <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>-->
         <td data-bind="text: fname(), click: checkorshowperson"></td>
         <td data-bind="text: lname(), click: checkorshowperson"></td>
-        <td data-bind="text: linitial(), click: checkorshowperson"></td>
+<!--        <td data-bind="text: linitial(), click: checkorshowperson"></td>-->
         <td data-bind="text: grade(), click: checkorshowperson"></td>
-        <td data-bind="text: active(), click: checkorshowperson"></td>
+<!--        <td data-bind="text: active(), click: checkorshowperson"></td>-->
         </tr>
     </tbody>
     <tbody data-bind="visible: $root.any_inactive()">
@@ -102,12 +102,12 @@
         <!-- ko foreach: people_i_byfl -->
         <tr data-bind="class: clsactive()">
         <td data-bind="visible: $root.showpersoncheckboxes()"><input type="checkbox" data-bind="click: $root.setchange, attr: {id: 'ngpid'+pid()}" /></td>
-        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>
+<!--        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>-->
         <td data-bind="text: fname(), click: checkorshowperson"></td>
         <td data-bind="text: lname(), click: checkorshowperson"></td>
-        <td data-bind="text: linitial(), click: checkorshowperson"></td>
+<!--        <td data-bind="text: linitial(), click: checkorshowperson"></td>-->
         <td data-bind="text: grade(), click: checkorshowperson"></td>
-        <td data-bind="text: active(), click: checkorshowperson"></td>
+<!--        <td data-bind="text: active(), click: checkorshowperson"></td>-->
         </tr>
         <!-- /ko -->
     </tbody>
@@ -125,18 +125,18 @@
     <table>
     <thead><tr>
         <th><span data-bind="click: $root.checkuncheck" title="Check/Uncheck All">x</span></th>
-        <th>ID</th>
+<!--        <th>ID</th>-->
         <th>First name</th>
         <th>Last name</th>
-        <th>Last initial</th>
+<!--        <th>Last initial</th>-->
     </tr></thead>
     <tbody data-bind="foreach: group_apeople_byfl">
         <tr>
         <td><input type="checkbox" data-bind="attr: {id: 'gspid'+pid()}" /></td>
-        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>
+<!--        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>-->
         <td data-bind="text: fname(), click: checkorshowperson"></td>
         <td data-bind="text: lname(), click: checkorshowperson"></td>
-        <td data-bind="text: linitial(), click: checkorshowperson"></td>
+<!--        <td data-bind="text: linitial(), click: checkorshowperson"></td>-->
         </tr>
     </tbody>
     </table>
