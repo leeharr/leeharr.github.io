@@ -16,7 +16,8 @@
                 "September",
                 "October",
                 "November",
-                "December"]},
+                "December"],
+        "areset": "monthreset"},
 
     {"q": "Service Units This Month (1SU = 15 minutes)",
         "qattr": "su",

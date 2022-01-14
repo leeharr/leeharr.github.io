@@ -35,6 +35,12 @@ window.dateclear = function(dsel){
     dsel.value = '';
 }
 
+window.monthreset = function(dsel){
+    let dt = new Date();
+    let m = dt.getMonth()+1;
+    dsel.value = m;
+}
+
 window.textinput = function(div, req){
     //console.log('ADD TEXT INPUT');
     let ti = document.createElement('input');
