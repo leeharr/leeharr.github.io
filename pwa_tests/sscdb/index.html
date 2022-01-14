@@ -128,6 +128,7 @@
 <!--        <th>ID</th>-->
         <th>First name</th>
         <th>Last name</th>
+        <th>Grade</th>
 <!--        <th>Last initial</th>-->
     </tr></thead>
     <tbody data-bind="foreach: group_apeople_byfl">
@@ -137,6 +138,7 @@
         <td data-bind="text: fname(), click: checkorshowperson"></td>
         <td data-bind="text: lname(), click: checkorshowperson"></td>
 <!--        <td data-bind="text: linitial(), click: checkorshowperson"></td>-->
+        <td data-bind="text: grade(), click: checkorshowperson"></td>
         </tr>
     </tbody>
     </table>
