@@ -37,7 +37,7 @@ window.dateclear = function(dsel){
 
 window.monthreset = function(dsel){
     let dt = new Date();
-    let m = dt.getMonth()+1;
+    let m = dt.getMonth();
     dsel.value = m;
 }
 
