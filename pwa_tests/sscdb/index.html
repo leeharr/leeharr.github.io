@@ -60,7 +60,7 @@
         </div>
 
         <div class="qdiv" data-bind="visible: !$root.personexists()">
-        Select groups on the right. (Optional)
+        Select groupings on the right. (Optional)
         </div>
 
         <input type="hidden" id="xpersonid" value="0" />
@@ -120,8 +120,8 @@
         </h1>
     <h3 data-bind="visible: !$root.quickgroup()">UNCHECK ABSENT STUDENTS!</h3>
     <h5 data-bind="visible: !$root.quickgroup()">(will not remove from group <span data-bind="text: selectedgroupname()"></span>, only from this session)</h5>
-    <h5 data-bind="visible: $root.quickgroup()">Select Session Members Below</h5>
-    <h5 data-bind="visible: $root.quickgroup()">Then Complete Session Details on Right Side</h5>
+    <h5 data-bind="visible: $root.quickgroup()">Select Students to Include Below</h5>
+    <h5 data-bind="visible: $root.quickgroup()">Then Complete Data and Send on Right Side</h5>
     <table>
     <thead><tr>
         <th><span data-bind="click: $root.checkuncheck" title="Check/Uncheck All">x</span></th>
