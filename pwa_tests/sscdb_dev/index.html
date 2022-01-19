@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SSC DB</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="white"/>
+
+    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="static/images/protodb-icon-152.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Proto DB">
+    <meta name="msapplication-TileImage" content="static/images/protodb-icon-144.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+
+    <script defer src="static/js/idb-keyval-iife.js"></script>
+    <script defer src="static/js/knockout-3.5.1.js"></script>
+    <script defer src="static/js/protodb_util.js"></script>
+    <script defer src="static/js/protodb_db.js"></script>
+    <script defer src="static/js/protodb_ko_person.js"></script>
+    <script defer src="static/js/protodb_ko_group.js"></script>
+    <script defer src="static/js/protodb_ko_viewmodel.js"></script>
+    <script defer src="static/js/protodb_formload.js"></script>
+    <script defer src="static/js/protodb_tosheet.js"></script>
+    <script defer src="static/js/protodb.js"></script>
+</head>
+
+<body>
+    <div class="content">
+
+<div class="both sendwarn" data-bind="visible: $root.sendworking()">
+    <h1>SENDING DATA. DO NOT CLOSE WINDOW!</h1>
+</div>
+<div class="both sendwarn" data-bind="visible: $root.unsentdata()">
+    <h3>Some data not sent! Check network connection and reload page!</h3>
+</div>
+<div class="both" data-bind="visible: $root.unsentdata()">
+    <h5>(Data is not lost. All will be sent when network connection restored.)</h5>
+</div>
+<div class="both" data-bind="visible: !$root.sendworking()">
+    Sample data is being sent to <a href="https://docs.google.com/spreadsheets/d/17_kIhPV0ChjhroYVuAWhsj6qUIDafhRZR6FWfMI0xpc">spreadsheet</a>. <a href="admin.html">admin</a>.
+</div>
+
+<div id="ls" class="side">
+    <div data-bind="visible: !$root.showgroupsession()">
+    <h1>Students <button onclick="shownewperson()"
+                    data-bind="visible: !$root.shownewgroup() && !$root.personexists()">Add New Student</button>
+                <button onclick="shownewperson(); return false;"
+                    data-bind="visible: $root.shownewperson()">Cancel</button>
+                    </h1>
+
+    <form id="newperson" data-bind="visible: $root.shownewperson()"
+            onsubmit="newperson(); return false;">
+
+        <div id="newperson_questions">
+        <!-- Generated on load by load_questions() -->
+        </div>
+
+        <div class="qdiv" data-bind="visible: !$root.personexists()">
+        Select groupings on the right. (Optional)
+        </div>
+
+        <input type="hidden" id="xpersonid" value="0" />
+
+        <div class="qdiv">
+        <input data-bind="visible: !$root.personexists()"
+            type="submit" value="Create" />
+        <button data-bind="visible: $root.personexists()" onclick="saveperson(); return false;">Save</button>
+        <button onclick="shownewperson(); return false;">Cancel</button>
+        <button data-bind="visible: $root.personexists()" onclick="deactivate_person(); return false;" id="deactivate" class="deactivate">Deactivate</button>
+        <button data-bind="visible: $root.personexists()" onclick="delete_person(); return false;" id="delete" class="deactivate">DELETE</button>
+        </div>
+    </form>
+
+    <table>
+    <thead><tr>
+        <th data-bind="visible: $root.showpersoncheckboxes()">
+            <span data-bind="click: function(){ $root.checkuncheck(); $root.setchange()}" title="Check/Uncheck All">x</span></th>
+<!--        <th>ID</th>-->
+        <th>First name</th>
+        <th>Last name</th>
+<!--        <th>Last initial</th>-->
+        <th>Grade</th>
+<!--        <th>Active</th>-->
+    </tr></thead>
+    <tbody data-bind="foreach: people_a_byfl">
+        <tr data-bind="class: clsactive()">
+        <td data-bind="visible: $root.showpersoncheckboxes()"><input type="checkbox" data-bind="click: $root.setchange, attr: {id: 'ngpid'+pid()}" /></td>
+<!--                <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>-->
+        <td data-bind="text: fname(), click: checkorshowperson"></td>
+        <td data-bind="text: lname(), click: checkorshowperson"></td>
+<!--        <td data-bind="text: linitial(), click: checkorshowperson"></td>-->
+        <td data-bind="text: grade(), click: checkorshowperson" class="num"></td>
+<!--        <td data-bind="text: active(), click: checkorshowperson"></td>-->
+        </tr>
+    </tbody>
+    <tbody data-bind="visible: $root.any_inactive()">
+        <tr><th class="inactive" colspan="7">Inactive</th></tr>
+        <!-- ko foreach: people_i_byfl -->
+        <tr data-bind="class: clsactive()">
+        <td data-bind="visible: $root.showpersoncheckboxes()"><input type="checkbox" data-bind="click: $root.setchange, attr: {id: 'ngpid'+pid()}" /></td>
+<!--        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>-->
+        <td data-bind="text: fname(), click: checkorshowperson"></td>
+        <td data-bind="text: lname(), click: checkorshowperson"></td>
+<!--        <td data-bind="text: linitial(), click: checkorshowperson"></td>-->
+        <td data-bind="text: grade(), click: checkorshowperson" class="num"></td>
+<!--        <td data-bind="text: active(), click: checkorshowperson"></td>-->
+        </tr>
+        <!-- /ko -->
+    </tbody>
+    </table>
+    </div>
+
+    <div data-bind="visible: $root.showgroupsession()">
+    <h1>Students Included
+        <button data-bind="click: $root.cancelgroupsession">Cancel</button>
+        </h1>
+    <h3 data-bind="visible: !$root.quickgroup()">UNCHECK ABSENT STUDENTS!</h3>
+    <h5 data-bind="visible: !$root.quickgroup()">(will not remove from group <span data-bind="text: selectedgroupname()"></span>, only from this session)</h5>
+    <h5 data-bind="visible: $root.quickgroup()">Select Students to Include Below</h5>
+    <h5 data-bind="visible: $root.quickgroup()">Then Complete Data and Send on Right Side</h5>
+    <table>
+    <thead><tr>
+        <th><span data-bind="click: $root.checkuncheck" title="Check/Uncheck All">x</span></th>
+<!--        <th>ID</th>-->
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Grade</th>
+<!--        <th>Last initial</th>-->
+    </tr></thead>
+    <tbody data-bind="foreach: group_apeople_byfl">
+        <tr>
+        <td><input type="checkbox" data-bind="attr: {id: 'gspid'+pid()}" /></td>
+<!--        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>-->
+        <td data-bind="text: fname(), click: checkorshowperson"></td>
+        <td data-bind="text: lname(), click: checkorshowperson"></td>
+<!--        <td data-bind="text: linitial(), click: checkorshowperson"></td>-->
+        <td data-bind="text: grade(), click: checkorshowperson" class="num"></td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+
+</div>
+
+<div id="rs">
+    <div class="side">
+    <h1>Staff <button onclick="showeditstaff()">Edit</button>
+        <button data-bind="visible: $root.showeditstaff()" onclick="showeditstaff()">Cancel</button></h1>
+
+    <div id="staffdata" data-bind="visible: !$root.showeditstaff()">
+        <h2 data-bind="visible: !sheetsurl()" class="warn">MUST SET URL BEFORE USE!</h2>
+        <h2 data-bind="text: staffname()"></h2>
+        <h3 data-bind="text: agencyname()"></h3>
+    </div>
+
+    <form id="editstaff" data-bind="visible: $root.showeditstaff()"
+        onsubmit="editstaff(); return false;">
+        <div id="newstaff_questions">
+        <!-- Generated on load by load_questions() in protodb_formload.js -->
+        </div>
+
+        <div class="qdiv">
+            <input type="submit" value="Save"/>
+            <button onclick="showeditstaff(); return false;">Cancel</button>
+        </div>
+    </form>
+    </div>
+
+    <div class="side" data-bind="visible: !$root.showgroupsession()">
+    <h1>Monthly Data
+        <button onclick="shownewgroup()"
+            data-bind="visible: !$root.shownewperson() && !$root.selectedgroup()">Create Grouping</button>
+        <button onclick="quicksession()"
+            data-bind="visible: !$root.shownewperson() && !$root.shownewgroup() && !$root.selectedgroup()">Send Data</button>
+        <button onclick="shownewgroup(); return false;"
+            data-bind="visible: $root.shownewgroup()">Cancel</button>
+        </h1>
+
+    <h5 data-bind="visible: !$root.shownewperson() && !$root.shownewgroup()">Click on Grouping name to view/edit members or send data</h5>
+
+    <form id="newgroup" data-bind="visible: $root.shownewgroup()"
+            onsubmit="newgroup(); return false;">
+
+        <input type="hidden" id="xgroupid" value="0" />
+
+        <div class="qdiv qdivreq">
+            <div>Grouping name</div>
+            <div id="gname_err"></div>
+            <input id="gname" type="text" required="required" />
+        </div>
+
+        <div class="qdiv">
+            <div id="groupmessage">Select Grouping Members on Left Side</div>
+        </div>
+
+        <div class="qdiv">
+            <input type="submit" id="creategroupbtn" value="create"/>
+            <button onclick="shownewgroup(); return false;">Cancel</button>
+            <button data-bind="visible: updategroup()" onclick="deactivate_group(); return false;" id="deacgrp" class="deactivate">Deactivate</button>
+            <button data-bind="visible: updategroup() && selectedgroup_inactive()" onclick="delete_group(); return false;" class="deactivate">DELETE</button>
+        </div>
+    </form>
+
+    <table>
+    <thead><tr>
+        <th data-bind="visible: $root.shownewperson()"><span data-bind="click: $root.grpcheckuncheck();" title="Check/Uncheck All">x</span></th>
+<!--        <th>ID</th>-->
+        <th>Grouping Name</th>
+        <th data-bind="visible: $root.updategroup()"></th>
+        <th data-bind="visible: $root.selectedgroup() && !$root.updategroup()"></th>
+    </tr></thead>
+    <tbody data-bind="foreach: groups_a_byname">
+        <tr data-bind="css: {gsel: $root.selectedgroup()==$data}">
+        <td data-bind="visible: $root.shownewperson() && !$root.personexists()"><input type="checkbox" data-bind="attr: {id: 'npgid'+gid()}" /></td>
+<!--        <td data-bind="text: gid(), click: showgroup" class="num"></td>-->
+        <td data-bind="text: name(), click: showgroup"></td>
+        <td data-bind="visible: updategroup()">
+            <button data-bind="click: savegroup" id="svgrpbtn">Save</button>
+            <button data-bind="click: savecancel">Cancel</button></td>
+        <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()">
+            <button data-bind="click: newgroupsession">Send Data</button>
+            <button data-bind="click: savecancel">Cancel</button></td>
+        <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()"><a data-bind="click: editgroup" title="edit group"><img src="static/images/edit.png"></a>(Or Select/Deselect Students and Save)</td>
+        </tr>
+    </tbody>
+    <tbody data-bind="visible: $root.any_grp_inactive()">
+        <tr><th class="inactive" colspan="2">Inactive</th></tr>
+        <!-- ko foreach: groups_i_byname -->
+        <tr data-bind="class: clsactive()">
+        <td data-bind="visible: $root.shownewperson() && !$root.personexists()"><input type="checkbox" data-bind="attr: {id: 'npgid'+gid()}" /></td>
+<!--        <td data-bind="text: gid(), click: showgroup" class="num"></td>-->
+        <td data-bind="text: name(), click: showgroup"></td>
+        <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()"><button data-bind="click: savecancel">Cancel</button><a data-bind="click: editgroup" title="edit group"><img src="static/images/edit.png"></a></td>
+        </tr>
+        <!-- /ko -->
+    </tbody>
+    </table>
+    </div>
+
+    <div class="side" data-bind="visible: $root.showgroupsession()">
+    <h1>Send data for grouping <span data-bind="text: selectedgroupname()"></span>
+        <button data-bind="click: $root.cancelgroupsession">Cancel</button>
+    </h1>
+
+    <h3 data-bind="visible: !$root.quickgroup()">UNCHECK ABSENT STUDENTS!</h3>
+    <h5 data-bind="visible: !$root.quickgroup()">(will not remove from grouping <span data-bind="text: selectedgroupname()"></span>, only from this sending)</h5>
+
+    <form id="newsession"  onsubmit="chkcreatesession(); return false;">
+        <div class="qdiv qdivreq" id="session_members_reminder">Select Students on Left Side<br/>Uncheck Absent Students</div>
+
+        <div id="newsession_questions">
+        <!-- Generated on load by load_questions() -->
+        </div>
+
+        <div class="qdiv">
+        <div>Please remember to uncheck absent students!</div>
+        <input type="submit" value="Send" />
+        <button data-bind="click: $root.cancelgroupsession">Cancel</button>
+        </div>
+    </form>
+    </div>
+
+</div>
+    </div>
+
+    <script src="static/js/main.js"></script>
+</body>
+</html>

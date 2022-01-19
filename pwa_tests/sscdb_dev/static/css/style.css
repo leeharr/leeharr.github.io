@@ -1,0 +1,124 @@
+.content {
+    display: grid;
+    grid-template-columns: 16fr 20fr;
+}
+
+div.both{
+    grid-column: 1 / span 2;
+    justify-content: center;
+    margin: auto;
+}
+div.sendwarn{
+    color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-size: 140%;
+}
+
+
+th{
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+}
+
+td.num{
+    text-align: right;
+}
+
+tr.gsel{
+    background-color: lightgray;
+}
+
+tr.inactive{
+    color: #999;
+}
+tr.inactivemember{
+    color: red;
+}
+
+
+.admincontent{
+    display: grid;
+    grid-template-columns: 20% auto;
+}
+
+table#samplesheet tr td{
+    padding: 0 1em 0 1em;
+    border: thin solid black;
+}
+
+
+.sendcontent{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+textarea#senddata{
+    width: 80%;
+    height: 80vh;
+}
+
+div.side{
+    border: thin solid black;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em;
+}
+
+div.qdiv{
+    border: thin solid black;
+    border-radius: 1em;
+    padding: 0.5em 2em 0.5em 2em;
+    margin-bottom: 2em;
+}
+div.qdivreq{
+    background: #FDD;
+}
+div.qdiverr{
+    background: #F44;
+}
+
+span.qreq{
+    color: red;
+}
+
+div#gname_err{
+    visibility: hidden;
+    color: red;
+}
+
+div.remember{
+    float: right;
+}
+
+h2.warn{
+    color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+input[type=number]{
+    margin-left: 3em;
+}
+
+span.spaceleft{
+    color: white;
+    font-weight: bold;
+    margin-left: 3em;
+}
+span.spacehide{
+    visibility: hidden;
+}
+
+button.deactivate{
+    float: right;
+}
+
+table tbody tr th.inactive{
+    background: #CCC;
+    border-bottom: thin solid black;
+}
+
+table tbody tr td img{
+    vertical-align: middle;
+}
