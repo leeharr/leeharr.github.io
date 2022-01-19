@@ -66,7 +66,7 @@ window.textinputreset = function(ti){
     ti.value = '';
 }
 
-window.intinput = function(dev, req){
+window.intinput = function(div, req){
     console.log('ADD INT INPUT');
     let ti = document.createElement('input');
     ti.type = 'number';
