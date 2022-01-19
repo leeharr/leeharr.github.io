@@ -66,6 +66,22 @@ window.textinputreset = function(ti){
     ti.value = '';
 }
 
+window.intinput = function(dev, req){
+    console.log('ADD INT INPUT');
+    let ti = document.createElement('input');
+    ti.type = 'number';
+    ti.min = '0';
+    ti.max = '999';
+    if (req){
+        ti.required = true;
+    }
+    div.appendChild(ti);
+    return ti;
+}
+window.intinputreset = function(ti){
+    ti.value = '0';
+}
+
 window.withotherreset = function(sel){
     // used by select elements that have an "Other" option
     //console.log('WITH OTHER RESET');
