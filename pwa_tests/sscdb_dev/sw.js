@@ -1,4 +1,4 @@
-var cacheName = 'sscdb_devAA02';
+var cacheName = 'sscdb_devAA03';
 var filesToCache = [
   './',
   'index.html',
@@ -23,13 +23,13 @@ var filesToCache = [
   'static/js/person_questions.json',
   'static/js/staff_questions.json',
 
-  'static/images/favicon.ico',
-  'static/images/protodb-icon-128.png',
-  'static/images/protodb-icon-144.png',
-  'static/images/protodb-icon-152.png',
-  'static/images/protodb-icon-192.png',
-  'static/images/protodb-icon-256.png',
-  'static/images/protodb-icon-512.png',
+  'static/images/favicon.png',
+  'static/images/sscdb-icon-128.png',
+  'static/images/sscdb-icon-144.png',
+  'static/images/sscdb-icon-152.png',
+  'static/images/sscdb-icon-192.png',
+  'static/images/sscdb-icon-256.png',
+  'static/images/sscdb-icon-512.png',
 
   'static/images/edit.png'
 ];
