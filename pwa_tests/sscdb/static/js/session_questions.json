@@ -24,8 +24,8 @@
         "sendas": "Service Units",
         "req": true,
         "remember": "offer",
-        "af": "textinput",
-        "areset": "textinputreset"},
+        "af": "intinput",
+        "areset": "intinputreset"},
 
     {"q": "Services Provided",
         "qattr": "services",
