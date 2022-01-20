@@ -1,28 +1,28 @@
 'use strict';
 
 var showsamplesheet = async function(e){
-    cols = ['agency', 'month', 'staffname', 'lname', 'fname', 'grade',
+    let cols = ['agency', 'month', 'staffname', 'lname', 'fname', 'grade',
     'su', 'sesname']
-    tbl = document.getElementById('samplesheet');
-    thead = document.createElement('thead');
+    let tbl = document.getElementById('samplesheet');
+    let thead = document.createElement('thead');
     tbl.appendChild(thead);
-    tr = document.createElement('tr');
+    let tr = document.createElement('tr');
     thead.appendChild(tr);
-    for (col of cols){
-        th = document.createElement('th');
+    for (let col of cols){
+        let th = document.createElement('th');
         th.innerHTML = col;
         tr.appendChild(th);
     }
 
-    tbody = document.createElement('tbody');
+    let tbody = document.createElement('tbody');
     tbl.appendChild(tbody);
-    for (k of await skeys()){
+    for (let k of await skeys()){
         if (k == 'currid'){ continue; }
-        tr = document.createElement('tr');
+        let tr = document.createElement('tr');
         tbody.appendChild(tr);
-        s = await sget(k);
+        let s = await sget(k);
         for (col of cols){
-            td = document.createElement('td');
+            let td = document.createElement('td');
             td.innerHTML = s[col];
             tr.appendChild(td);
         }
