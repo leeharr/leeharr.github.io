@@ -21,7 +21,7 @@ var showsamplesheet = async function(e){
         let tr = document.createElement('tr');
         tbody.appendChild(tr);
         let s = await sget(k);
-        for (col of cols){
+        for (let col of cols){
             let td = document.createElement('td');
             td.innerHTML = s[col];
             tr.appendChild(td);
