@@ -1,8 +1,8 @@
 'use strict';
 
 var showsamplesheet = async function(e){
-    cols = ['lname', 'fname', 'grade', 'datestr',
-    'refsourcestr', 'locationstr', 'sesname']
+    cols = ['agency', 'month', 'staffname', 'lname', 'fname', 'grade',
+    'su', 'sesname']
     tbl = document.getElementById('samplesheet');
     thead = document.createElement('thead');
     tbl.appendChild(thead);
