@@ -6,7 +6,7 @@ var showsamplesheet = async function(e){
     let tbl = document.getElementById('samplesheet');
 
     //clear the table first
-    while(tbl.rows.length > 0){table.deleteRow(0)};
+    while(tbl.rows.length > 0){tbl.deleteRow(0)};
 
     let thead = document.createElement('thead');
     tbl.appendChild(thead);
