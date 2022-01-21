@@ -4,6 +4,10 @@ var showsamplesheet = async function(e){
     let cols = ['Agency Name', 'Month', 'Staff Name', 'Student Name', 'Grade',
     'Service Units', 'sesname']
     let tbl = document.getElementById('samplesheet');
+
+    //clear the table first
+    while(tbl.rows.length > 0){table.deleteRow(0)};
+
     let thead = document.createElement('thead');
     tbl.appendChild(thead);
     let tr = document.createElement('tr');
