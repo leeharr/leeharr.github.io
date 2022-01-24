@@ -19,23 +19,15 @@ var showsamplesheet = async function(e){
     }
 
     let sk = await skeys();
-    let skdat = {};
-    for (let k of sk){
-        if (k == 'currid'){ continue; }
-        let s = await sget(k);
-        skdat[s['sesname']] = s;
-    }
-    let sksort = Object.keys(skdat);
-    sksort.sort(function(a, b){
-        return (a < b) ? -1 : (a > b) ? 1 : 0;
-    })
+    sk.reverse();
 
     let tbody = document.createElement('tbody');
     tbl.appendChild(tbody);
-    for (let k of sksort){
+    for (let k of sk){
+        if (k == 'currid'){ continue; }
         let tr = document.createElement('tr');
         tbody.appendChild(tr);
-        let s = skdat[k];
+        let s = await sget(k);
         for (let col of cols){
             let td = document.createElement('td');
             td.innerHTML = s[col];
