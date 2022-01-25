@@ -79,7 +79,13 @@ window.intinput = function(div, req){
     return ti;
 }
 window.intinputreset = function(ti){
+    console.log('INT INPUT RESET');
     ti.value = '0';
+}
+
+window.intinput_per = function(div, req){
+    console.log('INT INPUT PER PERSON');
+
 }
 
 window.withotherreset = function(sel){
