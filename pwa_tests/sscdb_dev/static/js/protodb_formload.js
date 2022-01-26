@@ -78,6 +78,9 @@ window.intinput = function(div, req){
     div.appendChild(ti);
     return ti;
 }
+window.intinputsetup = function(){
+    console.log('INT INPUT SETUP');
+}
 window.intinputreset = function(ti){
     console.log('INT INPUT RESET');
     ti.value = '0';
@@ -335,6 +338,12 @@ var load_questions = async function(formid, questions, answers){
             let areset = window[qa.areset];
             sel['data-reset'] = areset;
             areset(sel);
+        }
+
+        if (qa.asetup){
+            // run when the form is being opened (ie. on Send Data click)
+            // and again when person in session is clicked/changed
+            sel['data-setup'] = window[qa.asetup];
         }
 
         if (qa.req){

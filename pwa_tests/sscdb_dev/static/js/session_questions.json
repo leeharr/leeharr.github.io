@@ -25,6 +25,7 @@
         "req": true,
         "remember": "offer",
         "af": "intinput",
+        "asetup": "intinputsetup",
         "areset": "intinputreset"},
 
     {"q": "Services Provided",

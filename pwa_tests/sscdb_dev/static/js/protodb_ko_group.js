@@ -89,7 +89,7 @@ var Group = function(gid, name){
     }
 
     self.newgroupsession = async function(){
-        //console.log('NGS');
+        console.log('NGS');
         vm.showgroupsession(true);
         self.checkgroupcheckboxes(true);
 
@@ -107,6 +107,9 @@ var Group = function(gid, name){
             //console.log('sel '+sel.id + ' ' + sel);
             //console.log('selval '+sel.value );
             //console.log('dr '+sel['data-reset']);
+
+            let asetup = sel['data-setup'];
+            console.log('ASETUP '+asetup);
 
             let getremid = 'remember_'+qattr;
             let getrem = document.getElementById(getremid);
