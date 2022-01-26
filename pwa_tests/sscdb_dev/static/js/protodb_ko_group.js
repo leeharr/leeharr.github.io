@@ -109,7 +109,10 @@ var Group = function(gid, name){
             //console.log('dr '+sel['data-reset']);
 
             let asetup = sel['data-setup'];
-            console.log('ASETUP '+asetup);
+            if (asetup){
+                console.log('ASETUP '+asetup);
+                asetup();
+            }
 
             let getremid = 'remember_'+qattr;
             let getrem = document.getElementById(getremid);
