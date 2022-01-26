@@ -80,6 +80,15 @@ window.intinput = function(div, req){
 }
 window.intinputsetup = function(){
     console.log('INT INPUT SETUP');
+    let ppl = vm.people();
+    for (let p of ppl){
+        let pid = p.pid();
+        let gspid = '#gspid'+pid;
+        let cb = document.querySelector(gspid);
+        if (cb && cb.checked){
+            console.log('CHECKED '+pid+' '+p.fname());
+        }
+    }
 }
 window.intinputreset = function(ti){
     console.log('INT INPUT RESET');
