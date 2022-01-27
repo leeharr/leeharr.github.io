@@ -501,8 +501,8 @@ var editgroup = function(){
 window.quicksession = function(){
     let g = vm.quick_group();
     g.showgroup();
-    g.newgroupsession();
-    g.checkgroupcheckboxes(false);
+    g.newgroupsession(true);
+//     g.checkgroupcheckboxes(false); // moved to g.newgroupsession
 }
 
 function _age(dobstr) {

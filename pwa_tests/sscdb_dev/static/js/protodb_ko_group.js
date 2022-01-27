@@ -88,10 +88,14 @@ var Group = function(gid, name){
         vm.shownewgroup(false);
     }
 
-    self.newgroupsession = async function(){
+    self.newgroupsession = async function(quick){
         console.log('NGS');
         vm.showgroupsession(true);
-        self.checkgroupcheckboxes(true);
+        if (!quick){
+            self.checkgroupcheckboxes(true);
+        } else {
+            self.checkgroupcheckboxes(false);
+        }
 
         let form = document.getElementById('newsession_questions');
         let fc = Array.from(form.children);
