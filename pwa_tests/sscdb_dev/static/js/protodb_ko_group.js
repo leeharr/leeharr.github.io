@@ -89,7 +89,7 @@ var Group = function(gid, name){
     }
 
     self.newgroupsession = async function(quick){
-        console.log('NGS');
+        console.log('NGS +'+quick+'+');
         vm.showgroupsession(true);
         if (!quick){
             self.checkgroupcheckboxes(true);
