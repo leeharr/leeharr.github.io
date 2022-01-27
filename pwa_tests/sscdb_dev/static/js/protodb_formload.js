@@ -278,7 +278,7 @@ var load_questions = async function(formid, questions, answers){
         div.id = qa.qattr+'div';
         div['data-qattr'] = qa.qattr;
         div['data-remember'] = qa.remember;
-        console.log('APPEND TO '+form+ ' ID '+ form.id);
+        //console.log('APPEND TO '+form+ ' ID '+ form.id);
         form.appendChild(div);
         let qspan = document.createElement('div');
         qspan.innerHTML = qa.q;
@@ -289,7 +289,7 @@ var load_questions = async function(formid, questions, answers){
         if (qa.a){
             // multiple choice (has list of answers)
             let withother = checkforother(qa.a);
-            console.log('OTHER?'+withother+'#');
+            //console.log('OTHER?'+withother+'#');
 
             sel = document.createElement('select');
             div.appendChild(sel);
@@ -311,7 +311,7 @@ var load_questions = async function(formid, questions, answers){
             });
 
             if (withother){
-                console.log('WITH OTHER');
+                //console.log('WITH OTHER');
                 qa.areset = 'withotherreset';
                 let ti = document.createElement('input');
                 ti.type = 'text';
@@ -378,7 +378,7 @@ var load_questions = async function(formid, questions, answers){
 
         if (qa.remember=='offer'){
             // offer to remember
-            console.log('offer to remember '+qa.qattr);
+            //console.log('offer to remember '+qa.qattr);
             let orem = document.createElement('input');
             orem.id = 'remember_'+qa.qattr;
             orem.type = 'checkbox';
