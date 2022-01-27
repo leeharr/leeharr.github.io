@@ -37,12 +37,19 @@ var Person = function(pid, lname, fname, grade){
         // show this person's data for editing
         //  (if not editing group members or session members)
 
-        //console.log('COSP');
+        // also, if checking the checkbox,
+        //  if there is a form active with a per person setup
+        //  the per person setup should also run
+        //  whenever the checkbox state changes
+
+        console.log('COSP');
         let idbase;
         let is_sess = vm.showgroupsession();
         if (is_sess){
+            console.log('SESSION');
             idbase = '#gspid';
         } else {
+            console.log('NOPE');
             idbase = '#ngpid';
         }
 
