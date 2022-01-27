@@ -78,8 +78,25 @@ window.intinput = function(div, req){
     div.appendChild(ti);
     return ti;
 }
-window.intinputsetup = function(){
-    console.log('INT INPUT SETUP');
+window.intinputreset = function(ti){
+    //console.log('INT INPUT RESET');
+    ti.value = '0';
+}
+
+window.intinputper = function(div, req){
+    console.log('INT INPUT PER PERSON');
+    let ti = document.createElement('input');
+    ti.type = 'number';
+    ti.min = '0';
+    ti.max = '999';
+    if (req){
+        ti.required = true;
+    }
+    div.appendChild(ti);
+    return ti;
+}
+window.intinputpersetup = function(){
+    console.log('INT INPUT PER PERSON SETUP');
     let ppl = vm.people();
     for (let p of ppl){
         let pid = p.pid();
@@ -90,14 +107,9 @@ window.intinputsetup = function(){
         }
     }
 }
-window.intinputreset = function(ti){
-    console.log('INT INPUT RESET');
+window.intinputperreset = function(ti){
+    console.log('INT INPUT PER PERSON RESET');
     ti.value = '0';
-}
-
-window.intinput_per = function(div, req){
-    console.log('INT INPUT PER PERSON');
-
 }
 
 window.withotherreset = function(sel){

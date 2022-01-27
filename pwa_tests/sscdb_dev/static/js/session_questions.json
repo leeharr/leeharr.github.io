@@ -24,9 +24,9 @@
         "sendas": "Service Units",
         "req": true,
         "remember": "offer",
-        "af": "intinput",
-        "asetup": "intinputsetup",
-        "areset": "intinputreset"},
+        "af": "intinputper",
+        "asetup": "intinputpersetup",
+        "areset": "intinputperreset"},
 
     {"q": "Services Provided",
         "qattr": "services",
