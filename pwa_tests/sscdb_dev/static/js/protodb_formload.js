@@ -89,6 +89,7 @@ window.intinputper = function(div, req){
     ti.type = 'number';
     ti.min = '0';
     ti.max = '999';
+    ti.classList.add('su');
     if (req){
         ti.required = true;
     }
@@ -120,6 +121,7 @@ window.intinputpersetup = function(){
             ti.type = 'number';
             ti.min = '0';
             ti.max = '999';
+            ti.classList.add('su');
             d.appendChild(ti);
 
             let br = document.createElement('br');
