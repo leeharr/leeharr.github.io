@@ -81,7 +81,7 @@ var Person = function(pid, lname, fname, grade){
                     let sel = div.children[1];
                     let asetup = sel['data-setup'];
                     if (asetup){
-                        console.log('ASETUP '+asetup);
+                        console.log('ASETUP');
                         asetup();
                     }
                 }

@@ -93,10 +93,16 @@ window.intinputper = function(div, req){
         ti.required = true;
     }
     div.appendChild(ti);
+
+    let d = document.createElement('div');
+    d.id = 'iip';
+    div.appendChild(d);
+
     return ti;
 }
 window.intinputpersetup = function(){
     console.log('INT INPUT PER PERSON SETUP');
+    let d = document.getElementById('iip');
     let ppl = vm.people();
     for (let p of ppl){
         let pid = p.pid();
@@ -104,6 +110,11 @@ window.intinputpersetup = function(){
         let cb = document.querySelector(gspid);
         if (cb && cb.checked){
             console.log('CHECKED '+pid+' '+p.fname());
+            let ti = document.createElement('input');
+            ti.type = 'number';
+            ti.min = '0';
+            ti.max = '999';
+            d.appendChild(ti);
         }
     }
 }
