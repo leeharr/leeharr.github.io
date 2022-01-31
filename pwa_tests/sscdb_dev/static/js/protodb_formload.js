@@ -103,6 +103,7 @@ window.intinputper = function(div, req){
 window.intinputpersetup = function(){
     console.log('INT INPUT PER PERSON SETUP');
     let d = document.getElementById('iip');
+    removeAllChildNodes(d);
     let ppl = vm.people();
     for (let p of ppl){
         let pid = p.pid();
@@ -110,11 +111,19 @@ window.intinputpersetup = function(){
         let cb = document.querySelector(gspid);
         if (cb && cb.checked){
             console.log('CHECKED '+pid+' '+p.fname());
+
+            let s = document.createElement('span');
+            s.innerHTML = p.fname();
+            d.appendChild(s);
+
             let ti = document.createElement('input');
             ti.type = 'number';
             ti.min = '0';
             ti.max = '999';
             d.appendChild(ti);
+
+            let br = document.createElement('br');
+            d.appendChild(br);
         }
     }
 }

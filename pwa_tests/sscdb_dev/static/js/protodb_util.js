@@ -137,3 +137,9 @@ var allunique = function(arr){
     }
     return uniques;
 }
+
+var removeAllChildNodes = function(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
