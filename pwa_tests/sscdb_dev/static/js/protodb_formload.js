@@ -113,7 +113,7 @@ window.intinputpersetup = function(){
             console.log('CHECKED '+pid+' '+p.fname());
 
             let s = document.createElement('span');
-            s.innerHTML = p.fname();
+            s.innerHTML = p.fname() + ' ' + p.linitial();
             d.appendChild(s);
 
             let ti = document.createElement('input');
