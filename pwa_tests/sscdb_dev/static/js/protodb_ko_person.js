@@ -77,6 +77,8 @@ var Person = function(pid, lname, fname, grade){
                 let form = document.getElementById('newsession_questions');
                 let fc = Array.from(form.children);
                 for (let i=0; i<fc.length; i++){
+                    let div = fc[i];
+                    let sel = div.children[1];
                     let asetup = sel['data-setup'];
                     if (asetup){
                         console.log('ASETUP '+asetup);
