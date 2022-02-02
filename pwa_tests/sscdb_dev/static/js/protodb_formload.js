@@ -316,6 +316,7 @@ var load_questions = async function(formid, questions, answers){
 
     asyncForEach(questions, async function(qa, qi, qarr){
         let div = document.createElement('div');
+        console.log('lqdiv '+objectId(div));
         div.setAttribute('class', 'qdiv');
         div.id = qa.qattr+'div';
         div['data-qattr'] = qa.qattr;
@@ -323,6 +324,7 @@ var load_questions = async function(formid, questions, answers){
         //console.log('APPEND TO '+form+ ' ID '+ form.id);
         form.appendChild(div);
         let qspan = document.createElement('div');
+        console.log('lqspan '+objectId(qspan));
         qspan.innerHTML = qa.q;
         div.appendChild(qspan);
 

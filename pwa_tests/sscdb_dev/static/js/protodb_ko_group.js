@@ -114,7 +114,7 @@ var Group = function(gid, name){
 
             let asetup = sel['data-setup'];
             if (asetup){
-                console.log('ASETUP');
+                console.log('ASETUP '+objectId(div));
                 asetup(div);
             }
 
