@@ -84,7 +84,7 @@ window.intinputreset = function(ti){
 }
 
 window.intinputper = function(div, req){
-    console.log('INT INPUT PER PERSON '+div);
+    console.log('INT INPUT PER PERSON '+objectId(div));
     let ti = document.createElement('input');
     ti.type = 'number';
     ti.min = '0';
@@ -108,7 +108,7 @@ window.intinputper = function(div, req){
     return ti;
 }
 window.intinputpersetup = function(div){
-    console.log('INT INPUT PER PERSON SETUP '+div);
+    console.log('INT INPUT PER PERSON SETUP '+objectId(div));
     let d = div.thesubdiv;
     removeAllChildNodes(d);
     let ppl = vm.people();
