@@ -96,8 +96,8 @@ window.intinputper = function(div, req){
     div.appendChild(ti);
 
     let d = document.createElement('div');
-    d.id = 'iip';
     div.appendChild(d);
+    div.thesubdiv = d;
 
     div.perval = function(pid){
         return 0;
@@ -105,9 +105,9 @@ window.intinputper = function(div, req){
 
     return ti;
 }
-window.intinputpersetup = function(){
+window.intinputpersetup = function(div){
     console.log('INT INPUT PER PERSON SETUP');
-    let d = document.getElementById('iip');
+    let d = div.thesubdiv;
     removeAllChildNodes(d);
     let ppl = vm.people();
     for (let p of ppl){

@@ -115,7 +115,7 @@ var Group = function(gid, name){
             let asetup = sel['data-setup'];
             if (asetup){
                 console.log('ASETUP');
-                asetup();
+                asetup(div);
             }
 
             let getremid = 'remember_'+qattr;
