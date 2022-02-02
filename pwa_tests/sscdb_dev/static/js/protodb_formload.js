@@ -99,11 +99,11 @@ window.intinputper = function(div, req){
     d.id = 'iip';
     div.appendChild(d);
 
-    return ti;
-
     div.perval = function(pid){
         return 0;
     }
+
+    return ti;
 }
 window.intinputpersetup = function(){
     console.log('INT INPUT PER PERSON SETUP');
