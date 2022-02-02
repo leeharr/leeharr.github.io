@@ -100,6 +100,10 @@ window.intinputper = function(div, req){
     div.appendChild(d);
 
     return ti;
+
+    div.perval = function(pid){
+        return 0;
+    }
 }
 window.intinputpersetup = function(){
     console.log('INT INPUT PER PERSON SETUP');

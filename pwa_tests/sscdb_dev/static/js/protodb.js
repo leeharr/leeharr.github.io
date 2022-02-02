@@ -598,6 +598,8 @@ var createsession = async function(){
     let sesdata = {'sesname': sesname};
     let late = {};
 
+    let perpersons = {};
+
     var form = document.getElementById('newsession_questions');
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
@@ -637,6 +639,8 @@ var createsession = async function(){
             }
             theval = val;
             sel.value = '';
+        } else if (div.perval){
+            perpersons[qattr] = sel;
         } else if (val instanceof Function){
             //console.log('VAL FUNC '+qattr);
             theval = val();
@@ -787,6 +791,15 @@ var createsession = async function(){
             let val = sel.value_late();
             let sendas = sel['sendas'];
             //console.log('getlate '+qatr+' : '+val+' sendas '+sendas);
+            psesdata[sendas] = val;
+        }
+
+        for (let qatr in perpersons){
+            let sel = perpersons[qatr];
+            let getr = sel.perval;
+            let val = getr(pid);
+            let sendas = sel['sendas'];
+            console.log('perperson '+qatr+'('+pid+') : '+val+' sendas '+sendas);
             psesdata[sendas] = val;
         }
 
