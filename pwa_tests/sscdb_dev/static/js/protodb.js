@@ -640,7 +640,7 @@ var createsession = async function(){
             theval = val;
             sel.value = '';
         } else if (div.perval){
-            perpersons[qattr] = sel;
+            perpersons[qattr] = div;
         } else if (val instanceof Function){
             //console.log('VAL FUNC '+qattr);
             theval = val();
@@ -795,8 +795,9 @@ var createsession = async function(){
         }
 
         for (let qatr in perpersons){
-            let sel = perpersons[qatr];
-            let getr = sel.perval;
+            let div = perpersons[qatr];
+            let sel = div.children[1];
+            let getr = div.perval;
             let val = getr(pid);
             let sendas = sel['sendas'];
             console.log('perperson '+qatr+'('+pid+') : '+val+' sendas '+sendas);
