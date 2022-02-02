@@ -100,7 +100,9 @@ window.intinputper = function(div, req){
     div.thesubdiv = d;
 
     div.perval = function(pid){
-        return 0;
+        let tin = 'ti'+pid;
+        let ti = div[tin];
+        return ti.value;
     }
 
     return ti;
@@ -127,6 +129,8 @@ window.intinputpersetup = function(div){
             ti.max = '999';
             ti.classList.add('su');
             d.appendChild(ti);
+            let tin = 'ti'+p.pid();
+            d[tin] = ti;
 
             let br = document.createElement('br');
             d.appendChild(br);
