@@ -101,8 +101,8 @@ window.intinputper = function(div, req){
 
     div.perval = function(pid){
         let tin = 'ti'+pid;
-        console.log('perval('+pid+') tin '+tin+' oid'+objectId(div));
-        let ti = div[tin];
+        console.log('perval('+pid+') tin '+tin+' oid '+objectId(d));
+        let ti = d[tin];
         return ti.value;
     }
 
