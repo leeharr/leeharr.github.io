@@ -135,7 +135,7 @@ window.intinputpersetup = function(div){
             ti.min = '0';
             ti.max = '999';
             ti.classList.add('su');
-            td1.appendChild(ti);
+            td2.appendChild(ti);
             tr.appendChild(td2)
 
             let tin = 'ti'+p.pid();
