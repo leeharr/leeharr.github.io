@@ -83,7 +83,7 @@ var Person = function(pid, lname, fname, grade){
                     let asetup = sel['data-setup'];
                     if (asetup && div){
                         console.log('ASETUP cosp '+objectId(div));
-                        asetup();
+                        asetup(div);
                     }
                 }
             }
