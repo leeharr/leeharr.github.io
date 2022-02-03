@@ -101,6 +101,7 @@ window.intinputper = function(div, req){
 
     div.perval = function(pid){
         let tin = 'ti'+pid;
+        console.log('perval('+pid+') tin '+tin+' oid'+objectId(div));
         let ti = div[tin];
         return ti.value;
     }
@@ -108,8 +109,8 @@ window.intinputper = function(div, req){
     return ti;
 }
 window.intinputpersetup = function(div){
-    console.log('INT INPUT PER PERSON SETUP '+objectId(div));
     let d = div.thesubdiv;
+    console.log('INT INPUT PER PERSON SETUP '+objectId(div)+' sd '+objectId(d));
     removeAllChildNodes(d);
     let ppl = vm.people();
     for (let p of ppl){
