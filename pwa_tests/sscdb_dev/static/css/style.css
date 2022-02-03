@@ -125,3 +125,10 @@ table tbody tr th.inactive{
 table tbody tr td img{
     vertical-align: middle;
 }
+
+table.bordered{
+    border: thin solid black;
+}
+table.bordered tr td{
+    border: thin solid black;
+}

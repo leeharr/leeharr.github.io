@@ -96,6 +96,7 @@ window.intinputper = function(div, req){
     div.appendChild(ti);
 
     let t = document.createElement('table');
+    t.classList.add('bordered');
     div.appendChild(t);
     div.thesubtab = t;
 
