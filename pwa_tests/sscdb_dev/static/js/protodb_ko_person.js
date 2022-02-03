@@ -78,10 +78,11 @@ var Person = function(pid, lname, fname, grade){
                 let fc = Array.from(form.children);
                 for (let i=0; i<fc.length; i++){
                     let div = fc[i];
+                    console.log('cosp div '+objectId(div));
                     let sel = div.children[1];
                     let asetup = sel['data-setup'];
-                    if (asetup){
-                        console.log('ASETUP');
+                    if (asetup && div){
+                        console.log('ASETUP cosp '+objectId(div));
                         asetup();
                     }
                 }
