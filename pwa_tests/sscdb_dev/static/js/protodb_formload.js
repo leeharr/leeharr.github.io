@@ -95,23 +95,23 @@ window.intinputper = function(div, req){
     }
     div.appendChild(ti);
 
-    let d = document.createElement('div');
-    div.appendChild(d);
-    div.thesubdiv = d;
+    let t = document.createElement('table');
+    div.appendChild(t);
+    div.thesubtab = t;
 
     div.perval = function(pid){
         let tin = 'ti'+pid;
-        console.log('perval('+pid+') tin '+tin+' oid '+objectId(d));
-        let ti = d[tin];
+        console.log('perval('+pid+') tin '+tin+' oid '+objectId(t));
+        let ti = t[tin];
         return ti.value;
     }
 
     return ti;
 }
 window.intinputpersetup = function(div){
-    let d = div.thesubdiv;
-    console.log('INT INPUT PER PERSON SETUP '+objectId(div)+' sd '+objectId(d));
-    removeAllChildNodes(d);
+    let t = div.thesubtab;
+    console.log('INT INPUT PER PERSON SETUP '+objectId(div)+' sd '+objectId(t));
+    removeAllChildNodes(t);
     let ppl = vm.people();
     for (let p of ppl){
         let pid = p.pid();
@@ -120,21 +120,24 @@ window.intinputpersetup = function(div){
         if (cb && cb.checked){
             console.log('CHECKED '+pid+' '+p.fname());
 
-            let s = document.createElement('span');
-            s.innerHTML = p.fname() + ' ' + p.linitial();
-            d.appendChild(s);
+            let tr = document.createElement('tr');
+            t.appendChild(tr);
+
+            let td1 = document.createElement('td');
+            td1.innerHTML = p.fname() + ' ' + p.linitial();
+            tr.appendChild(td1);
 
             let ti = document.createElement('input');
+            let td1 = document.createElement('td');
             ti.type = 'number';
             ti.min = '0';
             ti.max = '999';
             ti.classList.add('su');
-            d.appendChild(ti);
-            let tin = 'ti'+p.pid();
-            d[tin] = ti;
+            td1.appendChild(ti);
+            tr.appendChild(td2)
 
-            let br = document.createElement('br');
-            d.appendChild(br);
+            let tin = 'ti'+p.pid();
+            t[tin] = ti;
         }
     }
 }
