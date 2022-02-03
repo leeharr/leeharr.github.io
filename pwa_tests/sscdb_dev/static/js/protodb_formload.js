@@ -128,7 +128,7 @@ window.intinputpersetup = function(div){
             tr.appendChild(td1);
 
             let ti = document.createElement('input');
-            let td1 = document.createElement('td');
+            let td2 = document.createElement('td');
             ti.type = 'number';
             ti.min = '0';
             ti.max = '999';
