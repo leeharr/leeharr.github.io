@@ -113,7 +113,7 @@ var Group = function(gid, name){
             //console.log('dr '+sel['data-reset']);
 
             let asetup = sel['data-setup'];
-            if (asetup && objectId(div)){
+            if (asetup && div){
                 console.log('ASETUP '+objectId(div));
                 asetup(div);
             }
