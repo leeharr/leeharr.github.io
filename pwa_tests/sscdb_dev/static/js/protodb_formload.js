@@ -111,6 +111,7 @@ window.intinputper = function(div, req){
 window.intinputpersetup = function(div){
     let t = div.thesubtab;
     console.log('INT INPUT PER PERSON SETUP '+objectId(div)+' sd '+objectId(t));
+    console.log('TABLE');
     removeAllChildNodes(t);
     let ppl = vm.people();
     for (let p of ppl){
