@@ -93,7 +93,7 @@ window.intinputper = function(div, req){
     if (req){
         ti.required = true;
     }
-    div.appendChild(ti);
+    div._ti0 = ti;
 
     let t = document.createElement('table');
     div.appendChild(t);
@@ -113,6 +113,19 @@ window.intinputpersetup = function(div){
     console.log('INT INPUT PER PERSON SETUP '+objectId(div)+' sd '+objectId(t));
     console.log('TABLE');
     removeAllChildNodes(t);
+
+    let tr = document.createElement('tr');
+    t.appendChild(tr);
+
+    let td1 = document.createElement('td');
+    td1.innerHTML = 'Set All';
+    tr.appendChild(td1);
+
+    let ti = div._ti0;
+    let td2 = document.createElement('td');
+    td2.appendChild(ti);
+    tr.appendChild(td2)
+
     let ppl = vm.people();
     for (let p of ppl){
         let pid = p.pid();
