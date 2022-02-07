@@ -122,6 +122,7 @@ window.intinputpersetup = function(div){
     tr.appendChild(td1);
 
     let ti = div._ti0;
+    console.log('iis ti id '+ti.id);
     let td2 = document.createElement('td');
     td2.appendChild(ti);
     tr.appendChild(td2)
