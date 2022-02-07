@@ -101,7 +101,8 @@ window.intinputper = function(div, req){
     div.appendChild(t);
     div.thesubtab = t;
 
-    ti.setall = function(){
+    ti.onchange = function(){
+        console.log('ti onchange');
         let v = ti.value;
         for (let i=0, row; row=t.rows[i]; i++){
             let td2 = row[2];
@@ -109,7 +110,6 @@ window.intinputper = function(div, req){
             ti.value = v;
         }
     }
-    ti.onchange = ti.setall;
 
     div.perval = function(pid){
         let tin = 'ti'+pid;
