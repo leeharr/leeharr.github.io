@@ -517,6 +517,7 @@ var setremember = async function(formid, questions){
             let val = await cget(qa.qattr);
             console.log('REMEMBER ' + qa.qattr + ' ' + val);
             let selid = formid + qa.qattr;
+            console.log('selid '+selid);
             let sel = document.getElementById(selid);
             if (!val){ val = '';}
             console.log('selval '+sel.value);
