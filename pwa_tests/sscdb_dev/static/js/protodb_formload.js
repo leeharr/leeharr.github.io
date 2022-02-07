@@ -511,15 +511,15 @@ var set_only_later = function(only, attr, div){
 
 var setremember = async function(formid, questions){
     // restore remembered values when loading the form
-    //console.log('setremember '+formid);
+    console.log('setremember '+formid);
     asyncForEach(questions, async function(qa, qi, qarr){
         if (qa.remember){
             let val = await cget(qa.qattr);
-            //console.log('REMEMBER ' + qa.qattr + ' ' + val);
+            console.log('REMEMBER ' + qa.qattr + ' ' + val);
             let selid = formid + qa.qattr;
             let sel = document.getElementById(selid);
             if (!val){ val = '';}
-            //console.log('selval '+sel.value);
+            console.log('selval '+sel.value);
             if (sel.value instanceof Function){
                 //console.log('val is function');
                 sel.setvalue(val);
