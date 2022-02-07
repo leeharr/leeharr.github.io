@@ -93,7 +93,8 @@ window.intinputper = function(div, req){
     if (req){
         ti.required = true;
     }
-    div._ti0 = ti;
+    div.appendChild(ti);
+    //div._ti0 = ti;
 
     let t = document.createElement('table');
     div.appendChild(t);
@@ -121,9 +122,14 @@ window.intinputpersetup = function(div){
     td1.innerHTML = 'Set All';
     tr.appendChild(td1);
 
-    let ti = div._ti0;
-    console.log('iis ti id '+ti.id);
+    //let ti = div._ti0;
+    //console.log('iis ti id '+ti.id);
+    let ti = document.createElement('input');
     let td2 = document.createElement('td');
+    ti.type = 'number';
+    ti.min = '0';
+    ti.max = '999';
+    ti.classList.add('su');
     td2.appendChild(ti);
     tr.appendChild(td2)
 
