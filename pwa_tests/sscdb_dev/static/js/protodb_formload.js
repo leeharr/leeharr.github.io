@@ -94,6 +94,7 @@ window.intinputper = function(div, req){
         ti.required = true;
     }
     div.appendChild(ti);
+    ti.visibility = false;
     //div._ti0 = ti;
 
     let t = document.createElement('table');
@@ -119,7 +120,7 @@ window.intinputpersetup = function(div){
     t.appendChild(tr);
 
     let td1 = document.createElement('td');
-    td1.innerHTML = 'Set All';
+    td1.innerHTML = '<b>Set All:</b>';
     tr.appendChild(td1);
 
     //let ti = div._ti0;
