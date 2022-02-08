@@ -101,16 +101,6 @@ window.intinputper = function(div, req){
     div.appendChild(t);
     div.thesubtab = t;
 
-    ti.onchange = function(){
-        console.log('ti onchange');
-        let v = ti.value;
-        for (let i=0, row; row=t.rows[i]; i++){
-            let td2 = row[2];
-            let ti = td2[1];
-            ti.value = v;
-        }
-    }
-
     div.perval = function(pid){
         let tin = 'ti'+pid;
         console.log('perval('+pid+') tin '+tin+' oid '+objectId(t));
@@ -143,6 +133,16 @@ window.intinputpersetup = function(div){
     ti.classList.add('su');
     td2.appendChild(ti);
     tr.appendChild(td2)
+
+    ti.onchange = function(){
+        console.log('ti onchange');
+        let v = ti.value;
+        for (let i=0, row; row=t.rows[i]; i++){
+            let td2 = row[2];
+            let ti = td2[1];
+            ti.value = v;
+        }
+    }
 
     let ppl = vm.people();
     for (let p of ppl){
