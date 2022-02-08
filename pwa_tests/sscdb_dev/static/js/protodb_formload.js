@@ -138,7 +138,10 @@ window.intinputpersetup = function(div){
         console.log('ti onchange');
         let v = ti.value;
         for (let i=0, row; row=t.rows[i]; i++){
+            console.log('tr '+row);
+            console.log('tc '+row.cells);
             let td2 = row.cells[2];
+            console.log('td2 '+td2);
             let ti = td2[1];
             ti.value = v;
         }
