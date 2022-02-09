@@ -137,7 +137,8 @@ window.intinputpersetup = function(div){
     ti.onchange = function(){
         console.log('ti onchange');
         let v = ti.value;
-        for (let i=0, row; row=t.rows[i]; i++){
+        for (let i=0; i<t.rows.length; i++){
+            let row = t.rows[i];
             console.log('tr '+row);
             console.log('tc '+row.cells);
             let td2 = row.cells[2];
@@ -351,12 +352,13 @@ window.yesnocountok = function(sel, nppl){
 
 var selectmulti = function(div, aas, req){
     console.log('SEL MUL');
-    for (let i=0; a=aas[i]; i++){
+    for (let i=0; i<aas.length; i++){
         let cb = document.createElement('input');
         cb.type = 'checkbox';
         div.appendChild(cb);
 
         let lbl = document.createElement('label');
+        a = aas[i];
         lbl.innerHTML = a;
         div.appendChild(lbl);
 
