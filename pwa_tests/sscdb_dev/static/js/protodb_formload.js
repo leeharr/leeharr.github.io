@@ -365,6 +365,8 @@ var selectmulti = function(div, aas, req){
         let br = document.createElement('br');
         div.appendChild(br);
     }
+
+    return div;
 }
 
 var load_questions = async function(formid, questions, answers){
@@ -388,7 +390,7 @@ var load_questions = async function(formid, questions, answers){
         let sel;
         let selid = formid + qa.qattr;
         if (qa.a && qa.multi){
-            selectmulti(div, qa.a, qa.req);
+            sel = selectmulti(div, qa.a, qa.req);
         } else if (qa.a) {
             // multiple choice (has list of answers)
             let withother = checkforother(qa.a);
