@@ -349,6 +349,22 @@ window.yesnocountok = function(sel, nppl){
     }
 }
 
+var selectmulti = function(div, aas, req){
+    console.log('SEL MUL');
+    for (let i=0; a=aas[i]; i++){
+        let cb = document.createElement('input');
+        cb.type = 'checkbox';
+        div.appendChild(cb);
+
+        let lbl = document.createElement('label');
+        lbl.innerHTML = a;
+        div.appendChild(lbl);
+
+        let br = document.createElement('br');
+        div.appendChild(br);
+    }
+}
+
 var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);
     if (!form){ return; }
@@ -369,7 +385,9 @@ var load_questions = async function(formid, questions, answers){
 
         let sel;
         let selid = formid + qa.qattr;
-        if (qa.a){
+        if (qa.a && qa.multi){
+            selectmulti(div, qa.a, qa.req);
+        } else if (qa.a) {
             // multiple choice (has list of answers)
             let withother = checkforother(qa.a);
             //console.log('OTHER?'+withother+'#');

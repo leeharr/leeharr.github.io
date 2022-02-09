@@ -41,5 +41,6 @@
                 "Job Readiness",
                 "Mentoring",
                 "Referral to Outside Agency",
-                "Other:"]}
+                "Other:"],
+        "multi": true}
 ]
