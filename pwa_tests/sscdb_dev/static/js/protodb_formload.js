@@ -141,6 +141,9 @@ window.intinputpersetup = function(div){
             let row = t.rows[i];
             console.log('tr '+row);
             console.log('tc '+row.cells);
+            for (let c of row.cells){
+                console.log('c '+c);
+            }
             let td2 = row.cells[2];
             console.log('td2 '+td2);
             let ti = td2[1];
