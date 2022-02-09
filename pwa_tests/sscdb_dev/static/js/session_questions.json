@@ -32,7 +32,6 @@
         "qattr": "services",
         "sendas": "Services Provided",
         "req": true,
-        "remember": "offer",
         "a": ["College Prep.",
                 "Crisis Intervention",
                 "Drug/Alcohol Assessment/Counseling",
