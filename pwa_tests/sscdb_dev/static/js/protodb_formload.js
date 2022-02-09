@@ -358,7 +358,7 @@ var selectmulti = function(div, aas, req){
         div.appendChild(cb);
 
         let lbl = document.createElement('label');
-        a = aas[i];
+        let a = aas[i];
         lbl.innerHTML = a;
         div.appendChild(lbl);
 
