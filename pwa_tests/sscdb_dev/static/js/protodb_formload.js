@@ -352,23 +352,31 @@ window.yesnocountok = function(sel, nppl){
 
 var selectmulti = function(div, aas, req, selid){
     console.log('SEL MUL');
+
+    let sel = document.createElement('div');
+
     for (let i=0; i<aas.length; i++){
         let cb = document.createElement('input');
         cb.type = 'checkbox';
         cb.id = selid+i;
-        div.appendChild(cb);
+        sel.appendChild(cb);
 
         let lbl = document.createElement('label');
         let a = aas[i];
         lbl.innerHTML = a;
         lbl.htmlFor = selid+i;
-        div.appendChild(lbl);
+        sel.appendChild(lbl);
 
         let br = document.createElement('br');
-        div.appendChild(br);
+        sel.appendChild(br);
     }
 
-    return div;
+    sel.value = function(){
+        console.log('SEL MUL VAL');
+        return ['test val 1', 'test val 2'];
+    }
+
+    return sel;
 }
 
 var load_questions = async function(formid, questions, answers){
