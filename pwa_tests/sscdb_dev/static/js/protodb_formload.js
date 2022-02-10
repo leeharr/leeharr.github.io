@@ -384,6 +384,8 @@ var selectmulti = function(div, aas, req, selid){
 
         let br = document.createElement('br');
         sel.appendChild(br);
+
+        sel.itemcount = i;
     }
 
     sel.value = function(){
@@ -392,6 +394,13 @@ var selectmulti = function(div, aas, req, selid){
     }
 
     return sel;
+}
+var selectmultireset = function(sel){
+    let selid = sel.id;
+    for (let i=0; i<sel.itemcount; i++){
+        let cb = document.getElementById(selid+i);
+        cb.checked = false;
+    }
 }
 
 var load_questions = async function(formid, questions, answers){
@@ -416,6 +425,7 @@ var load_questions = async function(formid, questions, answers){
         let selid = formid + qa.qattr;
         if (qa.a && qa.multi){
             sel = selectmulti(div, qa.a, qa.req, selid);
+            sel['data-reset'] = selectmultireset;
         } else if (qa.a) {
             // multiple choice (has list of answers)
             let withother = checkforother(qa.a);
