@@ -368,6 +368,7 @@ var selectmulti = function(div, aas, req, selid){
     console.log('SEL MUL');
 
     let sel = document.createElement('div');
+    div.appendChild(sel);
 
     for (let i=0; i<aas.length; i++){
         let cb = document.createElement('input');
