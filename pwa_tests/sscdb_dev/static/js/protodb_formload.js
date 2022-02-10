@@ -146,7 +146,7 @@ window.intinputpersetup = function(div){
             }
             let td2 = row.cells[1];
             console.log('td2 '+td2);
-            let ti = td2[1];
+            let ti = td2[0];
             ti.value = v;
         }
     }
