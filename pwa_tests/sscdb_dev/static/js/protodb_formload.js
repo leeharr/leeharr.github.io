@@ -114,6 +114,15 @@ window.intinputpersetup = function(div){
     let t = div.thesubtab;
     console.log('INT INPUT PER PERSON SETUP '+objectId(div)+' sd '+objectId(t));
     console.log('TABLE');
+
+    let currval = 0;
+    if (t.rows.length >= 1){
+        let tr0 = t.rows[0];
+        let td0 = tr0.cells[1];
+        let ti0 = td0.firstChild;
+        currval = ti0.value;
+    }
+
     removeAllChildNodes(t);
 
     let tr = document.createElement('tr');
@@ -128,6 +137,7 @@ window.intinputpersetup = function(div){
     let ti = document.createElement('input');
     let td2 = document.createElement('td');
     ti.type = 'number';
+    ti.value = currval;
     ti.min = '0';
     ti.max = '999';
     ti.classList.add('su');
@@ -169,6 +179,7 @@ window.intinputpersetup = function(div){
             let ti = document.createElement('input');
             let td2 = document.createElement('td');
             ti.type = 'number';
+            ti.value = currval;
             ti.min = '0';
             ti.max = '999';
             ti.classList.add('su');
