@@ -90,11 +90,11 @@ window.intinputper = function(div, req){
     ti.min = '0';
     ti.max = '999';
     ti.classList.add('su');
-    if (req){
-        ti.required = true;
-    }
+//     if (req){
+//         ti.required = true;
+//     }
     div.appendChild(ti);
-    ti.style.display = 'none';
+    //ti.style.display = 'none';
     ti.value = 0;
     //div._ti0 = ti;
 
