@@ -390,7 +390,18 @@ var selectmulti = function(div, aas, req, selid){
 
     sel.value = function(){
         console.log('SEL MUL VAL');
-        return ['test val 1', 'test val 2'];
+        let selid = sel.id;
+        let retvals = [];
+        for (let i=0; i<sel.itemcount; i++){
+            let cb = document.getElementById(selid+i);
+            if (cb.checked){
+                let lbls = cb.labels;
+                let lbl = lbls[0];
+                let v = lbl.innerHTML;
+                retvals.push(v);
+            }
+        }
+        return retvals;
     }
 
     return sel;
