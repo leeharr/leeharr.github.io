@@ -94,7 +94,7 @@ window.intinputper = function(div, req){
         ti.required = true;
     }
     div.appendChild(ti);
-    ti.style.display = 'none';
+    //ti.style.display = 'none';
     //div._ti0 = ti;
 
     let t = document.createElement('table');
