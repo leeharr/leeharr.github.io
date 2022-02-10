@@ -144,7 +144,7 @@ window.intinputpersetup = function(div){
             for (let c of row.cells){
                 console.log('c '+c);
             }
-            let td2 = row.cells[2];
+            let td2 = row.cells[1];
             console.log('td2 '+td2);
             let ti = td2[1];
             ti.value = v;
