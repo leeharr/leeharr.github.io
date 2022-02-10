@@ -135,19 +135,19 @@ window.intinputpersetup = function(div){
     tr.appendChild(td2)
 
     ti.onchange = function(){
-        console.log('ti onchange');
         let v = ti.value;
+        console.log('ti onchange ---' + v + '---');
         for (let i=0; i<t.rows.length; i++){
-            let row = t.rows[i];
-            console.log('tr '+row);
-            console.log('tc '+row.cells);
+            let r = t.rows[i];
+            console.log('tr '+r);
+            console.log('tc '+r.cells);
             for (let c of row.cells){
                 console.log('c '+c);
             }
-            let td2 = row.cells[1];
+            let td2 = r.cells[1];
             console.log('td2 '+td2);
-            let ti = td2[0];
-            ti.value = v;
+            let inp = td2.firstChild;
+            inp.value = v;
         }
     }
 
