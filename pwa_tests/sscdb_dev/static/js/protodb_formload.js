@@ -101,6 +101,7 @@ window.intinputper = function(div, req){
     let t = document.createElement('table');
     div.appendChild(t);
     div.thesubtab = t;
+    ti.thesubtab = t;
 
     div.perval = function(pid){
         let tin = 'ti'+pid;
@@ -195,6 +196,15 @@ window.intinputpersetup = function(div){
 window.intinputperreset = function(ti){
     console.log('INT INPUT PER PERSON RESET');
     ti.value = '0';
+
+    let t = ti.thesubtab;
+
+    if (t.rows.length >= 1){
+        let tr0 = t.rows[0];
+        let td0 = tr0.cells[1];
+        let ti0 = td0.firstChild;
+        ti0.value = '0';
+    }
 }
 
 window.withotherreset = function(sel){
