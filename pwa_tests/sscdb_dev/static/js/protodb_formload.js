@@ -113,13 +113,13 @@ window.intinputper = function(div, req){
         return ti.value;
     }
 
-    ti.value = function(){
-        console.log('NU');
-        return 'NOT USED';
-    }
-    ti.setvalue = function(){
-        console.log('NUY');
-        return 'NOT USED YET';
+    div.setval = function(v){
+        if (t.rows.length >= 1){
+            let tr0 = t.rows[0];
+            let td0 = tr0.cells[1];
+            let ti0 = td0.firstChild;
+            ti0.value = v;
+        }
     }
 
     return ti;

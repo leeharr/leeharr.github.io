@@ -127,7 +127,10 @@ var Group = function(gid, name){
                 if (getrem){ console.log('checked: '+getrem.checked); }
                 let val = await cget(qattr);
                 console.log('REMval '+val);
-                if (sel.value instanceof Function){
+                if (div.perval instanceof Function){
+                    console.log('PERVAL '+val);
+                    div.setval(val);
+                } else if (sel.value instanceof Function){
                     console.log('FUNC');
                     sel.setvalue(val);
                 } else if (val){
