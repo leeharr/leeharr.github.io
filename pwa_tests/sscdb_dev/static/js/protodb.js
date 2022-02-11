@@ -745,15 +745,15 @@ var createsession = async function(){
             } else {
                 otha = '';
             }
-            //console.log('     a : '+sa[val]);
-            //console.log('OTHER? '+othq+' '+otha);
+            console.log('     a : '+sa[val]);
+            console.log('OTHER? '+othq+' '+otha);
             if (othq && otha){
                 subsel = div.children[2];
-                //console.log('sel '+sel);
+                console.log('sel '+sel);
                 sendval = 'OTHER: ' + subsel.value;
-                //console.log('val '+sendval);
+                console.log('val '+sendval);
 //                 sesdata[qattr+'str'] = val;
-                //subsel.value = '';
+                subsel.value = '';
             } else {
                 sendval = sa[val];
 //                 sesdata[qattr+'str'] = sa[val];
