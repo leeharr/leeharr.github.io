@@ -41,5 +41,6 @@
                 "Mentoring",
                 "Referral to Outside Agency",
                 "Other:"],
-        "multi": true}
+        "multi": true,
+        "areset": "selectmultireset"}
 ]

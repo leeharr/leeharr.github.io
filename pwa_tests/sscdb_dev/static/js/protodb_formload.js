@@ -407,7 +407,8 @@ var selectmulti = function(div, aas, req, selid){
 
     return sel;
 }
-var selectmultireset = function(sel){
+window.selectmultireset = function(sel){
+    console.log('SMR');
     let selid = sel.id;
     for (let i=0; i<sel.itemcount; i++){
         let cb = document.getElementById(selid+i);
@@ -437,7 +438,6 @@ var load_questions = async function(formid, questions, answers){
         let selid = formid + qa.qattr;
         if (qa.a && qa.multi){
             sel = selectmulti(div, qa.a, qa.req, selid);
-            sel['data-reset'] = selectmultireset;
         } else if (qa.a) {
             // multiple choice (has list of answers)
             let withother = checkforother(qa.a);
