@@ -109,20 +109,15 @@ window.intinputper = function(div, req){
     div.perval = function(pid){
         let tin = 'ti'+pid;
         console.log('perval('+pid+') tin '+tin+' oid '+objectId(t));
-        let ti = t[tin];
-        return ti.value;
+        let tint = t[tin];
+        return tint.value;
     }
 
     div.setval = function(v){
         console.log('ti setval --'+v);
         if (!v){v='0';}
         console.log('ti setval +-'+v);
-        if (t.rows.length >= 1){
-            let tr0 = t.rows[0];
-            let td0 = tr0.cells[1];
-            let ti0 = td0.firstChild;
-            ti0.value = v;
-        }
+        ti.value = '0';
     }
 
     return ti;
