@@ -99,6 +99,7 @@ window.intinputper = function(div, req){
     //ti.style.display = 'none';
     ti.value = '0';
     //div._ti0 = ti;
+    console.log('create ti0 objid '+objectId(ti));
 
     let t = document.createElement('table');
     div.appendChild(t);
@@ -198,6 +199,7 @@ window.intinputpersetup = function(div){
 window.intinputperreset = function(ti){
     console.log('INT INPUT PER PERSON RESET');
     ti.value = '0';
+    console.log('reset ti0 '+objectId(ti));
 
     let t = ti.thesubtab;
 
