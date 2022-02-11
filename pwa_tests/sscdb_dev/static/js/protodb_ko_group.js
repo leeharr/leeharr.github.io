@@ -120,15 +120,15 @@ var Group = function(gid, name){
 
             let getremid = 'remember_'+qattr;
             let getrem = document.getElementById(getremid);
-            //console.log('ggg '+getremid+' '+getrem+' '+div['data-remember']);
+            console.log('ggg '+getremid+' '+getrem+' '+div['data-remember']);
             if (getrem && getrem.checked || div['data-remember']===true){
                 // restore remembered value
-                //console.log('REM '+ div['data-remember']);
-                //if (getrem){ console.log('checked: '+getrem.checked); }
+                console.log('REM '+ div['data-remember']);
+                if (getrem){ console.log('checked: '+getrem.checked); }
                 let val = await cget(qattr);
-                //console.log('REMval '+val);
+                console.log('REMval '+val);
                 if (sel.value instanceof Function){
-                    //console.log('FUNC');
+                    console.log('FUNC');
                     sel.setvalue(val);
                 } else if (val){
                     sel.value = val;

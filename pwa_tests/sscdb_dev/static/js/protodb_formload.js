@@ -113,6 +113,15 @@ window.intinputper = function(div, req){
         return ti.value;
     }
 
+    ti.value = function(){
+        console.log('NU');
+        return 'NOT USED';
+    }
+    ti.setvalue = function(){
+        console.log('NUY');
+        return 'NOT USED YET';
+    }
+
     return ti;
 }
 window.intinputpersetup = function(div){
