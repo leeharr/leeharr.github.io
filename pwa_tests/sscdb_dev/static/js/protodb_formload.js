@@ -114,6 +114,7 @@ window.intinputper = function(div, req){
     }
 
     div.setval = function(v){
+        if (!v){v='0';}
         if (t.rows.length >= 1){
             let tr0 = t.rows[0];
             let td0 = tr0.cells[1];
