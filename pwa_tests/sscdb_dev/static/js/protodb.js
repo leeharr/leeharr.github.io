@@ -723,13 +723,13 @@ var createsession = async function(){
     //sesdata['staffname'] = vm.staffname();
     //sesdata['positionstr'] = vm.positionname();
     var form = document.getElementById('newstaff_questions');
-    //console.log('=STAFF QUESTIONS=');
+    console.log('=STAFF QUESTIONS=');
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
-        //console.log('qattr : '+qattr);
+        console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
-        //console.log('   val : '+val);
+        console.log('   val : '+val);
 
         if (!val instanceof Function){
             sesdata[qattr+'id'] = val;
