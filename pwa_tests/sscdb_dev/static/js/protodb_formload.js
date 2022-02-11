@@ -405,7 +405,7 @@ var selectmulti = function(div, aas, req, selid){
         let retvals = [];
         for (let i=0; i<sel.itemcount; i++){
             let cb = document.getElementById(selid+i);
-            if (cb.checked){
+            if (cb && cb.checked){
                 let lbls = cb.labels;
                 let lbl = lbls[0];
                 let v = lbl.innerHTML;
@@ -422,7 +422,9 @@ window.selectmultireset = function(sel){
     let selid = sel.id;
     for (let i=0; i<sel.itemcount; i++){
         let cb = document.getElementById(selid+i);
-        cb.checked = false;
+        if (cb){
+            cb.checked = false;
+        }
     }
 }
 
