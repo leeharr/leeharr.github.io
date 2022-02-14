@@ -736,10 +736,13 @@ var createsession = async function(){
         }
         let sa = staff_answers[qattr];
         let sendval;
-
-// Use agencyname (which accounts for Other:)
         if (qattr=='agency'){
+            // Use agencyname (which accounts for Other:)
             sendval = vm.agencyname();
+        } else if (sa){
+            sendval = sa[val];
+        } else {
+            sendval = val;
         }
 
         let sendas = sel['sendas'];
