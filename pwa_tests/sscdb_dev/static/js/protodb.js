@@ -750,7 +750,7 @@ var createsession = async function(){
             console.log('     a : '+sa[val]);
             console.log('OTHER? '+othq+' '+otha);
             if (othq && otha){
-                subsel = div.children[2];
+                let subsel = div.children[2];
                 console.log('sel '+sel);
                 sendval = 'OTHER: ' + subsel.value;
                 console.log('val '+sendval);
