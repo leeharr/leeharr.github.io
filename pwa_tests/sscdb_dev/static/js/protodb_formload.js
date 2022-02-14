@@ -543,15 +543,16 @@ var load_questions = async function(formid, questions, answers){
             sel['data-setup'] = window[qa.asetup];
         }
 
-        if (qa.req === true){
+        if (qa.req){
             sel.required = true;
             let qreq = document.createElement('span');
             qreq.innerHTML = '*';
             qreq.setAttribute('class', 'qreq');
             qspan.appendChild(qreq);
             div.setAttribute('class', 'qdiv qdivreq');
-        } else if (qa.req){
-            sel['data-req'] = window[qa.req];
+            if (qa.req !== true){
+                sel['data-req'] = window[qa.req];
+            }
         } else if (qa.a) {
             // not required, but select widget is being used
             // set up the empty value
