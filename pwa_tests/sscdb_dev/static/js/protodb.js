@@ -737,31 +737,9 @@ var createsession = async function(){
         let sa = staff_answers[qattr];
         let sendval;
 
-// NEED TO LOOK FOR OTHER IN STAFF Qs
-        let othq;
-        let otha;
-        if (sa){
-            othq = checkforother(sa);
-            if (othq){
-                otha = othery(sa[val]);
-            } else {
-                otha = '';
-            }
-            console.log('     a : '+sa[val]);
-            console.log('OTHER? '+othq+' '+otha);
-            if (othq && otha){
-                let subsel = div.children[2];
-                console.log('sel '+sel);
-                sendval = 'OTHER: ' + subsel.value;
-                console.log('val '+sendval);
-//                 sesdata[qattr+'str'] = val;
-                subsel.value = '';
-            } else {
-                sendval = sa[val];
-//                 sesdata[qattr+'str'] = sa[val];
-            }
-        } else {
-            sendval = val;
+// Use agencyname (which accounts for Other:)
+        if (qattr=='agency'){
+            sendval = vm.agencyname();
         }
 
         let sendas = sel['sendas'];
