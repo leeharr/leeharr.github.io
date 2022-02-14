@@ -103,7 +103,7 @@ var Group = function(gid, name){
             let div = fc[i];
             let qattr = div['data-qattr'];
             if (!qattr){ continue; }
-            //console.log('qat '+qattr);
+            console.log('qat '+qattr);
             //console.log('div '+div.id+' '+div);
             //console.log('divval '+div.value);
             let sel = div.children[1];
