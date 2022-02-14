@@ -438,6 +438,19 @@ window.selectmultireset = function(sel){
         }
     }
 }
+window.selectmultireq = function(sel){
+    console.log('SMREQ');
+    let selid = sel.id;
+    for (let i=0; i<sel.itemcount; i++){
+        let cb = document.getElementById(selid+i);
+        if (cb && cb.checked){
+            console.log('+found one');
+            return true;
+        }
+    }
+    console.log('-NONE');
+    return false;
+}
 
 var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);
@@ -530,13 +543,15 @@ var load_questions = async function(formid, questions, answers){
             sel['data-setup'] = window[qa.asetup];
         }
 
-        if (qa.req){
+        if (qa.req === true){
             sel.required = true;
             let qreq = document.createElement('span');
             qreq.innerHTML = '*';
             qreq.setAttribute('class', 'qreq');
             qspan.appendChild(qreq);
             div.setAttribute('class', 'qdiv qdivreq');
+        } else if (qa.req){
+            sel['data-req'] = window[qa.req];
         } else if (qa.a) {
             // not required, but select widget is being used
             // set up the empty value

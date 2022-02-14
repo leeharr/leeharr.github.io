@@ -545,6 +545,14 @@ var chkcreatesession = function(){
         let qattr = div['data-qattr'];
         //console.log('ck count on qattr : '+qattr);
         let sel = div.children[1];
+
+        if (sel['data-req']){
+            let valid = sel['data-req'](sel);
+            if (!valid){
+                return;
+            }
+        }
+
         if (!sel['countok']){
             //console.log('  NO CK');
             continue;
