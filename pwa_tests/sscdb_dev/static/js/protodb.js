@@ -738,6 +738,8 @@ var createsession = async function(){
         let sendval;
 
 // NEED TO LOOK FOR OTHER IN STAFF Qs
+        let othq;
+        let otha;
         if (sa){
             othq = checkforother(sa);
             if (othq){
