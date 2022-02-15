@@ -449,6 +449,7 @@ window.selectmultireq = function(sel){
         }
     }
     console.log('-NONE');
+    sel.setCustomValidity('Select at least one service provided.');
     return false;
 }
 
