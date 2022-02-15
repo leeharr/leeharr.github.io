@@ -438,11 +438,14 @@ window.selectmultireset = function(sel){
         }
     }
 }
-window.selectmultireq = function(sel){
-    console.log('SMREQ');
+window.selectmultireq = function(sel, reset){
+    console.log('SMREQ '+reset);
     let selid = sel.id;
     let cb0 = document.getElementById(selid+'0');
-    cb0.setCustomValidity('');
+    if (reset){
+        cb0.setCustomValidity('');
+        return;
+    }
     for (let i=0; i<sel.itemcount; i++){
         let cb = document.getElementById(selid+i);
         if (cb && cb.checked){

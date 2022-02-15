@@ -551,6 +551,7 @@ var chkcreatesession = function(){
             if (!valid){
                 let therealform = document.getElementById('newgroup');
                 therealform.reportValidity();
+                sel['data-req'](sel, true);
                 return;
             }
         }
