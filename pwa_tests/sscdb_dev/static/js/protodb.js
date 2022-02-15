@@ -549,6 +549,7 @@ var chkcreatesession = function(){
         if (sel['data-req']){
             let valid = sel['data-req'](sel);
             if (!valid){
+                form.reportValidity();
                 return;
             }
         }
