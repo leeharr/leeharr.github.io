@@ -441,6 +441,8 @@ window.selectmultireset = function(sel){
 window.selectmultireq = function(sel){
     console.log('SMREQ');
     let selid = sel.id;
+    let cb0 = document.getElementById(selid+'0');
+    cb0.setCustomValidity('');
     for (let i=0; i<sel.itemcount; i++){
         let cb = document.getElementById(selid+i);
         if (cb && cb.checked){
@@ -449,7 +451,6 @@ window.selectmultireq = function(sel){
         }
     }
     console.log('-NONE');
-    let cb0 = document.getElementById(selid+'0');
     cb0.setCustomValidity('Select at least one service provided.');
     return false;
 }
