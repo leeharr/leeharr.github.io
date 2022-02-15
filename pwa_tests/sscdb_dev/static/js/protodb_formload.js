@@ -438,14 +438,9 @@ window.selectmultireset = function(sel){
         }
     }
 }
-window.selectmultireq = function(sel, reset){
+window.selectmultireq = function(sel){
     console.log('SMREQ '+reset);
     let selid = sel.id;
-    let cb0 = document.getElementById(selid+'0');
-    if (reset){
-        cb0.setCustomValidity('');
-        return;
-    }
     for (let i=0; i<sel.itemcount; i++){
         let cb = document.getElementById(selid+i);
         if (cb && cb.checked){
@@ -454,8 +449,11 @@ window.selectmultireq = function(sel, reset){
         }
     }
     console.log('-NONE');
-    cb0.setCustomValidity('Select at least one service provided.');
     return false;
+}
+window.selectmultierr = function(sel){
+    sel.classList.add('qdiverr');
+    setTimeout(sel.scrollIntoView, 300);
 }
 
 var load_questions = async function(formid, questions, answers){
@@ -563,6 +561,10 @@ var load_questions = async function(formid, questions, answers){
             // not required, but select widget is being used
             // set up the empty value
             qa.a[""] = "";
+        }
+
+        if (qa.err){
+            sel['data-err'] = window[qa.err];
         }
 
         if (qa.placeholder){

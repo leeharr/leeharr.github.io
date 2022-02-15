@@ -549,9 +549,7 @@ var chkcreatesession = function(){
         if (sel['data-req']){
             let valid = sel['data-req'](sel);
             if (!valid){
-                let therealform = document.getElementById('newgroup');
-                therealform.reportValidity();
-                sel['data-req'](sel, true);
+                sel['data-err'](sel);
                 return;
             }
         }
@@ -839,10 +837,6 @@ var createsession = async function(){
     setTimeout(sendalltosheet, 1000);
     setTimeout(checkdone, 200);
     setTimeout(scrolltop, 500);
-}
-
-var scrolltop = function(){
-    window.scrollTo(0, 0);
 }
 
 var checkdone = function(){

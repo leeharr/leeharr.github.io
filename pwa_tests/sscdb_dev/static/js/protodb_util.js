@@ -150,3 +150,10 @@ function objectId(obj) {
     if (obj.__obj_id==null) obj.__obj_id=__next_objid++;
     return obj.__obj_id;
 }
+
+var scrolltop = function(){
+    window.scrollTo(0, 0);
+}
+var scrollto = function(elem){
+    elem.scrollIntoView();
+}
