@@ -449,7 +449,8 @@ window.selectmultireq = function(sel){
         }
     }
     console.log('-NONE');
-    sel.setCustomValidity('Select at least one service provided.');
+    let cb0 = document.getElementById(selid+'0');
+    cb0.setCustomValidity('Select at least one service provided.');
     return false;
 }
 
