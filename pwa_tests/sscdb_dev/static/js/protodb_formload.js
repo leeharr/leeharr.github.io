@@ -439,7 +439,7 @@ window.selectmultireset = function(sel){
     }
 }
 window.selectmultireq = function(sel){
-    console.log('SMREQ '+reset);
+    console.log('SMREQ');
     let selid = sel.id;
     for (let i=0; i<sel.itemcount; i++){
         let cb = document.getElementById(selid+i);
