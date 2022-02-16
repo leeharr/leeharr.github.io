@@ -456,7 +456,7 @@ window.selectmultierr = function(div){
     let sel = div.children[1];
     let selid = sel.id;
     let cb0 = document.getElementById(selid+'0');
-    setTimeout(cb0.scrollIntoView, 300);
+    cb0.scrollIntoView();
 }
 
 var load_questions = async function(formid, questions, answers){
