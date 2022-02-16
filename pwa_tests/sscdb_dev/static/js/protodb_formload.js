@@ -242,6 +242,9 @@ window.intinputperreq = function(div){
     }
     return true;
 }
+window.intinputpererr = function(div){
+    console.log('IIPErr');
+}
 
 window.withotherreset = function(sel){
     // used by select elements that have an "Other" option

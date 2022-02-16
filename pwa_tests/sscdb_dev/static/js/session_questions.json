@@ -23,6 +23,7 @@
         "qattr": "su",
         "sendas": "Service Units",
         "req": "intinputperreq",
+        "err": "intinputpererr",
         "remember": "offer",
         "af": "intinputper",
         "asetup": "intinputpersetup",
