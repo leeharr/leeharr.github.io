@@ -451,9 +451,9 @@ window.selectmultireq = function(sel){
     console.log('-NONE');
     return false;
 }
-window.selectmultierr = function(sel){
-    sel.classList.add('qdiverr');
-    setTimeout(sel.scrollIntoView, 300);
+window.selectmultierr = function(div){
+    div.classList.add('qdiverr');
+    setTimeout(div.scrollIntoView, 300);
 }
 
 var load_questions = async function(formid, questions, answers){
