@@ -458,6 +458,10 @@ var selectmulti = function(div, aas, req, selid){
 }
 window.selectmultireset = function(sel){
     console.log('SMR');
+
+    let div = sel.parentElement;
+    div.classList.remove('qdiverr');
+
     let selid = sel.id;
     for (let i=0; i<sel.itemcount; i++){
         let cb = document.getElementById(selid+i);
