@@ -451,9 +451,11 @@ window.selectmultireq = function(sel){
     console.log('-NONE');
     return false;
 }
-window.selectmultierr = function(div){
+window.selectmultierr = function(sel){
     div.classList.add('qdiverr');
-    setTimeout(div.scrollIntoView, 300);
+    let selid = sel.id;
+    let cb0 = document.getElementById(selid+'0');
+    setTimeout(cb0.scrollIntoView, 300);
 }
 
 var load_questions = async function(formid, questions, answers){
