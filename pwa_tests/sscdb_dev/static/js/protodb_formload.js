@@ -222,7 +222,7 @@ window.intinputperreq = function(div){
     let t = div.thesubtab;
 
     if (t.rows.length >= 1){
-        for (let i=0; i<t.rows.length; i++){
+        for (let i=1; i<t.rows.length; i++){
             let r = t.rows[i];
             console.log('Itr '+r);
             console.log('Itc '+r.cells);
