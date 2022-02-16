@@ -22,7 +22,7 @@
     {"q": "Service Units This Month (1SU = 15 minutes)",
         "qattr": "su",
         "sendas": "Service Units",
-        "req": true,
+        "req": "intinputperreq",
         "remember": "offer",
         "af": "intinputper",
         "asetup": "intinputpersetup",

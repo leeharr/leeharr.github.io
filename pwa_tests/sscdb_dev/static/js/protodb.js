@@ -547,7 +547,7 @@ var chkcreatesession = function(){
         let sel = div.children[1];
 
         if (sel['data-req']){
-            let valid = sel['data-req'](sel);
+            let valid = sel['data-req'](div);
             if (!valid){
                 sel['data-err'](div);
                 return;

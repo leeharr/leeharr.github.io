@@ -217,6 +217,31 @@ window.intinputperreset = function(ti){
         ti0.value = '0';
     }
 }
+window.intinputperreq = function(div){
+    console.log('IIPReq');
+    let t = div.thesubtab;
+
+    if (t.rows.length >= 1){
+        for (let i=0; i<t.rows.length; i++){
+            let r = t.rows[i];
+            console.log('Itr '+r);
+            console.log('Itc '+r.cells);
+            for (let c of r.cells){
+                console.log('Ic '+c);
+            }
+            let td2 = r.cells[1];
+            console.log('Itd2 '+td2);
+            let inp = td2.firstChild;
+            let v = inp.value;
+            console.log('Iv'+v);
+            if (!v || parseInt(v)<=0){
+                console.log('NO');
+                return false;
+            }
+        }
+    }
+    return true;
+}
 
 window.withotherreset = function(sel){
     // used by select elements that have an "Other" option
@@ -438,8 +463,9 @@ window.selectmultireset = function(sel){
         }
     }
 }
-window.selectmultireq = function(sel){
+window.selectmultireq = function(div){
     console.log('SMREQ');
+    let sel = div.children[1];
     let selid = sel.id;
     for (let i=0; i<sel.itemcount; i++){
         let cb = document.getElementById(selid+i);
