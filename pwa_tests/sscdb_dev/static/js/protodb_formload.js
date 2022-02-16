@@ -451,8 +451,9 @@ window.selectmultireq = function(sel){
     console.log('-NONE');
     return false;
 }
-window.selectmultierr = function(sel){
+window.selectmultierr = function(div){
     div.classList.add('qdiverr');
+    let sel = div.children[1];
     let selid = sel.id;
     let cb0 = document.getElementById(selid+'0');
     setTimeout(cb0.scrollIntoView, 300);
