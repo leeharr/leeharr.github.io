@@ -244,6 +244,7 @@ window.intinputperreq = function(div){
 }
 window.intinputpererr = function(div){
     console.log('IIPErr');
+    div.classList.add('qdiverr');
 }
 
 window.withotherreset = function(sel){
