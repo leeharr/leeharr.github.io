@@ -440,7 +440,7 @@ var selectmulti = function(div, aas, req, selid){
             ti.type = 'text';
             ti.required = false; // will be set later if 'Other' is selected
             ti.style.visibility = 'hidden'; // will reveal later
-            div.appendChild(ti);
+            sel.appendChild(ti);
             ti.id = selid + '_other';
             sel._relother = ti;
 
@@ -473,7 +473,13 @@ var selectmulti = function(div, aas, req, selid){
                 let lbls = cb.labels;
                 let lbl = lbls[0];
                 let v = lbl.innerHTML;
-                retvals.push(v);
+                let pv;
+                if (othery(v)){
+                    pv = 'Other: '+v
+                } else {
+                    pv = v;
+                }
+                retvals.push(pv);
             }
         }
         return retvals;
