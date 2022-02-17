@@ -144,7 +144,7 @@ window.intinputpersetup = function(div){
     td1.innerHTML = '<b>Set All:</b>';
     tr.appendChild(td1);
 
-    //let ti = div._ti0;
+    let ti0 = div.firstChild;
     //console.log('iis ti id '+ti.id);
     let ti = document.createElement('input');
     let td2 = document.createElement('td');
@@ -171,6 +171,7 @@ window.intinputpersetup = function(div){
             let inp = td2.firstChild;
             inp.value = v;
         }
+        ti0.value = v;
     }
 
     let ppl = vm.people();
