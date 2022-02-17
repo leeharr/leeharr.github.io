@@ -650,6 +650,7 @@ var createsession = async function(){
             sel.value = '';
         } else if (div.perval){
             perpersons[qattr] = div;
+            theval = sel.value;
         } else if (val instanceof Function){
             //console.log('VAL FUNC '+qattr);
             theval = val();
