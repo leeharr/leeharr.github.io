@@ -472,6 +472,7 @@ window.selectmultireset = function(sel){
 }
 window.selectmultireq = function(div){
     console.log('SMREQ');
+    div.classList.remove('qdiverr');
     let sel = div.children[1];
     let selid = sel.id;
     for (let i=0; i<sel.itemcount; i++){
