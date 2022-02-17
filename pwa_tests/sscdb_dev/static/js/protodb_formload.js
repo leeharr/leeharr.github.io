@@ -96,9 +96,9 @@ window.intinputper = function(div, req){
 //         ti.required = true;
 //     }
     div.appendChild(ti);
-    ti.style.display = 'none';
+    //ti.style.display = 'none';
     ti.value = '0';
-    //div._ti0 = ti;
+    div._ti0 = ti;
     console.log('create ti0 objid '+objectId(ti));
 
     let t = document.createElement('table');
@@ -144,7 +144,7 @@ window.intinputpersetup = function(div){
     td1.innerHTML = '<b>Set All:</b>';
     tr.appendChild(td1);
 
-    let ti0 = div.firstChild;
+    let ti0 = div._ti0;
     //console.log('iis ti id '+ti.id);
     let ti = document.createElement('input');
     let td2 = document.createElement('td');
