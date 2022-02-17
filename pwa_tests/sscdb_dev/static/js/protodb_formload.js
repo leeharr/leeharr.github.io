@@ -475,7 +475,7 @@ var selectmulti = function(div, aas, req, selid){
                 let v = lbl.innerHTML;
                 let pv;
                 if (othery(v)){
-                    pv = 'Other: '+v
+                    pv = 'Other: ' + sel._relother.value;
                 } else {
                     pv = v;
                 }
