@@ -207,6 +207,8 @@ window.intinputperreset = function(ti){
     console.log('INT INPUT PER PERSON RESET');
     ti.value = '0';
     console.log('reset ti0 '+objectId(ti));
+    let div = ti.parentElement;
+    div.classList.remove('qdiverr');
 
     let t = ti.thesubtab;
 
