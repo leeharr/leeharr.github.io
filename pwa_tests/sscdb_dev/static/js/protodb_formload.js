@@ -460,7 +460,7 @@ var selectmulti = function(div, aas, req, selid){
         let br = document.createElement('br');
         sel.appendChild(br);
 
-        sel.itemcount = i;
+        sel.itemcount = i+1;
     }
 
     sel.value = function(){
