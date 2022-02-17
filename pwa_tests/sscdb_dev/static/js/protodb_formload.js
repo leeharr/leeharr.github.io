@@ -435,6 +435,28 @@ var selectmulti = function(div, aas, req, selid){
         lbl.htmlFor = selid+i;
         sel.appendChild(lbl);
 
+        if (othery(a)){
+            let ti = document.createElement('input');
+            ti.type = 'text';
+            ti.required = false; // will be set later if 'Other' is selected
+            ti.style.visibility = 'hidden'; // will reveal later
+            div.appendChild(ti);
+            ti.id = selid + '_other';
+            sel._relother = ti;
+
+            cb.onchange = function(){
+                let ckd = cb.checked;
+                //console.log('TI ONCH '+txt+'#');
+                if (ckd){
+                    ti.style.visibility = 'visible';
+                    ti.required = true;
+                } else {
+                    ti.style.visibility = 'hidden';
+                    ti.required = false;
+                }
+            }
+        }
+
         let br = document.createElement('br');
         sel.appendChild(br);
 
