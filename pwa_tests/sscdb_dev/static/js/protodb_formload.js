@@ -117,7 +117,7 @@ window.intinputper = function(div, req){
         console.log('ti setval --'+v);
         if (!v){v='0';}
         console.log('ti setval +-'+v);
-        ti.value = '0';
+        ti.value = v;
     }
 
     return ti;
