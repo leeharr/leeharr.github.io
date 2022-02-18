@@ -487,6 +487,10 @@ var selectmulti = function(div, aas, req, selid){
         return retvals;
     }
 
+    sel.setvalue = function(){
+        console.log('SEL MUL SETVAL');
+    }
+
     return sel;
 }
 window.selectmultireset = function(sel){
