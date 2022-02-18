@@ -130,6 +130,9 @@ var Group = function(gid, name){
                 if (div.perval instanceof Function){
                     console.log('PERVAL '+val);
                     div.setval(val);
+                    if (sel['data-reset']){
+                        sel['data-reset'](sel);
+                    }
                 } else if (sel.value instanceof Function){
                     console.log('FUNC');
                     sel.setvalue(val);
