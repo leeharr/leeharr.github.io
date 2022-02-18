@@ -127,7 +127,7 @@ window.intinputpersetup = function(div){
     console.log('INT INPUT PER PERSON SETUP '+objectId(div)+' sd '+objectId(t));
     console.log('TABLE');
 
-    let currval = 0;
+    let currval = div._ti0.value;
     if (t.rows.length >= 1){
         let tr0 = t.rows[0];
         let td0 = tr0.cells[1];
