@@ -159,7 +159,7 @@ var Group = function(gid, name){
                 }
 
             } else if (sel['data-reset']) {
-                console.log('SDR');
+                console.log('SDR '+qattr);
                 sel['data-reset'](sel);
             } else {
                 console.log('NOA');
