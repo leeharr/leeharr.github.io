@@ -34,6 +34,7 @@
         "sendas": "Services Provided",
         "req": "selectmultireq",
         "err": "selectmultierr",
+        "remember": "offer",
         "a": ["College Prep.",
                 "Crisis Intervention",
                 "Drug/Alcohol Assessment/Counseling",
