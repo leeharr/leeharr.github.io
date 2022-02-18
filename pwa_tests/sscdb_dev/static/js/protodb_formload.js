@@ -213,11 +213,12 @@ window.intinputperreset = function(ti){
 
     let t = ti.thesubtab;
 
+    let currval = div._ti0.value;
     if (t.rows.length >= 1){
         let tr0 = t.rows[0];
         let td0 = tr0.cells[1];
         let ti0 = td0.firstChild;
-        ti0.value = '0';
+        ti0.value = currval;
     }
 }
 window.intinputperreq = function(div){
