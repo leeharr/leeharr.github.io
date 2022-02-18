@@ -489,7 +489,7 @@ var selectmulti = function(div, aas, req, selid){
 
     sel.setvalue = function(val){
         console.log('SEL MUL SETVAL '+val);
-        for (v of val){
+        for (let v of val){
             console.log('ck '+v);
         }
     }
