@@ -128,11 +128,24 @@ window.intinputpersetup = function(div){
     console.log('TABLE');
 
     let currval = div._ti0.value;
+    let currvals = {}
     if (t.rows.length >= 1){
         let tr0 = t.rows[0];
         let td0 = tr0.cells[1];
         let ti0 = td0.firstChild;
         currval = ti0.value;
+
+        for (let r of t.rows){
+            let td = r.cells[1];
+            let ti = td.firstChild;
+            if (ti.hasOwnProperty('_pid')){
+                let pid = ti._pid;
+                let cv = ti.value;
+                currvals[pid] = cv;
+            }
+        }
+        console.log('TI0val '+currval);
+        console.log('o vals '+currvals);
     }
 
     removeAllChildNodes(t);
