@@ -500,7 +500,7 @@ var selectmulti = function(div, aas, req, selid){
             if (val.includes(v) || (co&&ov)){
                 console.log('found: '+v);
                 cb.checked = true;
-                if (co){
+                if (ov){
                     cb.onchange();
                     let othv = v.substr(7);
                     sel._relother.value = othv;
