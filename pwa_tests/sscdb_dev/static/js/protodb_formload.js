@@ -495,7 +495,7 @@ var selectmulti = function(div, aas, req, selid){
             let lbls = cb.labels;
             let lbl = lbls[0];
             let v = lbl.innerHTML;
-            if (val.includes(v)){
+            if (val.includes(v) || (othery(v)&&sel._relother)){
                 console.log('found: '+v);
             }
         }
