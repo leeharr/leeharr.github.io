@@ -497,6 +497,7 @@ var selectmulti = function(div, aas, req, selid){
             let v = lbl.innerHTML;
             if (val.includes(v) || (othery(v)&&sel._relother)){
                 console.log('found: '+v);
+                cb.checked = true;
             }
         }
     }
