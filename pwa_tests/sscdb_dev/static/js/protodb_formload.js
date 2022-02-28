@@ -490,16 +490,20 @@ var selectmulti = function(div, aas, req, selid){
     sel.setvalue = function(val){
         console.log('SEL MUL SETVAL '+val);
         let selid = sel.id;
+        let co = checkforother(val);
         for (let i=0; i<sel.itemcount; i++){
             let cb = document.getElementById(selid+i);
             let lbls = cb.labels;
             let lbl = lbls[0];
             let v = lbl.innerHTML;
-            if (val.includes(v) || (othery(v)&&sel._relother)){
+            let ov = othery(v)
+            if (val.includes(v) || (co&&ov)){
                 console.log('found: '+v);
                 cb.checked = true;
-                if (cb.onchange instanceof Function){
+                if (co){
                     cb.onchange();
+                    let othv = v.substr(7);
+                    sel._relother.value = othv;
                 }
             }
         }
