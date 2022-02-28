@@ -498,6 +498,7 @@ var selectmulti = function(div, aas, req, selid){
             if (val.includes(v) || (othery(v)&&sel._relother)){
                 console.log('found: '+v);
                 cb.checked = true;
+                cb.fireEvent('onchange');
             }
         }
     }
