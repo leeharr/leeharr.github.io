@@ -498,11 +498,12 @@ var selectmulti = function(div, aas, req, selid){
             let v = lbl.innerHTML;
             let ov = othery(v)
             if (val.includes(v) || (co&&ov)){
-                console.log('found: '+v);
+                console.log('found: '+v+' co&&ov' + co +':'+ov);
                 cb.checked = true;
                 if (ov){
                     cb.onchange();
                     let othv = v.substr(7);
+                    console.log('  set othv '+othv);
                     sel._relother.value = othv;
                 }
             }
