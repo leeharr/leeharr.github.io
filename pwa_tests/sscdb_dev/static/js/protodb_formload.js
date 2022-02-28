@@ -489,8 +489,15 @@ var selectmulti = function(div, aas, req, selid){
 
     sel.setvalue = function(val){
         console.log('SEL MUL SETVAL '+val);
-        for (let v of val){
-            console.log('ck '+v);
+        let selid = sel.id;
+        for (let i=0; i<sel.itemcount; i++){
+            let cb = document.getElementById(selid+i);
+            let lbls = cb.labels;
+            let lbl = lbls[0];
+            let v = lbl.innerHTML;
+            if (val.includes(v)){
+                console.log('found: '+v);
+            }
         }
     }
 
