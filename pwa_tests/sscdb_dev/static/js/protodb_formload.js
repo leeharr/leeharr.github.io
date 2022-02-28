@@ -502,7 +502,7 @@ var selectmulti = function(div, aas, req, selid){
                 cb.checked = true;
                 if (ov){
                     cb.onchange();
-                    let othv = v.substr(7);
+                    let othv = otherval(val);
                     console.log('  set othv '+othv);
                     sel._relother.value = othv;
                 }

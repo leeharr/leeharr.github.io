@@ -32,6 +32,15 @@ var checkforother = function(answers){
     }
     return false;
 }
+var otherval = function(answers){
+    for (let i=0; i<answers.length; i++){
+        let ans = answers[i];
+        if (othery(ans)){
+            return ans.substr(7);
+        }
+    }
+    return '';
+}
 
 var reset_session_questions = function(){
     let form = document.getElementById('newsession_questions');
