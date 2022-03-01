@@ -145,7 +145,9 @@ window.intinputpersetup = function(div){
             }
         }
         console.log('TI0val '+currval);
-        console.log('o vals '+currvals);
+        for (let o of currvals){
+            console.log('  o val '+o);
+        }
     }
 
     removeAllChildNodes(t);
