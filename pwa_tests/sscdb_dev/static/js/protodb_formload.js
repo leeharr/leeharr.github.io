@@ -206,7 +206,6 @@ window.intinputpersetup = function(div){
 
             let ti = document.createElement('input');
             let td2 = document.createElement('td');
-            let pid = p.pid();
             ti.type = 'number';
             if (pid in currvals){
                 ti.value = currvals[pid];
