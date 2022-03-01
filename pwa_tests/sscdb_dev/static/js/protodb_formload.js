@@ -210,6 +210,7 @@ window.intinputpersetup = function(div){
             ti.value = currval;
             ti.min = '0';
             ti.max = '999';
+            ti._pid = p.pid();
             ti.classList.add('su');
             td2.appendChild(ti);
             tr.appendChild(td2)
