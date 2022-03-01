@@ -141,7 +141,11 @@ window.intinputpersetup = function(div){
             if (ti.hasOwnProperty('_pid')){
                 let pid = ti._pid;
                 let cv = ti.value;
-                currvals[pid] = cv;
+                if (pid in currvals){
+                    ti.value = currvals[pid];
+                } else {
+                    currvals[pid] = cv;
+                }
             }
         }
         console.log('TI0val '+currval);
