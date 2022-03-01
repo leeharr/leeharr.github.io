@@ -141,11 +141,7 @@ window.intinputpersetup = function(div){
             if (ti.hasOwnProperty('_pid')){
                 let pid = ti._pid;
                 let cv = ti.value;
-                if (pid in currvals){
-                    ti.value = currvals[pid];
-                } else {
-                    currvals[pid] = cv;
-                }
+                currvals[pid] = cv;
             }
         }
         console.log('TI0val '+currval);
@@ -210,11 +206,16 @@ window.intinputpersetup = function(div){
 
             let ti = document.createElement('input');
             let td2 = document.createElement('td');
+            let pid = p.pid();
             ti.type = 'number';
-            ti.value = currval;
+            if (pid in currvals){
+                ti.value = currvals[pid];
+            } else {
+                ti.value = currval;
+            }
             ti.min = '0';
             ti.max = '999';
-            ti._pid = p.pid();
+            ti._pid = pid;
             ti.classList.add('su');
             td2.appendChild(ti);
             tr.appendChild(td2)
