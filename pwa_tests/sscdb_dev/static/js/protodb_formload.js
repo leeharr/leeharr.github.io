@@ -145,8 +145,8 @@ window.intinputpersetup = function(div){
             }
         }
         console.log('TI0val '+currval);
-        for (let o of currvals){
-            console.log('  o val '+o);
+        for (let o of Object.keys(currvals)){
+            console.log('  o val '+o+': '+currvals[o]);
         }
     }
 
