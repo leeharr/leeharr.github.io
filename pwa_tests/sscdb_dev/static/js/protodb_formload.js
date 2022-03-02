@@ -517,7 +517,7 @@ var selectmulti = function(div, aas, req, selid){
             let lbl = lbls[0];
             let v = lbl.innerHTML;
             let ov = othery(v)
-            if (! val.hasOwnProperty('includes')){
+            if (!val.includes){
                 // old-style setting. Ignore.
                 console.log('Old-style');
             } else if (val.includes(v) || (co&&ov)){
