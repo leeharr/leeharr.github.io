@@ -519,6 +519,7 @@ var selectmulti = function(div, aas, req, selid){
             let ov = othery(v)
             if (! val.hasOwnProperty('includes')){
                 // old-style setting. Ignore.
+                console.log('Old-style');
             } else if (val.includes(v) || (co&&ov)){
                 console.log('found: '+v+' co&&ov' + co +':'+ov);
                 cb.checked = true;
