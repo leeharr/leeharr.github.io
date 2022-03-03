@@ -87,6 +87,7 @@ var Person = function(pid, lname, fname, grade){
                     }
                 }
             }
+            return true;
         } else {
             //console.log('NOboxes');
             await self.showperson();
