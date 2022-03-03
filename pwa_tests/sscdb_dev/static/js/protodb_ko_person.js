@@ -63,9 +63,11 @@ var Person = function(pid, lname, fname, grade){
             let cb = document.querySelector(ngpid);
             let change = false;
             if (cb.checked){
+                console.log('checked');
                 cb.checked = false;
                 change = true;
             } else if (self.active()) {
+                console.log('active');
                 // can uncheck inactive person,
                 // but cannot check inactive person
                 cb.checked = true;
