@@ -54,12 +54,12 @@ var Person = function(pid, lname, fname, grade){
         }
 
         if (vm.showpersoncheckboxes()){
-            //console.log('boxes');
+            console.log('boxes');
             let g = vm.selectedgroup();
             if (g && !g.active()){ return; }
 
             let ngpid = idbase + self.pid();
-            //console.log(ngpid);
+            console.log(ngpid);
             let cb = document.querySelector(ngpid);
             let change = false;
             if (cb.checked){
