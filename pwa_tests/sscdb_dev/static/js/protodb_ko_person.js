@@ -30,7 +30,7 @@ var Person = function(pid, lname, fname, grade){
         return '';
     });
 
-    self.checkorshowperson = async function(){
+    self.checkorshowperson = async function(e){
         // depending on context, either
         // set checkbox on this person's line
         //  (if editing group members, or session members)
@@ -42,7 +42,7 @@ var Person = function(pid, lname, fname, grade){
         //  the per person setup should also run
         //  whenever the checkbox state changes
 
-        console.log('COSP');
+        console.log('COSP '+e+' '+e.target);
         let idbase;
         let is_sess = vm.showgroupsession();
         if (is_sess){
