@@ -143,6 +143,6 @@ var Person = function(pid, lname, fname, grade){
     }
 }
 
-var cbchange = function(){
-    console.log('cbc');
+var cbchange = function(e){
+    console.log('cbc '+e+' : '+e.target+' :: '+e.target.id);
 }
