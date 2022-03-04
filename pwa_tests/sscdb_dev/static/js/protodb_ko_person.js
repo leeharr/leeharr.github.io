@@ -42,6 +42,7 @@ var Person = function(pid, lname, fname, grade){
         //  the per person setup should also run
         //  whenever the checkbox state changes
 
+        e.persist();
         console.log('COSP '+e+' '+e.target);
         let idbase;
         let is_sess = vm.showgroupsession();
