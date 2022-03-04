@@ -76,18 +76,7 @@ var Person = function(pid, lname, fname, grade){
             if (!is_sess && change){
                 vm.setchange();
             } else if (is_sess && change){
-                let form = document.getElementById('newsession_questions');
-                let fc = Array.from(form.children);
-                for (let i=0; i<fc.length; i++){
-                    let div = fc[i];
-                    console.log('cosp div '+objectId(div));
-                    let sel = div.children[1];
-                    let asetup = sel['data-setup'];
-                    if (asetup && div){
-                        console.log('ASETUP cosp '+objectId(div));
-                        asetup(div);
-                    }
-                }
+                cbchange();
             }
             return true;
         } else {
@@ -143,6 +132,18 @@ var Person = function(pid, lname, fname, grade){
     }
 }
 
-var cbchange = function(e){
+var cbchange = function(){
     console.log('cbc '+e+' : '+e.target+' :: '+e.target.id);
+    let form = document.getElementById('newsession_questions');
+    let fc = Array.from(form.children);
+    for (let i=0; i<fc.length; i++){
+        let div = fc[i];
+        console.log('cosp div '+objectId(div));
+        let sel = div.children[1];
+        let asetup = sel['data-setup'];
+        if (asetup && div){
+            console.log('ASETUP cosp '+objectId(div));
+            asetup(div);
+        }
+    }
 }
