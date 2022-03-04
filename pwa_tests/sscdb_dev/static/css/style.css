@@ -46,6 +46,7 @@ tr.inactivemember{
 table#samplesheet tr td{
     padding: 0 1em 0 1em;
     border: thin solid black;
+    white-space: nowrap;
 }
 
 
