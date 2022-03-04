@@ -133,7 +133,7 @@ var Person = function(pid, lname, fname, grade){
 }
 
 var cbchange = function(){
-    console.log('cbc '+e+' : '+e.target+' :: '+e.target.id);
+    //console.log('cbc '+e+' : '+e.target+' :: '+e.target.id);
     let form = document.getElementById('newsession_questions');
     let fc = Array.from(form.children);
     for (let i=0; i<fc.length; i++){
