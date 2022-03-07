@@ -69,7 +69,7 @@ window.textinputreset = function(ti){
 }
 
 window.intinput = function(div, req){
-    console.log('ADD INT INPUT');
+    //console.log('ADD INT INPUT');
     let ti = document.createElement('input');
     ti.type = 'number';
     ti.min = '0';
@@ -86,7 +86,7 @@ window.intinputreset = function(ti){
 }
 
 window.intinputper = function(div, req){
-    console.log('INT INPUT PER PERSON '+objectId(div));
+    //console.log('INT INPUT PER PERSON '+objectId(div));
     let ti = document.createElement('input');
     ti.type = 'number';
     ti.min = '0';
@@ -99,7 +99,7 @@ window.intinputper = function(div, req){
     ti.style.display = 'none';
     ti.value = '0';
     div._ti0 = ti;
-    console.log('create ti0 objid '+objectId(ti));
+    //console.log('create ti0 objid '+objectId(ti));
 
     let t = document.createElement('table');
     div.appendChild(t);
@@ -108,15 +108,15 @@ window.intinputper = function(div, req){
 
     div.perval = function(pid){
         let tin = 'ti'+pid;
-        console.log('perval('+pid+') tin '+tin+' oid '+objectId(t));
+        //console.log('perval('+pid+') tin '+tin+' oid '+objectId(t));
         let tint = t[tin];
         return tint.value;
     }
 
     div.setval = function(v){
-        console.log('ti setval --'+v);
+        //console.log('ti setval --'+v);
         if (!v){v='0';}
-        console.log('ti setval +-'+v);
+        //console.log('ti setval +-'+v);
         ti.value = v;
     }
 
@@ -124,8 +124,8 @@ window.intinputper = function(div, req){
 }
 window.intinputpersetup = function(div){
     let t = div.thesubtab;
-    console.log('INT INPUT PER PERSON SETUP '+objectId(div)+' sd '+objectId(t));
-    console.log('TABLE');
+    //console.log('INT INPUT PER PERSON SETUP '+objectId(div)+' sd '+objectId(t));
+    //console.log('TABLE');
 
     let currval = div._ti0.value;
     let currvals = {}
@@ -144,9 +144,9 @@ window.intinputpersetup = function(div){
                 currvals[pid] = cv;
             }
         }
-        console.log('TI0val '+currval);
+        //console.log('TI0val '+currval);
         for (let o of Object.keys(currvals)){
-            console.log('  o val '+o+': '+currvals[o]);
+            //console.log('  o val '+o+': '+currvals[o]);
         }
     }
 
@@ -173,16 +173,16 @@ window.intinputpersetup = function(div){
 
     ti.onchange = function(){
         let v = ti.value;
-        console.log('ti onchange ---' + v + '---');
+        //console.log('ti onchange ---' + v + '---');
         for (let i=0; i<t.rows.length; i++){
             let r = t.rows[i];
-            console.log('tr '+r);
-            console.log('tc '+r.cells);
+            //console.log('tr '+r);
+            //console.log('tc '+r.cells);
             for (let c of r.cells){
-                console.log('c '+c);
+                //console.log('c '+c);
             }
             let td2 = r.cells[1];
-            console.log('td2 '+td2);
+            //console.log('td2 '+td2);
             let inp = td2.firstChild;
             inp.value = v;
         }
@@ -195,7 +195,7 @@ window.intinputpersetup = function(div){
         let gspid = '#gspid'+pid;
         let cb = document.querySelector(gspid);
         if (cb && cb.checked){
-            console.log('CHECKED '+pid+' '+p.fname());
+            //console.log('CHECKED '+pid+' '+p.fname());
 
             let tr = document.createElement('tr');
             t.appendChild(tr);
@@ -225,9 +225,9 @@ window.intinputpersetup = function(div){
     }
 }
 window.intinputperreset = function(ti){
-    console.log('INT INPUT PER PERSON RESET');
+    //console.log('INT INPUT PER PERSON RESET');
     //ti.value = '0';
-    console.log('reset ti0 '+objectId(ti));
+    //console.log('reset ti0 '+objectId(ti));
     let div = ti.parentElement;
     div.classList.remove('qdiverr');
 
@@ -242,24 +242,24 @@ window.intinputperreset = function(ti){
     }
 }
 window.intinputperreq = function(div){
-    console.log('IIPReq');
+    //console.log('IIPReq');
     let t = div.thesubtab;
 
     if (t.rows.length >= 1){
         for (let i=1; i<t.rows.length; i++){
             let r = t.rows[i];
-            console.log('Itr '+r);
-            console.log('Itc '+r.cells);
+            //console.log('Itr '+r);
+            //console.log('Itc '+r.cells);
             for (let c of r.cells){
-                console.log('Ic '+c);
+                //console.log('Ic '+c);
             }
             let td2 = r.cells[1];
-            console.log('Itd2 '+td2);
+            //console.log('Itd2 '+td2);
             let inp = td2.firstChild;
             let v = inp.value;
-            console.log('Iv'+v);
+            //console.log('Iv'+v);
             if (!v || parseInt(v)<=0){
-                console.log('NO');
+                //console.log('NO');
                 return false;
             }
         }
@@ -267,7 +267,7 @@ window.intinputperreq = function(div){
     return true;
 }
 window.intinputpererr = function(div){
-    console.log('IIPErr');
+    //console.log('IIPErr');
     div.classList.add('qdiverr');
 }
 
@@ -440,7 +440,7 @@ window.yesnocountok = function(sel, nppl){
 }
 
 var selectmulti = function(div, aas, req, selid){
-    console.log('SEL MUL');
+    //console.log('SEL MUL');
 
     let sel = document.createElement('div');
     div.appendChild(sel);
@@ -486,7 +486,7 @@ var selectmulti = function(div, aas, req, selid){
     }
 
     sel.value = function(){
-        console.log('SEL MUL VAL');
+        //console.log('SEL MUL VAL');
         let selid = sel.id;
         let retvals = [];
         for (let i=0; i<sel.itemcount; i++){
@@ -508,7 +508,7 @@ var selectmulti = function(div, aas, req, selid){
     }
 
     sel.setvalue = function(val){
-        console.log('SEL MUL SETVAL '+val);
+        //console.log('SEL MUL SETVAL '+val);
         let selid = sel.id;
         let co = checkforother(val);
         for (let i=0; i<sel.itemcount; i++){
@@ -519,14 +519,14 @@ var selectmulti = function(div, aas, req, selid){
             let ov = othery(v)
             if (!val.includes){
                 // old-style setting. Ignore.
-                console.log('Old-style');
+                //console.log('Old-style');
             } else if (val.includes(v) || (co&&ov)){
-                console.log('found: '+v+' co&&ov' + co +':'+ov);
+                //console.log('found: '+v+' co&&ov' + co +':'+ov);
                 cb.checked = true;
                 if (ov){
                     cb.onchange();
                     let othv = otherval(val);
-                    console.log('  set othv '+othv);
+                    //console.log('  set othv '+othv);
                     sel._relother.value = othv;
                 }
             }
@@ -536,7 +536,7 @@ var selectmulti = function(div, aas, req, selid){
     return sel;
 }
 window.selectmultireset = function(sel){
-    console.log('SMR');
+    //console.log('SMR');
 
     let div = sel.parentElement;
     div.classList.remove('qdiverr');
@@ -552,18 +552,18 @@ window.selectmultireset = function(sel){
     }
 }
 window.selectmultireq = function(div){
-    console.log('SMREQ');
+    //console.log('SMREQ');
     div.classList.remove('qdiverr');
     let sel = div.children[1];
     let selid = sel.id;
     for (let i=0; i<sel.itemcount; i++){
         let cb = document.getElementById(selid+i);
         if (cb && cb.checked){
-            console.log('+found one');
+            //console.log('+found one');
             return true;
         }
     }
-    console.log('-NONE');
+    //console.log('-NONE');
     return false;
 }
 window.selectmultierr = function(div){
@@ -580,7 +580,7 @@ var load_questions = async function(formid, questions, answers){
 
     asyncForEach(questions, async function(qa, qi, qarr){
         let div = document.createElement('div');
-        console.log('lqdiv '+objectId(div));
+        //console.log('lqdiv '+objectId(div));
         div.setAttribute('class', 'qdiv');
         div.id = qa.qattr+'div';
         div['data-qattr'] = qa.qattr;
@@ -588,7 +588,7 @@ var load_questions = async function(formid, questions, answers){
         //console.log('APPEND TO '+form+ ' ID '+ form.id);
         form.appendChild(div);
         let qspan = document.createElement('div');
-        console.log('lqspan '+objectId(qspan));
+        //console.log('lqspan '+objectId(qspan));
         qspan.innerHTML = qa.q;
         div.appendChild(qspan);
 
@@ -766,16 +766,16 @@ var set_only_later = function(only, attr, div){
 
 var setremember = async function(formid, questions){
     // restore remembered values when loading the form
-    console.log('setremember '+formid);
+    //console.log('setremember '+formid);
     asyncForEach(questions, async function(qa, qi, qarr){
         if (qa.remember){
             let val = await cget(qa.qattr);
-            console.log('REMEMBER ' + qa.qattr + ' ' + val);
+            //console.log('REMEMBER ' + qa.qattr + ' ' + val);
             let selid = formid + qa.qattr;
-            console.log('selid '+selid);
+            //console.log('selid '+selid);
             let sel = document.getElementById(selid);
             if (!val){ val = '';}
-            console.log('selval '+sel.value);
+            //console.log('selval '+sel.value);
             if (sel.value instanceof Function){
                 //console.log('val is function');
                 sel.setvalue(val);

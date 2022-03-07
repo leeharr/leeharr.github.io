@@ -24,7 +24,7 @@ window.showeditstaff = async function(){
             let sa = staff_answers[qattr];
             let othq = false;
             let otha = '';
-            console.log('SESA '+othq+' '+otha);
+            //console.log('SESA '+othq+' '+otha);
             if (sa && val){
                 othq = checkforother(sa);
                 if (othq){
@@ -32,7 +32,7 @@ window.showeditstaff = async function(){
                 } else {
                     otha = '';
                 }
-                console.log('SESB '+othq+' '+otha);
+                //console.log('SESB '+othq+' '+otha);
                 if (othq && otha){
                     // question has an "Other" option, AND
                     // "Other" has been selected
@@ -73,21 +73,21 @@ var editstaff = async function(){
         let othq = false;
         let otha = '';
         if (sa){
-            console.log('SA OTHER');
+            //console.log('SA OTHER');
             othq = checkforother(sa);
             if (othq){
                 otha = othery(sa[val]);
             } else {
                 otha = '';
             }
-            console.log('OT Q A '+othq+' '+otha);
+            //console.log('OT Q A '+othq+' '+otha);
             if (othq && otha){
                 // question has an "Other" option, AND
                 // "Other" has been selected
                 let qattr_other = qattr + '_other';
                 let subsel = div.children[2];
                 let sendval = subsel.value;
-                console.log('SUBSELV '+sendval);
+                //console.log('SUBSELV '+sendval);
                 await cset(qattr_other, sendval);
 
                 if (qattr=='agency'){
@@ -131,7 +131,7 @@ window.shownewperson = async function(){
 
         if (sel['data-reset']){
             // Set "Initial Contact" date to today
-            console.log('DATA RESET '+sel.id);
+            //console.log('DATA RESET '+sel.id);
             sel['data-reset'](sel);
         }
 
@@ -213,7 +213,7 @@ var newperson = async function(e){
         }
 
         // check if need to remember value
-        console.log('CHK REM');
+        //console.log('CHK REM');
         let getremid = 'remember_'+qattr;
         let getrem = document.getElementById(getremid);
         let remember = false;
@@ -519,7 +519,7 @@ function _age(dobstr) {
 
 var working = [];
 var chkcreatesession = function(){
-    console.log('CHK CREATE SESS');
+    //console.log('CHK CREATE SESS');
     let ppl = vm.people();
     let count = 0;
     for (let p of ppl){
@@ -591,7 +591,7 @@ var chkcreatesession = function(){
 
 
 var createsession = async function(){
-    console.log('CREATE SESSION');
+    //console.log('CREATE SESSION');
     vm.showgroupsession(false);
 
     vm.sendworking(true);
@@ -675,7 +675,7 @@ var createsession = async function(){
         //console.log('SENDAS '+qattr+' '+sendas);
         if (sendas==false){
             // not sending
-            console.log('NOT SENDING '+qattr);
+            //console.log('NOT SENDING '+qattr);
         } else if (sel['sendas']){
             //console.log(sel['sendas']+'='+sendval);
             sesdata[sel['sendas']] = sendval;
@@ -705,15 +705,15 @@ var createsession = async function(){
         let qattr_other = qattr + '_other';
         if (div['data-remember'] || remember){
             // remember the value
-            console.log('DRR '+qattr+' '+theval);
+            //console.log('DRR '+qattr+' '+theval);
             cset(qattr, theval);
             if (val instanceof Function && sel.setvalue instanceof Function){
                 // yesno questions
-                console.log('setvalue func');
+                //console.log('setvalue func');
                 sel.setvalue(theval);
             } else if (val instanceof Function){
                 // should not happen
-                console.log('?????');
+                //console.log('?????');
             } else {
                 //console.log('=val ' + val + theval);
                 sel.value = val;
@@ -733,13 +733,13 @@ var createsession = async function(){
     //sesdata['staffname'] = vm.staffname();
     //sesdata['positionstr'] = vm.positionname();
     var form = document.getElementById('newstaff_questions');
-    console.log('=STAFF QUESTIONS=');
+    //console.log('=STAFF QUESTIONS=');
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
-        console.log('qattr : '+qattr);
+        //console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
-        console.log('   val : '+val);
+        //console.log('   val : '+val);
 
         if (!val instanceof Function){
             sesdata[qattr+'id'] = val;
@@ -813,7 +813,7 @@ var createsession = async function(){
             let getr = div.perval;
             let val = getr(pid);
             let sendas = sel['sendas'];
-            console.log('perperson '+qatr+'('+pid+') : '+val+' sendas '+sendas);
+            //console.log('perperson '+qatr+'('+pid+') : '+val+' sendas '+sendas);
             psesdata[sendas] = val;
         }
 

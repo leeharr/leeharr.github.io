@@ -571,7 +571,7 @@ var ProtoDBViewModel = function(){
             if (k == 'currid'){ continue; }
             let p = await pget(k);
             if (ko.utils.arrayFirst(self.people(), function(i){return i.pid()==k})){
-                console.log('ERROR.Person.Dup.Id.');
+                //console.log('ERROR.Person.Dup.Id.');
             }
             let vmp = self.addperson(k, p.lname, p.fname, p.gradestr, false);
             vmp.stid(p.stid);
@@ -586,7 +586,7 @@ var ProtoDBViewModel = function(){
             if (k == 'currid'){ continue; }
             let g = await gget(k);
             if (ko.utils.arrayFirst(self.groups(), function(i){return i.gid()==k})){
-                console.log('ERROR.Group.Dup.Id.');
+                //console.log('ERROR.Group.Dup.Id.');
             }
             let ng = self.addgroup(k, g.name);
             ng.active(g.active);

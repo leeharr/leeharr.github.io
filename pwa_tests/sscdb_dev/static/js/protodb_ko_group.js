@@ -89,7 +89,7 @@ var Group = function(gid, name){
     }
 
     self.newgroupsession = async function(quick){
-        console.log('NGS +'+quick+'+');
+        //console.log('NGS +'+quick+'+');
         vm.showgroupsession(true);
         if (quick!==true){
             self.checkgroupcheckboxes(true);
@@ -103,7 +103,7 @@ var Group = function(gid, name){
             let div = fc[i];
             let qattr = div['data-qattr'];
             if (!qattr){ continue; }
-            console.log('qat '+qattr);
+            //console.log('qat '+qattr);
             //console.log('div '+div.id+' '+div);
             //console.log('divval '+div.value);
             let sel = div.children[1];
@@ -114,21 +114,21 @@ var Group = function(gid, name){
 
             let asetup = sel['data-setup'];
             if (asetup && div){
-                console.log('ASETUP '+objectId(div));
+                //console.log('ASETUP '+objectId(div));
                 asetup(div);
             }
 
             let getremid = 'remember_'+qattr;
             let getrem = document.getElementById(getremid);
-            console.log('ggg '+getremid+' '+getrem+' '+div['data-remember']);
+            //console.log('ggg '+getremid+' '+getrem+' '+div['data-remember']);
             if (getrem && getrem.checked || div['data-remember']===true){
                 // restore remembered value
-                console.log('REM '+ div['data-remember']);
-                if (getrem){ console.log('checked: '+getrem.checked); }
+                //console.log('REM '+ div['data-remember']);
+                //if (getrem){ console.log('checked: '+getrem.checked); }
                 let val = await cget(qattr);
-                console.log('REMval '+val);
+                //console.log('REMval '+val);
                 if (div.perval instanceof Function){
-                    console.log('PERVAL '+val);
+                    //console.log('PERVAL '+val);
                     div.setval(val);
                     if (sel['data-reset']){
                         sel['data-reset'](sel);
@@ -162,10 +162,10 @@ var Group = function(gid, name){
                 }
 
             } else if (sel['data-reset']) {
-                console.log('SDR '+qattr);
+                //console.log('SDR '+qattr);
                 sel['data-reset'](sel);
             } else {
-                console.log('NOA');
+                //console.log('NOA');
                 sel.value = '';
             }
 

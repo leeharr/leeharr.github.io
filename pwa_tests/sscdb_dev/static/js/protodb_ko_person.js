@@ -42,32 +42,32 @@ var Person = function(pid, lname, fname, grade){
         //  the per person setup should also run
         //  whenever the checkbox state changes
 
-        console.log('COSP');
+        //console.log('COSP');
         let idbase;
         let is_sess = vm.showgroupsession();
         if (is_sess){
-            console.log('SESSION');
+            //console.log('SESSION');
             idbase = '#gspid';
         } else {
-            console.log('NOPE');
+            //console.log('NOPE');
             idbase = '#ngpid';
         }
 
         if (vm.showpersoncheckboxes()){
-            console.log('boxes');
+            //console.log('boxes');
             let g = vm.selectedgroup();
             if (g && !g.active()){ return; }
 
             let ngpid = idbase + self.pid();
-            console.log(ngpid);
+            //console.log(ngpid);
             let cb = document.querySelector(ngpid);
             let change = false;
             if (cb.checked){
-                console.log('checked');
+                //console.log('checked');
                 cb.checked = false;
                 change = true;
             } else if (self.active()) {
-                console.log('active');
+                //console.log('active');
                 // can uncheck inactive person,
                 // but cannot check inactive person
                 cb.checked = true;
@@ -138,11 +138,11 @@ var cbchange = function(){
     let fc = Array.from(form.children);
     for (let i=0; i<fc.length; i++){
         let div = fc[i];
-        console.log('cosp div '+objectId(div));
+        //console.log('cosp div '+objectId(div));
         let sel = div.children[1];
         let asetup = sel['data-setup'];
         if (asetup && div){
-            console.log('ASETUP cosp '+objectId(div));
+            //console.log('ASETUP cosp '+objectId(div));
             asetup(div);
         }
     }
