@@ -86,44 +86,44 @@ var ultest = function() {
 }
 
 var dltest = async function() {
-    dt = new Date();
-    m = dt.getMonth()+1;
-    d = dt.getDate();
-    y = dt.getFullYear();
-    filename = `protodb-${y}-${m}-${d}.json`;
+    let dt = new Date();
+    let m = dt.getMonth()+1;
+    let d = dt.getDate();
+    let y = dt.getFullYear();
+    let filename = `protodb-${y}-${m}-${d}.json`;
 
-    dbppl = [];
-    for (k of await pkeys()){
+    let dbppl = [];
+    for (let k of await pkeys()){
         if (k=='currid'){ continue; }
-        p = await pget(k);
+        let p = await pget(k);
         p['id'] = k;
         dbppl.push(p);
     }
 
-    dbgrp = []
-    for (k of await gkeys()){
+    let dbgrp = []
+    for (let k of await gkeys()){
         if (k=='currid'){ continue; }
-        g = await gget(k);
+        let g = await gget(k);
         g['id'] = k;
         dbgrp.push(g);
     }
 
-    dbses = []
-    for (k of await skeys()){
+    let dbses = []
+    for (let k of await skeys()){
         if (k=='currid'){ continue; }
-        s = await sget(k);
+        let s = await sget(k);
         s['id'] = k;
         dbses.push(s);
     }
 
-    db = {'people': dbppl, 'groups': dbgrp, 'sessions': dbses}
+    let db = {'people': dbppl, 'groups': dbgrp, 'sessions': dbses}
 
-    data = JSON.stringify(db);
-    var blob = new Blob([data], {type: 'text/json'});
+    let data = JSON.stringify(db);
+    let blob = new Blob([data], {type: 'text/json'});
     if(window.navigator.msSaveOrOpenBlob) {
         window.navigator.msSaveBlob(blob, filename);
     } else {
-        var elem = window.document.createElement('a');
+        let elem = window.document.createElement('a');
         elem.href = window.URL.createObjectURL(blob);
         elem.download = filename;
         document.body.appendChild(elem);
