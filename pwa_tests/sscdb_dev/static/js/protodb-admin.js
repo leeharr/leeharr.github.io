@@ -90,7 +90,7 @@ var dltest = async function() {
     let m = dt.getMonth()+1;
     let d = dt.getDate();
     let y = dt.getFullYear();
-    let filename = `protodb-${y}-${m}-${d}.json`;
+    let filename = `sscdb-${y}-${m}-${d}.json`;
 
     let dbppl = [];
     for (let k of await pkeys()){
@@ -116,7 +116,15 @@ var dltest = async function() {
         dbses.push(s);
     }
 
-    let db = {'people': dbppl, 'groups': dbgrp, 'sessions': dbses}
+    let dbcfg = []
+    for (let k of await ckeys()){
+        if (k=='currid'){ continue; }
+        let c = await cget(k);
+        c['id'] = k;
+        dbcfg.push(c);
+    }
+
+    let db = {'people': dbppl, 'groups': dbgrp, 'sessions': dbses, 'config': dbcfg};
 
     let data = JSON.stringify(db);
     let blob = new Blob([data], {type: 'text/json'});
