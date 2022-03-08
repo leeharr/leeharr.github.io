@@ -116,12 +116,11 @@ var dltest = async function() {
         dbses.push(s);
     }
 
-    let dbcfg = []
+    let dbcfg = {}
     for (let k of await ckeys()){
         if (k=='currid'){ continue; }
         let c = await cget(k);
-        c['id'] = k;
-        dbcfg.push(c);
+        dbcfg[k] = c;
     }
 
     let db = {'people': dbppl, 'groups': dbgrp, 'sessions': dbses, 'config': dbcfg};
