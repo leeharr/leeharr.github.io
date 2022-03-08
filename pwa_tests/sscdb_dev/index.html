@@ -149,6 +149,7 @@
 </div>
 
 <div id="rs">
+<div class="rsplit">
     <div class="side">
     <h1>Staff <button onclick="showeditstaff()">Edit</button>
         <button data-bind="visible: $root.showeditstaff()" onclick="showeditstaff()">Cancel</button></h1>
@@ -171,6 +172,13 @@
         </div>
     </form>
     </div>
+
+    <div class="side">
+    <h1>Show Sent Data</h1>
+    <h1>Backup</h1>
+    <h1>Restore</h1>
+    </div>
+</div>
 
     <div class="side" data-bind="visible: !$root.showgroupsession()">
     <h1>Monthly Data
