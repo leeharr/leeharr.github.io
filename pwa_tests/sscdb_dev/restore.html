@@ -17,20 +17,19 @@
 </div>
 
 <div id="rs">
-    <h3>Select your backup file here:</h3>
     <form id="jsonFile" name="jsonFile" enctype="multipart/form-data" method="post">
-        <input type='button' id='btnLoad' value='Import DB' onclick='ultest();'>
-        <input type='file' id='fileinput'>
-    </form>
+    <h3>Select your backup file here: <input type='file' id='fileinput'></h3>
 
     <h3>Choose one of the following data restore methods:</h3>
 
     <h4>Restore ONLY student data.</h4>
-        <h5>This will keep all existing data, and add loaded data as new students</h5>
-            <h6>(will attempt to not create duplicates, keeping originals unchanged)</h6>
+        This will keep all existing data, and load data as new students
+        attempting to not create duplicates, and keeping current data unchanged.
+        <input type='button' id='btnLoad' value='Import DB' onclick='append_student_data();'>
 
-    <h4>Clear existing data, and restore all from the data file</h4>
-
+    <h4>Restore ALL data.</h4>
+        This will clear (delete) any existing data, and restore all from the file.
+    </form>
 </div>
 
     </div>
