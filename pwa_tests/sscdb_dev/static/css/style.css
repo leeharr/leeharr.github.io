@@ -17,7 +17,7 @@ div.sendwarn{
 
 div.rsplit{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 15fr 10fr;
 }
 
 th{
