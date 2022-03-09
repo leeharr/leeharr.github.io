@@ -36,6 +36,14 @@ var showsamplesheet = async function(e){
     }
 }
 
+var load_student_data = function(){
+    console.log('load');
+}
+
+var clear_and_restore_all_data = function(){
+    console.log('restore');
+}
+
 var ultest = function() {
     var input, file, fr;
 
