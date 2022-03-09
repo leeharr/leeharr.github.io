@@ -38,10 +38,12 @@ var showsamplesheet = async function(e){
 
 var load_student_data = function(){
     console.log('load');
+    ultest();
 }
 
 var clear_and_restore_all_data = function(){
     console.log('restore');
+    ultest();
 }
 
 var ultest = function() {
@@ -70,23 +72,35 @@ var ultest = function() {
         let lines = e.target.result;
         var db = JSON.parse(lines);
 
-        pidmax = 0;
-        for (k in db.people){
-            p = db.people[k];
+        let pidmax = 0;
+        for (let k in db.people){
+            let p = db.people[k];
             pidmax = Math.max(pidmax, p.id);
             console.log(p.id + ' --> ' + p.lname + ', ' + p.fname);
         }
-        setpid = parseInt(pidmax) + 1
+        let setpid = parseInt(pidmax) + 1
         console.log('SET PID to ' + setpid);
 
-        gidmax = 0;
-        for (k in db.groups){
-            g = db.groups[k];
+        let gidmax = 0;
+        for (let k in db.groups){
+            let g = db.groups[k];
             gidmax = Math.max(gidmax, g.id);
             console.log(g.id + ' --> ' + g.name + ':' + g.people);
         }
-        setgid = parseInt(gidmax) + 1
+        let setgid = parseInt(gidmax) + 1
         console.log('SET GID to ' + setgid);
+
+        let sessmax = 0;
+        for (let k in db.sessions){
+            let s = db.sessions[k];
+            sessmax = Math.max(sessmax, s.id);
+            console.log(s.id + ' --> ' + s.sesname);
+        }
+        let setsid = parseInt(sessmax) + 1;
+
+        console.log('setpid '+setpid);
+        console.log('setgid '+setgid);
+        console.log('setsid '+setsid);
 
         input = document.getElementById('fileinput');
         input.value = '';
