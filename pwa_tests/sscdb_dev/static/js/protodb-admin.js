@@ -179,9 +179,9 @@ var lsd = async function(){
         console.log('bal');
         for (let k in db.people){
             console.log('k'+k);
-            let p = db.people[k];
+            let p = await db.people[k];
             console.log('p'+p);
-            let pid = pgetnextid();
+            let pid = await pgetnextid();
             console.log('pid'+pid);
             await pset(pid, p);
         }
