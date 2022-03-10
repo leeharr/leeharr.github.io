@@ -1,7 +1,5 @@
 'use strict';
 
-var db;
-
 var showsamplesheet = async function(e){
     let cols = ['Agency Name', 'Month', 'Staff Name', 'Student Name', 'Grade',
     'Service Units', 'sesname']
@@ -39,7 +37,7 @@ var showsamplesheet = async function(e){
 }
 
 var ultest = function() {
-    var input, file, fr;
+    let input, file, fr;
 
     if (typeof window.FileReader !== 'function') {
         alert("The file API isn't supported on this browser yet.");
@@ -49,24 +47,30 @@ var ultest = function() {
     input = document.getElementById('fileinput');
     if (!input) {
         alert("Um, couldn't find the fileinput element.");
+        return false;
     } else if (!input.files) {
         alert("This browser doesn't seem to support the `files` property of file inputs.");
+        return false;
     } else if (!input.files[0]) {
         alert("Please select a file before clicking 'Load'");
-    } else {
-        file = input.files[0];
-        fr = new FileReader();
-        fr.onload = receivedText;
-        fr.readAsText(file);
+        return false;
     }
+//     else {
+//         file = input.files[0];
+//         fr = new FileReader();
+//         fr.onload = receivedText;
+//         fr.readAsText(file);
+//     }
 
-    function receivedText(e) {
-        let lines = e.target.result;
-        db = JSON.parse(lines);
-    }
+//     function receivedText(e) {
+//         let lines = e.target.result;
+//         db = JSON.parse(lines);
+//     }
 
-    input = document.getElementById('fileinput');
-    input.value = '';
+//     input = document.getElementById('fileinput');
+//     input.value = '';
+
+    return true;
 }
 
 var show_loaded_data = function(){
@@ -157,19 +161,33 @@ var dltest = async function() {
 
 var load_student_data = function(){
     console.log('load');
-    ultest();
-    lsd();
+    if (ultest()){
+        lsd();
+    }
 }
 
 var lsd = async function(){
     console.log('lsd');
-    show_loaded_data();
 
-    for (let k in db.people){
-        let p = db.people[k];
-        let pid = pgetnextid();
-        await pset(pid, p);
+    let input = document.getElementById('fileinput');
+    let file = input.files[0];
+    let fr = new FileReader();
+    fr.onload = receivedText;
+    fr.readAsText(file);
+
+    let receivedText = function(e) {
+        console.log('brt');
+        let lines = e.target.result;
+        let db = JSON.parse(lines);
+
+        for (let k in db.people){
+            let p = db.people[k];
+            let pid = pgetnextid();
+            await pset(pid, p);
+        }
+        console.log('ert');
     }
+    input.value = '';
 }
 
 var clear_and_restore_all_data = function(){
