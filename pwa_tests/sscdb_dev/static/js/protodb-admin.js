@@ -178,8 +178,11 @@ var lsd = async function(){
     let afterload = async function(){
         console.log('bal');
         for (let k in db.people){
+            console.log('k'+k);
             let p = db.people[k];
+            console.log('p'+p);
             let pid = pgetnextid();
+            console.log('pid'+pid);
             await pset(pid, p);
         }
         console.log('eal');
