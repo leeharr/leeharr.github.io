@@ -169,24 +169,30 @@ var load_student_data = function(){
 var lsd = async function(){
     console.log('lsd');
 
+    var db;
+    let receivedText = function(e) {
+        let lines = e.target.result;
+        db = JSON.parse(lines);
+    }
+
+    let afterload = async function(){
+        console.log('bal');
+        for (let k in db.people){
+            let p = db.people[k];
+            let pid = pgetnextid();
+            await pset(pid, p);
+        }
+        console.log('eal');
+    }
+
     let input = document.getElementById('fileinput');
     let file = input.files[0];
     let fr = new FileReader();
     fr.onload = receivedText;
     fr.readAsText(file);
 
-    let receivedText = async function(e) {
-        console.log('brt');
-        let lines = e.target.result;
-        let db = JSON.parse(lines);
+    afterload();
 
-        for (let k in db.people){
-            let p = db.people[k];
-            let pid = pgetnextid();
-            await pset(pid, p);
-        }
-        console.log('ert');
-    }
     input.value = '';
 }
 
