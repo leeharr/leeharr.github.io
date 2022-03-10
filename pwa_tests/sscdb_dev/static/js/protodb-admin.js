@@ -175,10 +175,10 @@ var lsd = async function(){
         db = JSON.parse(lines);
     }
 
-    let afterload = async function(dbdb){
+    let afterload = async function(){
         console.log('bal');
-        for (let k in dbdb.people){
-            let p = dbdb.people[k];
+        for (let k in db.people){
+            let p = db.people[k];
             let pid = pgetnextid();
             await pset(pid, p);
         }
@@ -191,7 +191,7 @@ var lsd = async function(){
     fr.onload = receivedText;
     fr.readAsText(file);
 
-    afterload(db);
+    setTimeout(afterload, 400);
 
     input.value = '';
 }
