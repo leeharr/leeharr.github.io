@@ -38,34 +38,6 @@ var showsamplesheet = async function(e){
     }
 }
 
-var load_student_data = function(){
-    console.log('load');
-    ultest();
-    lsd();
-}
-
-var lsd = async function(){
-    console.log('lsd');
-    show_loaded_data();
-
-    for (let k in db.people){
-        let p = db.people[k];
-        let pid = pgetnextid();
-        await pset(pid, p);
-    }
-}
-
-var clear_and_restore_all_data = function(){
-    console.log('restore');
-    ultest();
-    carad();
-}
-
-var carad = async function(){
-    console.log('carad');
-    show_loaded_data();
-}
-
 var ultest = function() {
     var input, file, fr;
 
@@ -182,6 +154,35 @@ var dltest = async function() {
         document.body.removeChild(elem);
     }
 }
+
+var load_student_data = function(){
+    console.log('load');
+    ultest();
+    lsd();
+}
+
+var lsd = async function(){
+    console.log('lsd');
+    show_loaded_data();
+
+    for (let k in db.people){
+        let p = db.people[k];
+        let pid = pgetnextid();
+        await pset(pid, p);
+    }
+}
+
+var clear_and_restore_all_data = function(){
+    console.log('restore');
+    ultest();
+    carad();
+}
+
+var carad = async function(){
+    console.log('carad');
+    show_loaded_data();
+}
+
 
 var logdb = async function(e){
     console.log('PEOPLE');
