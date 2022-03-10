@@ -1,5 +1,7 @@
 'use strict';
 
+var db;
+
 var showsamplesheet = async function(e){
     let cols = ['Agency Name', 'Month', 'Staff Name', 'Student Name', 'Grade',
     'Service Units', 'sesname']
@@ -88,7 +90,7 @@ var ultest = function() {
 
     function receivedText(e) {
         let lines = e.target.result;
-        var db = JSON.parse(lines);
+        db = JSON.parse(lines);
     }
 
     input = document.getElementById('fileinput');
