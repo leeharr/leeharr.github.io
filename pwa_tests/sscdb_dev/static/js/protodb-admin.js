@@ -39,18 +39,24 @@ var showsamplesheet = async function(e){
 var load_student_data = function(){
     console.log('load');
     ultest();
-    await lsd();
+    lsd();
 }
 
 var lsd = async function(){
     console.log('lsd');
     show_loaded_data();
+
+    for (let k in db.people){
+        let p = db.people[k];
+        let pid = pgetnextid();
+        await pset(pid, p);
+    }
 }
 
 var clear_and_restore_all_data = function(){
     console.log('restore');
     ultest();
-    show_loaded_data();
+    carad();
 }
 
 var carad = async function(){
