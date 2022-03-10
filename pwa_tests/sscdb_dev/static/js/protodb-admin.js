@@ -180,7 +180,10 @@ var lsd = async function(){
         for (let k in db.people){
             console.log('k'+k);
             let p = await db.people[k];
-            console.log('p'+p);
+            console.log('p'+p.pid);
+            console.log('p'+p.fname);
+            console.log('p'+p.lname);
+            console.log('p'+p.dob);
             let pid = await pgetnextid();
             console.log('pid'+pid);
             await pset(pid, p);

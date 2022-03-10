@@ -248,7 +248,8 @@ var ProtoDBViewModel = function(){
                 pinfo.p = p;
                 let ln = p.lname();
                 let g = graden(p.grade());
-                let stid = p.stid();
+                //let stid = p.stid();
+                let stid = '';
                 let stid3 = stid.slice(-3); // last 3 of student ID#
                 //console.log('STID '+stid+' '+stid3);
                 for (let grn of ['', g, stid3]){
@@ -574,7 +575,7 @@ var ProtoDBViewModel = function(){
                 //console.log('ERROR.Person.Dup.Id.');
             }
             let vmp = self.addperson(k, p.lname, p.fname, p.gradestr, false);
-            vmp.stid(p.stid);
+            //vmp.stid(p.stid);
             let active = p.active;
             if (active!==false){active=true;}
             vmp.active(active);
