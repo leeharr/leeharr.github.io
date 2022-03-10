@@ -139,9 +139,9 @@ var dltest = async function() {
         dbcfg[k] = c;
     }
 
-    let db = {'people': dbppl, 'groups': dbgrp, 'sessions': dbses, 'config': dbcfg};
+    let dbz = {'people': dbppl, 'groups': dbgrp, 'sessions': dbses, 'config': dbcfg};
 
-    let data = JSON.stringify(db);
+    let data = JSON.stringify(dbz);
     let blob = new Blob([data], {type: 'text/json'});
     if(window.navigator.msSaveOrOpenBlob) {
         window.navigator.msSaveBlob(blob, filename);
