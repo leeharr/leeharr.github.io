@@ -175,7 +175,7 @@ var lsd = async function(){
     fr.onload = receivedText;
     fr.readAsText(file);
 
-    let receivedText = function(e) {
+    let receivedText = async function(e) {
         console.log('brt');
         let lines = e.target.result;
         let db = JSON.parse(lines);
