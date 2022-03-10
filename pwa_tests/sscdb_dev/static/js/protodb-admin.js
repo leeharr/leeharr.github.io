@@ -39,12 +39,22 @@ var showsamplesheet = async function(e){
 var load_student_data = function(){
     console.log('load');
     ultest();
+    await lsd();
+}
+
+var lsd = async function(){
+    console.log('lsd');
     show_loaded_data();
 }
 
 var clear_and_restore_all_data = function(){
     console.log('restore');
     ultest();
+    show_loaded_data();
+}
+
+var carad = async function(){
+    console.log('carad');
     show_loaded_data();
 }
 
