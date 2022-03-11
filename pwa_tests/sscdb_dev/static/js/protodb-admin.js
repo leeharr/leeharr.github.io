@@ -112,38 +112,53 @@ var dltest = async function() {
     let y = dt.getFullYear();
     let filename = `sscdb-${y}-${m}-${d}.json`;
 
+    dbids = {}
+
     let dbppl = [];
+    let pplid = 0;
     for (let k of await pkeys()){
         if (k=='currid'){ continue; }
         let p = await pget(k);
         p['id'] = k;
         dbppl.push(p);
+        pplid = Math.max(k, pplid);
     }
+    dbids['people'] = pplid;
 
     let dbgrp = []
+    let grpid = 0;
     for (let k of await gkeys()){
         if (k=='currid'){ continue; }
         let g = await gget(k);
         g['id'] = k;
         dbgrp.push(g);
+        grpid = Math.max(k, grpid);
     }
+    dbids['groups'] = grpid;
 
     let dbses = []
+    let sesid = 0;
     for (let k of await skeys()){
         if (k=='currid'){ continue; }
         let s = await sget(k);
         s['id'] = k;
         dbses.push(s);
+        sesid = Math.max(k, sesid);
     }
+    dbids['sessions'] = sesid;
 
     let dbcfg = {}
     for (let k of await ckeys()){
-        if (k=='currid'){ continue; }
         let c = await cget(k);
         dbcfg[k] = c;
     }
 
-    let dbz = {'people': dbppl, 'groups': dbgrp, 'sessions': dbses, 'config': dbcfg};
+    let dbz = {'people': dbppl,
+                'groups': dbgrp,
+                'sessions': dbses,
+                'config': dbcfg,
+                'dbids': dbids
+    };
 
     let data = JSON.stringify(dbz);
     let blob = new Blob([data], {type: 'text/json'});
@@ -212,8 +227,33 @@ var carad = async function(){
         await aclear();
 
         for (let k in db.people){
-            let p = await db.people[k];
+            let p = db.people[k];
             await pset(k, p);
+        }
+        let pplid = db['dbids']['people'];
+        while(true){
+            let pid = await pgetnextid();
+            if (pid >= pplid){ break; }
+        }
+
+        for (let k in db.groups){
+            let g = db.groups[k];
+            await gset(k, g);
+        }
+        let grpid = db['dbids']['groups'];
+        while(true){
+            let gid = await ggetnextid();
+            if (gid >= grpid){ break; }
+        }
+
+        for (let k in db.sessions){
+            let s = db.sessions[k];
+            await sset(k, s);
+        }
+        let sesid = db['dbids']['sessions'];
+        while(true){
+            let sid = await sgetnextid();
+            if (sid >= sesid){ break; }
         }
     }
 
