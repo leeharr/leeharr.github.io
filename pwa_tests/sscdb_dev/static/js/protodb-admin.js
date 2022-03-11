@@ -167,8 +167,6 @@ var load_student_data = function(){
 }
 
 var lsd = async function(){
-    console.log('lsd');
-
     var db;
     let receivedText = function(e) {
         let lines = e.target.result;
@@ -176,19 +174,11 @@ var lsd = async function(){
     }
 
     let afterload = async function(){
-        console.log('bal');
         for (let k in db.people){
-            console.log('k'+k);
             let p = await db.people[k];
-            console.log('p'+p.pid);
-            console.log('p'+p.fname);
-            console.log('p'+p.lname);
-            console.log('p'+p.dob);
             let pid = await pgetnextid();
-            console.log('pid'+pid);
             await pset(pid, p);
         }
-        console.log('eal');
     }
 
     let input = document.getElementById('fileinput');
@@ -204,13 +194,38 @@ var lsd = async function(){
 
 var clear_and_restore_all_data = function(){
     console.log('restore');
-    ultest();
-    carad();
+    if (ultest()){
+        carad();
+    }
 }
 
 var carad = async function(){
     console.log('carad');
-    show_loaded_data();
+
+    var db;
+    let receivedText = function(e) {
+        let lines = e.target.result;
+        db = JSON.parse(lines);
+    }
+
+    let afterload = async function(){
+        await aclear();
+
+        for (let k in db.people){
+            let p = await db.people[k];
+            await pset(k, p);
+        }
+    }
+
+    let input = document.getElementById('fileinput');
+    let file = input.files[0];
+    let fr = new FileReader();
+    fr.onload = receivedText;
+    fr.readAsText(file);
+
+    setTimeout(afterload, 400);
+
+    input.value = '';
 }
 
 
@@ -259,4 +274,11 @@ var clearppl = function(e){
     idbKeyval.clear(pdbgrp);
     idbKeyval.clear(pdbppl);
     idbKeyval.clear(pdbcfg);
+}
+
+var aclear = async function(){
+    await idbKeyval.clear(pdbses);
+    await idbKeyval.clear(pdbgrp);
+    await idbKeyval.clear(pdbppl);
+    await idbKeyval.clear(pdbcfg);
 }
