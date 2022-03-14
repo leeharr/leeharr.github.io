@@ -112,7 +112,7 @@ var dltest = async function() {
     let y = dt.getFullYear();
     let filename = `sscdb-${y}-${m}-${d}.json`;
 
-    dbids = {}
+    let dbids = {}
 
     let dbppl = [];
     let pplid = 0;
