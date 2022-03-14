@@ -540,7 +540,7 @@ var chkcreatesession = function(){
     let err = false;
     var form = document.getElementById('newsession_questions');
     let fields = Array.from(form.children);
-    for (i=0; i<fields.length; i++){
+    for (let i=0; i<fields.length; i++){
         let div = fields[i];
         let qattr = div['data-qattr'];
         //console.log('ck count on qattr : '+qattr);
