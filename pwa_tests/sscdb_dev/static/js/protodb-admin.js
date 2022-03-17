@@ -255,6 +255,11 @@ var carad = async function(){
             let sid = await sgetnextid();
             if (sid >= sesid){ break; }
         }
+
+        for (let k in db.config){
+            let cval = db.config[k];
+            await cset(k, cval);
+        }
     }
 
     let input = document.getElementById('fileinput');
