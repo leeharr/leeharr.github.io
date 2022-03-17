@@ -258,6 +258,7 @@ var carad = async function(){
 
         for (let k in db.config){
             let cval = db.config[k];
+            console.log('CFG '+k+' = '+cval);
             await cset(k, cval);
         }
     }
