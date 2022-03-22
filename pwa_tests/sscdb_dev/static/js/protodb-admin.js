@@ -193,7 +193,7 @@ var check_dup = function(p){
         console.log('\n');
         if (p.fname==xp.fname() &&
                 p.lname==xp.lname() &&
-                p.grade==xp.grade()){
+                p.gradestr==xp.grade()){
             return true;
         }
     }
