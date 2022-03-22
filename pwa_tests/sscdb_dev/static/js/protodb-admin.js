@@ -184,7 +184,7 @@ var load_student_data = function(){
 var check_dup = function(p){
     // Dup if first name, last name, and grade all match existing student.
 
-    for (let xp in vm.people){
+    for (let xp of vm.people()){
         if (p.fname==xp.fname() &&
                 p.lname==xp.lname() &&
                 p.grade==xp.grade()){
