@@ -1,9 +1,11 @@
-var cacheName = 'sscdb_devBL01';
+var cacheName = 'sscdb_devBN01';
 var filesToCache = [
   './',
   'index.html',
   'admin.html',
   'viewsent.html',
+  'backup.html',
+  'restore.html',
 
   'static/css/style.css',
 
