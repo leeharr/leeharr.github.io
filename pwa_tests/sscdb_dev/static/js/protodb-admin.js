@@ -181,6 +181,19 @@ var load_student_data = function(){
     }
 }
 
+var check_dup = function(p){
+    // Dup if first name, last name, and grade all match existing student.
+
+    for (let xp in vm.people){
+        if (p.fname==xp.fname() &&
+                p.lname==xp.lname() &&
+                p.grade==xp.grade()){
+            return true;
+        }
+    }
+    return false;
+}
+
 var lsd = async function(){
     var db;
     let receivedText = function(e) {
@@ -190,9 +203,18 @@ var lsd = async function(){
 
     let afterload = async function(){
         for (let k in db.people){
-            let p = await db.people[k];
-            let pid = await pgetnextid();
-            await pset(pid, p);
+            let p = db.people[k];
+
+            let is_dup = check_dup(p);
+            let i = await pgetnextid();
+            let vmp = vm.addperson(i, p.lname, p.fname, p.gradestr, false);
+
+            if (is_dup){
+                vmp.active(false);
+                p.active = false;
+            }
+
+            await pset(i, p);
         }
     }
 
@@ -208,9 +230,12 @@ var lsd = async function(){
 }
 
 var clear_and_restore_all_data = function(){
-    console.log('restore');
-    if (ultest()){
-        carad();
+    let confirm_clear = window.confirm('Are you sure?\n\nThis will DELETE all current data\nand load data from the backup file.');
+    if (confirm_clear){
+        console.log('restore');
+        if (ultest()){
+            carad();
+        }
     }
 }
 
