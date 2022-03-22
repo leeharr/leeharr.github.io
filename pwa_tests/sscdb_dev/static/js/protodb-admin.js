@@ -185,6 +185,12 @@ var check_dup = function(p){
     // Dup if first name, last name, and grade all match existing student.
 
     for (let xp of vm.people()){
+        console.log('CHECK');
+        console.log(p.fname + ' : ' + xp.fname());
+        console.log(p.lname + ' : ' + xp.lname());
+        console.log(p.grade + ' : ' + xp.grade());
+        console.log(p.gradestr + ' : ' + xp.grade());
+        console.log('\n');
         if (p.fname==xp.fname() &&
                 p.lname==xp.lname() &&
                 p.grade==xp.grade()){
