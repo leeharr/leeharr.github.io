@@ -210,6 +210,7 @@ var lsd = async function(){
     let afterload = async function(){
         for (let k in db.people){
             let p = db.people[k];
+            console.log('AL '+p.fname+p.lname+p.gradestr+' AL');
 
             let is_dup = check_dup(p);
             let i = await pgetnextid();
