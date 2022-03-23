@@ -776,7 +776,7 @@ var setremember = async function(formid, questions){
             let sel = document.getElementById(selid);
             if (!val){ val = '';}
             //console.log('selval '+sel.value);
-            if (sel.value instanceof Function){
+            if (sel && sel.value instanceof Function){
                 //console.log('val is function');
                 sel.setvalue(val);
             } else {
