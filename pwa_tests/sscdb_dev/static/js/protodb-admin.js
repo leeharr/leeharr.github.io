@@ -183,6 +183,7 @@ var load_student_data = function(){
 
 var check_dup = function(p){
     // Dup if first name, last name, and grade all match existing student.
+    console.log('CKDUP '+p.fname+p.lname+p.gradestr+' CKDUP');
 
     for (let xp of vm.people()){
         console.log('CHECK');
@@ -194,9 +195,11 @@ var check_dup = function(p){
         if (p.fname==xp.fname() &&
                 p.lname==xp.lname() &&
                 p.gradestr==xp.grade()){
+            console.log('+++MATCH+++');
             return true;
         }
     }
+    console.log('...XXXXX...');
     return false;
 }
 
