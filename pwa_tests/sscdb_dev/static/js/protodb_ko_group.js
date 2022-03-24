@@ -134,7 +134,7 @@ var Group = function(gid, name){
                         sel['data-reset'](sel);
                     }
                 } else if (sel.value instanceof Function){
-                    console.log('FUNC');
+                    //console.log('FUNC');
                     sel.setvalue(val);
                 } else if (val){
                     sel.value = val;
