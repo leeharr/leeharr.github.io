@@ -130,3 +130,7 @@ table tbody tr th.inactive{
 table tbody tr td img{
     vertical-align: middle;
 }
+
+table#samplesheet tr td{
+    white-space: nowrap;
+}
