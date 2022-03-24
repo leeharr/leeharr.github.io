@@ -1,4 +1,4 @@
-var cacheName = 'sscdb_devBR01';
+var cacheName = 'sscdb_devBR02';
 var filesToCache = [
   './',
   'index.html',
@@ -14,6 +14,7 @@ var filesToCache = [
   'static/js/idb-keyval-iife.js',
   'static/js/protodb_util.js',
   'static/js/protodb.js',
+  'static/js/protodb_db_vars.js',
   'static/js/protodb_db.js',
   'static/js/protodb_ko_person.js',
   'static/js/protodb_ko_group.js',
