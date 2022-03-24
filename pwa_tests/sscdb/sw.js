@@ -3,6 +3,7 @@ var filesToCache = [
   './',
   'index.html',
   'admin.html',
+  'viewsent.html',
 
   'static/css/style.css',
 
