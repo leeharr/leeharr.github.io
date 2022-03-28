@@ -32,6 +32,15 @@ var checkforother = function(answers){
     }
     return false;
 }
+var otherval = function(answers){
+    for (let i=0; i<answers.length; i++){
+        let ans = answers[i];
+        if (othery(ans)){
+            return ans.substr(7);
+        }
+    }
+    return '';
+}
 
 var reset_session_questions = function(){
     let form = document.getElementById('newsession_questions');
@@ -136,4 +145,24 @@ var allunique = function(arr){
         }
     }
     return uniques;
+}
+
+var removeAllChildNodes = function(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+var __next_objid=1;
+function objectId(obj) {
+    if (obj==null) return null;
+    if (obj.__obj_id==null) obj.__obj_id=__next_objid++;
+    return obj.__obj_id;
+}
+
+var scrolltop = function(){
+    window.scrollTo(0, 0);
+}
+var scrollto = function(elem){
+    elem.scrollIntoView();
 }

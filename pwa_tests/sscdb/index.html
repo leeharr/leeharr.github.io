@@ -19,6 +19,7 @@
     <script defer src="static/js/idb-keyval-iife.js"></script>
     <script defer src="static/js/knockout-3.5.1.js"></script>
     <script defer src="static/js/protodb_util.js"></script>
+    <script defer src="static/js/protodb_db_vars.js"></script>
     <script defer src="static/js/protodb_db.js"></script>
     <script defer src="static/js/protodb_ko_person.js"></script>
     <script defer src="static/js/protodb_ko_group.js"></script>
@@ -130,7 +131,7 @@
     </tr></thead>
     <tbody data-bind="foreach: group_apeople_byfl">
         <tr>
-        <td><input type="checkbox" data-bind="attr: {id: 'gspid'+pid()}" /></td>
+        <td><input type="checkbox" data-bind="attr: {id: 'gspid'+pid()}" onchange="cbchange()" /></td>
 <!--        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>-->
         <td data-bind="text: fname(), click: checkorshowperson"></td>
         <td data-bind="text: lname(), click: checkorshowperson"></td>
@@ -144,6 +145,7 @@
 </div>
 
 <div id="rs">
+<div class="rsplit">
     <div class="side">
     <h1>Staff <button onclick="showeditstaff()">Edit</button>
         <button data-bind="visible: $root.showeditstaff()" onclick="showeditstaff()">Cancel</button></h1>
@@ -166,6 +168,14 @@
         </div>
     </form>
     </div>
+
+    <div class="side">
+    <h3><a href="static/doc/sscdb_instructions.pdf">Instructions</a></h3>
+    <h3><a href="viewsent.html">View Sent Data</a></h3>
+    <h3><a href="backup.html">Back Up Data</a></h3>
+    <h3><a href="restore.html">Restore Data</a></h3>
+    </div>
+</div>
 
     <div class="side" data-bind="visible: !$root.showgroupsession()">
     <h1>Monthly Data
@@ -220,7 +230,7 @@
             <button data-bind="click: savegroup" id="svgrpbtn">Save</button>
             <button data-bind="click: savecancel">Cancel</button></td>
         <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()">
-            <button data-bind="click: newgroupsession">Send Data</button>
+            <button data-bind="click: newgroupsession">Enter Data</button>
             <button data-bind="click: savecancel">Cancel</button></td>
         <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()"><a data-bind="click: editgroup" title="edit group"><img src="static/images/edit.png"></a>(Or Select/Deselect Students and Save)</td>
         </tr>

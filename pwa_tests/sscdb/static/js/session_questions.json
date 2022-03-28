@@ -22,15 +22,18 @@
     {"q": "Service Units This Month (1SU = 15 minutes)",
         "qattr": "su",
         "sendas": "Service Units",
-        "req": true,
+        "req": "intinputperreq",
+        "err": "intinputpererr",
         "remember": "offer",
-        "af": "intinput",
-        "areset": "intinputreset"},
+        "af": "intinputper",
+        "asetup": "intinputpersetup",
+        "areset": "intinputperreset"},
 
     {"q": "Services Provided",
         "qattr": "services",
         "sendas": "Services Provided",
-        "req": true,
+        "req": "selectmultireq",
+        "err": "selectmultierr",
         "remember": "offer",
         "a": ["College Prep.",
                 "Crisis Intervention",
@@ -40,5 +43,7 @@
                 "Job Readiness",
                 "Mentoring",
                 "Referral to Outside Agency",
-                "Other:"]}
+                "Other:"],
+        "multi": true,
+        "areset": "selectmultireset"}
 ]

@@ -1,9 +1,13 @@
-var cacheName = 'sscdbAK01';
+var cacheName = 'sscdbAL01';
 var filesToCache = [
   './',
   'index.html',
   'admin.html',
   'viewsent.html',
+  'backup.html',
+  'restore.html',
+
+  'static/doc/sscdb_instructions.pdf',
 
   'static/css/style.css',
 
