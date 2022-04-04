@@ -15,7 +15,7 @@ var getnextid = async function(getter, setter){
     return currid.toString();
 }
 
-var pdbppl = new idbKeyval.Store('protodb-people');
+var pdbppl = new idbKeyval.Store(pstore);
 var pset = function(key, value){ return idbKeyval.set(key, value, pdbppl);}
 var pget = function(key){ return idbKeyval.get(key, pdbppl);}
 var pkeys = function(){ return idbKeyval.keys(pdbppl);}
@@ -23,7 +23,7 @@ var pgetcurrid = async function(){ return getcurrid(pget); }
 var pgetnextid = async function(){ return getnextid(pgetcurrid, pset); }
 var pdel = async function(key){ return idbKeyval.del(key, pdbppl); }
 
-var pdbgrp = new idbKeyval.Store('protodb-groups');
+var pdbgrp = new idbKeyval.Store(gstore);
 var gset = function(key, value){ return idbKeyval.set(key, value, pdbgrp);}
 var gget = function(key){ return idbKeyval.get(key, pdbgrp);}
 var gkeys = function(){ return idbKeyval.keys(pdbgrp);}
@@ -41,14 +41,14 @@ var gnamex = async function(name){
     return false;
 }
 
-var pdbses = new idbKeyval.Store('protodb-sessions');
+var pdbses = new idbKeyval.Store(sstore);
 var sset = function(key, value){ return idbKeyval.set(key, value, pdbses);}
 var sget = function(key){ return idbKeyval.get(key, pdbses);}
 var skeys = function(){ return idbKeyval.keys(pdbses);}
 var sgetcurrid = async function(){ return getcurrid(sget); }
 var sgetnextid = async function(){ return getnextid(sgetcurrid, sset); }
 
-var pdbcfg = new idbKeyval.Store('protodb-config');
+var pdbcfg = new idbKeyval.Store(cstore);
 var cset = function(key, value){ return idbKeyval.set(key, value, pdbcfg);}
 var cget = function(key){ return idbKeyval.get(key, pdbcfg);}
 var ckeys = function(){ return idbKeyval.keys(pdbcfg);}
