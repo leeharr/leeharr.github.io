@@ -738,7 +738,6 @@ var set_only_later = function(only, attr, div){
     let marker = parts[2];
 
     let onlyselid = 'new'+section+'_questions'+question;
-    console.log('onlyselid: '+onlyselid);
     let onlysel = document.getElementById(onlyselid);
 
     let anss;
