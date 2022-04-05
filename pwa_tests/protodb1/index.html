@@ -47,8 +47,8 @@
 
 <div id="ls" class="side">
     <div data-bind="visible: !$root.showgroupsession()">
-    <h1>People <button onclick="shownewperson()"
-                    data-bind="visible: !$root.shownewgroup() && !$root.personexists()">Add New Person</button>
+    <h1>Students <button onclick="shownewperson()"
+                    data-bind="visible: !$root.shownewgroup() && !$root.personexists()">Add New Student</button>
                 <button onclick="shownewperson(); return false;"
                     data-bind="visible: $root.shownewperson()">Cancel</button>
                     </h1>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="qdiv" data-bind="visible: !$root.personexists()">
-        Select groups on the right. (Optional)
+        Select groupings on the right. (Optional)
         </div>
 
         <input type="hidden" id="xpersonid" value="0" />
@@ -107,7 +107,7 @@
         <td data-bind="text: fname(), click: checkorshowperson"></td>
         <td data-bind="text: lname(), click: checkorshowperson"></td>
         <td data-bind="text: linitial(), click: checkorshowperson"></td>
-        <td data-bind="text: grade(), click: checkorshowperson"></td>
+        <td data-bind="text: grade(), click: checkorshowperson" class="num"></td>
         <td data-bind="text: active(), click: checkorshowperson"></td>
         </tr>
         <!-- /ko -->
@@ -116,13 +116,13 @@
     </div>
 
     <div data-bind="visible: $root.showgroupsession()">
-    <h1>People in Session
+    <h1>Students Included
         <button data-bind="click: $root.cancelgroupsession">Cancel</button>
         </h1>
     <h3 data-bind="visible: !$root.quickgroup()">UNCHECK ABSENT STUDENTS!</h3>
     <h5 data-bind="visible: !$root.quickgroup()">(will not remove from group <span data-bind="text: selectedgroupname()"></span>, only from this session)</h5>
-    <h5 data-bind="visible: $root.quickgroup()">Select Session Members Below</h5>
-    <h5 data-bind="visible: $root.quickgroup()">Then Complete Session Details on Right Side</h5>
+    <h5 data-bind="visible: $root.quickgroup()">Select Students to Include Below</h5>
+    <h5 data-bind="visible: $root.quickgroup()">Then Complete Data and Send on Right Side</h5>
     <table>
     <thead><tr>
         <th><span data-bind="click: $root.checkuncheck" title="Check/Uncheck All">x</span></th>
@@ -146,6 +146,7 @@
 </div>
 
 <div id="rs">
+<div class="rsplit">
     <div class="side">
     <h1>Staff <button onclick="showeditstaff()">Edit</button>
         <button data-bind="visible: $root.showeditstaff()" onclick="showeditstaff()">Cancel</button></h1>
@@ -168,18 +169,26 @@
         </div>
     </form>
     </div>
+    <div class="side">
+    <h3><a href="static/doc/sscdb_instructions.pdf">Instructions</a></h3>
+    <h3><a href="viewsent.html">View Sent Data</a></h3>
+    <h3><a href="backup.html">Back Up Data</a></h3>
+    <h3><a href="restore.html">Restore Data</a></h3>
+    </div>
+</div>
 
     <div class="side" data-bind="visible: !$root.showgroupsession()">
-    <h1>Groups
+    <h1>Data to Send
         <button onclick="shownewgroup()"
-            data-bind="visible: !$root.shownewperson() && !$root.selectedgroup()">Add New Group</button>
+            data-bind="visible: !$root.shownewperson() && !$root.selectedgroup()">Create Grouping</button>
         <button onclick="quicksession()"
-            data-bind="visible: !$root.shownewperson() && !$root.shownewgroup() && !$root.selectedgroup()">Quick Session</button>
+            data-bind="visible: !$root.shownewperson() && !$root.shownewgroup() && !$root.selectedgroup()">Enter Data</button>
         <button onclick="shownewgroup(); return false;"
             data-bind="visible: $root.shownewgroup()">Cancel</button>
+        <button onclick="location.href='viewsent.html'">View Sent Data</button>
         </h1>
 
-    <h5 data-bind="visible: !$root.shownewperson() && !$root.shownewgroup()">Click on Group name to view/edit members or create sessions</h5>
+    <h5 data-bind="visible: !$root.shownewperson() && !$root.shownewgroup()">Click on Grouping name to view/edit members or send data</h5>
 
     <form id="newgroup" data-bind="visible: $root.shownewgroup()"
             onsubmit="newgroup(); return false;">
@@ -187,13 +196,13 @@
         <input type="hidden" id="xgroupid" value="0" />
 
         <div class="qdiv qdivreq">
-            <div>Group name</div>
+            <div>Grouping name</div>
             <div id="gname_err"></div>
             <input id="gname" type="text" required="required" />
         </div>
 
         <div class="qdiv">
-            <div id="groupmessage">Select Group Members on Left Side</div>
+            <div id="groupmessage">Select Grouping Members on Left Side</div>
         </div>
 
         <div class="qdiv">
@@ -221,9 +230,9 @@
             <button data-bind="click: savegroup" id="svgrpbtn">Save</button>
             <button data-bind="click: savecancel">Cancel</button></td>
         <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()">
-            <button data-bind="click: newgroupsession">New Session</button>
+            <button data-bind="click: newgroupsession">Enter Data</button>
             <button data-bind="click: savecancel">Cancel</button></td>
-        <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()"><a data-bind="click: editgroup" title="edit group"><img src="static/images/edit.png"></a>(Or Select/Deselect People and Save)</td>
+        <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()"><a data-bind="click: editgroup" title="edit group"><img src="static/images/edit.png"></a>(Or Select/Deselect Students and Save)</td>
         </tr>
     </tbody>
     <tbody data-bind="visible: $root.any_grp_inactive()">
@@ -241,15 +250,15 @@
     </div>
 
     <div class="side" data-bind="visible: $root.showgroupsession()">
-    <h1>Session for group <span data-bind="text: selectedgroupname()"></span>
+    <h1>Send Data for grouping <span data-bind="text: selectedgroupname()"></span>
         <button data-bind="click: $root.cancelgroupsession">Cancel</button>
     </h1>
 
     <h3 data-bind="visible: !$root.quickgroup()">UNCHECK ABSENT STUDENTS!</h3>
-    <h5 data-bind="visible: !$root.quickgroup()">(will not remove from group <span data-bind="text: selectedgroupname()"></span>, only from this session)</h5>
+    <h5 data-bind="visible: !$root.quickgroup()">(will not remove from grouping <span data-bind="text: selectedgroupname()"></span>, only from this sending)</h5>
 
     <form id="newsession"  onsubmit="chkcreatesession(); return false;">
-        <div class="qdiv qdivreq" id="session_members_reminder">Select Session Members on Left Side<br/>Uncheck Absent Students</div>
+        <div class="qdiv qdivreq" id="session_members_reminder">Select Students on Left Side<br/>Uncheck Absent Students</div>
 
         <div id="newsession_questions">
         <!-- Generated on load by load_questions() -->
@@ -257,7 +266,7 @@
 
         <div class="qdiv">
         <div>Please remember to uncheck absent students!</div>
-        <input type="submit" value="Create" />
+        <input type="submit" value="Send" />
         <button data-bind="click: $root.cancelgroupsession">Cancel</button>
         </div>
     </form>
