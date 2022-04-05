@@ -13,10 +13,34 @@ window.showeditstaff = async function(){
             if (!qattr){ return; }
             let sel = div.children[1];
 
+            let val;
             if (div['data-remember']){
-                let val = await cget(qattr);
+                val = await cget(qattr);
                 if (val){
                     sel.value = val;
+                }
+            }
+
+            let sa = staff_answers[qattr];
+            let othq = false;
+            let otha = '';
+            //console.log('SESA '+othq+' '+otha);
+            if (sa && val){
+                othq = checkforother(sa);
+                if (othq){
+                    otha = othery(sa[val]);
+                } else {
+                    otha = '';
+                }
+                //console.log('SESB '+othq+' '+otha);
+                if (othq && otha){
+                    // question has an "Other" option, AND
+                    // "Other" has been selected
+                    sel.onchange(); // trigger to show other text field
+                    let qattr_other = qattr + '_other';
+                    let oval = await cget(qattr_other);
+                    let subsel = div.children[2];
+                    subsel.value = oval;
                 }
             }
         }
@@ -28,7 +52,10 @@ var editstaff = async function(){
     let s = {};
 
     let form = document.getElementById('newstaff_questions');
-    Array.from(form.children).forEach(function(div, i, arr){
+    let fc = Array.from(form.children);
+    let arr = fc;
+    for (let i=0; i<fc.length; i++){
+        let div = fc[i];
         let qattr = div['data-qattr'];
         if (!qattr){ return; }
 
@@ -41,7 +68,34 @@ var editstaff = async function(){
             cset(qattr, val);
             sel.value = val;
         }
-    });
+
+        let sa = staff_answers[qattr];
+        let othq = false;
+        let otha = '';
+        if (sa){
+            //console.log('SA OTHER');
+            othq = checkforother(sa);
+            if (othq){
+                otha = othery(sa[val]);
+            } else {
+                otha = '';
+            }
+            //console.log('OT Q A '+othq+' '+otha);
+            if (othq && otha){
+                // question has an "Other" option, AND
+                // "Other" has been selected
+                let qattr_other = qattr + '_other';
+                let subsel = div.children[2];
+                let sendval = subsel.value;
+                //console.log('SUBSELV '+sendval);
+                await cset(qattr_other, sendval);
+
+                if (qattr=='agency'){
+                    vm.agency_other(sendval);
+                }
+            }
+        }
+    }
 
     vm.showeditstaff(false);
 
@@ -53,6 +107,8 @@ var editstaff_after = async function(){
     vm.staffname(sname);
     let pos = await cget('position');
     vm.position(pos);
+//     let pos = await cget('agency');
+//     vm.agency(pos);
     let url = await cget('sheetsurl');
     vm.sheetsurl(url);
 }
@@ -75,9 +131,29 @@ window.shownewperson = async function(){
         if (!qattr){ return; }
         let sel = div.children[1];
 
-        if (div['data-remember']){
+        if (sel['data-reset']){
+            // Set "Initial Contact" date to today
+            //console.log('DATA RESET '+sel.id);
+            sel['data-reset'](sel);
+        }
+
+        let rem = div['data-remember'];
+        if (rem){
             let val = await cget(qattr);
-            if (val){
+            let dorem = true;
+
+            if (rem=='offer'){
+                let getremid = 'remember_'+qattr;
+                let getrem = document.getElementById(getremid);
+                let orem = await cget(getremid);
+                if (orem){
+                    getrem.checked = true;
+                } else {
+                    dorem = false;
+                }
+            }
+
+            if (dorem && val){
                 sel.value = val;
             }
         }
@@ -136,6 +212,23 @@ var newperson = async function(e){
         if (div['data-remember']){
             cset(qattr, val);
             sel.value = val;
+        }
+
+        // check if need to remember value
+        //console.log('CHK REM');
+        let getremid = 'remember_'+qattr;
+        let getrem = document.getElementById(getremid);
+        let remember = false;
+        //console.log(getremid+' '+getrem);
+        if (getrem){
+            // remember if they want to remember
+            if (getrem.checked){
+                //console.log('getrem chkd');
+                remember = true;
+                cset(getremid, true);
+            } else {
+                cset(getremid, '');
+            }
         }
     });
 
@@ -410,8 +503,8 @@ var editgroup = function(){
 window.quicksession = function(){
     let g = vm.quick_group();
     g.showgroup();
-    g.newgroupsession();
-    g.checkgroupcheckboxes(false);
+    g.newgroupsession(true);
+//     g.checkgroupcheckboxes(false); // moved to g.newgroupsession
 }
 
 function _age(dobstr) {
@@ -449,11 +542,20 @@ var chkcreatesession = function(){
     let err = false;
     var form = document.getElementById('newsession_questions');
     let fields = Array.from(form.children);
-    for (i=0; i<fields.length; i++){
+    for (let i=0; i<fields.length; i++){
         let div = fields[i];
         let qattr = div['data-qattr'];
         //console.log('ck count on qattr : '+qattr);
         let sel = div.children[1];
+
+        if (sel['data-req']){
+            let valid = sel['data-req'](div);
+            if (!valid){
+                sel['data-err'](div);
+                return;
+            }
+        }
+
         if (!sel['countok']){
             //console.log('  NO CK');
             continue;
@@ -507,6 +609,8 @@ var createsession = async function(){
     let sesdata = {'sesname': sesname};
     let late = {};
 
+    let perpersons = {};
+
     var form = document.getElementById('newsession_questions');
     Array.from(form.children).forEach(function(div, i, arr){
         let qattr = div['data-qattr'];
@@ -546,6 +650,9 @@ var createsession = async function(){
             }
             theval = val;
             sel.value = '';
+        } else if (div.perval){
+            perpersons[qattr] = div;
+            theval = sel.value;
         } else if (val instanceof Function){
             //console.log('VAL FUNC '+qattr);
             theval = val();
@@ -570,7 +677,7 @@ var createsession = async function(){
         //console.log('SENDAS '+qattr+' '+sendas);
         if (sendas==false){
             // not sending
-            console.log('NOT SENDING '+qattr);
+            //console.log('NOT SENDING '+qattr);
         } else if (sel['sendas']){
             //console.log(sel['sendas']+'='+sendval);
             sesdata[sel['sendas']] = sendval;
@@ -641,7 +748,10 @@ var createsession = async function(){
         }
         let sa = staff_answers[qattr];
         let sendval;
-        if (sa){
+        if (qattr=='agency'){
+            // Use agencyname (which accounts for Other:)
+            sendval = vm.agencyname();
+        } else if (sa){
             sendval = sa[val];
         } else {
             sendval = val;
@@ -699,6 +809,16 @@ var createsession = async function(){
             psesdata[sendas] = val;
         }
 
+        for (let qatr in perpersons){
+            let div = perpersons[qatr];
+            let sel = div.children[1];
+            let getr = div.perval;
+            let val = getr(pid);
+            let sendas = sel['sendas'];
+            //console.log('perperson '+qatr+'('+pid+') : '+val+' sendas '+sendas);
+            psesdata[sendas] = val;
+        }
+
         let sid = await sgetnextid();
         await sset(sid, psesdata);
 
@@ -720,10 +840,6 @@ var createsession = async function(){
     setTimeout(sendalltosheet, 1000);
     setTimeout(checkdone, 200);
     setTimeout(scrolltop, 500);
-}
-
-var scrolltop = function(){
-    window.scrollTo(0, 0);
 }
 
 var checkdone = function(){

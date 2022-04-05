@@ -60,6 +60,12 @@ var ProtoDBViewModel = function(){
         let pos = self.position();
         let qp = document.getElementById('newstaff_questionsposition');
         let pstr = 'Position Not Set';
+//     self.agency = ko.observable('Agency Unset');
+//     self.agency_other = ko.observable('');
+//     self.agencyname = ko.computed(function(){
+//         let pos = self.agency();
+//         let qp = document.getElementById('newstaff_questionsagency');
+//         let pstr = 'Agency Not Set';
         //console.log('PN');
         //console.log(pos);
         //console.log(qp);
@@ -68,6 +74,9 @@ var ProtoDBViewModel = function(){
             //pstr = qp.options[pos].text;
             pstr = selectoptiontext(qp, pos);
         }
+//         if (othery(pstr)){
+//             pstr = 'Other: '+self.agency_other();
+//         }
         return pstr;
     });
 
@@ -245,6 +254,7 @@ var ProtoDBViewModel = function(){
                 let ln = p.lname();
                 let g = graden(p.grade());
                 let stid = p.stid();
+                //let stid = '';
                 let stid3 = stid.slice(-3); // last 3 of student ID#
                 //console.log('STID '+stid+' '+stid3);
                 for (let grn of ['', g, stid3]){
@@ -567,10 +577,10 @@ var ProtoDBViewModel = function(){
             if (k == 'currid'){ continue; }
             let p = await pget(k);
             if (ko.utils.arrayFirst(self.people(), function(i){return i.pid()==k})){
-                console.log('ERROR.Person.Dup.Id.');
+                //console.log('ERROR.Person.Dup.Id.');
             }
             let vmp = self.addperson(k, p.lname, p.fname, p.gradestr, false);
-            vmp.stid(p.stid);
+            //vmp.stid(p.stid);
             let active = p.active;
             if (active!==false){active=true;}
             vmp.active(active);
@@ -582,7 +592,7 @@ var ProtoDBViewModel = function(){
             if (k == 'currid'){ continue; }
             let g = await gget(k);
             if (ko.utils.arrayFirst(self.groups(), function(i){return i.gid()==k})){
-                console.log('ERROR.Group.Dup.Id.');
+                //console.log('ERROR.Group.Dup.Id.');
             }
             let ng = self.addgroup(k, g.name);
             ng.active(g.active);

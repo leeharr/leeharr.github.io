@@ -88,10 +88,14 @@ var Group = function(gid, name){
         vm.shownewgroup(false);
     }
 
-    self.newgroupsession = async function(){
-        //console.log('NGS');
+    self.newgroupsession = async function(quick){
+        //console.log('NGS +'+quick+'+');
         vm.showgroupsession(true);
-        self.checkgroupcheckboxes(true);
+        if (quick!==true){
+            self.checkgroupcheckboxes(true);
+        } else {
+            self.checkgroupcheckboxes(false);
+        }
 
         let form = document.getElementById('newsession_questions');
         let fc = Array.from(form.children);
@@ -108,6 +112,12 @@ var Group = function(gid, name){
             //console.log('selval '+sel.value );
             //console.log('dr '+sel['data-reset']);
 
+            let asetup = sel['data-setup'];
+            if (asetup && div){
+                //console.log('ASETUP '+objectId(div));
+                asetup(div);
+            }
+
             let getremid = 'remember_'+qattr;
             let getrem = document.getElementById(getremid);
             //console.log('ggg '+getremid+' '+getrem+' '+div['data-remember']);
@@ -117,7 +127,13 @@ var Group = function(gid, name){
                 //if (getrem){ console.log('checked: '+getrem.checked); }
                 let val = await cget(qattr);
                 //console.log('REMval '+val);
-                if (sel.value instanceof Function){
+                if (div.perval instanceof Function){
+                    //console.log('PERVAL '+val);
+                    div.setval(val);
+                    if (sel['data-reset']){
+                        sel['data-reset'](sel);
+                    }
+                } else if (sel.value instanceof Function){
                     //console.log('FUNC');
                     sel.setvalue(val);
                 } else if (val){
@@ -146,7 +162,7 @@ var Group = function(gid, name){
                 }
 
             } else if (sel['data-reset']) {
-                //console.log('SDR');
+                //console.log('SDR '+qattr);
                 sel['data-reset'](sel);
             } else {
                 //console.log('NOA');
