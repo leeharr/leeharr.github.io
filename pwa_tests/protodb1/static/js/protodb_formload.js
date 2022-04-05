@@ -809,13 +809,9 @@ var loadstaffinfo = async function(){
     if (sname){
         vm.staffname(sname);
     }
-    let pos = await cget('agency');
+    let pos = await cget('position');
     if (pos){
-        vm.agency(pos);
-    }
-    let poso = await cget('agency_other');
-    if (poso){
-        vm.agency_other(poso);
+        vm.position(pos);
     }
     let url = await cget('sheetsurl');
     if (url){
