@@ -3,6 +3,11 @@ var filesToCache = [
   './',
   'index.html',
   'admin.html',
+  'viewsent.html',
+  'backup.html',
+  'restore.html',
+
+  'static/doc/protodb_instructions.pdf',
 
   'static/css/style.css',
 
@@ -11,6 +16,7 @@ var filesToCache = [
   'static/js/idb-keyval-iife.js',
   'static/js/protodb_util.js',
   'static/js/protodb.js',
+  'static/js/protodb_db_vars.js',
   'static/js/protodb_db.js',
   'static/js/protodb_ko_person.js',
   'static/js/protodb_ko_group.js',

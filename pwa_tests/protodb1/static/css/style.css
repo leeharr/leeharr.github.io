@@ -15,6 +15,16 @@ div.sendwarn{
     font-size: 140%;
 }
 
+div.rsplit{
+    display: grid;
+    grid-template-columns: 16fr 8fr;
+}
+
+th{
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+}
 
 td.num{
     text-align: right;
@@ -40,6 +50,7 @@ tr.inactivemember{
 table#samplesheet tr td{
     padding: 0 1em 0 1em;
     border: thin solid black;
+    white-space: nowrap;
 }
 
 
@@ -94,6 +105,9 @@ h2.warn{
 input[type=number]{
     margin-left: 3em;
 }
+input.su{
+    width: 4em;
+}
 
 span.spaceleft{
     color: white;
@@ -115,4 +129,8 @@ table tbody tr th.inactive{
 
 table tbody tr td img{
     vertical-align: middle;
+}
+
+table#samplesheet tr td{
+    white-space: nowrap;
 }

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ProtoDB Restore Data</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script defer src="static/js/idb-keyval-iife.js"></script>
+    <script defer src="static/js/knockout-3.5.1.js"></script>
+    <script defer src="static/js/protodb_util.js"></script>
+    <script defer src="static/js/protodb_db_vars.js"></script>
+    <script defer src="static/js/protodb_db.js"></script>
+    <script defer src="static/js/protodb_ko_person.js"></script>
+    <script defer src="static/js/protodb_ko_group.js"></script>
+    <script defer src="static/js/protodb_ko_viewmodel.js"></script>
+    <script defer src="static/js/protodb_formload.js"></script>
+    <script defer src="static/js/protodb_tosheet.js"></script>
+    <script defer src="static/js/protodb.js"></script>
+    <script defer src="static/js/protodb-admin.js"></script>
+</head>
+<body>
+    <div class="admincontent">
+
+<div id="ls">
+    <a href="index.html">Return to<br/>ProtoDB</a><br/><br/>
+</div>
+
+<div id="rs">
+    <form id="jsonFile" name="jsonFile" enctype="multipart/form-data" method="post">
+    <h3>Select your backup file here: <input type='file' id='fileinput'></h3>
+
+    <h3>Choose one of the following data restore methods:</h3>
+
+    <h3>1)</h3>
+    <h4>Load ONLY student data. <input type='button' id='btnLoad' value='Load Student Data' onclick='load_student_data();'></h4>
+        This will keep all existing data unchanged, and<br/>
+        load student data from the file as new students,<br/>
+        trying to not create duplicate student entries.<br/>
+        (Suspected duplicates will be loaded as INACTIVE.)
+
+    <h3>OR</h3>
+
+    <h3>2)</h3>
+    <h4>Restore ALL data. <input type='button' id='btnLoad' value='Clear and Restore All Data' onclick='clear_and_restore_all_data();'></h4>
+        This will clear (delete) all existing data, and<br/>
+        restore all data from the file.
+
+    </form>
+</div>
+
+    </div>
+</body>
+</html>
