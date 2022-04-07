@@ -166,3 +166,7 @@ var scrolltop = function(){
 var scrollto = function(elem){
     elem.scrollIntoView();
 }
+
+var get2digit = function(val){
+    return val.toString().length === 1 ? "0" + val : val;
+}
