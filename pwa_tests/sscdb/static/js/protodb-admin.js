@@ -105,8 +105,8 @@ var show_loaded_data = function(){
 
 var dltest = async function() {
     let dt = new Date();
-    let m = dt.getMonth()+1;
-    let d = dt.getDate();
+    let m = get2digit(dt.getMonth()+1);
+    let d = get2digit(dt.getDate());
     let y = dt.getFullYear();
     let filename = `sscdb-${y}-${m}-${d}.json`;
 
