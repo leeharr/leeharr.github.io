@@ -1,8 +1,6 @@
 'use strict';
 
 var showsamplesheet = async function(e){
-    let cols = ['Agency Name', 'Month', 'Staff Name', 'Student Name', 'Grade',
-    'Service Units', 'sesname']
     let tbl = document.getElementById('samplesheet');
 
     //clear the table first
@@ -12,7 +10,7 @@ var showsamplesheet = async function(e){
     tbl.appendChild(thead);
     let tr = document.createElement('tr');
     thead.appendChild(tr);
-    for (let col of cols){
+    for (let col of dbshowcols){
         let th = document.createElement('th');
         th.innerHTML = col;
         tr.appendChild(th);
@@ -28,7 +26,7 @@ var showsamplesheet = async function(e){
         let tr = document.createElement('tr');
         tbody.appendChild(tr);
         let s = await sget(k);
-        for (let col of cols){
+        for (let col of dbshowcols){
             let td = document.createElement('td');
             td.innerHTML = s[col];
             tr.appendChild(td);
