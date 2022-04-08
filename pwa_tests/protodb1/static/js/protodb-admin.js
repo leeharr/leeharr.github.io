@@ -343,10 +343,13 @@ var logdb = async function(e){
 }
 
 var clearppl = function(e){
-    idbKeyval.clear(pdbses);
-    idbKeyval.clear(pdbgrp);
-    idbKeyval.clear(pdbppl);
-    idbKeyval.clear(pdbcfg);
+    let confirm_clear = window.confirm('Are you sure?\n\nThis will DELETE all data!');
+    if (confirm_clear){
+        idbKeyval.clear(pdbses);
+        idbKeyval.clear(pdbgrp);
+        idbKeyval.clear(pdbppl);
+        idbKeyval.clear(pdbcfg);
+    }
 }
 
 var aclear = async function(){
