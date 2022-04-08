@@ -1,4 +1,4 @@
-var cacheName = 'sscdb_devBT03';
+var cacheName = 'sscdb_devBU01';
 var filesToCache = [
   './',
   'index.html',
