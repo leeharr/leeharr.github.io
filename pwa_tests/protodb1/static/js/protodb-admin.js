@@ -108,7 +108,7 @@ var dltest = async function() {
     let m = get2digit(dt.getMonth()+1);
     let d = get2digit(dt.getDate());
     let y = dt.getFullYear();
-    let filename = `sscdb-${y}-${m}-${d}.json`;
+    let filename = `${dbdlname}-${y}-${m}-${d}.json`;
 
     let dbids = {}
 

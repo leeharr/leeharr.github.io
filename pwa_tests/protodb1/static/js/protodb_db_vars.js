@@ -6,4 +6,6 @@ var sstore = 'protodb-sessions';
 var cstore = 'protodb-config';
 
 var dbshowcols = ['Staff Name', 'Date', 'Student Name', 'Student ID', 'Grade',
-                    'Age', 'sesname']
+                    'Age', 'sesname'];
+
+var dbdlname = 'protodb';
