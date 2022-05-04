@@ -80,7 +80,7 @@
     <thead><tr>
         <th data-bind="visible: $root.showpersoncheckboxes()">
             <span data-bind="click: function(){ $root.checkuncheck(); $root.setchange()}" title="Check/Uncheck All">x</span></th>
-        <th>ID</th>
+        <!--<th>ID</th>-->
         <th>First name</th>
         <th>Last name</th>
         <th>Last initial</th>
@@ -90,7 +90,7 @@
     <tbody data-bind="foreach: people_a_byfl">
         <tr data-bind="class: clsactive()">
         <td data-bind="visible: $root.showpersoncheckboxes()"><input type="checkbox" data-bind="click: $root.setchange, attr: {id: 'ngpid'+pid()}" /></td>
-        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>
+        <!--<td data-bind="text: pid(), click: checkorshowperson" class="num"></td>-->
         <td data-bind="text: fname(), click: checkorshowperson"></td>
         <td data-bind="text: lname(), click: checkorshowperson"></td>
         <td data-bind="text: linitial(), click: checkorshowperson"></td>
@@ -103,7 +103,7 @@
         <!-- ko foreach: people_i_byfl -->
         <tr data-bind="class: clsactive()">
         <td data-bind="visible: $root.showpersoncheckboxes()"><input type="checkbox" data-bind="click: $root.setchange, attr: {id: 'ngpid'+pid()}" /></td>
-        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>
+        <!--<td data-bind="text: pid(), click: checkorshowperson" class="num"></td>-->
         <td data-bind="text: fname(), click: checkorshowperson"></td>
         <td data-bind="text: lname(), click: checkorshowperson"></td>
         <td data-bind="text: linitial(), click: checkorshowperson"></td>
@@ -126,7 +126,7 @@
     <table>
     <thead><tr>
         <th><span data-bind="click: $root.checkuncheck" title="Check/Uncheck All">x</span></th>
-        <th>ID</th>
+        <!--<th>ID</th>-->
         <th>First name</th>
         <th>Last name</th>
         <th>Last initial</th>
@@ -134,7 +134,7 @@
     <tbody data-bind="foreach: group_apeople_byfl">
         <tr>
         <td><input type="checkbox" data-bind="attr: {id: 'gspid'+pid()}" /></td>
-        <td data-bind="text: pid(), click: checkorshowperson" class="num"></td>
+        <!--<td data-bind="text: pid(), click: checkorshowperson" class="num"></td>-->
         <td data-bind="text: fname(), click: checkorshowperson"></td>
         <td data-bind="text: lname(), click: checkorshowperson"></td>
         <td data-bind="text: linitial(), click: checkorshowperson"></td>
@@ -215,7 +215,7 @@
     <table>
     <thead><tr>
         <th data-bind="visible: $root.shownewperson()"><span data-bind="click: $root.grpcheckuncheck();" title="Check/Uncheck All">x</span></th>
-        <th>ID</th>
+        <!--<th>ID</th>-->
         <th>Name</th>
         <th data-bind="visible: $root.updategroup()"></th>
         <th data-bind="visible: $root.selectedgroup() && !$root.updategroup()"></th>
@@ -223,7 +223,7 @@
     <tbody data-bind="foreach: groups_a_byname">
         <tr data-bind="css: {gsel: $root.selectedgroup()==$data}">
         <td data-bind="visible: $root.shownewperson() && !$root.personexists()"><input type="checkbox" data-bind="attr: {id: 'npgid'+gid()}" /></td>
-        <td data-bind="text: gid(), click: showgroup" class="num"></td>
+        <!--<td data-bind="text: gid(), click: showgroup" class="num"></td>-->
         <td data-bind="text: name(), click: showgroup"></td>
         <td data-bind="visible: updategroup()">
             <button data-bind="click: savegroup" id="svgrpbtn">Save</button>
@@ -239,7 +239,7 @@
         <!-- ko foreach: groups_i_byname -->
         <tr data-bind="class: clsactive()">
         <td data-bind="visible: $root.shownewperson() && !$root.personexists()"><input type="checkbox" data-bind="attr: {id: 'npgid'+gid()}" /></td>
-        <td data-bind="text: gid(), click: showgroup" class="num"></td>
+        <!--<td data-bind="text: gid(), click: showgroup" class="num"></td>-->
         <td data-bind="text: name(), click: showgroup"></td>
         <td data-bind="visible: $root.selectedgroup()==$data && !$root.updategroup()"><button data-bind="click: savecancel">Cancel</button><a data-bind="click: editgroup" title="edit group"><img src="static/images/edit.png"></a></td>
         </tr>
