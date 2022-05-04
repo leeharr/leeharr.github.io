@@ -440,7 +440,7 @@ window.yesnocountok = function(sel, nppl){
 }
 
 var selectmulti = function(div, aas, req, selid){
-    console.log('SEL MUL');
+    // console.log('SEL MUL');
 
     let sel = document.createElement('div');
     div.appendChild(sel);
@@ -724,7 +724,6 @@ var load_questions = async function(formid, questions, answers){
         }
 
         if (qa.only){
-            console.log('QA ONLY', qa.only, qa.qattr, div.id);
             setTimeout(function(){ set_only_later(qa.only, qa.qattr, div); }, 400);
         }
 
