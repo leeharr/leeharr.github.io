@@ -440,7 +440,7 @@ window.yesnocountok = function(sel, nppl){
 }
 
 var selectmulti = function(div, aas, req, selid){
-    //console.log('SEL MUL');
+    console.log('SEL MUL');
 
     let sel = document.createElement('div');
     div.appendChild(sel);
@@ -477,6 +477,8 @@ var selectmulti = function(div, aas, req, selid){
                     ti.required = false;
                 }
             }
+        } else {
+            sel._relother = undefined;
         }
 
         let br = document.createElement('br');
