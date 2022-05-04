@@ -114,7 +114,7 @@
     {"q": "Workshop or group topics youth participated in",
         "qattr": "workshop_topics",
         "sendas": "Workshop Topics",
-        "req": false,
+        "req": "selectmultireq",
         "remember": "offer",
         "a": ["Anger",
                 "Drugs and Alcohol",
