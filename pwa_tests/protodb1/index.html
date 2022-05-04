@@ -85,7 +85,7 @@
         <th>Last name</th>
         <th>Last initial</th>
         <th>Grade</th>
-        <th>Active</th>
+        <!--<th>Active</th>-->
     </tr></thead>
     <tbody data-bind="foreach: people_a_byfl">
         <tr data-bind="class: clsactive()">
@@ -95,7 +95,7 @@
         <td data-bind="text: lname(), click: checkorshowperson"></td>
         <td data-bind="text: linitial(), click: checkorshowperson"></td>
         <td data-bind="text: grade(), click: checkorshowperson"></td>
-        <td data-bind="text: active(), click: checkorshowperson"></td>
+        <!--<td data-bind="text: active(), click: checkorshowperson"></td>-->
         </tr>
     </tbody>
     <tbody data-bind="visible: $root.any_inactive()">
@@ -108,7 +108,7 @@
         <td data-bind="text: lname(), click: checkorshowperson"></td>
         <td data-bind="text: linitial(), click: checkorshowperson"></td>
         <td data-bind="text: grade(), click: checkorshowperson" class="num"></td>
-        <td data-bind="text: active(), click: checkorshowperson"></td>
+        <!--<td data-bind="text: active(), click: checkorshowperson"></td>-->
         </tr>
         <!-- /ko -->
     </tbody>
