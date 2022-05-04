@@ -542,8 +542,10 @@ window.selectmultireset = function(sel){
 
     let div = sel.parentElement;
     div.classList.remove('qdiverr');
-    sel._relother.style.visibility = 'hidden';
-    sel._relother.value = '';
+    if (sel._relother){
+        sel._relother.style.visibility = 'hidden';
+        sel._relother.value = '';
+    }
 
     let selid = sel.id;
     for (let i=0; i<sel.itemcount; i++){
