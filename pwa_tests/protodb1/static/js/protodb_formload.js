@@ -724,6 +724,7 @@ var load_questions = async function(formid, questions, answers){
         }
 
         if (qa.only){
+            console.log('QA ONLY', qa.only, qa.qattr, div.id);
             setTimeout(function(){ set_only_later(qa.only, qa.qattr, div); }, 400);
         }
 
