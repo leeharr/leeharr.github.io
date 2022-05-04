@@ -125,7 +125,10 @@
                 "Bullying",
                 "Decision Making",
                 "Teamwork",
-                "Restorative work"]},
+                "Restorative work"],
+        "multi": true,
+        "areset": "selectmultireset",
+        "err": "selectmultierr"},
 
     {"q": "Workshop - Knowledge gain (if pre and post test was given)",
         "qattr": "knowledgegain",
