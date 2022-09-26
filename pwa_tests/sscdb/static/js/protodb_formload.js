@@ -97,7 +97,7 @@ window.intinputper = function(div, req){
 //     }
     div.appendChild(ti);
     ti.style.display = 'none';
-    ti.value = '0';
+    ti.value = '1';
     div._ti0 = ti;
     //console.log('create ti0 objid '+objectId(ti));
 
@@ -114,9 +114,9 @@ window.intinputper = function(div, req){
     }
 
     div.setval = function(v){
-        //console.log('ti setval --'+v);
+        console.log('ti setval --'+v);
         if (!v){v='0';}
-        //console.log('ti setval +-'+v);
+        console.log('ti setval +-'+v);
         ti.value = v;
     }
 
