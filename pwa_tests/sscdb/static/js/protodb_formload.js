@@ -225,7 +225,7 @@ window.intinputpersetup = function(div){
     }
 }
 window.intinputperreset = function(ti){
-    //console.log('INT INPUT PER PERSON RESET');
+    console.log('INT INPUT PER PERSON RESET');
     //ti.value = '0';
     //console.log('reset ti0 '+objectId(ti));
     let div = ti.parentElement;
@@ -234,6 +234,7 @@ window.intinputperreset = function(ti){
     let t = ti.thesubtab;
 
     let currval = div._ti0.value;
+    console.log('div _ti0 value '+currval);
     if (t.rows.length >= 1){
         let tr0 = t.rows[0];
         let td0 = tr0.cells[1];
