@@ -236,6 +236,7 @@ window.intinputperreset = function(ti){
     let t = ti.thesubtab;
 
     let currval = div._ti0.value;
+    if (!currval){ currval = '1'; }
     console.log('div _ti0 value '+currval);
     if (t.rows.length >= 1){
         let tr0 = t.rows[0];
