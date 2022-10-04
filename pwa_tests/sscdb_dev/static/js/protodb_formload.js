@@ -97,7 +97,9 @@ window.intinputper = function(div, req){
 //     }
     div.appendChild(ti);
     ti.style.display = 'none';
-    ti.value = '0';
+    ti.name = 'sub_ti';
+    ti.required = false;
+    ti.value = '1';
     div._ti0 = ti;
     //console.log('create ti0 objid '+objectId(ti));
 
@@ -234,6 +236,8 @@ window.intinputperreset = function(ti){
     let t = ti.thesubtab;
 
     let currval = div._ti0.value;
+    if (!currval || currval == ''){ currval = '1'; }
+    //console.log('div _ti0 value ]'+currval+'[');
     if (t.rows.length >= 1){
         let tr0 = t.rows[0];
         let td0 = tr0.cells[1];
