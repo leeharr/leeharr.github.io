@@ -66,7 +66,8 @@ var editstaff = async function(){
 
         if (div['data-averify']){
             let vfyfunc = div['data-averify'];
-            if (!vfyfunc(val)){
+            console.log('VFY '+qattr+' '+vfyfunc);
+            if (vfyfunc && !vfyfunc(val)){
                 // problem with this data
                 // $root.dataerror will be set if vfyfunc
                 return;
