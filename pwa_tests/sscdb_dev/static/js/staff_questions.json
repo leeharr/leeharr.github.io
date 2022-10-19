@@ -6,6 +6,7 @@
         "remember": true,
         "placeholder": "MUST SET BEFORE USE!",
         "af": "textinput",
+        "averify": "urlcheck",
         "areset": "textinputreset"},
 
     {"q": "Staff Name",

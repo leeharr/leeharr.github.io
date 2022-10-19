@@ -580,6 +580,16 @@ window.selectmultierr = function(div){
     cb0.scrollIntoView();
 }
 
+window.urlcheck = function(v){
+    let ck = "https://script.google.com/macros/s/";
+    if (v.startsWith(ck)){
+        return true;
+    } else {
+        vm.dataerror('Invalid URL. Please check with manager.');
+        return false;
+    }
+}
+
 var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);
     if (!form){ return; }
@@ -723,6 +733,11 @@ var load_questions = async function(formid, questions, answers){
             sel['sendas'] = qa.sendas;
         } else {
             //console.log('NO  SENDAS');
+        }
+
+        if (qa.averify){
+            let averify = window[qa.averify];
+            sel['data-averify'] = averify;
         }
 
         if (qa.only){

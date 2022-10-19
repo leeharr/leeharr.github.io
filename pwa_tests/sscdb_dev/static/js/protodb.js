@@ -64,6 +64,17 @@ var editstaff = async function(){
         let val = sel.value;
         //console.log('   val : '+val);
 
+        if (div['data-averify']){
+            let vfyfunc = div['data-averify'];
+            if (!vfyfunc(val)){
+                // problem with this data
+                // $root.dataerror will be set if vfyfunc
+                return;
+            } else {
+                vm.dataerror('');
+            }
+        }
+
         if (div['data-remember']){
             cset(qattr, val);
             sel.value = val;
