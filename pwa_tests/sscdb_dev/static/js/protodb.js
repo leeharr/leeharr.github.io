@@ -47,7 +47,7 @@ window.showeditstaff = async function(){
     }
 }
 var editstaff = async function(){
-    //console.log('SAVE ES');
+    console.log('SAVE ES');
 
     let s = {};
 
@@ -59,15 +59,15 @@ var editstaff = async function(){
         let qattr = div['data-qattr'];
         if (!qattr){ return; }
 
-        //console.log('qattr : '+qattr);
+        console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
-        //console.log('   val : '+val);
+        console.log('   val : '+val);
 
-        if (div['data-averify']){
-            let vfyfunc = div['data-averify'];
-            console.log('VFY '+qattr+' '+vfyfunc);
-            if (vfyfunc && !vfyfunc(val)){
+        let vfyfunc = div['data-averify'];
+        console.log('VFY '+qattr+' '+vfyfunc);
+        if (vfyfunc){
+            if (!vfyfunc(val)){
                 // problem with this data
                 // $root.dataerror will be set if vfyfunc
                 return;
