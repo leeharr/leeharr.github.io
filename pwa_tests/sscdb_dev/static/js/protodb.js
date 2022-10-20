@@ -64,7 +64,7 @@ var editstaff = async function(){
         let val = sel.value;
         console.log('   val : '+val);
 
-        let vfyfunc = div['data-averify'];
+        let vfyfunc = sel['data-averify'];
         console.log('VFY '+qattr+' '+vfyfunc);
         if (vfyfunc){
             if (!vfyfunc(val)){
