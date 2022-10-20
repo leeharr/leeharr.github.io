@@ -44,7 +44,7 @@ var aftersend = async function(response, sid, sheetsurl){
 
 var sendonetosheet = async function(o){
     let sheetsurl = vm.sheetsurl();
-    //console.log('Sending to: '+sheetsurl);
+    console.log('Sending to: '+sheetsurl);
     let d = hts(o);
     let sid = o.id;
     fetch(sheetsurl+'?'+d)
