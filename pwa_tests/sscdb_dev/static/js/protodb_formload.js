@@ -586,6 +586,7 @@ window.urlcheck = function(v){
         return true;
     } else {
         vm.dataerror('Invalid URL. Please check with manager.');
+        scrolltop();
         return false;
     }
 }
