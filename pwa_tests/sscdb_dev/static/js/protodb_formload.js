@@ -739,9 +739,9 @@ var load_questions = async function(formid, questions, answers){
         if (qa.averify){
             let averify = window[qa.averify];
             sel['data-averify'] = averify;
-            console.log('FOUND VFY '+qa.qattr+' '+qa.averify+' '+averify);
+            //console.log('FOUND VFY '+qa.qattr+' '+qa.averify+' '+averify);
         } else {
-            console.log(qa.qattr+ ' NO');
+            //console.log(qa.qattr+ ' NO');
         }
 
         if (qa.only){
