@@ -22,19 +22,23 @@ var hts = function(o){
     let ss = [];
     for (let k of Object.keys(o)){
         let s = addnv(k, o[k]);
-        //console.log('HTS: '+s)
+        console.log('HTS: '+s)
         ss.push(s);
     }
     return ss.join('&');
 }
 
-var aftersend = async function(response, sid){
+var aftersend = async function(response, sid, sheetsurl){
     // successfully sent
     // rmv from working set and mark sent
     //console.log('responded '+sid);
     working.pop();
     let s = await sget(sid);
     s.sent = true;
+    if (s.sheetsurl != sheetsurl){
+        console.log('FIXED URL '+s.sheetsurl+' .to. '+sheetsurl);
+        s.sheetsurl = sheetsurl;
+    }
     await sset(sid, s);
 }
 
@@ -44,7 +48,7 @@ var sendonetosheet = async function(o){
     let d = hts(o);
     let sid = o.id;
     fetch(sheetsurl+'?'+d)
-    .then(function(response){aftersend(response, sid);})
+    .then(function(response){aftersend(response, sid, sheetsurl);})
     .catch(function(error){
         console.log('err ' + error);
         vm.unsentdata(true);
