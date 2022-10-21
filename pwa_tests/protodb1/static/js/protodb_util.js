@@ -170,3 +170,16 @@ var scrollto = function(elem){
 var get2digit = function(val){
     return val.toString().length === 1 ? "0" + val : val;
 }
+
+var unsend_all = async function(){
+    let ks = await skeys();
+    let us = 0;
+    let ki = 0;
+    for (let k of ks){
+        if (k=='currid'){continue;}
+        let s = await sget(k);
+        s.sent = false;
+        await sset(k, s);
+    }
+    cset('datasent', 0);
+}

@@ -54,6 +54,8 @@ var ProtoDBViewModel = function(){
     self.quickgroup = ko.observable(false);
     self.sendworking = ko.observable(false);
 
+    self.dataerror = ko.observable('');
+
     self.staffname = ko.observable('Edit to set Name and Position!');
     self.position = ko.observable('Position Unset');
     self.positionname = ko.computed(function(){

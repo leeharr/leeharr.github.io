@@ -97,7 +97,9 @@ window.intinputper = function(div, req){
 //     }
     div.appendChild(ti);
     ti.style.display = 'none';
-    ti.value = '0';
+    ti.name = 'sub_ti';
+    ti.required = false;
+    ti.value = '1';
     div._ti0 = ti;
     //console.log('create ti0 objid '+objectId(ti));
 
@@ -234,6 +236,8 @@ window.intinputperreset = function(ti){
     let t = ti.thesubtab;
 
     let currval = div._ti0.value;
+    if (!currval || currval == ''){ currval = '1'; }
+    //console.log('div _ti0 value ]'+currval+'[');
     if (t.rows.length >= 1){
         let tr0 = t.rows[0];
         let td0 = tr0.cells[1];
@@ -440,7 +444,7 @@ window.yesnocountok = function(sel, nppl){
 }
 
 var selectmulti = function(div, aas, req, selid){
-    // console.log('SEL MUL');
+    //console.log('SEL MUL');
 
     let sel = document.createElement('div');
     div.appendChild(sel);
@@ -477,8 +481,6 @@ var selectmulti = function(div, aas, req, selid){
                     ti.required = false;
                 }
             }
-        } else {
-            sel._relother = undefined;
         }
 
         let br = document.createElement('br');
@@ -576,6 +578,17 @@ window.selectmultierr = function(div){
     let selid = sel.id;
     let cb0 = document.getElementById(selid+'0');
     cb0.scrollIntoView();
+}
+
+window.urlcheck = function(v){
+    let ck = "https://script.google.com/macros/s/";
+    if (v.startsWith(ck)){
+        return true;
+    } else {
+        vm.dataerror('Invalid URL. Please check with manager.');
+        scrolltop();
+        return false;
+    }
 }
 
 var load_questions = async function(formid, questions, answers){
@@ -721,6 +734,14 @@ var load_questions = async function(formid, questions, answers){
             sel['sendas'] = qa.sendas;
         } else {
             //console.log('NO  SENDAS');
+        }
+
+        if (qa.averify){
+            let averify = window[qa.averify];
+            sel['data-averify'] = averify;
+            //console.log('FOUND VFY '+qa.qattr+' '+qa.averify+' '+averify);
+        } else {
+            //console.log(qa.qattr+ ' NO');
         }
 
         if (qa.only){
