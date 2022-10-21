@@ -41,6 +41,9 @@
 <div class="both" data-bind="visible: $root.unsentdata()">
     <h5>(Data is not lost. All will be sent when network connection restored.)</h5>
 </div>
+<div class="both sendwarn" data-bind="visible: $root.dataerror()">
+    <h3 data-bind="text: $root.dataerror()"></h3>
+</div>
 
 <div id="ls" class="side">
     <div data-bind="visible: !$root.showgroupsession()">

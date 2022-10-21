@@ -116,9 +116,9 @@ window.intinputper = function(div, req){
     }
 
     div.setval = function(v){
-        console.log('ti setval --'+v);
+        //console.log('ti setval --'+v);
         if (!v){v='0';}
-        console.log('ti setval +-'+v);
+        //console.log('ti setval +-'+v);
         ti.value = v;
     }
 
@@ -227,7 +227,7 @@ window.intinputpersetup = function(div){
     }
 }
 window.intinputperreset = function(ti){
-    console.log('INT INPUT PER PERSON RESET');
+    //console.log('INT INPUT PER PERSON RESET');
     //ti.value = '0';
     //console.log('reset ti0 '+objectId(ti));
     let div = ti.parentElement;
@@ -237,7 +237,7 @@ window.intinputperreset = function(ti){
 
     let currval = div._ti0.value;
     if (!currval || currval == ''){ currval = '1'; }
-    console.log('div _ti0 value ]'+currval+'[');
+    //console.log('div _ti0 value ]'+currval+'[');
     if (t.rows.length >= 1){
         let tr0 = t.rows[0];
         let td0 = tr0.cells[1];
@@ -580,6 +580,17 @@ window.selectmultierr = function(div){
     cb0.scrollIntoView();
 }
 
+window.urlcheck = function(v){
+    let ck = "https://script.google.com/macros/s/";
+    if (v.startsWith(ck)){
+        return true;
+    } else {
+        vm.dataerror('Invalid URL. Please check with manager.');
+        scrolltop();
+        return false;
+    }
+}
+
 var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);
     if (!form){ return; }
@@ -723,6 +734,14 @@ var load_questions = async function(formid, questions, answers){
             sel['sendas'] = qa.sendas;
         } else {
             //console.log('NO  SENDAS');
+        }
+
+        if (qa.averify){
+            let averify = window[qa.averify];
+            sel['data-averify'] = averify;
+            //console.log('FOUND VFY '+qa.qattr+' '+qa.averify+' '+averify);
+        } else {
+            //console.log(qa.qattr+ ' NO');
         }
 
         if (qa.only){
