@@ -204,7 +204,7 @@ var lsd = async function(){
 
     let aftersuccess = function(){
         console.log('aftersuccess');
-        window.notify('Data loaded.');
+        window.alert('Data loaded.');
         document.location = 'index.html';
     }
 
@@ -259,7 +259,7 @@ var carad = async function(){
 
     let aftersuccess = function(){
         console.log('aftersuccess');
-        window.notify('Data loaded.');
+        window.alert('Data loaded.');
         document.location = 'index.html';
     }
 
