@@ -203,8 +203,9 @@ var lsd = async function(){
     }
 
     let aftersuccess = function(){
+        console.log('aftersuccess');
         window.notify('Data loaded.');
-        document.location = 'index.html';
+        //document.location = 'index.html';
     }
 
     let afterload = async function(){
