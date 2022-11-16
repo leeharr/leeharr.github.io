@@ -205,7 +205,7 @@ var lsd = async function(){
     let aftersuccess = function(){
         console.log('aftersuccess');
         window.notify('Data loaded.');
-        //document.location = 'index.html';
+        document.location = 'index.html';
     }
 
     let afterload = async function(){
@@ -257,6 +257,12 @@ var carad = async function(){
         db = JSON.parse(lines);
     }
 
+    let aftersuccess = function(){
+        console.log('aftersuccess');
+        window.notify('Data loaded.');
+        document.location = 'index.html';
+    }
+
     let afterload = async function(){
         await aclear();
 
@@ -295,6 +301,7 @@ var carad = async function(){
             //console.log('CFG '+k+' = '+cval);
             await cset(k, cval);
         }
+        setTimeout(aftersuccess, 400);
     }
 
     let input = document.getElementById('fileinput');
