@@ -202,6 +202,11 @@ var lsd = async function(){
         db = JSON.parse(lines);
     }
 
+    let aftersuccess = function(){
+        window.notify('Data loaded.');
+        document.location = 'index.html';
+    }
+
     let afterload = async function(){
         for (let k in db.people){
             let p = db.people[k];
@@ -218,6 +223,7 @@ var lsd = async function(){
 
             await pset(i, p);
         }
+        setTimeout(aftersuccess, 400);
     }
 
     let input = document.getElementById('fileinput');
