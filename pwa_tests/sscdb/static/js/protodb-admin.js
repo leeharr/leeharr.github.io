@@ -202,6 +202,12 @@ var lsd = async function(){
         db = JSON.parse(lines);
     }
 
+    let aftersuccess = function(){
+        console.log('aftersuccess');
+        window.alert('Data loaded.');
+        document.location = 'index.html';
+    }
+
     let afterload = async function(){
         for (let k in db.people){
             let p = db.people[k];
@@ -218,6 +224,7 @@ var lsd = async function(){
 
             await pset(i, p);
         }
+        setTimeout(aftersuccess, 400);
     }
 
     let input = document.getElementById('fileinput');
@@ -248,6 +255,12 @@ var carad = async function(){
     let receivedText = function(e) {
         let lines = e.target.result;
         db = JSON.parse(lines);
+    }
+
+    let aftersuccess = function(){
+        console.log('aftersuccess');
+        window.alert('Data loaded.');
+        document.location = 'index.html';
     }
 
     let afterload = async function(){
@@ -288,6 +301,7 @@ var carad = async function(){
             //console.log('CFG '+k+' = '+cval);
             await cset(k, cval);
         }
+        setTimeout(aftersuccess, 400);
     }
 
     let input = document.getElementById('fileinput');
