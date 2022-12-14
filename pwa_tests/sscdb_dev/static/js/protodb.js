@@ -192,7 +192,7 @@ window.shownewperson = async function(){
         vm.selectedgroup().savecancel();
     }
 }
-var checkdupstudent = function(p){
+var checkdupstudent = async function(p){
     // return true if duplicate detected, false otherwise.
     return true;
 }
@@ -247,8 +247,9 @@ var newperson = async function(e){
     });
 
     // Check for duplicate student record before creating
-    if (checkdupstudent(p)){
-        let confirm = window.confirm('Duplicate Detected.\n\nContinue?');
+    let dup = await checkdupstudent(p);
+    if (dup){
+        let confirm = window.confirm('Duplicate Detected.\n\nCreate Duplicate?');
         if (!confirm){return;}
     }
 
