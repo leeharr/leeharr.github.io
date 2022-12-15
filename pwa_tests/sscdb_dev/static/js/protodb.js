@@ -194,7 +194,20 @@ window.shownewperson = async function(){
 }
 var checkdupstudent = async function(p){
     // return true if duplicate detected, false otherwise.
-    return true;
+
+    let ks = await pkeys();
+    for (let k of ks){
+        if (k == 'currid'){ continue; }
+        let pe = await pget(k); // existing person
+
+        if (p.fname==pe.fname &&
+            p.lname==pe.lname &&
+            p.grade==pe.grade &&
+            p.dob==pe.dob){
+                return true;
+        }
+    }
+    return false;
 }
 var newperson = async function(e){
     // e true if saving existing person
@@ -249,7 +262,7 @@ var newperson = async function(e){
     // Check for duplicate student record before creating
     let dup = await checkdupstudent(p);
     if (dup){
-        let confirm = window.confirm('Duplicate Detected.\n\nCreate Duplicate?');
+        let confirm = window.confirm('Duplicate Detected.\n\nCreate Duplicate?\n\nIf OK: Add some distinguishing data!');
         if (!confirm){return;}
     }
 
