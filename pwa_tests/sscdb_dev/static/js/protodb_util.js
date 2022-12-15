@@ -183,3 +183,21 @@ var unsend_all = async function(){
     }
     cset('datasent', 0);
 }
+
+var checkdupstudent_ssc = async function(p){
+    // return true if duplicate detected, false otherwise.
+
+    let ks = await pkeys();
+    for (let k of ks){
+        if (k == 'currid'){ continue; }
+        let pe = await pget(k); // existing person
+
+        if (p.fname==pe.fname &&
+            p.lname==pe.lname &&
+            p.grade==pe.grade &&
+            p.dob==pe.dob){
+                return true;
+        }
+    }
+    return false;
+}
