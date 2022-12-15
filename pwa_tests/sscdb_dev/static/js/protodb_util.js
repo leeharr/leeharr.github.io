@@ -198,7 +198,7 @@ var checkdupstudent_ssc = async function(p){
             p.dob==pe.dob){
                 console.log(p.fname+'='+pe.fname);
                 console.log(p.lname+'='+pe.lname);
-                console.log(p.grade+'='+pe.grade);
+                console.log(p.gradestr+'='+pe.gradestr);
                 console.log(p.dob+'='+pe.dob);
                 return true;
         }
