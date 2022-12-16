@@ -243,10 +243,16 @@ var newperson = async function(e){
     });
 
     // Check for duplicate student record before creating
-    let dup = await checkdupstudent_ssc(p);
+    let dup = await checkdupstudent_ssc(p, true);
+    let grup = false;
+    if (!dup){
+        grup = await checkdupstudent_ssc(p);
+    }
     if (dup){
-        let confirm = window.confirm('Duplicate Detected.\n\nCreate Duplicate?\n\nIf OK: Add some distinguishing data!');
+        let confirm = window.confirm('Duplicate Detected.\n\nCreate Duplicate?\n\nIf OK: Add some distinguishing data!\n(MI,nickname)');
         if (!confirm){return;}
+    } else if (grup){
+        let confirm = window.confirm('Duplicate Detected.\n\nCreate Duplicate?\n\n(OR Cancel and update grade on original record instead.)');
     }
 
     let i = 0;
