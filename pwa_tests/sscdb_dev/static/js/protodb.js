@@ -253,6 +253,7 @@ var newperson = async function(e){
         if (!confirm){return;}
     } else if (grup){
         let confirm = window.confirm('Duplicate Detected.\n\nCreate Duplicate?\n\n(OR Cancel and update grade on original record instead.)');
+        if (!confirm){return;}
     }
 
     let i = 0;
