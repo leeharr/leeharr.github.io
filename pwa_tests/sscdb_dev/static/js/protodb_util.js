@@ -203,7 +203,7 @@ var checkdupstudent_ssc = async function(p, gradechk=false){
                 console.log(p.gradestr+'='+pe.gradestr);
 
                 if (gradechk){
-                    return p.grade==pe.grade;
+                    return p.gradestr==pe.gradestr;
                 }
 
                 return true;
