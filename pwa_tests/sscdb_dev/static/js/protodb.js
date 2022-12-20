@@ -170,7 +170,7 @@ window.shownewperson = async function(){
 
         if (i==0){
             console.log('FOCUS '+sel+' '+qattr);
-            setTimeout(sel.focus, 250);
+            setTimeout(() => sel.focus(), 250);
 //             sel.focus();
         }
     }
