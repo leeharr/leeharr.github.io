@@ -167,6 +167,10 @@ window.shownewperson = async function(){
                 sel.value = val;
             }
         }
+
+        if (i==0){
+            setTimeout(() => sel.focus(), 250);
+        }
     }
 
     let sg = -1;
