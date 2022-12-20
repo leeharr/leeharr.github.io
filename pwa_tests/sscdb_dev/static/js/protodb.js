@@ -169,6 +169,7 @@ window.shownewperson = async function(){
         }
 
         if (i==0){
+            console.log('FOCUS '+sel);
             sel.focus();
         }
     }
