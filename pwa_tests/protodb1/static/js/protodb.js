@@ -138,6 +138,7 @@ window.shownewperson = async function(){
     form = document.getElementById('newperson_questions');
     let fc = Array.from(form.children);
     for (let i=0; i<fc.length; i++){
+        console.log('='+i);
         let div = fc[i];
         let qattr = div['data-qattr'];
         if (!qattr){ return; }
