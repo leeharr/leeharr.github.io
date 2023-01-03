@@ -169,7 +169,8 @@ window.shownewperson = async function(){
                 sel.value = val;
             }
 
-            if (i==0){
+            if (i==1){
+                // focus 1st name (2nd field)
                 setTimeout(() => sel.focus(), 250);
             }
         }
