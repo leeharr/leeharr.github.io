@@ -183,3 +183,60 @@ var unsend_all = async function(){
     }
     cset('datasent', 0);
 }
+
+var checkdupstudent_ssc = async function(p, gradechk=false){
+    // return true if duplicate detected, false otherwise.
+    // gradechk: includes grade in the detection algorithm,
+    //      otherwise, does not depend on grade match for dup
+
+    let ks = await pkeys();
+    for (let k of ks){
+        if (k == 'currid'){ continue; }
+        let pe = await pget(k); // existing person
+
+        if (p.fname==pe.fname &&
+            p.lname==pe.lname &&
+            p.dob==pe.dob){
+//                 console.log(p.fname+'='+pe.fname);
+//                 console.log(p.lname+'='+pe.lname);
+//                 console.log(p.dob+'='+pe.dob);
+//                 console.log(p.gradestr+'='+pe.gradestr);
+
+                if (gradechk){
+                    return p.gradestr==pe.gradestr;
+                }
+
+                return true;
+        }
+    }
+    return false;
+}
+
+var checkdupstudent_protodb = async function(p, gradechk=false){
+    // return true if duplicate detected, false otherwise.
+    // gradechk: includes grade in the detection algorithm,
+    //      otherwise, does not depend on grade match for dup
+
+    let ks = await pkeys();
+    for (let k of ks){
+        if (k == 'currid'){ continue; }
+        let pe = await pget(k); // existing person
+
+        if (p.fname==pe.fname &&
+            p.lname==pe.lname &&
+            p.stid==pe.stid &&
+            p.dob==pe.dob){
+//                 console.log(p.fname+'='+pe.fname);
+//                 console.log(p.lname+'='+pe.lname);
+//                 console.log(p.dob+'='+pe.dob);
+//                 console.log(p.gradestr+'='+pe.gradestr);
+
+                if (gradechk){
+                    return p.gradestr==pe.gradestr;
+                }
+
+                return true;
+        }
+    }
+    return false;
+}
