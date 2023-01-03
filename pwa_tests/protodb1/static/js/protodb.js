@@ -171,6 +171,7 @@ window.shownewperson = async function(){
 
             if (i==1){
                 // focus 1st name (2nd field)
+                console.log('FIELD '+i+' '+qattr);
                 setTimeout(() => sel.focus(), 250);
             }
         }
