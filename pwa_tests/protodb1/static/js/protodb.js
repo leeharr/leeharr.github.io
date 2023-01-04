@@ -168,14 +168,10 @@ window.shownewperson = async function(){
             if (dorem && val){
                 sel.value = val;
             }
-
-            if (i==1){
-                // focus 1st name (2nd field)
-                console.log('FIELD '+i+' '+qattr);
-                setTimeout(() => sel.focus(), 250);
-            } else {
-                console.log('='+i+' '+qattr);
-            }
+        }
+        if (i==1){
+            // focus 1st name (2nd field)
+            setTimeout(() => sel.focus(), 250);
         }
     }
 
