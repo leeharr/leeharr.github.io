@@ -60,6 +60,7 @@
         "qattr": "grade",
         "sendas": "Grade",
         "req": true,
+        "remember": "offer",
         "a": ["Pre-K",
                 "Kinder",
                 "1st",
