@@ -52,7 +52,7 @@ class Sq{
     }
 
     setc(color){
-        this.s.fill = color;
+        this.s.set('fill', color);
         c.renderAll();
     }
 }
