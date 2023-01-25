@@ -25,7 +25,7 @@ class XY{
     }
 }
 var Pos = function(x, y){
-    return XY(x, y);
+    return new XY(x, y);
 }
 
 class Sq{
@@ -61,5 +61,5 @@ class Sq{
 }
 
 var Square = function(side, pos){
-    return Sq(side, pos);
+    return new Sq(side, pos);
 }
