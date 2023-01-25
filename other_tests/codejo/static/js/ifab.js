@@ -17,3 +17,37 @@ var S = function(side){
     c.renderAll();
     return ns;
 }
+
+class XY{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+    }
+}
+
+class Sq{
+    constructor(side, pos){
+        let ns = new fabric.Rect({
+            width: side,
+            height: side,
+            top: pos.y,
+            left: pos.x,
+            fill: 'red',
+            selectable: false,
+            evented: false,
+        });
+        this.s = ns;
+        c.add(ns);
+        c.renderAll();
+    }
+
+    setx(x){
+        this.s.left = x;
+        c.renderAll();
+    }
+
+    sety(y){
+        this.s.top = y;
+        c.renderAll();
+    }
+}
