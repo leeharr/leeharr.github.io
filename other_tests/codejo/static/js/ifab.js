@@ -50,4 +50,9 @@ class Sq{
         this.s.top = y;
         c.renderAll();
     }
+
+    setc(c){
+        this.s.fill = c;
+        c.renderAll();
+    }
 }
