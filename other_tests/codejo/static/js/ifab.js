@@ -24,6 +24,9 @@ class XY{
         this.y = y;
     }
 }
+var Pos = function(x, y){
+    return XY(x, y);
+}
 
 class Sq{
     constructor(side, pos){
@@ -55,4 +58,8 @@ class Sq{
         this.s.set('fill', color);
         c.renderAll();
     }
+}
+
+var Square = function(side, pos){
+    return Sq(side, pos);
 }
