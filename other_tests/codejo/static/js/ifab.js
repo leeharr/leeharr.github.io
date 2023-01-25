@@ -51,8 +51,8 @@ class Sq{
         c.renderAll();
     }
 
-    setc(c){
-        this.s.fill = c;
+    setc(color){
+        this.s.fill = color;
         c.renderAll();
     }
 }
