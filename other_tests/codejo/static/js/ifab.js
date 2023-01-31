@@ -63,3 +63,9 @@ class Sq{
 var Square = function(side, pos){
     return new Sq(side, pos);
 }
+
+
+uploop = function(){
+    c.renderAll();
+}
+setInterval(uploop, 33);
