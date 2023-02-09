@@ -71,4 +71,4 @@ uploop = function(){
 }
 setInterval(uploop, 33);
 
-py = jsPython.JsPython()
+py = jsPython.jsPython()
