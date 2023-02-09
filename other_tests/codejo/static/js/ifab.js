@@ -61,6 +61,7 @@ class Sq{
 }
 
 var Square = function(side, pos){
+    if (!pos){ pos = Pos(100,100); }
     return new Sq(side, pos);
 }
 
@@ -69,3 +70,5 @@ uploop = function(){
     c.renderAll();
 }
 setInterval(uploop, 33);
+
+py = jsPython.JsPython()
