@@ -62,7 +62,16 @@ class Sq{
 
 var Square = function(side, pos){
     if (!pos){ pos = Pos(100,100); }
-    return new Sq(side, pos);
+    let ns = new fabric.Rect({
+        width: side,
+        height: side,
+        top: pos.y,
+        left: pos.x,
+        fill: 'red',
+        selectable: false,
+        evented: false,
+    });
+    return ns;
 }
 
 
@@ -72,3 +81,11 @@ uploop = function(){
 setInterval(uploop, 33);
 
 py = jspython.jsPython()
+
+pycode = `
+class Foo():
+    x = 5
+    def __init__(self):
+        self.y = 10
+`
+py.evaluate(pycode)
