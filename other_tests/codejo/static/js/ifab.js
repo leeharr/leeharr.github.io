@@ -83,9 +83,7 @@ setInterval(uploop, 33);
 py = jspython.jsPython()
 
 pycode = `
-class Foo():
-    x = 5
-    def __init__(self):
-        self.y = 10
+def foo(x):
+    return x * x
 `
 py.evaluate(pycode)
