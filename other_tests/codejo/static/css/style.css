@@ -1,0 +1,14 @@
+div#main{
+    display: grid;
+    grid-template-columns: 10fr 5fr;
+    column-gap: 1em;
+}
+
+
+textarea.cons{
+    width: 100%;
+    height: 100%;
+    font-size: 150%;
+    color: white;
+    background-color: black;
+}
