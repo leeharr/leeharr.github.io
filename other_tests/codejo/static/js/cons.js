@@ -1,9 +1,11 @@
 const cons = document.querySelector('#cons');
 
-cons.onkeyup = function(ev){
-    console.log('coku : ' + ev.key);
+cons.onkeypress = function(ev){
+    let pos = cons.prop('selectionStart');
+    console.log('cokp : ' + ev.key + ':' + pos);
 }
 
 cons.onclick = function(ev){
-    console.log('cclk');
+    let pos = cons.prop('selectionStart');
+    console.log('cclk :' + pos);
 }
