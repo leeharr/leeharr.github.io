@@ -9,7 +9,7 @@ cons.onkeypress = function(ev){
     }
     let pos = cons.selectionStart;
     console.log('cokp : ' + ev.key + ':' + pos + ' cols:'+cons.cols+ ' rows: '+cons.rows+ '|lineno:'+lineno+'|');
-    console.log(cons.val());
+    console.log(cons.value);
 }
 
 cons.onclick = function(ev){
