@@ -11,4 +11,8 @@ textarea#cons{
     font-size: 150%;
     color: white;
     background-color: black;
+
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: scroll;
 }
