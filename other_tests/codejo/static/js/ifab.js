@@ -2,6 +2,13 @@ var c = new fabric.Canvas('c');
 c.backgroundColor = 'lightgray';
 c.renderAll();
 
+const observer = new ResizeObserver((entries) => {
+  c.width = canvas.clientWidth;
+  c.height = canvas.clientHeight;
+  console.log('RO'+c.width+':'+c.height);
+});
+observer.observe(canvas)
+
 var S = function(side){
     let ns = new fabric.Rect({
         width: side,
