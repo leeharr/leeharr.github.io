@@ -3,6 +3,12 @@ const cons = document.querySelector('#cons');
 var lineno = 1;
 var lines = {};
 
+cons.onkeydown = function(ev){
+    if (ev.key == 'Backspace'){
+        console.log('BS');
+    }
+}
+
 cons.onkeypress = function(ev){
     if (ev.key == 'Enter'){
         lineno += 1;
