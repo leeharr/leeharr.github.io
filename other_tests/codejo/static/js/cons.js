@@ -22,7 +22,7 @@ cons.onkeypress = function(ev){
         lineno += 1;
         cons.value += '\n' + PROMPT;
         ev.preventDefault();
-        last = kpl.split(-1);
+        last = kpl.slice(-1);
         runcmd(last);
         return
     }
