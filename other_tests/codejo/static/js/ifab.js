@@ -1,4 +1,9 @@
+const cc = document.querySelector('#cc');
+
+
 var c = new fabric.Canvas('c');
+c.setWidth(cc.clientWidth);
+c.setHeight(cc.clientHeight);
 c.backgroundColor = 'lightgray';
 c.renderAll();
 
