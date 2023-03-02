@@ -17,19 +17,25 @@ cons.onkeydown = function(ev){
 }
 
 cons.onkeypress = function(ev){
+    let kpl = cons.value.split('\n');
     if (ev.key == 'Enter'){
         lineno += 1;
         cons.value += '\n' + PROMPT;
         ev.preventDefault();
+        last = kpl.split(-1);
+        runcmd(last);
         return
     }
     let pos = cons.selectionStart;
     console.log('cokp : ' + ev.key + ':' + pos + ' cols:'+cons.cols+ ' rows: '+cons.rows+ '|lineno:'+lineno+'|');
-    let kpl = cons.value.split('\n');
     console.log(kpl);
 }
 
 cons.onclick = function(ev){
     let pos = cons.selectionStart;
     console.log('cclk :' + pos);
+}
+
+var runcmd = function(cmd){
+    console.log('RUN: ' + cmd);
 }
