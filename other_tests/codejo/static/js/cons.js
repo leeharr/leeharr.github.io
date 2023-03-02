@@ -6,6 +6,11 @@ var lines = {};
 cons.onkeydown = function(ev){
     if (ev.key == 'Backspace'){
         console.log('BS');
+        let kpl = cons.value.split('\n');
+        ll = kpl.slice(-1);
+        if (ll == 'JS>'){
+            ev.preventDefault();
+        }
     }
 }
 
