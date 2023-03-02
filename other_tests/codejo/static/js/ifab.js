@@ -76,6 +76,7 @@ var Square = function(side, pos){
         fill: 'red',
         selectable: false,
         evented: false,
+        objectCaching: false,
     });
     c.add(ns);
     return ns;
