@@ -7,7 +7,7 @@ const observer = new ResizeObserver((entries) => {
   c.height = canvas.clientHeight;
   console.log('RO'+c.width+':'+c.height);
 });
-observer.observe(canvas)
+observer.observe(c)
 
 var S = function(side){
     let ns = new fabric.Rect({
