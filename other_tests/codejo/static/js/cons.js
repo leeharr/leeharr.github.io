@@ -3,12 +3,14 @@ const cons = document.querySelector('#cons');
 var lineno = 1;
 var lines = {};
 
+const PROMPT = 'JS> ';
+
 cons.onkeydown = function(ev){
     if (ev.key == 'Backspace'){
         console.log('BS');
         let kpl = cons.value.split('\n');
         ll = kpl.slice(-1);
-        if (ll == 'JS>'){
+        if (ll == PROMPT){
             ev.preventDefault();
         }
     }
@@ -17,7 +19,7 @@ cons.onkeydown = function(ev){
 cons.onkeypress = function(ev){
     if (ev.key == 'Enter'){
         lineno += 1;
-        cons.value += '\nJS>';
+        cons.value += '\n' + PROMPT;
         ev.preventDefault();
         return
     }
