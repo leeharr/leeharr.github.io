@@ -22,10 +22,8 @@ cons.onkeypress = function(ev){
         lineno += 1;
         cons.value += '\n' + PROMPT;
         ev.preventDefault();
-        let last = kpl.slice(-1);
-        console.log('LAST:'+last+'|'+last.length);
+        let last = kpl.slice(-1)[0];
         let cmd = last.slice(4);
-        console.log('CMD:'+cmd+'|'+cmd.length);
         runcmd(cmd);
         return
     }
