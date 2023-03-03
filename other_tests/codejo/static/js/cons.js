@@ -28,8 +28,8 @@ cons.onkeypress = function(ev){
         return
     }
     let pos = cons.selectionStart;
-    console.log('cokp : ' + ev.key + ':' + pos + ' cols:'+cons.cols+ ' rows: '+cons.rows+ '|lineno:'+lineno+'|');
-    console.log(kpl);
+    //console.log('cokp : ' + ev.key + ':' + pos + ' cols:'+cons.cols+ ' rows: '+cons.rows+ '|lineno:'+lineno+'|');
+    //console.log(kpl);
 }
 
 cons.onclick = function(ev){
@@ -39,4 +39,7 @@ cons.onclick = function(ev){
 
 var runcmd = function(cmd){
     console.log('RUN: ' + cmd);
+    let r = eval(cmd);
+    lineno += 1;
+    cons.value += '\n' + r;
 }
