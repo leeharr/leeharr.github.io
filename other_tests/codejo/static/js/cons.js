@@ -24,7 +24,7 @@ cons.onkeypress = function(ev){
         ev.preventDefault();
         let last = kpl.slice(-1);
         let cmd = last.slice(4);
-        runcmd(last);
+        runcmd(cmd);
         return
     }
     let pos = cons.selectionStart;
