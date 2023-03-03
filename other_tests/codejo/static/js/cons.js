@@ -23,7 +23,9 @@ cons.onkeypress = function(ev){
         cons.value += '\n' + PROMPT;
         ev.preventDefault();
         let last = kpl.slice(-1);
+        console.log('LAST:'+last);
         let cmd = last.slice(4);
+        console.log('CMD:'+cmd);
         runcmd(cmd);
         return
     }
