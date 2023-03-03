@@ -40,6 +40,6 @@ cons.onclick = function(ev){
 var runcmd = function(cmd){
     console.log('RUN: ' + cmd);
     let r = eval(cmd);
-    lineno += 1;
-    cons.value += '\n' + r;
+    lineno += 2;
+    cons.value += '\n' + r + '\n' + PROMPT;
 }
