@@ -683,8 +683,8 @@ var load_questions = async function(formid, questions, answers){
         }
 
         if (qa.req){
-            console.log('qareq', sel.id);
-            if (sel.id != 'newsession_questionssu'){
+            console.log('qareq', selid);
+            if (selid != 'newsession_questionssu'){
                 sel.required = true;
             } else {
                 console.log('removing');
