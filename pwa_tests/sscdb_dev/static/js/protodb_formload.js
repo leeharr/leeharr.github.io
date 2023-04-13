@@ -98,7 +98,7 @@ window.intinputper = function(div, req){
     div.appendChild(ti);
     //ti.style.display = 'none';
     ti.name = 'sub_ti';
-    ti.required = 'false';
+    ti.setAttribute('required', 'false');
     ti.value = '1';
     div._ti0 = ti;
     //console.log('create ti0 objid '+objectId(ti));
