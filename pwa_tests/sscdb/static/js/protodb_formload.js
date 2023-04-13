@@ -683,7 +683,11 @@ var load_questions = async function(formid, questions, answers){
         }
 
         if (qa.req){
-            sel.required = true;
+            if (selid != 'newsession_questionssu'){
+                sel.required = true;
+            } else {
+                sel.removeAttribute('required');
+            }
             let qreq = document.createElement('span');
             qreq.innerHTML = '*';
             qreq.setAttribute('class', 'qreq');
