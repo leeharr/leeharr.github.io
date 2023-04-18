@@ -683,9 +683,13 @@ var load_questions = async function(formid, questions, answers){
         }
 
         if (qa.req){
-            if (selid != 'newsession_questionssu'){
+            if (qa.req != 'intinputperreq'){
                 sel.required = true;
             } else {
+                // "required" is handled differently for these
+                // the actual select named by this element
+                //  is no longer required (and must have that
+                //  attribute removed or else it will cause an error)
                 sel.removeAttribute('required');
             }
             let qreq = document.createElement('span');
