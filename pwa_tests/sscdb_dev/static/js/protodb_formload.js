@@ -40,10 +40,10 @@ window.monthreset = function(dsel){
     let dt = new Date();
     console.log('---d' + dt)
     let m = dt.getMonth();
-    console.log('---m' + dt)
+    console.log('---m' + m)
     m -= 1;
     if (m < 0){m = 11;}
-    console.log('---> '+m);
+    console.log('---> ' + m);
     dsel.value = m;
 }
 
