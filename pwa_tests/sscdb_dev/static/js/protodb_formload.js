@@ -683,7 +683,7 @@ var load_questions = async function(formid, questions, answers){
         }
 
         if (qa.req){
-            console.log('qareq', selid);
+            //console.log('qareq', selid);
             if (qa.req != 'intinputperreq'){
                 sel.required = true;
             } else {
