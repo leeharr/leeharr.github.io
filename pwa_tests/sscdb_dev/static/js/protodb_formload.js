@@ -36,10 +36,12 @@ window.dateclear = function(dsel){
 }
 
 window.monthreset = function(dsel){
+    console.log('monthreset');
     let dt = new Date();
     let m = dt.getMonth();
     m -= 1;
     if (m < 0){m = 11;}
+    console.log('---> '+m);
     dsel.value = m;
 }
 
