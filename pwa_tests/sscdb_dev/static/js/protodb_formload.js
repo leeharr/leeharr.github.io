@@ -613,10 +613,6 @@ var load_questions = async function(formid, questions, answers){
         div['data-qattr'] = qa.qattr;
         div['data-remember'] = qa.remember;
         div['data-hidden'] = qa.hidden;
-        if (qa.hidden){
-            console.log(qa.qattr + ' HIDDEN');
-            div.setAttribute('class', 'qdivhide');
-        }
         //console.log('APPEND TO '+form+ ' ID '+ form.id);
         form.appendChild(div);
         let qspan = document.createElement('div');
@@ -713,7 +709,12 @@ var load_questions = async function(formid, questions, answers){
             qreq.innerHTML = '*';
             qreq.setAttribute('class', 'qreq');
             qspan.appendChild(qreq);
-            div.setAttribute('class', 'qdiv qdivreq');
+            if (qa.hidden){
+                console.log(qa.qattr + ' HIDDEN');
+                div.setAttribute('class', 'qdiv qdivhide');
+            } else {
+                div.setAttribute('class', 'qdiv qdivreq');
+            }
             if (qa.req !== true){
                 sel['data-req'] = window[qa.req];
             }
