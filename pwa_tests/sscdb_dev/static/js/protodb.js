@@ -198,7 +198,7 @@ window.shownewperson = async function(){
 }
 var newperson = async function(e){
     // e true if saving existing person
-    //console.log('new person form sent '+e);
+    console.log('new person form sent '+e);
     vm.shownewperson(false);
 
     var p = {}
@@ -208,13 +208,13 @@ var newperson = async function(e){
         let qattr = div['data-qattr'];
         if (!qattr){ return; }
 
-        //console.log('qattr : '+qattr);
+        console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
-        //console.log('   val : '+val);
+        console.log('   val : '+val);
         p[qattr+'id'] = val;
         if (person_answers[qattr]){
-            //console.log('     a : '+person_answers[qattr][val]);
+            console.log('     a : '+person_answers[qattr][val]);
             p[qattr+'str'] = person_answers[qattr][val];
             sel.value = ''
         } else {
@@ -229,15 +229,15 @@ var newperson = async function(e){
         }
 
         // check if need to remember value
-        //console.log('CHK REM');
+        console.log('CHK REM');
         let getremid = 'remember_'+qattr;
         let getrem = document.getElementById(getremid);
         let remember = false;
-        //console.log(getremid+' '+getrem);
+        console.log(getremid+' '+getrem);
         if (getrem){
             // remember if they want to remember
             if (getrem.checked){
-                //console.log('getrem chkd');
+                console.log('getrem chkd');
                 remember = true;
                 cset(getremid, true);
             } else {
