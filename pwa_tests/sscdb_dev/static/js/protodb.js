@@ -272,7 +272,7 @@ var newperson = async function(e){
     }
     p.active = active;
 
-    //console.log(i + ' - - ' + p.lname + ', ' + p.fname);
+    console.log(i + ' - - ' + p.lname + ', ' + p.fname + ' uuid: ' + p.uuid);
     pset(i, p);
     let vmp = vm.addperson(i, p.lname, p.fname, p.gradestr, false);
     //vmp.stid(p.stid);

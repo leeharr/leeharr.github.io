@@ -1,4 +1,11 @@
 [
+    {"q": "UUID",
+        "qattr": "uuid",
+        "sendas": "UUID",
+        "req": true,
+        "af": "getuuid",
+        "hidden": true},
+
     {"q": "First Name",
         "qattr": "fname",
         "req": true,

@@ -591,6 +591,16 @@ window.urlcheck = function(v){
     }
 }
 
+window.getuuid = function(div, req){
+    let i = crypto.randomUUID();
+    let ti = document.createElement('input');
+    ti.type = 'text';
+    ti.required = true;
+    div.appendChild(ti);
+    ti.value = i;
+    return ti;
+}
+
 var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);
     if (!form){ return; }
@@ -602,6 +612,11 @@ var load_questions = async function(formid, questions, answers){
         div.id = qa.qattr+'div';
         div['data-qattr'] = qa.qattr;
         div['data-remember'] = qa.remember;
+        div['data-hidden'] = qa.hidden;
+        if (qa.hidden){
+            console.log(qa.qattr + ' HIDDEN');
+            div.setAttribute('class', 'qdivhide');
+        }
         //console.log('APPEND TO '+form+ ' ID '+ form.id);
         form.appendChild(div);
         let qspan = document.createElement('div');

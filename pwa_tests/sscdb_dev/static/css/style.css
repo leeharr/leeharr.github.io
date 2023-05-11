@@ -82,6 +82,9 @@ div.qdivreq{
 div.qdiverr{
     background: #F44;
 }
+div.qdivhide{
+    display: none;
+}
 
 span.qreq{
     color: red;
