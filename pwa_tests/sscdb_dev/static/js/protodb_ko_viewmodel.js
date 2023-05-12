@@ -584,6 +584,8 @@ var ProtoDBViewModel = function(){
             console.log('p'+k);
             if (!p.uuid){
                 p.uuid = crypto.randomUUID();
+                p.uuidid = p.uuid;
+                p.uuidstr = p.uuid;
                 await pset(k, p);
                 console.log('===============');
             } else {
