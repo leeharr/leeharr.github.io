@@ -592,17 +592,16 @@ window.urlcheck = function(v){
 }
 
 window.getuuid = function(div, req){
-    let i = crypto.randomUUID();
     let ti = document.createElement('input');
     ti.type = 'text';
-    ti.required = true;
+    //ti.required = true;
     div.appendChild(ti);
-    ti.value = i;
     return ti;
 }
 window.uuidreset = function(dsel){
-    // noop
     console.log('UUID RESET');
+    let i = crypto.randomUUID();
+    dsel.value = i;
 }
 
 var load_questions = async function(formid, questions, answers){
