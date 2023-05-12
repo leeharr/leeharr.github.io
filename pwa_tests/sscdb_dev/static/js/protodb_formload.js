@@ -600,6 +600,10 @@ window.getuuid = function(div, req){
     ti.value = i;
     return ti;
 }
+window.uuidreset = function(dsel){
+    // noop
+    console.log('UUID RESET');
+}
 
 var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);

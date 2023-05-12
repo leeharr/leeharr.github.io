@@ -4,6 +4,7 @@
         "sendas": "UUID",
         "req": true,
         "af": "getuuid",
+        "areset": "uuidreset",
         "hidden": true},
 
     {"q": "First Name",
