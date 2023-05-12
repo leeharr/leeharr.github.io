@@ -632,7 +632,7 @@ var createsession = async function(){
 
     let g = vm.selectedgroup();
     let dt = new Date();
-    let sesname = `${g.name()}-${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}-${dt.getTime()}`;
+    let sesname = `SN-${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}-${dt.getTime()}-${g.name()}`;
 
     let sesdata = {'sesname': sesname};
     let late = {};
