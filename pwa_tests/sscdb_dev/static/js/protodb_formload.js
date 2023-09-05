@@ -68,6 +68,20 @@ window.textinputreset = function(ti){
     ti.value = '';
 }
 
+window.sidinput = function(){
+    let ti = document.createElement('input');
+    ti.type = 'text';
+    ti.value = '890';
+    if (req){
+        ti.required = true;
+    }
+    div.appendChild(ti);
+    return ti;
+}
+window.sidinputreset = function(ti){
+    ti.value = '890';
+}
+
 window.intinput = function(div, req){
     //console.log('ADD INT INPUT');
     let ti = document.createElement('input');
