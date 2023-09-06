@@ -194,6 +194,8 @@ var checkdupstudent_ssc = async function(p, gradechk=false){
         if (k == 'currid'){ continue; }
         let pe = await pget(k); // existing person
 
+        if (p.uuid == pe.uuid){ continue; }
+
         if (p.fname==pe.fname &&
             p.lname==pe.lname &&
             p.dob==pe.dob){
