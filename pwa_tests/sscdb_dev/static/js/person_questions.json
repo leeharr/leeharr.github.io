@@ -20,10 +20,11 @@
         "areset": "textinputreset"},
 
     {"q": "Student ID #",
-        "qattr": "sid",
+        "qattr": "stid",
+        "sendas": "Student ID #",
         "req": true,
-        "af": "sidinput",
-        "areset": "sidinputreset"},
+        "af": "stidinput",
+        "areset": "stidinputreset"},
 
     {"q": "Grade",
         "qattr": "grade",

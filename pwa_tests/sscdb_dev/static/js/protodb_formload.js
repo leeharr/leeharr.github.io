@@ -68,7 +68,7 @@ window.textinputreset = function(ti){
     ti.value = '';
 }
 
-window.sidinput = function(div, req){
+window.stidinput = function(div, req){
     let ti = document.createElement('input');
     ti.type = 'text';
     ti.value = '890';
@@ -78,7 +78,7 @@ window.sidinput = function(div, req){
     div.appendChild(ti);
     return ti;
 }
-window.sidinputreset = function(ti){
+window.stidinputreset = function(ti){
     ti.value = '890';
 }
 
