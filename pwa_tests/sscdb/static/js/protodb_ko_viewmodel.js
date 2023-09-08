@@ -581,6 +581,16 @@ var ProtoDBViewModel = function(){
             let active = p.active;
             if (active!==false){active=true;}
             vmp.active(active);
+            //console.log('p'+k);
+            if (!p.uuid){
+                p.uuid = crypto.randomUUID();
+                p.uuidid = p.uuid;
+                p.uuidstr = p.uuid;
+                await pset(k, p);
+                //console.log('===============');
+            } else {
+                //console.log('-'+p.uuid);
+            }
         }
 
         self.groups.removeAll();

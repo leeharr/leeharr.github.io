@@ -198,7 +198,7 @@ window.shownewperson = async function(){
 }
 var newperson = async function(e){
     // e true if saving existing person
-    //console.log('new person form sent '+e);
+    console.log('new person form sent '+e);
     vm.shownewperson(false);
 
     var p = {}
@@ -208,13 +208,13 @@ var newperson = async function(e){
         let qattr = div['data-qattr'];
         if (!qattr){ return; }
 
-        //console.log('qattr : '+qattr);
+        console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
-        //console.log('   val : '+val);
+        console.log('   val : '+val);
         p[qattr+'id'] = val;
         if (person_answers[qattr]){
-            //console.log('     a : '+person_answers[qattr][val]);
+            console.log('     a : '+person_answers[qattr][val]);
             p[qattr+'str'] = person_answers[qattr][val];
             sel.value = ''
         } else {
@@ -229,15 +229,15 @@ var newperson = async function(e){
         }
 
         // check if need to remember value
-        //console.log('CHK REM');
+        console.log('CHK REM');
         let getremid = 'remember_'+qattr;
         let getrem = document.getElementById(getremid);
         let remember = false;
-        //console.log(getremid+' '+getrem);
+        console.log(getremid+' '+getrem);
         if (getrem){
             // remember if they want to remember
             if (getrem.checked){
-                //console.log('getrem chkd');
+                console.log('getrem chkd');
                 remember = true;
                 cset(getremid, true);
             } else {
@@ -272,7 +272,7 @@ var newperson = async function(e){
     }
     p.active = active;
 
-    //console.log(i + ' - - ' + p.lname + ', ' + p.fname);
+    console.log(i + ' - - ' + p.lname + ', ' + p.fname + ' uuid: ' + p.uuid);
     pset(i, p);
     let vmp = vm.addperson(i, p.lname, p.fname, p.gradestr, false);
     //vmp.stid(p.stid);
@@ -632,7 +632,7 @@ var createsession = async function(){
 
     let g = vm.selectedgroup();
     let dt = new Date();
-    let sesname = `${g.name()}-${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}-${dt.getTime()}`;
+    let sesname = `SN-${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}-${dt.getTime()}-${g.name()}`;
 
     let sesdata = {'sesname': sesname};
     let late = {};
@@ -821,12 +821,13 @@ var createsession = async function(){
         //psesdata['lname'] = p.linitial();
         //psesdata['fname'] = dbp.fname;
         psesdata['Student Name'] = dbp.fname + ' ' + p.linitial();
-        //psesdata['Student ID'] = dbp.stidstr;
+        psesdata['Student ID #'] = dbp.stidstr;
         //psesdata['School'] = dbp.schoolstr;
         psesdata['Grade'] = dbp.gradestr;
         psesdata['Age'] = _age(dbp.dob).toString();
         //psesdata['Gender'] = dbp.genderstr;
         //psesdata['Race'] = dbp.racestr;
+        psesdata['UUID'] = dbp.uuid;
         psesdata['sent'] = false;
 
         for (let qatr in late){

@@ -114,7 +114,11 @@ var Person = function(pid, lname, fname, grade){
             }
             let val = dbp[dbpget];
             //console.log(dbpget + ' '+ val);
-            elem.value = val;
+            if (typeof val !== 'undefined'){
+                elem.value = val;
+            } else {
+                elem.value = '';
+            }
         }
 
         let xp = document.getElementById('xpersonid');

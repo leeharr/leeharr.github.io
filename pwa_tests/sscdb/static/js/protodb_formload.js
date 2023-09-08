@@ -68,6 +68,20 @@ window.textinputreset = function(ti){
     ti.value = '';
 }
 
+window.stidinput = function(div, req){
+    let ti = document.createElement('input');
+    ti.type = 'text';
+    ti.value = '890';
+    if (req){
+        ti.required = true;
+    }
+    div.appendChild(ti);
+    return ti;
+}
+window.stidinputreset = function(ti){
+    ti.value = '890';
+}
+
 window.intinput = function(div, req){
     //console.log('ADD INT INPUT');
     let ti = document.createElement('input');
@@ -98,7 +112,7 @@ window.intinputper = function(div, req){
     div.appendChild(ti);
     ti.style.display = 'none';
     ti.name = 'sub_ti';
-    ti.required = false;
+    ti.removeAttribute('required');
     ti.value = '1';
     div._ti0 = ti;
     //console.log('create ti0 objid '+objectId(ti));
@@ -591,6 +605,19 @@ window.urlcheck = function(v){
     }
 }
 
+window.getuuid = function(div, req){
+    let ti = document.createElement('input');
+    ti.type = 'text';
+    //ti.required = true;
+    div.appendChild(ti);
+    return ti;
+}
+window.uuidreset = function(dsel){
+    console.log('UUID RESET');
+    let i = crypto.randomUUID();
+    dsel.value = i;
+}
+
 var load_questions = async function(formid, questions, answers){
     let form = document.getElementById(formid);
     if (!form){ return; }
@@ -602,6 +629,7 @@ var load_questions = async function(formid, questions, answers){
         div.id = qa.qattr+'div';
         div['data-qattr'] = qa.qattr;
         div['data-remember'] = qa.remember;
+        div['data-hidden'] = qa.hidden;
         //console.log('APPEND TO '+form+ ' ID '+ form.id);
         form.appendChild(div);
         let qspan = document.createElement('div');
@@ -683,6 +711,7 @@ var load_questions = async function(formid, questions, answers){
         }
 
         if (qa.req){
+            //console.log('qareq', selid);
             if (qa.req != 'intinputperreq'){
                 sel.required = true;
             } else {
@@ -690,13 +719,19 @@ var load_questions = async function(formid, questions, answers){
                 // the actual select named by this element
                 //  is no longer required (and must have that
                 //  attribute removed or else it will cause an error)
+                console.log('removing');
                 sel.removeAttribute('required');
             }
             let qreq = document.createElement('span');
             qreq.innerHTML = '*';
             qreq.setAttribute('class', 'qreq');
             qspan.appendChild(qreq);
-            div.setAttribute('class', 'qdiv qdivreq');
+            if (qa.hidden){
+                console.log(qa.qattr + ' HIDDEN');
+                div.setAttribute('class', 'qdiv qdivhide');
+            } else {
+                div.setAttribute('class', 'qdiv qdivreq');
+            }
             if (qa.req !== true){
                 sel['data-req'] = window[qa.req];
             }

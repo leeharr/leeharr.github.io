@@ -1,4 +1,12 @@
 [
+    {"q": "UUID",
+        "qattr": "uuid",
+        "sendas": "UUID",
+        "req": true,
+        "af": "getuuid",
+        "areset": "uuidreset",
+        "hidden": true},
+
     {"q": "First Name",
         "qattr": "fname",
         "req": true,
@@ -10,6 +18,13 @@
         "req": true,
         "af": "textinput",
         "areset": "textinputreset"},
+
+    {"q": "Student ID #",
+        "qattr": "stid",
+        "sendas": "Student ID #",
+        "req": true,
+        "af": "stidinput",
+        "areset": "stidinputreset"},
 
     {"q": "Grade",
         "qattr": "grade",
