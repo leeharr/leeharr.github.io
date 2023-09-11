@@ -824,7 +824,7 @@ var createsession = async function(){
         let stidstr;
         if (typeof dbp.stidstr == 'undefined'){
             stidstr = '';
-        } elif (!dbp.stidstr){
+        } else if (!dbp.stidstr){
             stidstr == '';
         } else {
             stidstr = dbp.stidstr;
