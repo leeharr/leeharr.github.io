@@ -577,7 +577,7 @@ var ProtoDBViewModel = function(){
                 //console.log('ERROR.Person.Dup.Id.');
             }
             let vmp = self.addperson(k, p.lname, p.fname, p.gradestr, false);
-            //vmp.stid(p.stid);
+            vmp.stid(p.stid);
             let active = p.active;
             if (active!==false){active=true;}
             vmp.active(active);
