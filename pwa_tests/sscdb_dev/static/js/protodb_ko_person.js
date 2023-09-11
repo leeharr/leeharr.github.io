@@ -12,8 +12,11 @@ var Person = function(pid, lname, fname, grade){
 
     self.clsactive = ko.pureComputed(function(){
         if (self.active()){
-            if (self.stid()){
+            let stid = self.stid();
+            if (stid && stid.startsWith('890') && stid.length==9){
                 return '';
+            } else if (stid) {
+                return 'needidverify';
             } else {
                 return 'needid';
             }
