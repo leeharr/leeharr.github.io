@@ -34,6 +34,9 @@ tr.gsel{
     background-color: lightgray;
 }
 
+tr.needid{
+    background-color: red;
+}
 tr.inactive{
     color: #999;
 }

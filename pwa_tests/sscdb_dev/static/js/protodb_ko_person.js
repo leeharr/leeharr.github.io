@@ -12,7 +12,11 @@ var Person = function(pid, lname, fname, grade){
 
     self.clsactive = ko.pureComputed(function(){
         if (self.active()){
-            return '';
+            if (self.stid){
+                return '';
+            } else {
+                return 'needid';
+            }
         } else {
             let sg = vm.selectedgroup();
             if (!sg){
