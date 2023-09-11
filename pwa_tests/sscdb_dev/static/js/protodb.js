@@ -275,7 +275,7 @@ var newperson = async function(e){
     console.log(i + ' - - ' + p.lname + ', ' + p.fname + ' uuid: ' + p.uuid);
     pset(i, p);
     let vmp = vm.addperson(i, p.lname, p.fname, p.gradestr, false);
-    //vmp.stid(p.stid);
+    vmp.stid(p.stid);
     vmp.active(active);
     vm.base_initials();
     vm.setinitials2();
