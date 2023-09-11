@@ -821,7 +821,7 @@ var createsession = async function(){
         //psesdata['lname'] = p.linitial();
         //psesdata['fname'] = dbp.fname;
         psesdata['Student Name'] = dbp.fname + ' ' + p.linitial();
-        val stidstr = dbp.stidstr;
+        let stidstr = dbp.stidstr;
         if (typeof stidstr=='undefined' ||  stidstr=='undefined'){
             stidstr == '';
         }
