@@ -7,12 +7,19 @@ var Person = function(pid, lname, fname, grade){
     self.lname = ko.observable(lname);
     self.linitial = ko.observable(lname[0]);
     self.grade = ko.observable(grade);
-    //self.stid = ko.observable(''); // student ID#
+    self.stid = ko.observable(''); // student ID#
     self.active = ko.observable(true);
 
     self.clsactive = ko.pureComputed(function(){
         if (self.active()){
-            return '';
+            let stid = self.stid();
+            if (stid && stid.startsWith('890') && stid.length==9){
+                return '';
+            } else if (stid) {
+                return 'needidverify';
+            } else {
+                return 'needid';
+            }
         } else {
             let sg = vm.selectedgroup();
             if (!sg){

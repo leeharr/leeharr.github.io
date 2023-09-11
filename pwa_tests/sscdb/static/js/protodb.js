@@ -275,7 +275,7 @@ var newperson = async function(e){
     console.log(i + ' - - ' + p.lname + ', ' + p.fname + ' uuid: ' + p.uuid);
     pset(i, p);
     let vmp = vm.addperson(i, p.lname, p.fname, p.gradestr, false);
-    //vmp.stid(p.stid);
+    vmp.stid(p.stid);
     vmp.active(active);
     vm.base_initials();
     vm.setinitials2();
@@ -821,7 +821,15 @@ var createsession = async function(){
         //psesdata['lname'] = p.linitial();
         //psesdata['fname'] = dbp.fname;
         psesdata['Student Name'] = dbp.fname + ' ' + p.linitial();
-        psesdata['Student ID #'] = dbp.stidstr;
+        let stidstr;
+        if (typeof dbp.stidstr == 'undefined'){
+            stidstr = '';
+        } else if (!dbp.stidstr){
+            stidstr == '';
+        } else {
+            stidstr = dbp.stidstr;
+        }
+        psesdata['Student ID #'] = stidstr;
         //psesdata['School'] = dbp.schoolstr;
         psesdata['Grade'] = dbp.gradestr;
         psesdata['Age'] = _age(dbp.dob).toString();

@@ -34,6 +34,12 @@ tr.gsel{
     background-color: lightgray;
 }
 
+tr.needid{
+    background-color: #FFBBBB;
+}
+tr.needidverify{
+    background-color: #FFD580;
+}
 tr.inactive{
     color: #999;
 }
