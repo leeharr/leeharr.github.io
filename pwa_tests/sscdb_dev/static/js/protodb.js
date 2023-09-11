@@ -821,7 +821,11 @@ var createsession = async function(){
         //psesdata['lname'] = p.linitial();
         //psesdata['fname'] = dbp.fname;
         psesdata['Student Name'] = dbp.fname + ' ' + p.linitial();
-        psesdata['Student ID #'] = dbp.stidstr;
+        stidstr = dbp.stidstr;
+        if (typeof stidstr=='undefined' ||  stidstr=='undefined'){
+            stidstr == '';
+        }
+        psesdata['Student ID #'] = stidstr;
         //psesdata['School'] = dbp.schoolstr;
         psesdata['Grade'] = dbp.gradestr;
         psesdata['Age'] = _age(dbp.dob).toString();
