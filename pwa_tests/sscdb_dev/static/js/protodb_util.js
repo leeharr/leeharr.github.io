@@ -238,5 +238,24 @@ var purge_old_sessions = async function(){
         let cid = s.sesname;
         let parts = cid.split('-');
         console.log(parts);
+        let thisone = false;
+        for (let p of parts){
+            if (p=='2022'){
+                thisone = true;
+                break;
+            } else if (p=='2023'){
+                thisone = true;
+                continue
+            } else if (thisone && (p=='1'||p=='2'||p=='3'||p=='4'||p=='5'||p=='6')){
+                thisone = true;
+                break
+            } else {
+                thisone = false;
+            }
+        }
+
+        if (thisone){
+            console.log('THIS');
+        }
     }
 }
