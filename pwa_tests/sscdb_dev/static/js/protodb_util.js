@@ -266,5 +266,5 @@ var purge_old_sessions = async function(){
 
     let dt = new Date();
     let dstr = `${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}`
-    await cset(purged, dstr);
+    await cset('purged', dstr);
 }
