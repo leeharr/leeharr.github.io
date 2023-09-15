@@ -232,8 +232,9 @@ var fillfortest = async function(n){
 
 var purge_old_sessions = async function(){
     let sessions = await skeys();
-    for (let s of sessions){
-        if (s == 'currid'){ continue; }
+    for (let sk of sessions){
+        if (sk == 'currid'){ continue; }
+        let s = await sget(sk);
         let cid = s.sesname;
         let parts = cid.split('-');
         console.log(parts);
