@@ -110,7 +110,7 @@ var Person = function(pid, lname, fname, grade){
         for (let i=0; i<fc.length; i++){
             let div = fc[i];
             if (i==0){
-                div.scrollIntoView();
+                window.scrollTo(0,0);
             }
             let qattr = div['data-qattr'];
             let elemid = formid + qattr;
