@@ -267,8 +267,8 @@ var purge_old_sessions = async function(){
     let dt = new Date();
     let dstr = [
             dt.getFullYear(),
-            ('0' + (d.getMonth() + 1)).slice(-2),
-            ('0' + d.getDate()).slice(-2)
+            ('0' + (dt.getMonth() + 1)).slice(-2),
+            ('0' + dt.getDate()).slice(-2)
         ].join('-');
     await cset('purged', dstr);
 }
