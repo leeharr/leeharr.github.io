@@ -231,6 +231,11 @@ var fillfortest = async function(n){
 }
 
 var purge_old_sessions = async function(){
+    let purged = await cget('purged');
+    if (purged && purged >= '2023-09-14'){
+        return;
+    }
+
     let sessions = await skeys();
     for (let sk of sessions){
         if (sk == 'currid'){ continue; }
@@ -258,4 +263,8 @@ var purge_old_sessions = async function(){
             console.log('THIS');
         }
     }
+
+    let dt = new Date();
+    let dstr = `${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}`
+    await cset(purged, dstr);
 }
