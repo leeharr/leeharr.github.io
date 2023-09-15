@@ -261,6 +261,7 @@ var purge_old_sessions = async function(){
 
         if (thisone){
             console.log('THIS');
+            await sdel(sk);
         }
     }
 
