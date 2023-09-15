@@ -38,8 +38,8 @@ window.dateclear = function(dsel){
 window.monthreset = function(dsel){
     let dt = new Date();
     let m = dt.getMonth();
-    m -= 1;
-    if (m < 0){m = 11;}
+    // m -= 1;
+    // if (m < 0){m = 11;}
     dsel.value = m;
 }
 
