@@ -47,6 +47,7 @@ var sget = function(key){ return idbKeyval.get(key, pdbses);}
 var skeys = function(){ return idbKeyval.keys(pdbses);}
 var sgetcurrid = async function(){ return getcurrid(sget); }
 var sgetnextid = async function(){ return getnextid(sgetcurrid, sset); }
+var sdel = async function(key){ return idbKeyval.del(key, pdbses); }
 
 var pdbcfg = new idbKeyval.Store(cstore);
 var cset = function(key, value){ return idbKeyval.set(key, value, pdbcfg);}
