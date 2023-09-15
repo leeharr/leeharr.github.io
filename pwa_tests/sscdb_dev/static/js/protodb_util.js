@@ -213,3 +213,29 @@ var checkdupstudent_ssc = async function(p, gradechk=false){
     }
     return false;
 }
+
+var fillfortest = async function(n){
+    for (i; i++; i<n){
+        let pid = await pgetnextid();
+        let fname = 'Fname'+i;
+        let lname = 'Lname'+i;
+        let grstr = '6';
+        let p = {};
+        p.lname = lname;
+        p.lnamestr = lname;
+        p.fname = fname;
+        p.fnamestr = fname;
+        g.gradeid = '0';
+        g.grstr = grstr;
+    }
+}
+
+var purge_old_sessions = async function(){
+    let sessions = await skeys();
+    for (let s of sessions){
+        if (s == 'currid'){ continue; }
+        let cid = s.sesname;
+        let parts = cid.split('-');
+        console.log(parts);
+    }
+}
