@@ -926,4 +926,5 @@ var checkunsent = async function(){
         setTimeout(checkdone, 200);
     }
 }
+purge_old_sessions();
 checkunsent();

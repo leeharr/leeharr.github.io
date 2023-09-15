@@ -213,3 +213,63 @@ var checkdupstudent_ssc = async function(p, gradechk=false){
     }
     return false;
 }
+
+var fillfortest = async function(n){
+    for (i; i++; i<n){
+        let pid = await pgetnextid();
+        let fname = 'Fname'+i;
+        let lname = 'Lname'+i;
+        let grstr = '6';
+        let p = {};
+        p.lname = lname;
+        p.lnamestr = lname;
+        p.fname = fname;
+        p.fnamestr = fname;
+        g.gradeid = '0';
+        g.grstr = grstr;
+    }
+}
+
+var purge_old_sessions = async function(){
+    let purged = await cget('purged');
+    if (purged && purged >= '2023-09-14'){
+        return;
+    }
+
+    let sessions = await skeys();
+    for (let sk of sessions){
+        if (sk == 'currid'){ continue; }
+        let s = await sget(sk);
+        let cid = s.sesname;
+        let parts = cid.split('-');
+        console.log(parts);
+        let thisone = false;
+        for (let p of parts){
+            if (p=='2022'){
+                thisone = true;
+                break;
+            } else if (p=='2023'){
+                thisone = true;
+                continue
+            } else if (thisone && (p=='1'||p=='2'||p=='3'||p=='4'||p=='5'||p=='6')){
+                thisone = true;
+                break
+            } else {
+                thisone = false;
+            }
+        }
+
+        if (thisone){
+            console.log('THIS');
+            await sdel(sk);
+        }
+    }
+
+    let dt = new Date();
+    let dstr = [
+            dt.getFullYear(),
+            ('0' + (dt.getMonth() + 1)).slice(-2),
+            ('0' + dt.getDate()).slice(-2)
+        ].join('-');
+    await cset('purged', dstr);
+}
