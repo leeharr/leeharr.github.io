@@ -109,6 +109,9 @@ var Person = function(pid, lname, fname, grade){
         //console.log('NPQ');
         for (let i=0; i<fc.length; i++){
             let div = fc[i];
+            if (i==0){
+                div.scrollIntoView();
+            }
             let qattr = div['data-qattr'];
             let elemid = formid + qattr;
             let elem = document.getElementById(elemid);
