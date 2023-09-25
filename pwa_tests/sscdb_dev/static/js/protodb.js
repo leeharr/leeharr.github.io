@@ -211,6 +211,7 @@ var newperson = async function(e){
         console.log('qattr : '+qattr);
         let sel = div.children[1];
         let val = sel.value;
+        val = val.trim();
         console.log('   val : '+val);
         p[qattr+'id'] = val;
         if (person_answers[qattr]){

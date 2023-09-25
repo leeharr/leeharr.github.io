@@ -251,7 +251,7 @@ var purge_old_sessions = async function(){
             } else if (p=='2023'){
                 thisone = true;
                 continue
-            } else if (thisone && (p=='1'||p=='2'||p=='3'||p=='4'||p=='5'||p=='6')){
+            } else if (thisone && (p=='0'||p=='1'||p=='2'||p=='3'||p=='4'||p=='5'||p=='6')){
                 thisone = true;
                 break
             } else {

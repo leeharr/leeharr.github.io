@@ -671,7 +671,8 @@ var load_questions = async function(formid, questions, answers){
                 let ti = document.createElement('input');
                 ti.type = 'text';
                 ti.required = false; // will be set later if 'Other' is selected
-                ti.style.visibility = 'hidden'; // will reveal later
+                ti.style.display = 'none'; // will reveal later
+//                ti.style.visibility = 'hidden'; // will reveal later
                 div.appendChild(ti);
                 ti.id = selid + '_other';
                 sel._relother = ti;
@@ -680,10 +681,12 @@ var load_questions = async function(formid, questions, answers){
                     let txt = sel.options[sel.selectedIndex].text;
                     //console.log('TI ONCH '+txt+'#');
                     if (othery(txt)){
-                        ti.style.visibility = 'visible';
+                        ti.style.display = 'block';
+//                         ti.style.visibility = 'visible';
                         ti.required = true;
                     } else {
-                        ti.style.visibility = 'hidden';
+                        ti.style.display = 'none';
+//                         ti.style.visibility = 'hidden';
                         ti.required = false;
                     }
                 }
