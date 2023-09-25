@@ -1,0 +1,37 @@
+[
+    {"q": "Sheets URL",
+        "qattr": "sheetsurl",
+        "sendas": false,
+        "req": true,
+        "remember": true,
+        "placeholder": "MUST SET BEFORE USE!",
+        "af": "textinput",
+        "averify": "urlcheck",
+        "areset": "textinputreset"},
+
+    {"q": "Staff Name",
+        "qattr": "staffname",
+        "sendas": "Staff Name",
+        "req": true,
+        "remember": true,
+        "af": "textinput",
+        "areset": "textinputreset"},
+
+    {"q": "Agency Name",
+        "qattr": "agency",
+        "sendas": "Agency Name",
+        "req": true,
+        "remember": true,
+        "a": ["Center for Youth - ATS",
+                "Center for Youth - Cool Down",
+                "Center for Youth - Other",
+                "College Prep. Center",
+                "Hillside Work Scholarship",
+                "IBERO",
+                "Liberty Partnership",
+                "School Counselor (upper school)",
+                "School Counselor (lower school)",
+                "Step 2 College",
+                "Other:"
+                ]}
+]
