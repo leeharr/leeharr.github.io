@@ -294,7 +294,7 @@ window.withotherreset = function(sel){
     //console.log('WITH OTHER RESET');
     sel.value = '';
     sel._relother.value = '';
-    sel._relother.style.visibility = 'hidden';
+    sel._relother.style.display = 'none';
     sel._relother.required = false;
 }
 
@@ -479,7 +479,7 @@ var selectmulti = function(div, aas, req, selid){
             let ti = document.createElement('input');
             ti.type = 'text';
             ti.required = false; // will be set later if 'Other' is selected
-            ti.style.visibility = 'hidden'; // will reveal later
+            ti.style.display = 'none'; // will reveal later
             sel.appendChild(ti);
             ti.id = selid + '_other';
             sel._relother = ti;
@@ -488,10 +488,10 @@ var selectmulti = function(div, aas, req, selid){
                 let ckd = cb.checked;
                 //console.log('TI ONCH '+txt+'#');
                 if (ckd){
-                    ti.style.visibility = 'visible';
+                    ti.style.display = 'block';
                     ti.required = true;
                 } else {
-                    ti.style.visibility = 'hidden';
+                    ti.style.display = 'none';
                     ti.required = false;
                 }
             }
@@ -559,7 +559,7 @@ window.selectmultireset = function(sel){
     let div = sel.parentElement;
     div.classList.remove('qdiverr');
     if (sel._relother){
-        sel._relother.style.visibility = 'hidden';
+        sel._relother.style.display = 'none';
         sel._relother.value = '';
     }
 
