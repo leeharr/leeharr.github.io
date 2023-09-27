@@ -296,6 +296,9 @@ window.withotherreset = function(sel){
     sel._relother.value = '';
     sel._relother.style.display = 'none';
     sel._relother.required = false;
+    sel._relother.removeAttribute('required');
+    sel.required = false;
+    sel.removeAttribute('required');
 }
 
 window.yesno = function(div, req){
@@ -479,6 +482,7 @@ var selectmulti = function(div, aas, req, selid){
             let ti = document.createElement('input');
             ti.type = 'text';
             ti.required = false; // will be set later if 'Other' is selected
+            ti.removeAttribute('required');
             ti.style.display = 'none'; // will reveal later
             sel.appendChild(ti);
             ti.id = selid + '_other';
@@ -493,6 +497,7 @@ var selectmulti = function(div, aas, req, selid){
                 } else {
                     ti.style.display = 'none';
                     ti.required = false;
+                    ti.removeAttribute('required');
                 }
             }
         }
@@ -561,6 +566,8 @@ window.selectmultireset = function(sel){
     if (sel._relother){
         sel._relother.style.display = 'none';
         sel._relother.value = '';
+        sel._relother.required = false;
+        sel._relother.removeAttribute('required');
     }
 
     let selid = sel.id;
@@ -671,6 +678,7 @@ var load_questions = async function(formid, questions, answers){
                 let ti = document.createElement('input');
                 ti.type = 'text';
                 ti.required = false; // will be set later if 'Other' is selected
+                ti.removeAttribute('required');
                 ti.style.display = 'none'; // will reveal later
 //                ti.style.visibility = 'hidden'; // will reveal later
                 div.appendChild(ti);
@@ -688,6 +696,7 @@ var load_questions = async function(formid, questions, answers){
                         ti.style.display = 'none';
 //                         ti.style.visibility = 'hidden';
                         ti.required = false;
+                        ti.removeAttribute('required');
                     }
                 }
             }
