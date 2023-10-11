@@ -273,3 +273,16 @@ var purge_old_sessions = async function(){
         ].join('-');
     await cset('purged', dstr);
 }
+
+var mark_all_sent = async function(){
+    let sessions = await skeys();
+    for (let sk of sessions){
+        if (sk == 'currid'){ continue; }
+        let s = await sget(sk);
+        s.sent = true;
+        await sset(sk, s);
+    }
+
+    let done = document.getElementById('alldone');
+    done.innerHTML = 'DONE';
+}
