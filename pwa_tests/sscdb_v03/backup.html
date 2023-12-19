@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SSC DB Back Up Data</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script defer src="static/js/idb-keyval-iife.js"></script>
+    <script defer src="static/js/knockout-3.5.1.js"></script>
+    <script defer src="static/js/protodb_util.js"></script>
+    <script defer src="static/js/protodb_db_vars.js"></script>
+    <script defer src="static/js/protodb_db.js"></script>
+    <script defer src="static/js/protodb-admin.js"></script>
+    <script defer src="static/js/protodb_util.js"></script>
+</head>
+<body>
+    <div class="admincontent">
+
+<div id="ls">
+    <a href="index.html">Return to<br/>SSC DB</a><br/><br/>
+</div>
+
+<div id="rs">
+    <button onclick="dltest()">Back Up Data</button>
+
+    <h3>Save the backup data file in a safe, secure location!</h3>
+
+    <h3>Share:</h3>
+        <p>Your backed up data can also be used to
+        save typing if you share students with other
+        staff. Choose "Load Student Data" from the
+        Restore Data page to import student data.
+        </p>
+
+
+    <p><p><p><hr>
+
+    <button onclick="mark_all_sent()">Mark ALL records SENT</button>
+
+    <h1 id="alldone"></h1>
+
+    <h3>Should solve problems with system continually resending data</h3>
+        <p>If you are not sure that your data has actually been received,
+            you should make a backup first, and make sure that we receive
+            it through some other path.
+        </p>
+
+</div>
+
+    </div>
+</body>
+</html>
