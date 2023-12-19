@@ -1,11 +1,11 @@
 'use strict';
 
-var pstore = 'sscdb_dev-people';
-var gstore = 'sscdb_dev-groups';
-var sstore = 'sscdb_dev-sessions';
-var cstore = 'sscdb_dev-config';
+var pstore = 'sscdb-people';
+var gstore = 'sscdb-groups';
+var sstore = 'sscdb-sessions';
+var cstore = 'sscdb-config';
 
 var dbshowcols = ['Agency Name', 'Month', 'Staff Name', 'Student Name',
                     'Grade', 'Service Units', 'sesname'];
 
-var dbdlname = 'sscdb_dev';
+var dbdlname = 'sscdb';
