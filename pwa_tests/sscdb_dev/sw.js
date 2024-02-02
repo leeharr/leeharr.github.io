@@ -1,33 +1,7 @@
 var cacheName = 'sscdb_devCU01';
 var filesToCache = [
-  './',
-  'index.html',
-  'admin.html',
-  'viewsent.html',
-  'backup.html',
-  'restore.html',
-
-  'static/doc/sscdb_instructions.pdf',
-
-  'static/css/style.css',
-
-  'static/js/main.js',
   'static/js/knockout-3.5.1.js',
   'static/js/idb-keyval-iife.js',
-  'static/js/protodb_util.js',
-  'static/js/protodb.js',
-  'static/js/protodb_db_vars.js',
-  'static/js/protodb_db.js',
-  'static/js/protodb_ko_person.js',
-  'static/js/protodb_ko_group.js',
-  'static/js/protodb_ko_viewmodel.js',
-  'static/js/protodb_formload.js',
-  'static/js/protodb_tosheet.js',
-  'static/js/protodb-admin.js',
-
-  'static/js/session_questions.json',
-  'static/js/person_questions.json',
-  'static/js/staff_questions.json',
 
   'static/images/favicon.png',
   'static/images/sscdb-icon-128.png',

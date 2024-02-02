@@ -17,6 +17,8 @@ var showsamplesheet = async function(e){
     }
 
     let sk = await skeys();
+    let collator = new Intl.Collator([], {numeric: true});
+    sk.sort((a, b) => collator.compare(a, b));
     sk.reverse();
 
     let tbody = document.createElement('tbody');
