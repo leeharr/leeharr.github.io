@@ -1,4 +1,4 @@
-var cacheName = 'sscdb_devCV02';
+var cacheName = 'sscdb_devCV03';
 var filesToCache = [
   'static/js/knockout-3.5.1.js',
   'static/js/idb-keyval-iife.js',
