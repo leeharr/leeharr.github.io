@@ -295,6 +295,7 @@ var show_unsent = async function(){
     let scurid = await sgetcurrid();
     console.log('currid '+scurid);
 
+    let sessions = await skeys();
     for (let sk of sessions){
         if (sk == 'currid'){ continue; }
         let s = await sget(sk);
