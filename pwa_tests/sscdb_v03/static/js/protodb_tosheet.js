@@ -132,12 +132,13 @@ var sendalltosheet = async function(){
 
         let sid = parseInt(k);
         if (sid <= sentthrough){ continue; }
+
+        let s = await sget(k);
         if (s.sent){
             console.log(k+' already sent.');
             continue;
         }
 
-        let s = await sget(k);
         s['id'] = k;
         sendonetosheet(s);
         //sendonebyform(s);
