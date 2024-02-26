@@ -286,3 +286,21 @@ var mark_all_sent = async function(){
     let done = document.getElementById('alldone');
     done.innerHTML = 'DONE';
 }
+
+var show_unsent = async function(){
+    let sentthrough = await cget('datasent');
+    sentthrough = parseInt(sentthrough);
+    console.log('Sent through '+sentthrough);
+
+    let scurid = await sgetcurrid();
+    console.log('currid '+scurid);
+
+    let sessions = await skeys();
+    for (let sk of sessions){
+        if (sk == 'currid'){ continue; }
+        let s = await sget(sk);
+        if (!s.sent){
+            console.log('unsent: '+sk);
+        }
+    }
+}
