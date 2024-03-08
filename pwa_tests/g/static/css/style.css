@@ -1,0 +1,36 @@
+div#main{
+    height: 90vh;
+}
+
+
+div#controls{
+    border: thin solid red;
+}
+
+div#eddiv{
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: black;
+}
+
+textarea{
+    width: 100%;
+    height: 100%;
+    font-size: 150%;
+    color: white;
+    background-color: black;
+
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: scroll;
+}
+
+div#cc{
+    width: 100%;
+    height: 100%;
+}
+canvas#c{
+    width: 500px;
+    height: 400px;
+}
