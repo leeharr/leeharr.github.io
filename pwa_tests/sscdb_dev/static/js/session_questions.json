@@ -50,5 +50,18 @@
                 "Referral to Outside Agency",
                 "Other:"],
         "multi": true,
-        "areset": "selectmultireset"}
+        "areset": "selectmultireset"},
+
+    {"q": "Referral Status",
+        "qattr": "status",
+        "sendas": "Referral Status",
+        "req": true,
+        "remember": true,
+        "a":[
+            "Referral Received",
+            "Closed - No Contact",
+            "Closed - Refused Service",
+            "Open - Enrolled In Program",
+            "Closed - Completed",
+        ]}
 ]
