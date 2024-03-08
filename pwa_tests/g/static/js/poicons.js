@@ -4,7 +4,7 @@ function sleep(s) {
     return new Promise((resolve) => setTimeout(resolve, s));
 }
 
-let pyodideWorker = new Worker("poiwork.js");
+let pyodideWorker = new Worker("static/js/poiwork.js");
 let interruptBuffer = new Uint8Array(new SharedArrayBuffer(1));
 pyodideWorker.postMessage({ cmd: "setInterruptBuffer", interruptBuffer });
 function interruptExecution() {
