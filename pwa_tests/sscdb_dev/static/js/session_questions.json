@@ -56,7 +56,7 @@
         "qattr": "status",
         "sendas": "Referral Status",
         "req": true,
-        "remember": true,
+        "remember": "offer",
         "a":[
             "Referral Received",
             "Closed - No Contact",
